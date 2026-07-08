@@ -18,6 +18,7 @@
 	libreoffice
 thunderbird
 simple-scan
+btop
 
 	];
 ########################
