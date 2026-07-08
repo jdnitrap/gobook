@@ -24,10 +24,11 @@ system.stateVersion = "26.05";
 ##############
 
 imports =
-    [ # ./hardware-configuration.nix is intentionally not tracked here --
-      # it's machine-specific (disk UUIDs, etc). Generate one on each
-      # target machine with `nixos-generate-config` and place it
-      # alongside this file before building.
+    [ # Not tracked in git -- it's machine-specific (disk UUIDs, etc).
+      # Generate your own with `nixos-generate-config` and place it right
+      # here as basic/hardware-configuration.nix; no need to touch this
+      # file itself.
+	./hardware-configuration.nix
 	./printer-scanner.nix
 	./system-packages.nix
 	./sound.nix
