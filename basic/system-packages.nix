@@ -19,6 +19,7 @@
 thunderbird
 simple-scan
 btop
+gnome-software
 
 	];
 ########################
