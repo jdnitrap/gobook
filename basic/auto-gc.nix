@@ -15,7 +15,7 @@
 
       generations=$(${pkgs.nix}/bin/nix-env -p "$profile" --list-generations | ${pkgs.gawk}/bin/awk '{print $1}')
       first=$(echo "$generations" | head -n1)
-      current=$(${pkgs.coreutils}/bin/readlink -f "$profile" | ${pkgs.gnugrep}/bin/grep -oP '(?<=-)[0-9]+(?=-link)')
+      current=$(${pkgs.coreutils}/bin/readlink "$profile" | ${pkgs.gnugrep}/bin/grep -oP '(?<=-)[0-9]+(?=-link)')
 
       to_delete=$(echo "$generations" | ${pkgs.gnugrep}/bin/grep -v -x -e "$first" -e "$current" || true)
 
