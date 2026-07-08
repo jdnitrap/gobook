@@ -29,6 +29,9 @@ imports =
 	./printer-scanner.nix
 	./system-packages.nix
 	./sound.nix
+	./networking.nix
+	./desktop-environment.nix
+	./users.nix
     ];
 
 #####################
@@ -48,34 +51,6 @@ imports =
 #End of BootLoader#
 ################### 
 
-
-#############
-#Networking # 
-#############
-
- networking.hostName = "hostnamehere"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
- # Enable the OpenSSH daemon.
-   services.openssh.enable = false;
-
-# Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-   networking.firewall.enable = true;
-
-
-###################
-#End Of Networking#
-###################
 
 ##############
 #System Setup#
@@ -109,50 +84,6 @@ imports =
 #####################
 #End of System Setup#
 #####################
-
-################################
-#Decktop and Display Enviroment#
-################################
-
-services.xserver = {
-  enable = true;
-  displayManager.lightdm.enable = true;
-  desktopManager.cinnamon.enable = true;
-	};
-
-#######################################
-#End of Desktop and Display Enviroment#
-#######################################
-
-#######
-#Users#
-#######
-
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.admin = {
-    isNormalUser = true;
-    description = "admin";
-    extraGroups = [ "networkmanager" "wheel" "input" "audio" "lp" "scanner" "video"];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
-  };
-  
-  users.users.user1 = {
-    isNormalUser = true;
-    description = "user1";
-    extraGroups = [ "networkmanager" "scanner" "lp" "input" "audio" "video"];
-    packages = with pkgs; [
-
-    ];
-  };
-  
-
-##############
-#End of Users#
-##############
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
