@@ -1,0 +1,44 @@
+<!--
+  EXPERIMENTAL / UNVERIFIED theme for web-greeter.
+
+  Uses the greeter JS API conventions documented for web-greeter/nody-greeter
+  (a global `window.lightdm` object with authenticate/respond/start_session
+  etc.) — mirrored here from memory of that API family, not confirmed
+  against the actual `web-greeter-types`/`nody-greeter-types` definitions.
+  Exact method/event names may need small fixes once tested on a real
+  machine; see script.js for where to adjust.
+-->
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sign in</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="panel">
+
+    <form id="login-form">
+      <h1>Sign in</h1>
+      <input id="login-username" type="text" placeholder="Username" autocomplete="username" required>
+      <input id="login-password" type="password" placeholder="Password" autocomplete="current-password" required>
+      <div id="login-message" class="message"></div>
+      <button type="submit">Sign in</button>
+      <button type="button" id="show-create-account" class="link">Create account</button>
+    </form>
+
+    <form id="create-account-form" class="hidden">
+      <h1>Create account</h1>
+      <input id="new-username" type="text" placeholder="Username" autocomplete="username" required>
+      <input id="new-password" type="password" placeholder="Password" autocomplete="new-password" required>
+      <input id="new-password-confirm" type="password" placeholder="Confirm password" autocomplete="new-password" required>
+      <div id="create-message" class="message"></div>
+      <button type="submit">Create account</button>
+      <button type="button" id="show-login" class="link">Back to sign in</button>
+    </form>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
