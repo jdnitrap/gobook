@@ -37,6 +37,7 @@ imports =
 	./auto-gc.nix
 	./keep-first-generation.nix
 	./powerwash.nix
+	./flatpak.nix
     ];
 
 #####################
