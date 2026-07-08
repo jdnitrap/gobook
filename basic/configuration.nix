@@ -33,6 +33,7 @@ imports =
 	./desktop-environment.nix
 	./users.nix
 	./system-setup.nix
+	./auto-upgrade.nix
     ];
 
 #####################
