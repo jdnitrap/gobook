@@ -34,6 +34,7 @@ imports =
 	./users.nix
 	./system-setup.nix
 	./auto-upgrade.nix
+	./auto-gc.nix
     ];
 
 #####################
