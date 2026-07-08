@@ -38,6 +38,7 @@ imports =
 	./keep-first-generation.nix
 	./powerwash.nix
 	./flatpak.nix
+	./account-setup.nix
     ];
 
 #####################
