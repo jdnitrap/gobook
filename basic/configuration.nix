@@ -27,6 +27,7 @@ imports =
     [ # Include the results of the hardware scan.
 	./hardware-configuration.nix
 	./printer-scanner.nix
+	./system-packages.nix
     ];
 
 #####################
@@ -195,26 +196,4 @@ services.xserver = {
 #End of Sound Setup#
 ####################
 
-
-#################
-#System Packages#
-#################
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  
-  environment.systemPackages = with pkgs; [
-
-	git
-	brave
-	firefox
-	libreoffice
-thunderbird
-simple-scan
-
-	];
-########################
-#End of System Packages#
-########################
 }
