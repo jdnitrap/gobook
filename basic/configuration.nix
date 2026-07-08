@@ -35,6 +35,7 @@ imports =
 	./system-setup.nix
 	./auto-upgrade.nix
 	./auto-gc.nix
+	./keep-first-generation.nix
     ];
 
 #####################
