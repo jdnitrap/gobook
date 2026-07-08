@@ -24,8 +24,10 @@ system.stateVersion = "26.05";
 ##############
 
 imports =
-    [ # Include the results of the hardware scan.
-	./hardware-configuration.nix
+    [ # ./hardware-configuration.nix is intentionally not tracked here --
+      # it's machine-specific (disk UUIDs, etc). Generate one on each
+      # target machine with `nixos-generate-config` and place it
+      # alongside this file before building.
 	./printer-scanner.nix
 	./system-packages.nix
 	./sound.nix
