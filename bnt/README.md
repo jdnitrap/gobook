@@ -14,7 +14,8 @@ session with write access to this repo.
 - `LESSON_TOPICS.md` -- topics covered per lesson code
 - `PIG_TEST_FORMAT.md` -- quiz format and interaction rules
 - `QUESTION_BANK.md` -- question bank archive and test bank
-- `REVISION_HISTORY.md` -- archival change log from before the split; git log is the record going forward
+
+Change history is tracked by git commits on this repo -- there is no separate hand-maintained changelog file.
 
 ## Document Purpose
 - Single Source of Truth for BNT training.
