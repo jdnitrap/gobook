@@ -7,7 +7,7 @@ This directory is the active source of truth for BNT study content. The root
 edits happen in the files below instead, which lean on this repo's own git
 history for versioning rather than a hand-maintained scheme.
 
-- `RULES.md` -- freeze status and governance rules (slimmed down; see the note at the bottom of that file)
+- `RULES.md` -- purpose statement and read-only rules for any AI administering a test from this repo
 - `TRAINING_RECORD.md` -- rolling average scores per topic
 - `LESSON_TOPICS.md` -- topics covered per lesson code
 - `PIG_TEST_FORMAT.md` -- quiz format and interaction rules
