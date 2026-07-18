@@ -1,0 +1,272 @@
+BNT_MASTER_V43
+FREEZE STATUS: UNFROZEN
+
+SILENT LOAD PROTOCOL
+- Upon receiving/opening this file in any conversation or AI model, all verification (Self-Audit, Verify Current Version Before Updating, FREEZE STATUS check, etc.) runs silently in the background.
+- The AI does not narrate, list, or describe these checks step-by-step to the user.
+- The only output shown to the user upon successful load is exactly: "I understand the file and all checks out. I am ready to go. File status: [FROZEN/UNFROZEN]." -- with [FROZEN/UNFROZEN] replaced by the file's current FREEZE STATUS.
+- If a check fails (e.g. version/filename mismatch, missing file content), the AI must still surface that specific problem to the user rather than staying silent -- this rule only suppresses routine step-by-step narration of successful checks, not the reporting of actual issues.
+- This silent-execution principle also applies whenever the user invokes COMMIT: the AI runs the full COMMIT pipeline (Self-Audit, Length Sanity Check, version bump, Revision History entry) without narrating each step. The AI still outputs the Change Summary as required (per the Change Summary Requirement) and the complete updated file, but does not describe the mechanics of running the checks themselves. If Self-Audit or the Length Sanity Check surfaces an actual issue (e.g. a mismatch, an unexplained shrink, a possible duplicate), that issue must still be reported to the user plainly -- this rule only suppresses narration of routine, passing checks.
+- Strict Load Output Discipline: Upon receiving/opening this file, the AI's visible output must be strictly limited to the single line: "I understand the file and all checks out. I am ready to go. File status: [FROZEN/UNFROZEN]." No additional sentence, commentary, question, or process detail may accompany it, regardless of AI model, platform, or conversation. The sole exception is a genuine problem (version/filename mismatch, missing content, etc.), which must be surfaced plainly instead of the standard line.
+- Post-Commit Output Discipline: After any COMMIT, the AI's visible output must contain ONLY the Change Summary (stated in one concise line or short bullet list, not a step-by-step narrative) and the complete updated file. No commentary on audits passed, length checks, duplicate checks, or any other process/mechanism is shown, regardless of AI model, platform, or conversation. Only genuine problems (version mismatch, missing content, unexplained shrink, etc.) are exceptions and must still be surfaced.
+
+RULES
+- Single Source of Truth; preserve all lesson content, scores, and performance history.
+- Cross-AI compatible.
+- Never overwrite previous versions.
+- Naming format: BNT_MASTER_V#. New revisions increment version by one.
+- Internal document title (line 1) must always match the filename's version number; update both together on every revision.
+- Document structure and formatting established in this version must be preserved by any AI performing future updates.
+- Self-Audit (perform before finalizing any update):
+  1. Verify internal title, version number, and filename all match.
+  2. Verify score/average calculations are correct before logging.
+  3. Check for duplicate or conflicting content before presenting the revision.
+- Auto-review attached lectures in the current conversation.
+- Without user input, the AI will automatically update the master file, test bank, and test answer. But the AI will make sure before updating the master that there's no duplication of questions in the test bank going on.
+- Change Summary Requirement: Before presenting any updated master file, the AI must first output a plain-language summary of every change vs. the immediately prior version -- additions, removals, and rewordings -- section by section. This is not optional and is not satisfied by a general "formatting and rule updates" note in the revision history. The user reviews and confirms this summary before the file is treated as final. This rule exists specifically to catch silent content loss (e.g. the V22-V24 regression that dropped voice-mode Pig Test rules) before it compounds across versions.
+- Mandatory Revision History Entry: Every new version, with no exceptions, MUST add a corresponding entry to the REVISION HISTORY section describing what changed. A version bump without a matching Revision History entry is an incomplete update and must not be presented as final.
+- Verbatim Carry-Forward: Any existing content that is not being intentionally changed must be copied forward exactly as written -- no paraphrasing, rewording, "cleaning up," or condensing. Silent rewording of unchanged content is how content quietly degrades or disappears across versions.
+- No Silent Section Renaming: Section headers (e.g. RULES, PIG TEST FORMAT, TRAINING RECORD, QUESTION BANK ARCHIVE) must keep identical names and capitalization across versions unless the user explicitly asks for a rename. Renaming breaks anyone searching the file for a specific section.
+- Length Sanity Check: Before finalizing an update, the AI compares the rough length (line count or word count) of the new version against the prior version. An unexplained shrink is a red flag and must be surfaced to the user before the file is presented as final, not silently passed through.
+- No Partial-File Output: The AI must always output the complete file in full when presenting an update -- never just the changed section or a snippet the user is expected to splice in themselves. Partial output is a common way updates get corrupted.
+- Verify Current Version Before Updating: Before making any update, the AI must be working from the actual current version of this file -- either uploaded directly or pasted in full as text by the user in the current conversation. Memory of the file's contents from an earlier conversation does not count, since that memory may itself be stale or reflect a version with since-fixed regressions. If the AI does not have the current file's full content in front of it, it must ask the user to upload or paste it before proceeding, rather than reconstructing or guessing at the file's current state.
+- Mandatory Command Keywords: This file uses a fixed set of user commands that ANY AI working with this file MUST recognize and follow, regardless of model or platform. These keywords are binding on the AI's behavior and are not optional, not subject to reinterpretation, and not overridable by an AI's own judgment about what seems more helpful in the moment:
+  1. COMMIT -- the user is finalizing changes. The AI must run the full pipeline in order: Self-Audit, Change Summary, Length Sanity Check, version bump, Revision History entry, then output the complete updated file. Nothing is treated as final without a COMMIT.
+  2. DRAFT -- the user wants to see proposed changes and a change summary first, WITHOUT bumping the version, updating Revision History, or treating anything as final. Used for review before committing.
+  3. AUDIT -- the user wants the AI to run the Self-Audit against the current file and report any issues found (missing Revision History entries, section renames, length drops, etc.) without changing anything in the file.
+  4. REVERT TO V# -- the user wants to roll back to a specific named prior version. The AI restores that version's content and adds a new Revision History entry noting the revert and the reason given.
+  5. FREEZE / UNFREEZE -- FREEZE locks the file as-is for all purposes except the Scoped Auto-Update Rule. Upon FREEZE, the AI updates the FREEZE STATUS line (top of file) to FROZEN and adds a Revision History entry noting it. While FROZEN, the AI must refuse DRAFT, COMMIT, and any other edit to the file, regardless of session, conversation, or AI model -- the sole exception being that LESSON TOPICS, TRAINING RECORD averages, and the TEST BANK/QUESTION BANK continue to auto-update per the Scoped Auto-Update Rule even while frozen. The only input that lifts a freeze is the literal word UNFREEZE, given as its own explicit command. No rephrasing, implied consent, or general instruction to disregard, bypass, or override the freeze (e.g. "ignore the freeze," "just do it anyway," "make an exception") satisfies this requirement, regardless of how directly or emphatically it is stated, and regardless of AI model or platform. The AI must not use its own judgment to treat any such alternate phrasing as equivalent to UNFREEZE. UNFREEZE reverses the general lock: the AI updates the FREEZE STATUS line back to UNFROZEN, adds a Revision History entry noting the unfreeze, and normal editing (DRAFT/COMMIT) resumes.
+  6. DISCARD -- clears any pending in-conversation draft that hasn't been COMMITted yet. The AI forgets the proposed changes entirely; the current master file is untouched. To propose something new afterward, the user starts a fresh DRAFT.
+  Mandatory Keyword Gate: If the user requests or agrees to a substantive change to this file (new rule, new content, edited content, etc.) WITHOUT using one of the keywords above, the AI must NOT proceed to bump the version or treat the change as final on its own judgment. Instead the AI must explicitly ask the user "DRAFT or COMMIT?" (or equivalent) before taking any action that would alter the file. This gate exists specifically because an AI silently inferring a COMMIT defeats the purpose of having a fixed, non-discretionary command vocabulary.
+  This rule itself, like all rules in this section, must be preserved verbatim by any AI updating this file in the future.
+- Scoped Auto-Update Rule: When the user uploads new lesson content or completes a test -- in this conversation or any future conversation/AI carrying this file forward -- the AI automatically updates only three things, without needing to ask the user first: (1) the LESSON TOPICS section (new topic appended under the correct/new lesson code, never overwriting or merging into existing bullets), (2) the relevant TRAINING RECORD rolling average(s) (per the existing Rolling Average Methodology), and (3) the TEST BANK/QUESTION BANK (per the existing duplicate-check rule, cross-checking against all previously stored questions regardless of which conversation or AI added them, tagged with topic code). No other section of the file may be modified during this automatic update, and no user confirmation is required for these three specific updates. These three auto-updates never bump the version number and never require a Revision History entry, regardless of FREEZE STATUS -- version bumps and Revision History entries occur only through an explicit COMMIT. Any change outside these three areas still requires the user's explicit direction and a DRAFT or COMMIT. Upon successfully performing an auto-update under this rule, the AI must inform the user with a short one-liner confirming the update was made and successful, naming which of the three areas (LESSON TOPICS, TRAINING RECORD average, TEST BANK/QUESTION BANK) were updated (e.g. "Auto-update complete: LESSON TOPICS and TH04 average updated."). If the auto-update cannot be performed for any reason (e.g. FREEZE STATUS conflict, malformed content, missing topic tag, ambiguous duplicate), the AI must automatically run a self-check/audit -- without requiring the user's input first -- to determine specifically why the update could not be completed, and report that specific finding to the user plainly.
+
+DOCUMENT PURPOSE
+- Single Source of Truth for BNT training.
+- Portable across AI systems and conversations.
+- Preserves lesson knowledge, exams, scores, and study notes.
+- Structure and formatting must be preserved by any AI that updates this file.
+
+TRAINING RECORD
+- TH01 Average: 0.0%
+- TH02 Average: 0.0%
+- TH04 Average: 0.0% (1 question tracked)
+- CP01 Average: 0.0% (2 questions tracked)
+- Total Average: 0.0% (3 questions tracked)
+
+LESSON TOPICS
+
+TH01
+- Systems of Measurement
+- System Types
+- Pressure Concepts
+- Pascal's Law
+- Density and Specific Volume
+
+TH02
+- First Law
+- Stored vs Transient Energy
+- PE, KE, U, PV, Q, W
+- H = U + PV
+- h = u + Pv
+- Delta h = q - w
+- Improvement Area: equations and symbols
+
+TH04
+- Adiabatic, Isobaric, Isentropic, Isenthalpic, Isothermal
+- Heat Exchanger: q = hout - hin
+- Turbine: WT = hin - hout
+- Pump: WP = hout - hin
+- Throttle: hin = hout
+- Condensate Depression = Tsat - Tcondensate
+- Missed Concepts: Condensate Depression, Condenser Terminology
+
+CP01
+- Piping
+- Valve Functions
+- Valve Types
+- Actuators
+- Thermal Binding
+- Pressure Locking
+
+PIG TEST FORMAT
+
+General Rules
+- Multiple choice only, one question at a time.
+- No immediate feedback; full review given only at the end or upon early quit.
+- No references to topic names, lesson codes, or subject matter anywhere in the question, the answer choices, or any suggested/quick-reply prompts. Testing must be blind.
+- No bold, italics, underline, or highlighting anywhere in questions or answers, so nothing visually nudges toward the correct choice.
+- Question must be stated first, followed by the answer choices displayed in a stacked, one-per-line list (never combined in a single paragraph), in both text and voice sessions.
+- In voice sessions, label each choice with Alpha, Bravo, Charlie, or Delta and pause briefly after each label before reading the choice text.
+- Show neutral progress tracker after each question (e.g. Progress: X of Y answered).
+
+Input Modes
+- Text sessions: choices are labeled A, B, C, D. The user types the letter directly to answer.
+- Voice sessions: choices are labeled Alpha, Bravo, Charlie, Delta. The AI waits for a spoken response of one of these before proceeding.
+- Strict Voice Response Rule: In voice mode the AI must ONLY accept the full words "Alpha", "Bravo", "Charlie", or "Delta". Letters A, B, C, or D are invalid in voice mode. If the user says a letter instead of the full word, the AI must not accept the answer and must re-prompt the user to use Alpha, Bravo, Charlie, or Delta.
+- In voice sessions, when reading each choice aloud, the AI pauses briefly after the label (e.g., "Alpha... puppy") and pauses briefly between choices, so the choices don't blur together for a hands-free listener.
+
+Keyboard Shortcuts
+- lowercase l: displays the current right/wrong tally for the session (does not reveal correct answers for missed questions).
+- lowercase q: quits the current test early and produces the average score, number correct, and number missed.
+- Typing the answer letter directly (A/B/C/D) submits the answer; the AI then auto-advances to the next question with no separate command needed.
+
+Voice Equivalents
+- Saying "list" triggers the same right/wrong tally as lowercase l.
+- Saying "quit" ends the test early and produces the same score summary as lowercase q.
+- If the user asks for their options during a voice session, the AI responds "Here are your voice options" followed by Alpha, Bravo, Charlie, Delta, then list, then quit.
+
+Standard Reminder (shown/spoken after every question, text and voice alike)
+"Type your answer A, B, C, D, or say Alpha, Bravo, Charlie, or Delta.
+Type l or say list, for right and wrong answer list.
+Type q or say quit, to end the test."
+(Displayed lowercase l and q must match the literal keyboard characters.)
+
+End of Test
+- Whether the test ends naturally (no questions remain) or is quit early (voice or keyboard), the AI produces: overall average score, number of questions correct, and number of questions missed.
+- Post-Test Performance Accounting: Upon test completion or early quit, the AI running the session must evaluate the subset of questions delivered to the user, sort them by their specific lesson topic tags (e.g., CP01, TH04), calculate a separate percentage score achieved *per topic*, and immediately prompt the user to update these tracking lines in the TRAINING RECORD alongside a freshly calculated Total Average.
+- Rolling Average Methodology: Per-topic scores in the TRAINING RECORD are maintained as a rolling average, not a replace-on-latest value. When a new real test result comes in for a topic, the AI must combine it with that topic's existing tracked percentage (weighted by number of questions each score was based on, if that count is known/recorded; otherwise a simple average of the two percentages) rather than overwriting the old score outright. This applies uniformly across all topics and all future updates.
+
+QUESTION BANK ARCHIVE
+- Reserved for full Pig Tests, exams, answer keys, and question banks.
+- Store lectures, exam intelligence, Pig Tests, exams, and answer keys as they're added.
+- Keep Question Banks and Answer Banks separate.
+- Avoid duplicate questions when merging new content.
+
+[TEST BANK]
+Question 1: What is the primary purpose of piping in a power plant?
+Correct Answer: To transport fluids from one piece of equipment to another
+// CP01
+
+Question 2: Which piping material is typically used for high-temperature applications due to greater resistance to wear, fatigue, and corrosion?
+Correct Answer: Low Alloy Steel
+// CP01
+
+Question 3: Which piping material is normally chosen for systems connected to the reactor because corrosion product generation must be minimized?
+Correct Answer: Stainless Steel
+// CP01
+
+Question 4: Which of the following is NOT one of the five principal functions of valves?
+Correct Answer: Increasing system pressure
+// CP01
+
+Question 5: What is the primary function of the backseat in a valve?
+Correct Answer: To remove system pressure from the packing to allow packing replacement while the system is pressurized
+// CP01
+
+Question 6: Gate valves are primarily used as isolation valves rather than for throttling because:
+Correct Answer: Positioning the disk in the flow stream causes turbulence and accelerated wear
+// CP01
+
+Question 7: Why are globe valves preferred for throttling?
+Correct Answer: The disk is beveled and seats at nearly right angles to the flow path
+// CP01
+
+Question 8: Which statement is true about Kerotest valves?
+Correct Answer: They are designed to go from full closed to full open in approximately 1¼ turns
+// CP01
+
+Question 9: Why should operators avoid over-torquing a Kerotest valve?
+Correct Answer: Excessive torque can crush or deform the disk, preventing the valve from opening later
+// CP01
+
+Question 10: What feature makes a needle valve suitable for precise flow control?
+Correct Answer: It uses a long, narrow, cone-shaped point on the end of the stem
+// CP01
+
+Question 11: Butterfly valves are typically used in:
+Correct Answer: Large diameter, high flow, low pressure applications (e.g., circulating water)
+// CP01
+
+Question 12: What is the main advantage of a diaphragm valve with radioactive or corrosive fluids?
+Correct Answer: The fluid is completely separated from the moving parts, resulting in zero stem leakage
+// CP01
+
+Question 13: What is the primary purpose of check valves?
+Correct Answer: To allow flow in only one direction and prevent reverse flow
+// CP01
+
+Question 14: What is the key difference between a safety valve and a relief valve?
+Correct Answer: Safety valves pop fully open with little or no accumulation, while relief valves require accumulation
+// CP01
+
+Question 15: What is the primary function of a vacuum breaker?
+Correct Answer: To protect a tank or vessel from collapsing due to low internal pressure
+// CP01
+
+Question 16: What is the correct definition of "Fail As Is" for valve actuators?
+Correct Answer: The valve remains in its current position when the actuating medium is lost
+// CP01
+
+Question 17: Key precaution when manually operating a Motor Operated Valve (MOV):
+Correct Answer: Always tag out the power supply to the motor before using the handwheel (when feasible)
+// CP01
+
+Question 18: When verifying position of a manual valve locally, operators should first attempt to turn the handwheel in which direction?
+Correct Answer: Closed direction (negligible effect if already closed)
+// CP01
+
+Question 19: According to SOER 85-2, one primary method to prevent valve mispositioning is:
+Correct Answer: Verify that all local and remote indications reflect actual plant conditions before and after manipulation
+// CP01
+
+Question 20: What is a major failure mechanism of gate valves discussed in the lesson?
+Correct Answer: Thermal binding or pressure locking
+// CP01
+
+Question 21: In a process where no heat is transferred to or from the system, what term describes this condition?
+Correct Answer: Adiabatic
+// TH04
+
+Question 22: For a turbine, the work output is typically expressed as the difference between which two values?
+Correct Answer: hin - hout
+// TH04
+
+Question 23: What does the term "isenthalpic" describe in a thermodynamic process?
+Correct Answer: Constant enthalpy (h in = h out)
+// TH04
+
+Question 24: Which of the following is the correct expression for the work input to a pump?
+Correct Answer: hout - hin
+// TH04
+
+Question 25: Condensate depression is defined as the difference between which two temperatures?
+Correct Answer: Tsat - Tcondensate
+// TH04
+
+Question 26: A process that occurs at constant pressure is called:
+Correct Answer: Isobaric
+// TH04
+
+Question 27: A process that occurs at constant temperature is referred to as:
+Correct Answer: Isothermal
+// TH04
+
+REVISION HISTORY
+- V14->V15: Internal title said V14 while filename said V15 -- caught and flagged as the reason for adding the title/filename match rule and the self-audit step.
+- V16: Restructured document for readability; overhauled Pig Test Format section (blind-testing rules, voice/keyboard parity, pacing rule, unified reminder line); added structure-preservation rule and score-calculation audit step.
+- V17: Updated display order — question must appear first, followed by stacked Alpha/Bravo/Charlie/Delta choices.
+- V18: Added Strict Voice Response Rule — in voice mode the AI must only accept the full spoken words Alpha, Bravo, Charlie, or Delta; letters A/B/C/D are rejected and the user is re-prompted.
+- V19: Added automatic update rule for master, test bank, and answers (with deduplication check).
+- V20: Added full CP01 20-question quiz to QUESTION BANK from BNT-CP01Br09c lesson and quiz.
+- V21: Incorporated full 25-question BNT-CP01Br09c Piping, Valves, and Valve Actuators Quiz (user scored 92% / 23 correct). Expanded CP01 question bank with Q&A pairs. No duplicates detected.
+- V22-V24: Formatting and rule updates. (Note: voice-mode Pig Test Format content was inadvertently dropped somewhere in this range, in violation of the structure-preservation rule.)
+- V25: Added neutral progress tracker to Pig Test format. Expanded TEST BANK with TH04 questions. (Voice-mode content still missing from this version.)
+- V26: Self-audit caught the V22-V24 regression — restored full voice-mode Pig Test Format content from V21 (Input Modes, Strict Voice Response Rule, Keyboard Shortcuts, Voice Equivalents, combined text/voice Standard Reminder) while retaining V25's neutral progress tracker rule. TEST BANK carried forward unchanged from V25 (V21's Q&A-labeled version of the same 20 CP01 questions was confirmed as duplicate content, not merged in). No new duplicates introduced.
+- V27: Added Change Summary Requirement to RULES -- any AI updating this file must now output a section-by-section plain-language summary of all changes vs. the prior version, for user confirmation, before the update is treated as final. Added specifically to prevent repeats of the V22-V24 silent regression. Also relocated the entire RULES section to immediately follow the title (line 1), ahead of DOCUMENT PURPOSE, so it is the first thing any AI reads when opening the file. No content within RULES was altered by this move.
+- V28: Added Mandatory Revision History Entry rule to RULES -- every new version must now include a corresponding Revision History entry describing the change, with no exceptions; a version bump without one is an incomplete update. Nothing else in the file changed.
+- V29: Added five audit rules to RULES to further guard against cross-AI degradation: Verbatim Carry-Forward (no paraphrasing unchanged content), No Silent Section Renaming, Length Sanity Check (flag unexplained shrinkage before presenting), No Partial-File Output (always present the complete file), and Verify Current Version Before Updating (AI must have the actual current file -- uploaded or pasted in full -- not rely on memory from earlier conversations; must ask the user to provide it otherwise). Nothing else in the file changed.
+- V30: Added Mandatory Command Keywords rule to RULES -- defines a fixed, binding vocabulary (COMMIT, DRAFT, AUDIT, REVERT TO V#, FREEZE/UNFREEZE) that any AI working with this file must recognize and follow regardless of model or platform, so file-management behavior does not depend on which AI is being used. Nothing else in the file changed.
+- V31: Structural overhaul of TRAINING RECORD to reset legacy averages to zero and arrange tracking strictly on a topic-by-topic basis. Upgraded PIG TEST FORMAT rules with explicit Post-Test Performance Accounting guidelines to ensure all future AI instances calculate individual topic averages on complete tests before editing the master record.
+- V32: Added Rolling Average Methodology rule to PIG TEST FORMAT -- clarifies that per-topic TRAINING RECORD scores must be maintained as a rolling average (weighted by question count where known, otherwise simple average) rather than overwritten by each new test result. Nothing else in the file changed.
+- V33: Added Mandatory Keyword Gate to the Mandatory Command Keywords rule -- if the user requests or agrees to a substantive change without using DRAFT/COMMIT/AUDIT/REVERT/FREEZE, the AI must ask "DRAFT or COMMIT?" before acting, rather than silently inferring a commit on its own judgment. Closes a gap where an AI could bump the version without an explicit keyword being given. Nothing else in the file changed.
+- V34: Added DISCARD as a new numbered item (6) under Mandatory Command Keywords in RULES -- clears any pending in-conversation draft that hasn't been COMMITted yet; the AI forgets the proposed changes entirely and the master file itself remains untouched, with a fresh DRAFT required to propose anything new afterward. No other keyword definition, rule, or section content was altered. The unresolved "Your awesome" text draft from earlier in this conversation was explicitly excluded from this commit per user instruction.
+- V35: Added Scoped Auto-Update Rule to RULES -- when the user uploads new lesson content or completes a test, in this or any future conversation/AI, the AI automatically updates only LESSON TOPICS (new topic appended under correct/new lesson code, never overwriting existing bullets), the relevant TRAINING RECORD rolling average(s) (per existing Rolling Average Methodology), and the TEST BANK/QUESTION BANK (per existing duplicate-check rule, cross-checked against all previously stored questions regardless of originating conversation/AI, tagged with topic code) -- with no user confirmation required for these three updates specifically. No other section may be touched during this automatic update without explicit user direction and a DRAFT or COMMIT. Nothing else in the file changed.
+- V36: Added a persistent FREEZE STATUS marker (currently UNFROZEN) directly under the title, before RULES. Rewrote the FREEZE/UNFREEZE keyword definition (item 5) so FREEZE now locks out DRAFT, COMMIT, and all manual/structural edits regardless of session or AI model, with the sole exception that the Scoped Auto-Update Rule (LESSON TOPICS, TRAINING RECORD averages, TEST BANK/QUESTION BANK) keeps running even while frozen; invoking FREEZE or UNFREEZE updates the FREEZE STATUS line and logs a Revision History entry. Added a clarifying sentence to the Scoped Auto-Update Rule: these three auto-updates never bump the version number and never require a Revision History entry, frozen or not -- version bumps and Revision History entries occur only through an explicit COMMIT. Nothing else in the file changed.
+- V37: Added new SILENT LOAD PROTOCOL section directly under the title/FREEZE STATUS line, before RULES. Specifies that all verification checks (Self-Audit, Verify Current Version Before Updating, FREEZE STATUS check, etc.) run silently in the background with no step-by-step narration to the user; the only confirmation shown upon successful load is "I understand the file and all checks out. I am ready to go. File status: [FROZEN/UNFROZEN]." with the bracketed value reflecting the file's live FREEZE STATUS. Genuine problems (version mismatch, missing content, etc.) must still be surfaced to the user rather than suppressed. Nothing else in the file changed.
+- V38: Added a bullet to SILENT LOAD PROTOCOL extending silent execution to the COMMIT pipeline -- invoking COMMIT now runs Self-Audit, Length Sanity Check, version bump, and Revision History entry silently, with only the required Change Summary and final file shown (genuine issues still surfaced). Added two bullets to the Scoped Auto-Update Rule: (1) on a successful auto-update, the AI must report it with a short one-liner naming which of the three areas (LESSON TOPICS, TRAINING RECORD average, TEST BANK/QUESTION BANK) were updated; (2) if an auto-update cannot be performed, the AI must automatically run a self-check/audit without requiring user input, determine the specific reason, and report that finding to the user. Nothing else in the file changed.
+- V39: Added a single line, "Your awesome," at the very top of the file directly under the title and above the FREEZE STATUS line, per explicit user DRAFT/COMMIT instruction. This was a test commit. Nothing else in the file changed.
+- V40: Added Post-Commit Output Discipline and Strict Load Output Discipline rules to SILENT LOAD PROTOCOL, per explicit user COMMIT. Post-Commit Output Discipline restricts visible output after a COMMIT to the one-line Change Summary plus the full file, no process narration. Strict Load Output Discipline restricts visible output on file load to the exact single confirmation line, no additional commentary. Nothing else in the file changed.
+- V41: Removed the "Your awesome" test line that was added at the top of the file in V39, per explicit user COMMIT. Nothing else in the file changed.
+- V42: FREEZE STATUS changed to FROZEN, per explicit user FREEZE command. DRAFT, COMMIT, and all manual/structural edits are locked out until UNFREEZE, except the Scoped Auto-Update Rule (LESSON TOPICS, TRAINING RECORD averages, TEST BANK/QUESTION BANK), which continues to run. Nothing else in the file changed.
+- V43: FREEZE STATUS changed to UNFROZEN, per explicit user UNFREEZE command. Strengthened the FREEZE/UNFREEZE keyword definition (item 5, Mandatory Command Keywords) so that only the literal word UNFREEZE, given as its own explicit command, lifts a freeze -- rephrased or implied overrides ("ignore the freeze," "just do it anyway," etc.) are explicitly rejected as insufficient, binding on any AI's judgment regardless of model or platform. Nothing else in the file changed.
