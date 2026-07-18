@@ -1,5 +1,7 @@
 # BNT Study Files
 
+Your awesome.
+
 Source: `BNT_MASTER_V44.txt` (repo root). Split into the topic files below for
 easier diffs, navigation, and native git version history. The root file is
 retained for reference during ongoing testing; going forward, edits happen in
