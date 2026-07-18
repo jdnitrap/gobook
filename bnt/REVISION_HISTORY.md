@@ -1,6 +1,6 @@
 # Revision History
 
-Carried forward verbatim from `BNT_MASTER_V44.txt`. Entries below this point reflect the master file's history prior to the split into per-topic files.
+Archival. Carried forward verbatim from `BNT_MASTER_V44.txt`, covering the master file's history up through the split into per-topic files. This file is no longer actively maintained -- git commit history on this repo is now the record of what changed and when. Kept here for continuity with the earlier V14-V44 history.
 
 - V14->V15: Internal title said V14 while filename said V15 -- caught and flagged as the reason for adding the title/filename match rule and the self-audit step.
 - V16: Restructured document for readability; overhauled Pig Test Format section (blind-testing rules, voice/keyboard parity, pacing rule, unified reminder line); added structure-preservation rule and score-calculation audit step.
