@@ -2,12 +2,14 @@
 
 Your awesome.
 
-This directory is the active source of truth for BNT study content. The root
-`BNT_MASTER_V44.txt` file is superseded and ignored going forward -- all
-edits happen in the files below instead, which lean on this repo's own git
-history for versioning rather than a hand-maintained scheme.
+This directory is a personal study platform built from lesson topics and a
+question bank. The root `BNT_MASTER_V44.txt` file is superseded and ignored
+going forward -- all edits happen in the files below instead, which lean on
+this repo's own git history for versioning rather than a hand-maintained
+scheme. New notes and questions are added by the user directly, in a coding
+session with write access to this repo.
 
-- `RULES.md` -- purpose statement and read-only rules for any AI administering a test from this repo
+- `RULES.md` -- purpose statement and how the pieces fit together
 - `TRAINING_RECORD.md` -- rolling average scores per topic
 - `LESSON_TOPICS.md` -- topics covered per lesson code
 - `PIG_TEST_FORMAT.md` -- quiz format and interaction rules
