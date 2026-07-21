@@ -32,12 +32,63 @@
 
 ## TH02
 - First Law
+  - Conservation of energy: energy is neither created nor destroyed, only converted between forms; energy entering a system equals energy stored in or leaving it
+  - Governs the energy conversions in a power plant: heat transfer from core to coolant, coolant to steam, turbine work from steam, heat removal in the condenser, pump work to sustain flow
 - Stored vs Transient Energy
+  - Stored energy: energy a mass has due to its properties (potential, kinetic, internal, flow/PV energy)
+  - Transient energy: energy associated with converting one stored energy form into another (heat and work)
 - PE, KE, U, PV, Q, W
+  - Potential Energy (PE): energy due to position/height above a reference point; PE = mzg/gc
+  - Kinetic Energy (KE): energy due to motion; KE = mv^2/2gc
+  - Internal Energy (U): sum of the microscopic energy forms (molecular rotation, vibration, translation) within a substance; specific internal energy u = U/m
+  - Flow Energy (PV): energy a fluid has due to its pressure and volume, sometimes called P energy or flow work; specific flow energy = Pv
+  - Heat (Q): transient energy transferred due to a temperature difference; flows from hotter to colder
+  - Work (W): transient energy from a force acting through a distance; W = F x d; mechanical work (moving a solid) vs. flow work (moving a fluid)
+  - Power: the rate of doing work (work per unit time)
 - H = U + PV
+  - Enthalpy (H): a measure of a fluid's energy content due to temperature, pressure, and volume; the sum of internal energy and PV energy
 - h = u + Pv
+  - Specific enthalpy (h): enthalpy per unit mass; the sum of specific internal energy and specific flow energy
 - Delta h = q - w
+  - General Energy Equation for a closed system with no change in PE/KE reduces to: change in enthalpy = heat transferred to the system minus work done by the system
+  - Sign conventions: heat added is positive, heat removed is negative; work done by the system is positive, work done on the system is negative
+- Entropy
+  - Entropy (S): a measure of the unavailable energy in a fluid at a given state; specific entropy (s) has units of BTU/lbm-R
 - Improvement Area: equations and symbols
+
+## TH03
+- States and Phases
+  - State: defined by two independent, intensive properties (e.g. pressure and temperature); any property change is a change of state
+  - Phase: describes molecular structure -- solid, liquid, vapor/gas, plasma
+  - Phase changes: melting (solid to liquid), solidification (liquid to solid), vaporization (liquid to gas), condensation (gas to liquid), sublimation (solid directly to gas)
+- Ideal Gas Behavior
+  - Charles' Law: at constant pressure, gas volume is directly proportional to absolute temperature
+  - Boyle's Law: at constant temperature, gas volume is inversely proportional to absolute pressure
+  - Combined/Ideal Gas Law: PV/T is a constant; the Ideal Gas Law should not be used for steam, since steam's behavior is considerably more complex -- steam tables (experimentally derived data) are used instead
+- Property Diagrams
+  - P-T diagram: sublimation, fusion, and vaporization lines divide the solid/liquid/gas regions; the Triple Point is where all three phases coexist in equilibrium; the Critical Point is the highest temperature/pressure at which liquid and gas can still exist as distinguishable phases
+  - P-v diagram: shows the vapor dome (bounded by the saturated liquid line and saturated vapor line, between the Triple Point line and the Critical Point)
+  - T-h and T-s diagrams: plot heat addition/removal and are used to analyze thermodynamic processes and cycles
+  - Mollier diagram (an h-s plot for steam): constant enthalpy lines are horizontal, constant entropy lines are vertical; useful for quickly estimating wet/superheated steam properties, though less accurate than steam tables
+- Five States of Water
+  - Subcooled (compressed) liquid: below the saturation temperature for its pressure
+  - Saturated liquid: liquid at its boiling point
+  - Wet vapor: a mixture of saturated liquid and saturated vapor at the boiling temperature
+  - Saturated vapor ("dry" steam): 100% vapor at the boiling point, no liquid remains
+  - Superheated vapor: vapor above its boiling temperature
+  - Sensible heat: heat addition/removal that changes temperature; Latent heat: heat addition/removal that changes phase without changing temperature (latent heat of vaporization/condensation)
+- Steam Quality and Moisture Content
+  - Steam quality (X): the fraction of vapor in a wet-vapor mixture; moisture content (M): the fraction of liquid; X + M = 100%
+  - Void fraction: the volumetric fraction of vapor in a two-phase mixture
+  - High steam quality (>99%) matters for protecting turbine blading from moisture damage
+- Steam Tables
+  - Saturated steam tables: properties indexed by saturation temperature or saturation pressure (specific volume, enthalpy, entropy for both liquid and vapor states)
+  - Superheated steam tables: properties of steam above saturation temperature at a given pressure
+  - Degrees of subcooling: difference between a liquid's saturation temperature and its actual (lower) temperature
+  - Degrees of superheat: difference between a vapor's actual temperature and its saturation temperature
+- Cavitation Operating Experience (de-identified)
+  - Using the wrong steam-table reference point (e.g. vapor-space temperature instead of liquid-space temperature) to infer system pressure during a plant cooldown can produce a significant pressure indication error
+  - This can cause a reactor coolant pump to lose adequate net positive suction head and cavitate; prompt, correct response to a resulting vibration alarm is important even when equipment damage does not occur
 
 ## TH04
 - Adiabatic, Isobaric, Isentropic, Isenthalpic, Isothermal
