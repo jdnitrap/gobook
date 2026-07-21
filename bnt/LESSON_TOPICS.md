@@ -139,6 +139,7 @@
   - Highest possible efficiency for any engine operating between a given heat source and heat sink: efficiency = (TA - TR) / TA using absolute temperatures
   - Example: Heat source 540°F (1000°R), heat sink 60°F (520°R) → η = (1000 - 520)/1000 = 48%
   - Real cycles always fall short (friction, non-isothermal/non-adiabatic processes), but Carnot sets the theoretical maximum; efficiency improves by raising source temperature or lowering sink temperature
+  - ![Carnot Cycle P-V Diagram](../images/th05_diagram_2.png)
 - Rankine Cycle
   - More realistic steam cycle: isentropic pump compression, constant-pressure heat addition (boiler/steam generator), isentropic turbine expansion, constant-pressure heat rejection (condenser)
   - Efficiency computed from enthalpies at each cycle point using steam tables
