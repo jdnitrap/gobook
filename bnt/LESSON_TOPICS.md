@@ -131,12 +131,13 @@
 
 ## TH05
 - Thermodynamic Cycles
-  - A cycle is a recurring series of thermodynamic processes returning the working fluid to its initial state, used to transform energy into a useful effect
+  - A process is a single change of state of the working fluid. A cycle is a series of processes that returns the working fluid to its original state, used to transform energy into a useful effect.
   - Five essential elements: working fluid, engine (heat-to-work conversion), heat source, heat sink, device to move the working fluid (e.g. pump)
   - Cycle efficiency = net work out / heat added = (QA - QR) / QA -- the Second Law requires some heat always be rejected
 - Carnot Cycle
   - Ideal cycle: two isothermal processes (heat addition, heat rejection) and two adiabatic/isentropic processes (expansion, compression)
   - Highest possible efficiency for any engine operating between a given heat source and heat sink: efficiency = (TA - TR) / TA using absolute temperatures
+  - Example: Heat source 540°F (1000°R), heat sink 60°F (520°R) → η = (1000 - 520)/1000 = 48%
   - Real cycles always fall short (friction, non-isothermal/non-adiabatic processes), but Carnot sets the theoretical maximum; efficiency improves by raising source temperature or lowering sink temperature
 - Rankine Cycle
   - More realistic steam cycle: isentropic pump compression, constant-pressure heat addition (boiler/steam generator), isentropic turbine expansion, constant-pressure heat rejection (condenser)
