@@ -181,3 +181,31 @@ Correct Answer: The added leverage can overstress the actuator gearing/casing an
 Question 44: When manually operating a valve, why is reaching a hard stop on the handwheel not by itself proof that the valve reached its true fully open or closed position?
 Correct Answer: The valve must be verified to have traveled its full designed number of turns, since a hard stop can occur short of true full travel (e.g. due to internal binding)
 // CP01
+
+Question 45: What is the primary difference between a closed system and an open system in thermodynamics?
+Correct Answer: A closed system allows energy transfer across its boundary but not mass transfer, while an open system allows transfer of both mass and energy
+// TH01
+
+Question 46: Which type of thermodynamic property depends on the amount of substance present, such as volume or weight?
+Correct Answer: Extensive property
+// TH01
+
+Question 47: On which temperature scale does zero represent the point of no molecular motion (absolute zero) and correspond exactly to zero Kelvin?
+Correct Answer: Rankine
+// TH01
+
+Question 48: Which pressure measurement indicates a pressure below atmospheric pressure?
+Correct Answer: Vacuum pressure
+// TH01
+
+Question 49: What term describes the difference in pressure between two locations, such as across a filter?
+Correct Answer: Differential pressure
+// TH01
+
+Question 50: In a hydraulic press, if the output piston has a larger area than the input piston, how does the output force compare to the input force?
+Correct Answer: The output force is greater than the input force
+// TH01
+
+Question 51: Why does liquid temperature have a much greater effect on density and specific volume than pressure does?
+Correct Answer: Because liquids are relatively incompressible, so pressure has little effect on their volume
+// TH01

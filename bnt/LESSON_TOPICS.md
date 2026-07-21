@@ -2,10 +2,33 @@
 
 ## TH01
 - Systems of Measurement
+  - Two systems: American Engineering System (English Engineers System) and International System of Units (SI/Metric)
+  - Unit conversion: identify given/desired units, write a conversion factor (given units in the denominator, desired units in the numerator), then multiply
 - System Types
+  - A system is a quantity of matter/space separated from its surroundings by a boundary; everything outside the boundary is the surroundings
+  - Isolated system: no transfer of mass or energy across the boundary
+  - Closed system: no mass transfer, but energy transfer may occur
+  - Open system: transfer of both mass and energy
+  - Working fluid: the fluid within a system that allows energy to be stored or removed
+  - Properties: intensive (independent of mass, e.g. pressure, temperature) vs. extensive (dependent on mass, e.g. volume, weight); specific volume is an intensive property derived from an extensive one
 - Pressure Concepts
+  - Pressure = force per unit area
+  - Hydrostatic pressure: pressure from a column of fluid, proportional to the fluid's density and height above the reference point
+  - Absolute pressure: measured relative to a perfect vacuum (0 psia)
+  - Atmospheric pressure: pressure exerted by the weight of the atmosphere (standard sea-level is about 14.7 psia)
+  - Gage pressure: pressure above atmospheric (psig); Vacuum pressure: pressure below atmospheric (psiv)
+  - Differential pressure: the difference in pressure between two locations (psid), e.g. across a filter
+  - Relationships: Pgage = Pabs - Patm; Pvac = Patm - Pabs
 - Pascal's Law
+  - Pressure applied to a confined fluid at any point is transmitted undiminished throughout the fluid in all directions
+  - Basis for the hydraulic press: an input force/area produces a pressure that is transmitted undiminished to a larger output piston, producing a larger output force; in an ideal hydraulic system, Work In equals Work Out (work is conserved)
 - Density and Specific Volume
+  - Specific volume: volume per unit mass (an intensive property); density is its reciprocal (mass per unit volume)
+  - Liquid temperature has a much greater effect on density/specific volume than pressure does, since liquids are relatively incompressible; gases are compressible, so gas volume depends on both temperature and pressure
+- Temperature Scales
+  - Relative scales: Fahrenheit (freezing 32F / boiling 212F) and Celsius (freezing 0C / boiling 100C)
+  - Absolute scales: Rankine (corresponds to Fahrenheit) and Kelvin (corresponds to Celsius); 0R = 0K = absolute zero, the point of no molecular motion
+  - Thermodynamic equations and definitions use absolute temperature scales, not relative ones
 
 ## TH02
 - First Law
