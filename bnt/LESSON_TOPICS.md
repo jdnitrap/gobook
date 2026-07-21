@@ -134,6 +134,7 @@
   - A process is a single change of state of the working fluid. A cycle is a series of processes that returns the working fluid to its original state, used to transform energy into a useful effect.
   - Five essential elements: working fluid, engine (heat-to-work conversion), heat source, heat sink, device to move the working fluid (e.g. pump)
   - Cycle efficiency = net work out / heat added = (QA - QR) / QA -- the Second Law requires some heat always be rejected
+  - ![Thermodynamic Cycle Diagram](../images/th05_diagram_3.png)
 - Carnot Cycle
   - Ideal cycle: two isothermal processes (heat addition, heat rejection) and two adiabatic/isentropic processes (expansion, compression)
   - Highest possible efficiency for any engine operating between a given heat source and heat sink: efficiency = (TA - TR) / TA using absolute temperatures
@@ -144,10 +145,14 @@
   - More realistic steam cycle: isentropic pump compression, constant-pressure heat addition (boiler/steam generator), isentropic turbine expansion, constant-pressure heat rejection (condenser)
   - Efficiency computed from enthalpies at each cycle point using steam tables
   - Real turbines and pumps add entropy (friction losses), lowering cycle efficiency versus the ideal
+  - ![Rankine Cycle P-V Diagram](../images/th05_diagram_4.png)
+  - ![Rankine Cycle T-S Diagram](../images/th05_diagram_5.png)
 - Factors Affecting Cycle Efficiency
   - Superheating the steam: increases efficiency (more net work than added heat rejected)
+  - ![Superheat Effect on Cycle](../images/th05_diagram_6.png)
   - Moisture Separator Reheater (MSR): minor effect on cycle efficiency; its real purpose is drying/superheating steam to the LP turbine to protect the final blading stages from moisture impingement
   - Feedwater heating (extraction steam preheats feedwater): increases efficiency -- less heat needed from the heat source
+  - ![Feedwater Heating Cycle](../images/th05_diagram_7.png)
   - Higher condenser vacuum (lower backpressure): increases efficiency -- more turbine work, less heat rejected
   - Minimal condensate depression: increases efficiency -- less heat rejected and less heat needed to re-heat the condensate
   - Higher steam temperature/pressure: increases efficiency -- lower entropy in and out of the turbine, more turbine work
