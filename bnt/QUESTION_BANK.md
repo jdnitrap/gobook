@@ -137,3 +137,47 @@ Correct Answer: Transient (energy in transit) forms of energy
 Question 33: Which equation correctly defines enthalpy (H)?
 Correct Answer: H = U + PV
 // TH02
+
+Question 34: Which piping material is commonly used for water, low-temperature steam, air, and fuel oil due to its low cost, despite being prone to rusting?
+Correct Answer: Low-Carbon Steel
+// CP01
+
+Question 35: Which device is used to compensate for thermal linear expansion in a piping system by protecting it from the forces of temperature change?
+Correct Answer: A piping expansion joint
+// CP01
+
+Question 36: Which type of check valve uses a hinged disk that swings open or shut depending on the direction of flow?
+Correct Answer: Swing check valve
+// CP01
+
+Question 37: Which type of check valve can also be forcibly closed by an actuator, combining the functions of a check valve and a globe valve?
+Correct Answer: Stop check valve
+// CP01
+
+Question 38: What term describes the difference between a safety valve's preset opening setpoint and the pressure at which it reseats (closes)?
+Correct Answer: Blowdown
+// CP01
+
+Question 39: Which type of steam trap relies on the expansion and contraction of a volatile liquid sealed inside the trap element to open and close its valve?
+Correct Answer: Bellows-type steam trap
+// CP01
+
+Question 40: Which pneumatic actuator design uses a resilient diaphragm to form a pressure-tight compartment, with movement opposed by spring action?
+Correct Answer: Gas diaphragm actuator
+// CP01
+
+Question 41: A valve actuator designed to hold its current position when the actuating medium is lost is described by which failure term?
+Correct Answer: Fail As Is
+// CP01
+
+Question 42: On a quarter-turn valve such as a butterfly or plug valve, an operating lever parallel to the piping indicates the valve is in which position?
+Correct Answer: Open
+// CP01
+
+Question 43: Why should valve wrenches never be used to manually operate a motor operated valve (MOV) handwheel?
+Correct Answer: The added leverage can overstress the actuator gearing/casing and has caused catastrophic actuator failure
+// CP01
+
+Question 44: When manually operating a valve, why is reaching a hard stop on the handwheel not by itself proof that the valve reached its true fully open or closed position?
+Correct Answer: The valve must be verified to have traveled its full designed number of turns, since a hard stop can occur short of true full travel (e.g. due to internal binding)
+// CP01
