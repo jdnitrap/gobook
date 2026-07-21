@@ -91,13 +91,70 @@
   - This can cause a reactor coolant pump to lose adequate net positive suction head and cavitate; prompt, correct response to a resulting vibration alarm is important even when equipment damage does not occur
 
 ## TH04
-- Adiabatic, Isobaric, Isentropic, Isenthalpic, Isothermal
+- Process Terminology
+  - Adiabatic: no loss or gain of heat
+  - Isobaric: constant pressure
+  - Isentropic: no change in entropy
+  - Isenthalpic: no change in enthalpy
+  - Isothermal: constant temperature
+- Steady Flow Systems
+  - Three conditions: constant mass flow rate in/out, constant working-fluid properties at any location over time, constant rates of heat transfer and work
+  - Mechanical equivalent of heat (Joule's constant): 1 Btu = 778 ft-lbf
+- Second Law of Thermodynamics
+  - No engine, actual or ideal, operating in a cycle can convert all heat supplied into work -- a heat rejection process is always required
+  - Reversible (ideal/frictionless) processes exist only in theory; all real processes are irreversible
+  - Entropy change: delta S = Q / Tabs (heat transferred divided by the absolute temperature at which it transfers); total entropy must increase in any real process (counting both system and surroundings)
+  - Heat added during a process depends on the path taken between states, visualized as the area under a T-s curve
 - Heat Exchanger: q = hout - hin
+  - Heat gained or lost is measured by the enthalpy change of the working fluid; no work is done in the heat exchanger
+  - Steam generator: raises feedwater enthalpy from subcooled liquid to (near-)saturated steam
+  - Condenser: removes latent heat of condensation ("rejected heat"); condensing collapses steam volume, maintaining vacuum, which increases the pressure drop across the turbine and improves efficiency
+  - A few degrees of condensate subcooling is needed to prevent condensate pump cavitation (vapor bubbles forming and collapsing in the pump impeller, causing vibration, erosion, and bearing wear), but excessive condensate depression wastes heat and increases oxygen absorption/corrosion
+- Nozzles
+  - Convergent nozzle: velocity/kinetic energy increase, pressure decreases; Divergent nozzle: velocity decreases, pressure increases
+  - Continuity equation: with constant density, velocity rises as flow area shrinks and vice versa
+  - Uses: flow measurement/flow restriction in steam piping, increasing pump suction pressure, fixed turbine blades directing steam, steam jet air ejectors (SJAE) removing air/non-condensable gases from the condenser using entrainment through a convergent-then-divergent path
 - Turbine: WT = hin - hout
+  - Converts steam energy to rotating mechanical energy in two steps: Pv energy to kinetic energy (nozzles), then kinetic to mechanical energy (blades)
+  - Impulse vs. reaction blading; multi-staging (alternating fixed and moving blades) extracts more of the steam's energy; a stage = one set of fixed + one set of rotating blades
+  - Ideal turbine work is isentropic; real turbines add entropy through friction, so real work is less than ideal work
+  - Turbine efficiency = real work / ideal work; power = specific work x mass flow rate
 - Pump: WP = hout - hin
+  - Pump does work on the fluid (opposite of a turbine); ideal pump work is isentropic and adiabatic
+  - In cycle net-work accounting, pump work subtracts: Wnet = Wturbine - Wpump
+  - Pump efficiency = ideal work / real work ("fluid power" / "shaft power")
 - Throttle: hin = hout
+  - Constant-enthalpy process through a restriction (partially open valve, orifice, or pipe break): pressure drops, entropy increases, no work done, no heat added
+  - Downstream conditions found on a Mollier diagram by moving horizontally (constant enthalpy) from the upstream state to the downstream pressure line
 - Condensate Depression = Tsat - Tcondensate
 - Missed Concepts: Condensate Depression, Condenser Terminology
+
+## TH05
+- Thermodynamic Cycles
+  - A cycle is a recurring series of thermodynamic processes returning the working fluid to its initial state, used to transform energy into a useful effect
+  - Five essential elements: working fluid, engine (heat-to-work conversion), heat source, heat sink, device to move the working fluid (e.g. pump)
+  - Cycle efficiency = net work out / heat added = (QA - QR) / QA -- the Second Law requires some heat always be rejected
+- Carnot Cycle
+  - Ideal cycle: two isothermal processes (heat addition, heat rejection) and two adiabatic/isentropic processes (expansion, compression)
+  - Highest possible efficiency for any engine operating between a given heat source and heat sink: efficiency = (TA - TR) / TA using absolute temperatures
+  - Real cycles always fall short (friction, non-isothermal/non-adiabatic processes), but Carnot sets the theoretical maximum; efficiency improves by raising source temperature or lowering sink temperature
+- Rankine Cycle
+  - More realistic steam cycle: isentropic pump compression, constant-pressure heat addition (boiler/steam generator), isentropic turbine expansion, constant-pressure heat rejection (condenser)
+  - Efficiency computed from enthalpies at each cycle point using steam tables
+  - Real turbines and pumps add entropy (friction losses), lowering cycle efficiency versus the ideal
+- Factors Affecting Cycle Efficiency
+  - Superheating the steam: increases efficiency (more net work than added heat rejected)
+  - Moisture Separator Reheater (MSR): minor effect on cycle efficiency; its real purpose is drying/superheating steam to the LP turbine to protect the final blading stages from moisture impingement
+  - Feedwater heating (extraction steam preheats feedwater): increases efficiency -- less heat needed from the heat source
+  - Higher condenser vacuum (lower backpressure): increases efficiency -- more turbine work, less heat rejected
+  - Minimal condensate depression: increases efficiency -- less heat rejected and less heat needed to re-heat the condensate
+  - Higher steam temperature/pressure: increases efficiency -- lower entropy in and out of the turbine, more turbine work
+  - Higher steam quality: increases efficiency -- more enthalpy available for net work
+- Operational Considerations
+  - Efficiency is best at full load; minimize running auxiliaries, minimize steam generator blowdown, fix steam leaks and condenser air leaks, and recover heat from auxiliary condensers/heat exchangers
+  - Efficiency can be approximated by comparing electrical output to reactor power output; heat rate (BTU per kW-hr) is inversely related to efficiency
+- Operating Experience (de-identified)
+  - Opening a drain valve that ties into the main condenser during system restoration can degrade condenser vacuum, which shows up as an unexpected change in indicated reactor thermal power -- operators responded by inserting control rods and reducing turbine load until vacuum recovered
 
 ## CP01
 - Piping

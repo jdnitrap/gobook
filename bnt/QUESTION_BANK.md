@@ -269,3 +269,59 @@ Correct Answer: Inversely proportional to its absolute pressure
 Question 66: Why should the Ideal Gas Law not be used to determine the properties of steam?
 Correct Answer: Steam's behavior is considerably more complex than an ideal gas, so steam tables (experimentally derived data) must be used instead
 // TH03
+
+Question 67: What does the Second Law of Thermodynamics state about a heat engine operating in a cycle?
+Correct Answer: No engine, actual or ideal, can convert all the heat supplied into work; some heat must always be rejected
+// TH04
+
+Question 68: The change in entropy of a system is defined as which of the following?
+Correct Answer: The heat transferred to or from the system divided by the absolute temperature at which the transfer occurs
+// TH04
+
+Question 69: In a convergent nozzle, what happens to the velocity and pressure of the fluid?
+Correct Answer: Velocity (kinetic energy) increases and pressure decreases
+// TH04
+
+Question 70: Why is a few degrees of condensate subcooling desirable at the condenser hotwell?
+Correct Answer: To prevent cavitation in the condensate pumps
+// TH04
+
+Question 71: An ideal turbine or pump work process is described as isentropic because:
+Correct Answer: Friction is not considered, so there is no change in entropy of the working fluid
+// TH04
+
+Question 72: Turbine efficiency is defined as which of the following ratios?
+Correct Answer: The ratio of real turbine work to ideal turbine work
+// TH04
+
+Question 73: What are the five essential elements of a thermodynamic cycle?
+Correct Answer: A working fluid, an engine to convert heat to work, a heat source, a heat sink, and a device to move the working fluid
+// TH05
+
+Question 74: The Carnot cycle consists of which four processes?
+Correct Answer: Two isothermal processes and two adiabatic (isentropic) processes
+// TH05
+
+Question 75: According to the Carnot efficiency equation, the efficiency of a Carnot cycle depends only on:
+Correct Answer: The absolute temperatures of the heat source and heat sink
+// TH05
+
+Question 76: What are the two ways to increase the Carnot efficiency of a cycle?
+Correct Answer: Increase the temperature of the heat source or decrease the temperature of the heat sink
+// TH05
+
+Question 77: What is the primary purpose of a Moisture Separator Reheater (MSR) in a steam cycle?
+Correct Answer: To reduce moisture in the steam entering the low-pressure turbine, protecting the final blading stages from wear, rather than to improve cycle efficiency
+// TH05
+
+Question 78: How does feedwater heating (using extraction steam) affect cycle efficiency?
+Correct Answer: It increases cycle efficiency because less heat must be added by the heat source
+// TH05
+
+Question 79: How does increasing condenser vacuum (lowering absolute condenser pressure) affect cycle efficiency?
+Correct Answer: It increases efficiency, because more work is extracted from the steam and less heat is rejected
+// TH05
+
+Question 80: What is heat rate, and how does it relate to plant efficiency?
+Correct Answer: Heat rate is the energy input (BTU) required per unit of electrical output (kW-hr); it is inversely related to efficiency (higher efficiency means lower heat rate)
+// TH05
