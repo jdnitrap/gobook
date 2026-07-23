@@ -4,7 +4,6 @@ with lib;
 
 let
   cfg = config.services.ainix;
-  ainixPackage = pkgs.callPackage ./ainix-package.nix { };
   configFile = pkgs.writeText "ainix-config.json" (builtins.toJSON cfg.settings);
 
 in {
@@ -14,7 +13,7 @@ in {
 
     package = mkOption {
       type = types.package;
-      default = ainixPackage;
+      default = pkgs.callPackage ./ainix-package.nix { };
       description = "AINIX package to use";
     };
 
@@ -51,7 +50,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ cfg.package ];
+    environment.systemPackages = [ cfg.package ] ++ (if cfg.enableNixQubesIntegration then [ ] else [ ]);
 
     # Create AINIX directories
     systemd.tmpfiles.rules = mkIf cfg.enableLocalLearning [
