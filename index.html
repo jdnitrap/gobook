@@ -334,16 +334,52 @@
                 <h2>Welcome to Your Learning Hub</h2>
                 <div class="mode-buttons">
                     <button class="mode-btn exam-btn" onclick="app.selectMode('exam')">
-                        📝 Topic Exams
-                    </button>
-                    <button class="mode-btn exam-btn" onclick="app.prepareComprehensiveExam()" style="background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%);">
-                        🎓 Comprehensive Exam
+                        📝 Exams
                     </button>
                     <button class="mode-btn flashcard-btn" onclick="app.selectMode('flashcard')">
                         🎯 Study Flashcards
                     </button>
                     <button class="mode-btn notes-btn" onclick="app.selectMode('notes')">
                         📖 Study Notes
+                    </button>
+                </div>
+            </div>
+
+            <!-- Exam Configuration Screen -->
+            <div id="examConfigScreen" class="content subject-screen hidden">
+                <h2>Exam Options</h2>
+                <p style="color: #999; font-size: 0.85em; margin-bottom: 20px;">
+                    Choose how you'd like to study
+                </p>
+
+                <div style="margin-bottom: 30px;">
+                    <button class="btn-primary" onclick="app.startTopicExamSelection()" style="width: 100%; padding: 15px; font-size: 1.1em;">
+                        📚 Topic Exams
+                    </button>
+                    <p style="color: #666; font-size: 0.9em; margin-top: 8px; text-align: center;">
+                        Select a specific topic and choose how many questions
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 30px; padding: 20px; background: #f5f5f5; border-radius: 8px;">
+                    <label for="comprehensiveQuestionCount" style="color: #000; font-weight: bold; display: block; margin-bottom: 12px;">
+                        Comprehensive Exam - How many questions would you like?
+                    </label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="number" id="comprehensiveQuestionCount" min="1" max="999" value="10"
+                               style="flex: 1; padding: 10px; border: 2px solid #667eea; border-radius: 5px; font-size: 1em;">
+                        <button class="btn-primary" onclick="app.startComprehensiveExam()" style="padding: 10px 30px;">
+                            Start Exam
+                        </button>
+                    </div>
+                    <p style="color: #666; font-size: 0.9em; margin-top: 8px;">
+                        Random questions from all topics
+                    </p>
+                </div>
+
+                <div class="button-group" style="margin-top: 30px;">
+                    <button class="back-home-btn" onclick="app.goHome()" style="flex: 1;">
+                        ← Return to Home
                     </button>
                 </div>
             </div>
@@ -415,7 +451,8 @@
                 <div class="question-text" id="questionText">Loading question...</div>
                 <div class="options" id="optionsContainer"></div>
                 <div class="button-group">
-                    <button class="back-home-btn" onclick="app.goHome()">← Return to Home</button>
+                    <button class="back-home-btn" onclick="app.backToExamConfig()">← Back to Exam Page</button>
+                    <button class="back-home-btn" onclick="app.goHome()">← Home</button>
                     <button class="btn-primary" onclick="app.nextQuestion()">Next →</button>
                 </div>
             </div>
@@ -517,9 +554,25 @@
                 this.cardFlipped = false;
                 if (mode === 'notes') {
                     this.renderNotesSelection();
-                } else {
+                } else if (mode === 'exam') {
+                    this.showExamConfigScreen();
+                } else if (mode === 'flashcard') {
                     this.renderSubjectSelection();
                 }
+            },
+
+            showExamConfigScreen() {
+                this.showScreen('examConfigScreen');
+            },
+
+            startTopicExamSelection() {
+                this.currentMode = 'exam';
+                this.isComprehensiveExam = false;
+                this.renderSubjectSelection();
+            },
+
+            backToExamConfig() {
+                this.showExamConfigScreen();
             },
 
             renderSubjectSelection() {
@@ -749,12 +802,13 @@
             },
 
             startComprehensiveExam() {
-                const questionCountInput = parseInt(document.getElementById('questionCount').value) || 20;
+                const questionCountInput = parseInt(document.getElementById('comprehensiveQuestionCount').value) || 10;
                 const questionCount = Math.min(questionCountInput, this.allQuestions.length);
 
                 this.answers = this.getRandomQuestions(this.allQuestions, questionCount);
                 this.currentQuestionIndex = 0;
                 this.selectedAnswers = {};
+                this.isComprehensiveExam = true;
                 this.showQuestion();
                 this.showScreen('examScreen');
             },
