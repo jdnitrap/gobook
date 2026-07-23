@@ -2,8 +2,10 @@
 
 **Repository:** gobook  
 **Created:** July 2026  
-**Status:** All projects ready for testing (not yet validated)  
+**Status:** All projects in BETA - Ready for testing (not yet validated)  
 **Contains:** 3 separate, independent projects
+
+⚠️ **IMPORTANT:** These projects are **NOT PRODUCTION READY**. They are in development/testing phase and have NOT been validated through real-world deployment. Use at your own risk. Feedback and bug reports are welcome.
 
 ---
 
@@ -30,6 +32,31 @@ gobook/
 ├── PROJECT 2: NixQubes        (Qubes OS-like Security Architecture)
 └── PROJECT 3: GoBook Basic    (Modular NixOS Configuration)
 ```
+
+---
+
+## Testing & Validation Status
+
+**What HAS been tested:**
+- ✅ Code syntax and structure
+- ✅ Unit tests (AINIX: 27/27 passing)
+- ✅ Installation methods (documented)
+- ✅ Configuration files (validated for errors)
+
+**What HAS NOT been tested:**
+- ❌ Real hardware deployment
+- ❌ Actual user workflows
+- ❌ Long-term stability
+- ❌ All edge cases and error conditions
+- ❌ Integration between projects
+- ❌ Performance under load
+
+**Before using in production:**
+1. Test thoroughly on your hardware
+2. Report any issues or bugs
+3. Test user workflows match your needs
+4. Verify security measures work as intended
+5. Have a rollback plan ready
 
 ---
 
@@ -816,6 +843,20 @@ Edit `/etc/nixos/basic/` files to:
 
 ---
 
+## Testing & Feedback
+
+**These projects need real-world testing!** If you use any of these projects:
+
+1. **Report bugs** - If something doesn't work, open an issue
+2. **Report successes** - What worked well?
+3. **Share your setup** - Hardware, use case, modifications
+4. **Suggest improvements** - What would make this better?
+5. **Test security** - Does isolation actually work?
+
+Your feedback is essential for moving from BETA to production-ready.
+
+---
+
 ## Contributing
 
 To modify any project:
@@ -827,6 +868,8 @@ To modify any project:
 5. Push to main branch
 
 Each project can be developed independently.
+
+**Note:** Before contributing changes, test them thoroughly. These are public projects and changes affect users.
 
 ---
 
