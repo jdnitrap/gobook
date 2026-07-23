@@ -562,6 +562,7 @@
             <!-- Subject Selection Screen -->
             <div v-if="currentScreen === 'subjectSelection'" class="content subject-screen">
                 <h2>Select a Subject</h2>
+                <p style="color: #999; font-size: 0.9em; margin-bottom: 15px;">Available: {{ subjects.length }} subjects</p>
                 <div class="subject-buttons">
                     <button v-for="subject in subjects"
                             :key="subject"
@@ -763,20 +764,33 @@
                     return uniqueSubjects.sort();
                 }
             },
+            watch: {
+                allQuestions(newVal) {
+                    console.log('allQuestions changed:', newVal.length);
+                },
+                subjects(newVal) {
+                    console.log('subjects changed:', newVal);
+                }
+            },
             methods: {
                 async loadQuestions() {
                     try {
                         const response = await fetch('questions.json');
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
                         const data = await response.json();
-                        this.allQuestions = data.questions;
-                        this.questions = data.questions;
+                        this.allQuestions = [...data.questions];
+                        this.questions = [...data.questions];
+                        console.log('Questions loaded:', this.allQuestions.length);
                         if (this.allQuestions.length > 0) {
                             const firstSubject = [...new Set(this.allQuestions.map(q => q.subject))][0];
                             this.selectedSubject = firstSubject;
+                            console.log('Subjects:', [...new Set(this.allQuestions.map(q => q.subject))]);
                         }
                     } catch (error) {
                         console.error('Error loading questions:', error);
-                        alert('Error loading questions. Please check questions.json file.');
+                        alert('Error loading questions: ' + error.message);
                     }
                 },
                 selectExamMode() {
