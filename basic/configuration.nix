@@ -79,4 +79,59 @@ users.mutableUsers = true;
 #End Imperative User Management    #
 ####################################
 
+
+###############
+#Localization #
+###############
+
+time.timeZone = "America/Chicago";
+
+i18n.defaultLocale = "en_US.UTF-8";
+
+i18n.supportedLocales = [
+  "en_US.UTF-8/UTF-8"
+];
+
+#####################
+#End Localization   #
+#####################
+
+
+##########
+#Hostname#
+##########
+
+networking.hostname = "nixos-system";
+
+################
+#End Hostname  #
+################
+
+
+###################
+#Security & Polkit#
+###################
+
+# Enable polkit for privilege escalation in desktop environment
+security.polkit.enable = true;
+
+# Enable dbus for system communication
+services.dbus.enable = true;
+
+#############################
+#End Security & Polkit      #
+############################
+
+
+###########
+#Bluetooth#
+###########
+
+hardware.bluetooth.enable = true;
+hardware.bluetooth.powerOnBoot = true;
+
+#################
+#End Bluetooth  #
+#################
+
 }

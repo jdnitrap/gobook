@@ -32,6 +32,21 @@
 	gnome-software
 	htop
 	unzip
+
+	# Fonts
+	liberation_ttf
+	dejavu_fonts
+	noto-fonts
+	noto-fonts-cjk
+	noto-fonts-emoji
+	];
+
+  fonts.packages = with pkgs; [
+	liberation_ttf
+	dejavu_fonts
+	noto-fonts
+	noto-fonts-cjk
+	noto-fonts-emoji
 	];
 ########################
 #End of System Packages#

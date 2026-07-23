@@ -34,6 +34,41 @@ pkgs.writeShellScript "user-create-helper" ''
     echo "$valid_groups"
   }
 
+  exit_menu() {
+    clear
+    echo "========================================"
+    echo "  Exit Options"
+    echo "========================================"
+    echo ""
+    echo "1. Return to main menu"
+    echo "2. Open a bash shell"
+    echo "3. Logout"
+    echo ""
+    read -p "Select an option (1-3): " choice
+
+    case $choice in
+      1)
+        create_user_menu
+        ;;
+      2)
+        echo ""
+        echo "Type 'exit' to return to the menu."
+        echo ""
+        $BASH_PATH
+        create_user_menu
+        ;;
+      3)
+        echo "Logging out..."
+        exit 0
+        ;;
+      *)
+        echo "Invalid option. Please try again."
+        sleep 2
+        exit_menu
+        ;;
+    esac
+  }
+
   create_user_menu() {
     clear
     echo "========================================"
@@ -50,8 +85,7 @@ pkgs.writeShellScript "user-create-helper" ''
         create_new_user
         ;;
       2)
-        echo "Exiting user creation utility..."
-        exit 0
+        exit_menu
         ;;
       *)
         echo "Invalid option. Please try again."
