@@ -2,84 +2,111 @@
   "questions": [
     {
       "id": 1,
+      "subject": "Math",
       "text": "What is 2 plus 2?",
       "options": [
-        {
-          "letter": "a",
-          "text": "4",
-          "correct": true
-        },
-        {
-          "letter": "b",
-          "text": "2",
-          "correct": false
-        },
-        {
-          "letter": "c",
-          "text": "5",
-          "correct": false
-        },
-        {
-          "letter": "d",
-          "text": "7",
-          "correct": false
-        }
+        {"letter": "a", "text": "4", "correct": true},
+        {"letter": "b", "text": "2", "correct": false},
+        {"letter": "c", "text": "5", "correct": false},
+        {"letter": "d", "text": "7", "correct": false}
       ],
       "explanation": "2 + 2 = 4. This is basic arithmetic addition."
     },
     {
       "id": 2,
+      "subject": "Math",
+      "text": "What is 5 times 3?",
+      "options": [
+        {"letter": "a", "text": "8", "correct": false},
+        {"letter": "b", "text": "15", "correct": true},
+        {"letter": "c", "text": "20", "correct": false},
+        {"letter": "d", "text": "25", "correct": false}
+      ],
+      "explanation": "5 × 3 = 15. Multiplication is repeated addition."
+    },
+    {
+      "id": 3,
+      "subject": "Math",
+      "text": "What is 10 divided by 2?",
+      "options": [
+        {"letter": "a", "text": "3", "correct": false},
+        {"letter": "b", "text": "5", "correct": true},
+        {"letter": "c", "text": "7", "correct": false},
+        {"letter": "d", "text": "8", "correct": false}
+      ],
+      "explanation": "10 ÷ 2 = 5. Division is the inverse of multiplication."
+    },
+    {
+      "id": 4,
+      "subject": "Science",
+      "text": "What is the chemical symbol for Gold?",
+      "options": [
+        {"letter": "a", "text": "Go", "correct": false},
+        {"letter": "b", "text": "Gd", "correct": false},
+        {"letter": "c", "text": "Au", "correct": true},
+        {"letter": "d", "text": "Ag", "correct": false}
+      ],
+      "explanation": "Gold's chemical symbol is Au, from its Latin name 'Aurum'."
+    },
+    {
+      "id": 5,
+      "subject": "Science",
+      "text": "How many planets are in our solar system?",
+      "options": [
+        {"letter": "a", "text": "7", "correct": false},
+        {"letter": "b", "text": "8", "correct": true},
+        {"letter": "c", "text": "9", "correct": false},
+        {"letter": "d", "text": "10", "correct": false}
+      ],
+      "explanation": "There are 8 planets: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune."
+    },
+    {
+      "id": 6,
+      "subject": "Science",
+      "text": "What is the boiling point of water?",
+      "options": [
+        {"letter": "a", "text": "90°C", "correct": false},
+        {"letter": "b", "text": "100°C", "correct": true},
+        {"letter": "c", "text": "110°C", "correct": false},
+        {"letter": "d", "text": "120°C", "correct": false}
+      ],
+      "explanation": "Water boils at 100°C (212°F) at standard atmospheric pressure."
+    },
+    {
+      "id": 7,
+      "subject": "History",
       "text": "What is the capital of France?",
       "options": [
-        {
-          "letter": "a",
-          "text": "London",
-          "correct": false
-        },
-        {
-          "letter": "b",
-          "text": "Paris",
-          "correct": true
-        },
-        {
-          "letter": "c",
-          "text": "Berlin",
-          "correct": false
-        },
-        {
-          "letter": "d",
-          "text": "Madrid",
-          "correct": false
-        }
+        {"letter": "a", "text": "London", "correct": false},
+        {"letter": "b", "text": "Paris", "correct": true},
+        {"letter": "c", "text": "Berlin", "correct": false},
+        {"letter": "d", "text": "Madrid", "correct": false}
       ],
       "explanation": "Paris is the capital and largest city of France."
     },
     {
-      "id": 3,
-      "text": "What is 5 times 3?",
+      "id": 8,
+      "subject": "History",
+      "text": "In what year did the Titanic sink?",
       "options": [
-        {
-          "letter": "a",
-          "text": "8",
-          "correct": false
-        },
-        {
-          "letter": "b",
-          "text": "15",
-          "correct": true
-        },
-        {
-          "letter": "c",
-          "text": "20",
-          "correct": false
-        },
-        {
-          "letter": "d",
-          "text": "25",
-          "correct": false
-        }
+        {"letter": "a", "text": "1910", "correct": false},
+        {"letter": "b", "text": "1912", "correct": true},
+        {"letter": "c", "text": "1920", "correct": false},
+        {"letter": "d", "text": "1915", "correct": false}
       ],
-      "explanation": "5 × 3 = 15. Multiplication is repeated addition."
+      "explanation": "The RMS Titanic sank on April 15, 1912, after hitting an iceberg."
+    },
+    {
+      "id": 9,
+      "subject": "History",
+      "text": "Who was the first President of the United States?",
+      "options": [
+        {"letter": "a", "text": "Thomas Jefferson", "correct": false},
+        {"letter": "b", "text": "George Washington", "correct": true},
+        {"letter": "c", "text": "John Adams", "correct": false},
+        {"letter": "d", "text": "Benjamin Franklin", "correct": false}
+      ],
+      "explanation": "George Washington was the first President of the United States, serving from 1789 to 1797."
     }
   ]
 }
