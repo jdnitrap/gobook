@@ -35,11 +35,6 @@
    - Central network container managing all connectivity
    - Web-based UI (Cockpit) for easy management
 
-3. **bnt/** - Training and educational materials
-   - Thermodynamic cycles study guides with embedded diagrams
-   - Question banks and lesson materials
-   - De-identified educational content
-
 **Core Philosophy:** 
 - Security through isolation
 - Reproducibility through declarative configuration
@@ -164,17 +159,6 @@ gobook/
 │   ├── flatpak.nix                (Flatpak support)
 │   ├── hardware-configuration.nix (Machine-specific - EMPTY)
 │   └── pkgs/                      (Custom packages)
-│
-├── bnt/                           (Training & Educational Materials)
-│   ├── README.md                  (BNT documentation)
-│   ├── LESSON_TOPICS.md           (Main lesson content)
-│   ├── TH05.md                    (Thermodynamic cycles - study guide)
-│   ├── TH05_study_guide.html      (HTML artifact with diagrams)
-│   ├── QUESTION_BANK.md           (Test questions)
-│   ├── PIG_TEST_FORMAT.md         (Testing format guide)
-│   ├── TRAINING_RECORD.md         (Progress tracking)
-│   ├── RULES.md                   (Training rules)
-│   └── images/                    (Reference materials)
 │
 └── .git/                          (Version control)
 ```
@@ -629,10 +613,10 @@ Related to: [issue/feature]
 ## Getting Help
 
 ### Self-Service Documentation
-1. **NIXQUBES_SUMMARY.md** - NixQubes-specific details
-2. **basic/README.md** - Basic setup documentation
-3. **nixqubes/README.md** - Container architecture
-4. **bnt/README.md** - Training materials
+1. **README.md** - This file (complete project overview)
+2. **NIXQUBES_SUMMARY.md** - NixQubes-specific details
+3. **basic/README.md** - Basic setup documentation
+4. **nixqubes/README.md** - Container architecture
 
 ### External Resources
 - NixOS Manual: https://nixos.org/manual/nixos/

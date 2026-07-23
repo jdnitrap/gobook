@@ -309,11 +309,6 @@ Kernel hardening enabled:
   - Audio (PipeWire)
   - Security hardening
 
-### bnt/ Directory
-- Training materials (thermodynamics, etc.)
-- Study guides with embedded diagrams
-- Question banks and lesson topics
-
 ---
 
 ## References & Similar Projects
