@@ -334,7 +334,10 @@
                 <h2>Welcome to Your Learning Hub</h2>
                 <div class="mode-buttons">
                     <button class="mode-btn exam-btn" onclick="app.selectMode('exam')">
-                        📝 Take an Exam
+                        📝 Topic Exams
+                    </button>
+                    <button class="mode-btn exam-btn" id="comprehensiveBtn" onclick="app.startComprehensiveExam()" style="background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%); opacity: 0.5; cursor: not-allowed;" disabled>
+                        🎓 Comprehensive Exam
                     </button>
                     <button class="mode-btn flashcard-btn" onclick="app.selectMode('flashcard')">
                         🎯 Study Flashcards
@@ -343,11 +346,8 @@
                         📖 Study Notes
                     </button>
                 </div>
-                <div id="comprehensiveContainer" style="display: none; margin-top: 30px;">
-                    <p style="color: #666; margin-bottom: 15px;">Topics completed: <span id="completedTopicsCount">0</span></p>
-                    <button class="mode-btn exam-btn" onclick="app.startComprehensiveExam()" style="background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%);">
-                        🎓 Take Comprehensive Exam
-                    </button>
+                <div id="topicsInfo" style="text-align: center; margin-top: 20px; color: #666; display: none;">
+                    <p>Topics completed: <span id="completedTopicsCount">0</span></p>
                 </div>
             </div>
 
@@ -751,14 +751,21 @@
             },
 
             updateComprehensiveExamUI() {
-                const container = document.getElementById('comprehensiveContainer');
+                const btn = document.getElementById('comprehensiveBtn');
+                const infoDiv = document.getElementById('topicsInfo');
                 const countDisplay = document.getElementById('completedTopicsCount');
 
                 if (this.completedTopics.length > 0) {
-                    container.style.display = 'block';
+                    btn.disabled = false;
+                    btn.style.opacity = '1';
+                    btn.style.cursor = 'pointer';
+                    infoDiv.style.display = 'block';
                     countDisplay.textContent = this.completedTopics.length;
                 } else {
-                    container.style.display = 'none';
+                    btn.disabled = true;
+                    btn.style.opacity = '0.5';
+                    btn.style.cursor = 'not-allowed';
+                    infoDiv.style.display = 'none';
                 }
             },
 
