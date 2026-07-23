@@ -343,6 +343,12 @@
                         📖 Study Notes
                     </button>
                 </div>
+                <div id="comprehensiveContainer" style="display: none; margin-top: 30px;">
+                    <p style="color: #666; margin-bottom: 15px;">Topics completed: <span id="completedTopicsCount">0</span></p>
+                    <button class="mode-btn exam-btn" onclick="app.startComprehensiveExam()" style="background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%);">
+                        🎓 Take Comprehensive Exam
+                    </button>
+                </div>
             </div>
 
             <!-- Subject Selection Screen -->
@@ -352,6 +358,16 @@
                     Loaded: <span id="questionsCount">0</span> questions | Subjects: <span id="subjectsCount">0</span>
                 </p>
                 <div class="subject-buttons" id="subjectButtonsContainer"></div>
+
+                <!-- Question Count Input (only for exam mode) -->
+                <div id="questionCountContainer" style="margin: 20px 0; display: none;">
+                    <label for="questionCount" style="color: #000; font-weight: bold; display: block; margin-bottom: 8px;">
+                        How many questions would you like? (1-<span id="maxQuestions">10</span>)
+                    </label>
+                    <input type="number" id="questionCount" min="1" max="10" value="10"
+                           style="width: 100%; padding: 10px; border: 2px solid #667eea; border-radius: 5px; font-size: 1em;">
+                </div>
+
                 <div class="button-group" style="margin-top: 30px;">
                     <button class="btn-primary" onclick="app.startMode()" style="flex: 1;">
                         Start <span id="modeButtonText">Exam</span> - <span id="selectedSubjectName">Select Subject</span>
@@ -445,9 +461,17 @@
                 <h2 style="margin-bottom: 30px;">Exam Complete!</h2>
                 <div style="font-size: 3em; color: #667eea; margin-bottom: 20px;" id="scoreDisplay">0%</div>
                 <p style="font-size: 1.2em; color: #333; margin-bottom: 30px;" id="scoreMessage">Good job!</p>
-                <button class="btn-primary" onclick="app.goHome()" style="padding: 15px 40px; font-size: 1.1em;">
-                    Return to Home
-                </button>
+                <div class="button-group" style="justify-content: center; gap: 15px;">
+                    <button class="back-home-btn" onclick="app.goHome()" style="padding: 12px 30px;">
+                        Return to Home
+                    </button>
+                    <button class="btn-primary" onclick="app.selectMode('exam')" style="padding: 12px 30px; display: none;" id="anotherExamBtn">
+                        Take Another Exam
+                    </button>
+                    <button class="btn-primary" onclick="app.startComprehensiveExam()" style="padding: 12px 30px; background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%); display: none;" id="comprehensiveFromResultsBtn">
+                        Take Comprehensive Exam
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -462,6 +486,8 @@
             currentQuestionIndex: 0,
             selectedAnswers: {},
             answers: [],
+            completedTopics: [],
+            isComprehensiveExam: false,
 
             async init() {
                 await this.loadQuestions();
@@ -547,6 +573,17 @@
                 document.querySelectorAll('#subjectButtonsContainer .subject-btn').forEach(btn => {
                     btn.classList.toggle('active', btn.textContent === subject);
                 });
+
+                if (this.currentMode === 'exam') {
+                    const subjectQuestions = this.allQuestions.filter(q => q.subject === subject);
+                    const maxQuestions = subjectQuestions.length;
+                    document.getElementById('maxQuestions').textContent = maxQuestions;
+                    document.getElementById('questionCount').max = maxQuestions;
+                    document.getElementById('questionCount').value = Math.min(10, maxQuestions);
+                    document.getElementById('questionCountContainer').style.display = 'block';
+                } else {
+                    document.getElementById('questionCountContainer').style.display = 'none';
+                }
             },
 
             startMode() {
@@ -617,12 +654,20 @@
             },
 
             startExam() {
-                const questions = this.allQuestions.filter(q => q.subject === this.currentSubject);
-                this.answers = questions;
+                const allQuestions = this.allQuestions.filter(q => q.subject === this.currentSubject);
+                const questionCountInput = parseInt(document.getElementById('questionCount').value) || 10;
+                const questionCount = Math.min(questionCountInput, allQuestions.length);
+
+                this.answers = this.getRandomQuestions(allQuestions, questionCount);
                 this.currentQuestionIndex = 0;
                 this.selectedAnswers = {};
                 this.showQuestion();
                 this.showScreen('examScreen');
+            },
+
+            getRandomQuestions(questions, count) {
+                const shuffled = [...questions].sort(() => Math.random() - 0.5);
+                return shuffled.slice(0, count);
             },
 
             showQuestion() {
@@ -692,7 +737,44 @@
                     document.getElementById('scoreMessage').textContent = '💪 Keep practicing! You\'ll get better!';
                 }
 
+                if (!this.isComprehensiveExam && this.currentSubject && !this.completedTopics.includes(this.currentSubject)) {
+                    this.completedTopics.push(this.currentSubject);
+                }
+
+                this.updateComprehensiveExamUI();
+                document.getElementById('anotherExamBtn').style.display = 'block';
+                if (this.completedTopics.length > 0) {
+                    document.getElementById('comprehensiveFromResultsBtn').style.display = 'block';
+                }
+
                 this.showScreen('resultsScreen');
+            },
+
+            updateComprehensiveExamUI() {
+                const container = document.getElementById('comprehensiveContainer');
+                const countDisplay = document.getElementById('completedTopicsCount');
+
+                if (this.completedTopics.length > 0) {
+                    container.style.display = 'block';
+                    countDisplay.textContent = this.completedTopics.length;
+                } else {
+                    container.style.display = 'none';
+                }
+            },
+
+            startComprehensiveExam() {
+                if (this.completedTopics.length === 0) {
+                    alert('Complete at least one topic exam first!');
+                    return;
+                }
+
+                const comprehensiveQuestions = this.allQuestions.filter(q => this.completedTopics.includes(q.subject));
+                this.answers = this.getRandomQuestions(comprehensiveQuestions, Math.min(20, comprehensiveQuestions.length));
+                this.currentQuestionIndex = 0;
+                this.selectedAnswers = {};
+                this.isComprehensiveExam = true;
+                this.showQuestion();
+                this.showScreen('examScreen');
             },
 
             viewNotes() {
@@ -728,6 +810,8 @@
             },
 
             goHome() {
+                this.isComprehensiveExam = false;
+                this.updateComprehensiveExamUI();
                 this.showScreen('homeScreen');
             }
         };
