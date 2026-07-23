@@ -51,14 +51,32 @@ imports =
 #Bootloader#
 ############
 
-
-	boot.loader.systemd-boot.enable = true;
-  	boot.loader.efi.canTouchEfiVariables = true;
-
+boot.loader.systemd-boot.enable = true;
+boot.loader.efi.canTouchEfiVariables = true;
 
 ###################
 #End of BootLoader#
-################### 
+###################
 
+##########################
+#Experimental Features   #
+##########################
+
+nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+###########################
+#End Experimental Features#
+###########################
+
+############################
+#Imperative User Management#
+############################
+
+# Allow users created imperatively to survive rebuilds
+users.mutableUsers = true;
+
+####################################
+#End Imperative User Management    #
+####################################
 
 }

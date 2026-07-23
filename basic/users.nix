@@ -1,31 +1,24 @@
 { config, pkgs, ... }:
 
+let
+  userCreateHelper = pkgs.callPackage ./user-create-helper.nix {};
+in
 {
 
 #######
 #Users#
 #######
 
+# Allow imperative user management (users survive rebuilds)
+users.mutableUsers = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.admin = {
-    isNormalUser = true;
-    description = "admin";
-    extraGroups = [ "networkmanager" "wheel" "input" "audio" "lp" "scanner" "video"];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
-  };
-
-  users.users.user1 = {
-    isNormalUser = true;
-    description = "user1";
-    extraGroups = [ "networkmanager" "scanner" "lp" "input" "audio" "video"];
-    packages = with pkgs; [
-
-    ];
-  };
-
+# Creator account - login shell is the user creation script
+users.users.creator = {
+  isNormalUser = true;
+  description = "Create New Users";
+  extraGroups = [ "wheel" ];  # sudo access to modify system
+  shell = userCreateHelper;
+};
 
 ##############
 #End of Users#
