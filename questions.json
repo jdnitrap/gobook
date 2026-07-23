@@ -2,114 +2,738 @@
   "questions": [
     {
       "id": 1,
-      "subject": "Math",
-      "text": "What is 2 plus 2?",
+      "subject": "CP01",
+      "text": "What is the primary purpose of piping in a power plant?",
       "options": [
-        {"letter": "a", "text": "4", "correct": true},
-        {"letter": "b", "text": "2", "correct": false},
-        {"letter": "c", "text": "5", "correct": false},
-        {"letter": "d", "text": "7", "correct": false}
+        {"letter": "a", "text": "To transport fluids from one piece of equipment to another", "correct": true},
+        {"letter": "b", "text": "To regulate system pressure", "correct": false},
+        {"letter": "c", "text": "To store fluids for later use", "correct": false},
+        {"letter": "d", "text": "To measure fluid temperature", "correct": false}
       ],
-      "explanation": "2 + 2 = 4. This is basic arithmetic addition."
+      "explanation": "Piping serves as the housing to transport fluids (and sometimes fluid/solid mixtures) between equipment in power plant systems."
     },
     {
       "id": 2,
-      "subject": "Math",
-      "text": "What is 5 times 3?",
+      "subject": "CP01",
+      "text": "Which piping material is typically used for high-temperature applications due to greater resistance to wear, fatigue, and corrosion?",
       "options": [
-        {"letter": "a", "text": "8", "correct": false},
-        {"letter": "b", "text": "15", "correct": true},
-        {"letter": "c", "text": "20", "correct": false},
-        {"letter": "d", "text": "25", "correct": false}
+        {"letter": "a", "text": "Low-Carbon Steel", "correct": false},
+        {"letter": "b", "text": "Low Alloy Steel", "correct": true},
+        {"letter": "c", "text": "Stainless Steel", "correct": false},
+        {"letter": "d", "text": "Copper Alloy", "correct": false}
       ],
-      "explanation": "5 × 3 = 15. Multiplication is repeated addition."
+      "explanation": "Low alloy steel is preferred for high-temperature applications due to its superior resistance to wear, fatigue, and corrosion."
     },
     {
       "id": 3,
-      "subject": "Math",
-      "text": "What is 10 divided by 2?",
+      "subject": "CP01",
+      "text": "Which piping material is normally chosen for systems connected to the reactor because corrosion product generation must be minimized?",
       "options": [
-        {"letter": "a", "text": "3", "correct": false},
-        {"letter": "b", "text": "5", "correct": true},
-        {"letter": "c", "text": "7", "correct": false},
-        {"letter": "d", "text": "8", "correct": false}
+        {"letter": "a", "text": "Low-Carbon Steel", "correct": false},
+        {"letter": "b", "text": "Low Alloy Steel", "correct": false},
+        {"letter": "c", "text": "Stainless Steel", "correct": true},
+        {"letter": "d", "text": "Nickel Alloy", "correct": false}
       ],
-      "explanation": "10 ÷ 2 = 5. Division is the inverse of multiplication."
+      "explanation": "Stainless steel is used in reactor systems where corrosion product buildup must be minimized to protect system integrity."
     },
     {
       "id": 4,
-      "subject": "Science",
-      "text": "What is the chemical symbol for Gold?",
+      "subject": "CP01",
+      "text": "Which of the following is NOT one of the five principal functions of valves?",
       "options": [
-        {"letter": "a", "text": "Go", "correct": false},
-        {"letter": "b", "text": "Gd", "correct": false},
-        {"letter": "c", "text": "Au", "correct": true},
-        {"letter": "d", "text": "Ag", "correct": false}
+        {"letter": "a", "text": "Starting/stopping flow", "correct": false},
+        {"letter": "b", "text": "Throttling flow", "correct": false},
+        {"letter": "c", "text": "Increasing system pressure", "correct": true},
+        {"letter": "d", "text": "Relieving pressure", "correct": false}
       ],
-      "explanation": "Gold's chemical symbol is Au, from its Latin name 'Aurum'."
+      "explanation": "The five principal valve functions are: starting/stopping, throttling, controlling flow direction, regulating pressure, and relieving pressure. Increasing system pressure is not a valve function."
     },
     {
       "id": 5,
-      "subject": "Science",
-      "text": "How many planets are in our solar system?",
+      "subject": "CP01",
+      "text": "What is the primary function of the backseat in a valve?",
       "options": [
-        {"letter": "a", "text": "7", "correct": false},
-        {"letter": "b", "text": "8", "correct": true},
-        {"letter": "c", "text": "9", "correct": false},
-        {"letter": "d", "text": "10", "correct": false}
+        {"letter": "a", "text": "To seal the valve seat", "correct": false},
+        {"letter": "b", "text": "To remove system pressure from the packing to allow packing replacement while the system is pressurized", "correct": true},
+        {"letter": "c", "text": "To increase valve strength", "correct": false},
+        {"letter": "d", "text": "To regulate flow rate", "correct": false}
       ],
-      "explanation": "There are 8 planets: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune."
+      "explanation": "The backseat is a critical safety feature that removes system pressure from the packing, allowing maintenance without depressurizing the system."
     },
     {
       "id": 6,
-      "subject": "Science",
-      "text": "What is the boiling point of water?",
+      "subject": "CP01",
+      "text": "Gate valves are primarily used as isolation valves rather than for throttling because:",
       "options": [
-        {"letter": "a", "text": "90°C", "correct": false},
-        {"letter": "b", "text": "100°C", "correct": true},
-        {"letter": "c", "text": "110°C", "correct": false},
-        {"letter": "d", "text": "120°C", "correct": false}
+        {"letter": "a", "text": "They are more expensive than globe valves", "correct": false},
+        {"letter": "b", "text": "Positioning the disk in the flow stream causes turbulence and accelerated wear", "correct": true},
+        {"letter": "c", "text": "They cannot withstand high pressures", "correct": false},
+        {"letter": "d", "text": "They are harder to operate", "correct": false}
       ],
-      "explanation": "Water boils at 100°C (212°F) at standard atmospheric pressure."
+      "explanation": "Gate valves are unsuitable for throttling because disk positioning in the flow causes turbulence and accelerated wear, damaging the valve."
     },
     {
       "id": 7,
-      "subject": "History",
-      "text": "What is the capital of France?",
+      "subject": "CP01",
+      "text": "Why are globe valves preferred for throttling?",
       "options": [
-        {"letter": "a", "text": "London", "correct": false},
-        {"letter": "b", "text": "Paris", "correct": true},
-        {"letter": "c", "text": "Berlin", "correct": false},
-        {"letter": "d", "text": "Madrid", "correct": false}
+        {"letter": "a", "text": "They are cheaper than gate valves", "correct": false},
+        {"letter": "b", "text": "The disk is beveled and seats at nearly right angles to the flow path", "correct": true},
+        {"letter": "c", "text": "They operate faster than other valves", "correct": false},
+        {"letter": "d", "text": "They require less maintenance", "correct": false}
       ],
-      "explanation": "Paris is the capital and largest city of France."
+      "explanation": "Globe valves are ideal for throttling because the beveled disk seating at right angles to flow allows smooth, controlled flow regulation."
     },
     {
       "id": 8,
-      "subject": "History",
-      "text": "In what year did the Titanic sink?",
+      "subject": "CP01",
+      "text": "Which statement is true about Kerotest valves?",
       "options": [
-        {"letter": "a", "text": "1910", "correct": false},
-        {"letter": "b", "text": "1912", "correct": true},
-        {"letter": "c", "text": "1920", "correct": false},
-        {"letter": "d", "text": "1915", "correct": false}
+        {"letter": "a", "text": "They go from full closed to full open in approximately 1¼ turns", "correct": true},
+        {"letter": "b", "text": "They are best for isolation applications only", "correct": false},
+        {"letter": "c", "text": "They cannot be used for throttling", "correct": false},
+        {"letter": "d", "text": "They have a packing gland design", "correct": false}
       ],
-      "explanation": "The RMS Titanic sank on April 15, 1912, after hitting an iceberg."
+      "explanation": "Kerotest valves are pack-less globe valves designed to go from full closed to full open in approximately 1¼ turns."
     },
     {
       "id": 9,
-      "subject": "History",
-      "text": "Who was the first President of the United States?",
+      "subject": "CP01",
+      "text": "Why should operators avoid over-torquing a Kerotest valve?",
       "options": [
-        {"letter": "a", "text": "Thomas Jefferson", "correct": false},
-        {"letter": "b", "text": "George Washington", "correct": true},
-        {"letter": "c", "text": "John Adams", "correct": false},
-        {"letter": "d", "text": "Benjamin Franklin", "correct": false}
+        {"letter": "a", "text": "It wastes energy", "correct": false},
+        {"letter": "b", "text": "Excessive torque can crush or deform the disk, preventing the valve from opening later", "correct": true},
+        {"letter": "c", "text": "It causes the valve to leak", "correct": false},
+        {"letter": "d", "text": "It damages the stem threads", "correct": false}
       ],
-      "explanation": "George Washington was the first President of the United States, serving from 1789 to 1797."
+      "explanation": "Over-torquing a Kerotest valve can crush or deform the disk, potentially making the valve impossible to open later."
     },
     {
       "id": 10,
+      "subject": "CP01",
+      "text": "What feature makes a needle valve suitable for precise flow control?",
+      "options": [
+        {"letter": "a", "text": "Its large bore diameter", "correct": false},
+        {"letter": "b", "text": "Its long, narrow, cone-shaped stem tip", "correct": true},
+        {"letter": "c", "text": "Its high flow capacity", "correct": false},
+        {"letter": "d", "text": "Its multiple disk design", "correct": false}
+      ],
+      "explanation": "A needle valve's long, narrow, cone-shaped stem tip allows fine, precise adjustment of flow rate."
+    },
+    {
+      "id": 11,
+      "subject": "CP01",
+      "text": "Butterfly valves are typically used in:",
+      "options": [
+        {"letter": "a", "text": "Small diameter, high pressure applications", "correct": false},
+        {"letter": "b", "text": "Large diameter, high flow, low pressure applications (e.g., circulating water)", "correct": true},
+        {"letter": "c", "text": "Cryogenic systems", "correct": false},
+        {"letter": "d", "text": "Nuclear coolant piping", "correct": false}
+      ],
+      "explanation": "Butterfly valves are ideal for large diameter, high flow, low pressure service such as circulating water systems."
+    },
+    {
+      "id": 12,
+      "subject": "CP01",
+      "text": "What is the main advantage of a diaphragm valve with radioactive or corrosive fluids?",
+      "options": [
+        {"letter": "a", "text": "It can handle very high pressures", "correct": false},
+        {"letter": "b", "text": "The fluid is completely separated from the moving parts, resulting in zero stem leakage", "correct": true},
+        {"letter": "c", "text": "It operates faster than other valves", "correct": false},
+        {"letter": "d", "text": "It requires no maintenance", "correct": false}
+      ],
+      "explanation": "Diaphragm valves completely separate the fluid from moving parts, preventing stem leakage and protecting against contamination."
+    },
+    {
+      "id": 13,
+      "subject": "CP01",
+      "text": "What is the primary purpose of check valves?",
+      "options": [
+        {"letter": "a", "text": "To throttle fluid flow", "correct": false},
+        {"letter": "b", "text": "To allow flow in only one direction and prevent reverse flow", "correct": true},
+        {"letter": "c", "text": "To reduce system pressure", "correct": false},
+        {"letter": "d", "text": "To isolate equipment", "correct": false}
+      ],
+      "explanation": "Check valves are one-way devices that permit flow in the intended direction while preventing backflow."
+    },
+    {
+      "id": 14,
+      "subject": "CP01",
+      "text": "What is the key difference between a safety valve and a relief valve?",
+      "options": [
+        {"letter": "a", "text": "Safety valves are used for liquids, relief valves for gases", "correct": false},
+        {"letter": "b", "text": "Safety valves pop fully open with little or no accumulation, while relief valves require accumulation", "correct": true},
+        {"letter": "c", "text": "Relief valves pop fully open, safety valves open gradually", "correct": false},
+        {"letter": "d", "text": "There is no practical difference", "correct": false}
+      ],
+      "explanation": "Safety valves pop fully open at setpoint with minimal accumulation, while relief valves open gradually as pressure rises above setpoint."
+    },
+    {
+      "id": 15,
+      "subject": "CP01",
+      "text": "What is the primary function of a vacuum breaker?",
+      "options": [
+        {"letter": "a", "text": "To prevent excessive pressure buildup", "correct": false},
+        {"letter": "b", "text": "To protect a tank or vessel from collapsing due to low internal pressure", "correct": true},
+        {"letter": "c", "text": "To measure vacuum in the system", "correct": false},
+        {"letter": "d", "text": "To regulate flow rate", "correct": false}
+      ],
+      "explanation": "A vacuum breaker is a safety device that protects vessels from structural collapse under low internal pressure conditions."
+    },
+    {
+      "id": 16,
+      "subject": "CP01",
+      "text": "What is the correct definition of 'Fail As Is' for valve actuators?",
+      "options": [
+        {"letter": "a", "text": "The valve opens when power is lost", "correct": false},
+        {"letter": "b", "text": "The valve closes when power is lost", "correct": false},
+        {"letter": "c", "text": "The valve remains in its current position when the actuating medium is lost", "correct": true},
+        {"letter": "d", "text": "The valve springs to a safe position", "correct": false}
+      ],
+      "explanation": "Fail As Is (most common in Motor Operated Valves) means the valve maintains its current position when actuating power is lost."
+    },
+    {
+      "id": 17,
+      "subject": "CP01",
+      "text": "Key precaution when manually operating a Motor Operated Valve (MOV):",
+      "options": [
+        {"letter": "a", "text": "Always tag out the power supply to the motor before using the handwheel (when feasible)", "correct": true},
+        {"letter": "b", "text": "Use a wrench to increase torque application", "correct": false},
+        {"letter": "c", "text": "Operate it as quickly as possible", "correct": false},
+        {"letter": "d", "text": "Do not verify the position afterward", "correct": false}
+      ],
+      "explanation": "Tagging out the motor power prevents inadvertent power application during manual valve operation, ensuring operator safety."
+    },
+    {
+      "id": 18,
+      "subject": "CP01",
+      "text": "When verifying position of a manual valve locally, operators should first attempt to turn the handwheel in which direction?",
+      "options": [
+        {"letter": "a", "text": "Open direction", "correct": false},
+        {"letter": "b", "text": "Closed direction (negligible effect if already closed)", "correct": true},
+        {"letter": "c", "text": "It doesn't matter", "correct": false},
+        {"letter": "d", "text": "Clockwise only", "correct": false}
+      ],
+      "explanation": "Testing closure direction is safe because if the valve is already closed, the handwheel won't move, causing no system impact."
+    },
+    {
+      "id": 19,
+      "subject": "CP01",
+      "text": "According to SOER 85-2, one primary method to prevent valve mispositioning is:",
+      "options": [
+        {"letter": "a", "text": "Install redundant valve position indicators", "correct": false},
+        {"letter": "b", "text": "Verify that all local and remote indications reflect actual plant conditions before and after manipulation", "correct": true},
+        {"letter": "c", "text": "Color-code all valve handwheels", "correct": false},
+        {"letter": "d", "text": "Limit operator access to valves", "correct": false}
+      ],
+      "explanation": "Verification of all indications before and after valve operation is essential to prevent dangerous mispositioning events."
+    },
+    {
+      "id": 20,
+      "subject": "CP01",
+      "text": "What is a major failure mechanism of gate valves discussed in the lesson?",
+      "options": [
+        {"letter": "a", "text": "Corrosion of the bonnet", "correct": false},
+        {"letter": "b", "text": "Thermal binding or pressure locking", "correct": true},
+        {"letter": "c", "text": "Disk warping from heat", "correct": false},
+        {"letter": "d", "text": "Stem rupture", "correct": false}
+      ],
+      "explanation": "Thermal binding (differential cooling contraction) and pressure locking (trapped liquid expansion) are critical gate valve failure mechanisms."
+    },
+    {
+      "id": 21,
+      "subject": "TH01",
+      "text": "According to Pascal's Law, a pressure change applied to an enclosed, incompressible fluid is transmitted:",
+      "options": [
+        {"letter": "a", "text": "Only at the point of application", "correct": false},
+        {"letter": "b", "text": "Undiminished to all points within the fluid and to the walls of the container", "correct": true},
+        {"letter": "c", "text": "Only downward due to gravity", "correct": false},
+        {"letter": "d", "text": "Only along the path of least resistance", "correct": false}
+      ],
+      "explanation": "Pascal's Law: pressure applied to an enclosed fluid transmits undiminished throughout in all directions."
+    },
+    {
+      "id": 22,
+      "subject": "TH01",
+      "text": "Gauge pressure plus atmospheric pressure equals which pressure value?",
+      "options": [
+        {"letter": "a", "text": "Vacuum pressure", "correct": false},
+        {"letter": "b", "text": "Differential pressure", "correct": false},
+        {"letter": "c", "text": "Absolute pressure", "correct": true},
+        {"letter": "d", "text": "Static pressure", "correct": false}
+      ],
+      "explanation": "Pabs = Pgage + Patm. Absolute pressure is always the sum of gauge and atmospheric pressures."
+    },
+    {
+      "id": 23,
+      "subject": "TH01",
+      "text": "Specific volume is best defined as:",
+      "options": [
+        {"letter": "a", "text": "The total volume of a substance", "correct": false},
+        {"letter": "b", "text": "The volume occupied by a unit mass of a substance (the reciprocal of density)", "correct": true},
+        {"letter": "c", "text": "The rate of volume change", "correct": false},
+        {"letter": "d", "text": "The volume at standard temperature and pressure", "correct": false}
+      ],
+      "explanation": "Specific volume (v) = V/m, measured in ft³/lbm or m³/kg. It is the reciprocal of density."
+    },
+    {
+      "id": 24,
+      "subject": "TH01",
+      "text": "What is the primary difference between a closed system and an open system in thermodynamics?",
+      "options": [
+        {"letter": "a", "text": "A closed system allows energy transfer across its boundary but not mass transfer, while an open system allows transfer of both mass and energy", "correct": true},
+        {"letter": "b", "text": "A closed system allows no transfer of mass or energy", "correct": false},
+        {"letter": "c", "text": "An open system is always at constant pressure", "correct": false},
+        {"letter": "d", "text": "A closed system is only used in laboratories", "correct": false}
+      ],
+      "explanation": "Closed systems have fixed mass boundaries but allow energy exchange. Open systems (control volumes) allow both mass and energy crossing boundaries."
+    },
+    {
+      "id": 25,
+      "subject": "TH01",
+      "text": "Which type of thermodynamic property depends on the amount of substance present, such as volume or weight?",
+      "options": [
+        {"letter": "a", "text": "Intensive property", "correct": false},
+        {"letter": "b", "text": "Extensive property", "correct": true},
+        {"letter": "c", "text": "Derived property", "correct": false},
+        {"letter": "d", "text": "Critical property", "correct": false}
+      ],
+      "explanation": "Extensive properties (volume, mass, weight) depend on the amount of substance. Intensive properties (pressure, temperature) do not."
+    },
+    {
+      "id": 26,
+      "subject": "TH01",
+      "text": "On which temperature scale does zero represent the point of no molecular motion (absolute zero) and correspond exactly to zero Kelvin?",
+      "options": [
+        {"letter": "a", "text": "Celsius", "correct": false},
+        {"letter": "b", "text": "Fahrenheit", "correct": false},
+        {"letter": "c", "text": "Rankine", "correct": true},
+        {"letter": "d", "text": "Kelvin", "correct": false}
+      ],
+      "explanation": "The Rankine scale (absolute scale for Fahrenheit) and Kelvin (absolute scale for Celsius) both have zero at absolute zero."
+    },
+    {
+      "id": 27,
+      "subject": "TH01",
+      "text": "Which pressure measurement indicates a pressure below atmospheric pressure?",
+      "options": [
+        {"letter": "a", "text": "Gauge pressure", "correct": false},
+        {"letter": "b", "text": "Absolute pressure", "correct": false},
+        {"letter": "c", "text": "Vacuum pressure", "correct": true},
+        {"letter": "d", "text": "Differential pressure", "correct": false}
+      ],
+      "explanation": "Vacuum pressure is any pressure below atmospheric. Pvac = Patm - Pabs."
+    },
+    {
+      "id": 28,
+      "subject": "TH01",
+      "text": "What term describes the difference in pressure between two locations, such as across a filter?",
+      "options": [
+        {"letter": "a", "text": "Static pressure", "correct": false},
+        {"letter": "b", "text": "Dynamic pressure", "correct": false},
+        {"letter": "c", "text": "Differential pressure", "correct": true},
+        {"letter": "d", "text": "Transient pressure", "correct": false}
+      ],
+      "explanation": "Differential pressure (psid) is the pressure difference between two points in a system, commonly used across filters and restrictors."
+    },
+    {
+      "id": 29,
+      "subject": "TH01",
+      "text": "In a hydraulic press, if the output piston has a larger area than the input piston, how does the output force compare to the input force?",
+      "options": [
+        {"letter": "a", "text": "The output force is less than the input force", "correct": false},
+        {"letter": "b", "text": "The output force equals the input force", "correct": false},
+        {"letter": "c", "text": "The output force is greater than the input force", "correct": true},
+        {"letter": "d", "text": "Output force depends only on fluid type", "correct": false}
+      ],
+      "explanation": "In a hydraulic press, F = P × A. A larger output piston area produces greater output force (Pascal's Law application)."
+    },
+    {
+      "id": 30,
+      "subject": "TH01",
+      "text": "Why does liquid temperature have a much greater effect on density and specific volume than pressure does?",
+      "options": [
+        {"letter": "a", "text": "Because liquids expand more with heat", "correct": false},
+        {"letter": "b", "text": "Because liquids are relatively incompressible, so pressure has little effect on their volume", "correct": true},
+        {"letter": "c", "text": "Because pressure always increases density", "correct": false},
+        {"letter": "d", "text": "Because temperature is more important than pressure", "correct": false}
+      ],
+      "explanation": "Liquids are nearly incompressible, so pressure changes have minimal volume effect. Temperature changes cause greater density variations."
+    },
+    {
+      "id": 31,
+      "subject": "TH02",
+      "text": "The First Law of Thermodynamics states that energy:",
+      "options": [
+        {"letter": "a", "text": "Always decreases in any process", "correct": false},
+        {"letter": "b", "text": "Cannot be created or destroyed, only converted from one form to another", "correct": true},
+        {"letter": "c", "text": "Can only flow from hot to cold", "correct": false},
+        {"letter": "d", "text": "Is lost as heat in all processes", "correct": false}
+      ],
+      "explanation": "The First Law (Energy Conservation): Energy entering a system equals energy stored in or leaving it. E in = E stored + E out."
+    },
+    {
+      "id": 32,
+      "subject": "TH02",
+      "text": "Heat and work are best classified as which type of energy?",
+      "options": [
+        {"letter": "a", "text": "Stored energy forms", "correct": false},
+        {"letter": "b", "text": "Transient (energy in transit) forms of energy", "correct": true},
+        {"letter": "c", "text": "Potential energy", "correct": false},
+        {"letter": "d", "text": "Kinetic energy", "correct": false}
+      ],
+      "explanation": "Heat and work are transient energy forms—energy in transit. They exist only during energy transfer between systems and surroundings."
+    },
+    {
+      "id": 33,
+      "subject": "TH02",
+      "text": "Which equation correctly defines enthalpy (H)?",
+      "options": [
+        {"letter": "a", "text": "H = U - PV", "correct": false},
+        {"letter": "b", "text": "H = U + PV", "correct": true},
+        {"letter": "c", "text": "H = U/PV", "correct": false},
+        {"letter": "d", "text": "H = PV - U", "correct": false}
+      ],
+      "explanation": "Enthalpy H = U + PV, where U is internal energy and PV is flow energy. This is a fundamental thermodynamic property."
+    },
+    {
+      "id": 34,
+      "subject": "TH02",
+      "text": "What is the term for energy a substance possesses due to its position or height relative to a reference point?",
+      "options": [
+        {"letter": "a", "text": "Kinetic Energy", "correct": false},
+        {"letter": "b", "text": "Internal Energy", "correct": false},
+        {"letter": "c", "text": "Potential Energy", "correct": true},
+        {"letter": "d", "text": "Flow Energy", "correct": false}
+      ],
+      "explanation": "Potential Energy (PE) depends on position. PE = mzg/gc, where z is height above a reference point."
+    },
+    {
+      "id": 35,
+      "subject": "TH02",
+      "text": "What is the term for energy a substance possesses due to its motion?",
+      "options": [
+        {"letter": "a", "text": "Potential Energy", "correct": false},
+        {"letter": "b", "text": "Kinetic Energy", "correct": true},
+        {"letter": "c", "text": "Internal Energy", "correct": false},
+        {"letter": "d", "text": "Thermal Energy", "correct": false}
+      ],
+      "explanation": "Kinetic Energy (KE) = mv²/2gc. It depends on the velocity of the substance."
+    },
+    {
+      "id": 36,
+      "subject": "TH02",
+      "text": "Internal energy is best described as which of the following?",
+      "options": [
+        {"letter": "a", "text": "Energy from chemical reactions", "correct": false},
+        {"letter": "b", "text": "The sum of the microscopic energy forms (molecular rotation, vibration, and translation) within a substance", "correct": true},
+        {"letter": "c", "text": "Energy stored in compressed springs", "correct": false},
+        {"letter": "d", "text": "Energy from electrical sources", "correct": false}
+      ],
+      "explanation": "Internal energy (U) is the sum of all microscopic forms: molecular rotation, vibration, and translational kinetic energy."
+    },
+    {
+      "id": 37,
+      "subject": "TH02",
+      "text": "Which equation correctly defines specific enthalpy (h)?",
+      "options": [
+        {"letter": "a", "text": "h = u - Pv", "correct": false},
+        {"letter": "b", "text": "h = u + Pv", "correct": true},
+        {"letter": "c", "text": "h = u/Pv", "correct": false},
+        {"letter": "d", "text": "h = Pv - u", "correct": false}
+      ],
+      "explanation": "Specific enthalpy h = u + Pv. It represents energy per unit mass of fluid."
+    },
+    {
+      "id": 38,
+      "subject": "TH02",
+      "text": "For a closed system with no change in potential or kinetic energy, the General Energy Equation reduces to which relationship?",
+      "options": [
+        {"letter": "a", "text": "Q = W", "correct": false},
+        {"letter": "b", "text": "ΔU = Q + W", "correct": false},
+        {"letter": "c", "text": "Change in enthalpy = heat transferred to the system minus work done by the system (Δh = q - w)", "correct": true},
+        {"letter": "d", "text": "Q = U + PV", "correct": false}
+      ],
+      "explanation": "For closed systems with no PE/KE change: Δh = q - w. This is the simplified First Law energy equation."
+    },
+    {
+      "id": 39,
+      "subject": "TH02",
+      "text": "Which term describes the rate at which work is done?",
+      "options": [
+        {"letter": "a", "text": "Force", "correct": false},
+        {"letter": "b", "text": "Torque", "correct": false},
+        {"letter": "c", "text": "Power", "correct": true},
+        {"letter": "d", "text": "Momentum", "correct": false}
+      ],
+      "explanation": "Power is work per unit time: P = W/t, measured in watts (J/s) or horsepower (hp)."
+    },
+    {
+      "id": 40,
+      "subject": "TH03",
+      "text": "What is the term for a liquid existing at a temperature below its saturation temperature for a given pressure?",
+      "options": [
+        {"letter": "a", "text": "Saturated liquid", "correct": false},
+        {"letter": "b", "text": "Subcooled (or compressed) liquid", "correct": true},
+        {"letter": "c", "text": "Superheated liquid", "correct": false},
+        {"letter": "d", "text": "Critical liquid", "correct": false}
+      ],
+      "explanation": "Subcooled (or compressed) liquid is below saturation temperature for its pressure, meaning it could absorb heat and vaporize."
+    },
+    {
+      "id": 41,
+      "subject": "TH03",
+      "text": "What is the term for steam that is 100% vapor at its boiling temperature, with no liquid remaining?",
+      "options": [
+        {"letter": "a", "text": "Saturated vapor", "correct": true},
+        {"letter": "b", "text": "Superheated vapor", "correct": false},
+        {"letter": "c", "text": "Wet vapor", "correct": false},
+        {"letter": "d", "text": "Critical vapor", "correct": false}
+      ],
+      "explanation": "Saturated vapor (dry steam) is at saturation temperature with quality X = 100%. Any further heating produces superheated steam."
+    },
+    {
+      "id": 42,
+      "subject": "TH03",
+      "text": "What is the term for vapor that exists above its boiling (saturation) temperature?",
+      "options": [
+        {"letter": "a", "text": "Saturated vapor", "correct": false},
+        {"letter": "b", "text": "Superheated vapor", "correct": true},
+        {"letter": "c", "text": "Dry vapor", "correct": false},
+        {"letter": "d", "text": "Compressed vapor", "correct": false}
+      ],
+      "explanation": "Superheated vapor is above saturation temperature. The degrees of superheat = actual T - saturation T."
+    },
+    {
+      "id": 43,
+      "subject": "TH03",
+      "text": "Heat that changes a substance's phase without changing its temperature is called:",
+      "options": [
+        {"letter": "a", "text": "Sensible heat", "correct": false},
+        {"letter": "b", "text": "Specific heat", "correct": false},
+        {"letter": "c", "text": "Latent heat", "correct": true},
+        {"letter": "d", "text": "Internal heat", "correct": false}
+      ],
+      "explanation": "Latent heat is phase-change heat (melting, vaporization) that doesn't change temperature. Sensible heat does change temperature."
+    },
+    {
+      "id": 44,
+      "subject": "TH03",
+      "text": "What term describes the fraction of vapor present in a wet steam mixture?",
+      "options": [
+        {"letter": "a", "text": "Moisture content", "correct": false},
+        {"letter": "b", "text": "Steam quality", "correct": true},
+        {"letter": "c", "text": "Void fraction", "correct": false},
+        {"letter": "d", "text": "Dryness fraction", "correct": false}
+      ],
+      "explanation": "Steam quality (X) = fraction of vapor in wet steam mixture. Moisture content (M) = liquid fraction. X + M = 100%."
+    },
+    {
+      "id": 45,
+      "subject": "TH03",
+      "text": "On a P-T diagram, the point at which the solid, liquid, and gas phases can all exist in equilibrium simultaneously is called:",
+      "options": [
+        {"letter": "a", "text": "Critical Point", "correct": false},
+        {"letter": "b", "text": "Triple Point", "correct": true},
+        {"letter": "c", "text": "Saturation Point", "correct": false},
+        {"letter": "d", "text": "Equilibrium Point", "correct": false}
+      ],
+      "explanation": "The Triple Point is where solid, liquid, and gas coexist. For water: 0.01°C, 0.006 atm."
+    },
+    {
+      "id": 46,
+      "subject": "TH03",
+      "text": "According to Charles' Law, at constant pressure, the volume of a gas is:",
+      "options": [
+        {"letter": "a", "text": "Inversely proportional to its absolute temperature", "correct": false},
+        {"letter": "b", "text": "Directly proportional to its absolute temperature", "correct": true},
+        {"letter": "c", "text": "Independent of temperature", "correct": false},
+        {"letter": "d", "text": "Proportional to the square of temperature", "correct": false}
+      ],
+      "explanation": "Charles' Law: V ∝ T at constant P. V₁/T₁ = V₂/T₂ (using absolute temperature)."
+    },
+    {
+      "id": 47,
+      "subject": "TH03",
+      "text": "According to Boyle's Law, at constant temperature, the volume of a gas is:",
+      "options": [
+        {"letter": "a", "text": "Directly proportional to its absolute pressure", "correct": false},
+        {"letter": "b", "text": "Inversely proportional to its absolute pressure", "correct": true},
+        {"letter": "c", "text": "Independent of pressure", "correct": false},
+        {"letter": "d", "text": "Proportional to the square of pressure", "correct": false}
+      ],
+      "explanation": "Boyle's Law: V ∝ 1/P at constant T. P₁V₁ = P₂V₂."
+    },
+    {
+      "id": 48,
+      "subject": "TH03",
+      "text": "Why should the Ideal Gas Law not be used to determine the properties of steam?",
+      "options": [
+        {"letter": "a", "text": "Steam is always at high pressure", "correct": false},
+        {"letter": "b", "text": "Steam's behavior is considerably more complex than an ideal gas, so steam tables (experimentally derived data) must be used instead", "correct": true},
+        {"letter": "c", "text": "The Ideal Gas Law only works for perfect gases", "correct": false},
+        {"letter": "d", "text": "Steam has no molecules", "correct": false}
+      ],
+      "explanation": "Steam deviates significantly from ideal gas behavior, especially near saturation. Steam tables provide experimentally accurate properties."
+    },
+    {
+      "id": 49,
+      "subject": "TH04",
+      "text": "In a process where no heat is transferred to or from the system, what term describes this condition?",
+      "options": [
+        {"letter": "a", "text": "Isothermal", "correct": false},
+        {"letter": "b", "text": "Isobaric", "correct": false},
+        {"letter": "c", "text": "Adiabatic", "correct": true},
+        {"letter": "d", "text": "Isochoric", "correct": false}
+      ],
+      "explanation": "Adiabatic process: Q = 0 (no heat transfer). Temperature and pressure can change in adiabatic processes."
+    },
+    {
+      "id": 50,
+      "subject": "TH04",
+      "text": "For a turbine, the work output is typically expressed as the difference between which two values?",
+      "options": [
+        {"letter": "a", "text": "Hout - Hin", "correct": false},
+        {"letter": "b", "text": "Hin - Hout", "correct": true},
+        {"letter": "c", "text": "Pin - Pout", "correct": false},
+        {"letter": "d", "text": "Tin - Tout", "correct": false}
+      ],
+      "explanation": "Turbine work: W = h_in - h_out. The enthalpy drop across the turbine equals the mechanical work output."
+    },
+    {
+      "id": 51,
+      "subject": "TH04",
+      "text": "What does the term 'isenthalpic' describe in a thermodynamic process?",
+      "options": [
+        {"letter": "a", "text": "No change in entropy", "correct": false},
+        {"letter": "b", "text": "Constant enthalpy (h_in = h_out)", "correct": true},
+        {"letter": "c", "text": "Constant pressure", "correct": false},
+        {"letter": "d", "text": "Constant temperature", "correct": false}
+      ],
+      "explanation": "Isenthalpic process: enthalpy remains constant. Throttling (through a valve) is an isenthalpic process."
+    },
+    {
+      "id": 52,
+      "subject": "TH04",
+      "text": "Which of the following is the correct expression for the work input to a pump?",
+      "options": [
+        {"letter": "a", "text": "Hin - Hout", "correct": false},
+        {"letter": "b", "text": "Hout - Hin", "correct": true},
+        {"letter": "c", "text": "Pin - Pout", "correct": false},
+        {"letter": "d", "text": "Tin - Tout", "correct": false}
+      ],
+      "explanation": "Pump work: W = h_out - h_in (positive value). Work is input to increase fluid pressure and enthalpy."
+    },
+    {
+      "id": 53,
+      "subject": "TH04",
+      "text": "Condensate depression is defined as the difference between which two temperatures?",
+      "options": [
+        {"letter": "a", "text": "Boiling point - Room temperature", "correct": false},
+        {"letter": "b", "text": "Tsat - Tcondensate", "correct": true},
+        {"letter": "c", "text": "Inlet temperature - Outlet temperature", "correct": false},
+        {"letter": "d", "text": "Condenser temperature - Cooling water temperature", "correct": false}
+      ],
+      "explanation": "Condensate depression = saturation temperature minus actual condensate temperature. A few degrees prevents pump cavitation."
+    },
+    {
+      "id": 54,
+      "subject": "TH04",
+      "text": "A process that occurs at constant pressure is called:",
+      "options": [
+        {"letter": "a", "text": "Isothermal", "correct": false},
+        {"letter": "b", "text": "Isochoric", "correct": false},
+        {"letter": "c", "text": "Isobaric", "correct": true},
+        {"letter": "d", "text": "Adiabatic", "correct": false}
+      ],
+      "explanation": "Isobaric process: P = constant. Boiler heat addition and condenser heat rejection are isobaric processes."
+    },
+    {
+      "id": 55,
+      "subject": "TH04",
+      "text": "A process that occurs at constant temperature is referred to as:",
+      "options": [
+        {"letter": "a", "text": "Isobaric", "correct": false},
+        {"letter": "b", "text": "Isochoric", "correct": false},
+        {"letter": "c", "text": "Isothermal", "correct": true},
+        {"letter": "d", "text": "Isentropic", "correct": false}
+      ],
+      "explanation": "Isothermal process: T = constant. Often occurs during condensation or with isothermal compression/expansion."
+    },
+    {
+      "id": 56,
+      "subject": "TH04",
+      "text": "What does the Second Law of Thermodynamics state about a heat engine operating in a cycle?",
+      "options": [
+        {"letter": "a", "text": "All heat can be converted to work", "correct": false},
+        {"letter": "b", "text": "No engine, actual or ideal, can convert all the heat supplied into work; some heat must always be rejected", "correct": true},
+        {"letter": "c", "text": "Heat only flows from cold to hot", "correct": false},
+        {"letter": "d", "text": "The amount of entropy always decreases", "correct": false}
+      ],
+      "explanation": "Second Law: No cyclic heat engine can achieve 100% efficiency. All engines must reject heat to the surroundings."
+    },
+    {
+      "id": 57,
+      "subject": "TH04",
+      "text": "The change in entropy of a system is defined as which of the following?",
+      "options": [
+        {"letter": "a", "text": "The heat added to the system multiplied by temperature", "correct": false},
+        {"letter": "b", "text": "The heat transferred to or from the system divided by the absolute temperature at which the transfer occurs", "correct": true},
+        {"letter": "c", "text": "The change in internal energy of the system", "correct": false},
+        {"letter": "d", "text": "The rate of heat transfer", "correct": false}
+      ],
+      "explanation": "Entropy change: ΔS = Q/T_abs. Total entropy increases in any real irreversible process (Second Law)."
+    },
+    {
+      "id": 58,
+      "subject": "TH04",
+      "text": "In a convergent nozzle, what happens to the velocity and pressure of the fluid?",
+      "options": [
+        {"letter": "a", "text": "Both velocity and pressure increase", "correct": false},
+        {"letter": "b", "text": "Velocity increases and pressure decreases", "correct": true},
+        {"letter": "c", "text": "Velocity decreases and pressure increases", "correct": false},
+        {"letter": "d", "text": "Both velocity and pressure decrease", "correct": false}
+      ],
+      "explanation": "In convergent nozzles: flow area decreases → velocity increases, pressure decreases (kinetic energy increases)."
+    },
+    {
+      "id": 59,
+      "subject": "TH04",
+      "text": "Why is a few degrees of condensate subcooling desirable at the condenser hotwell?",
+      "options": [
+        {"letter": "a", "text": "To increase system temperature", "correct": false},
+        {"letter": "b", "text": "To prevent cavitation in the condensate pumps", "correct": true},
+        {"letter": "c", "text": "To reduce overall system pressure", "correct": false},
+        {"letter": "d", "text": "To improve condenser heat transfer", "correct": false}
+      ],
+      "explanation": "Condensate depression prevents pump cavitation (vapor bubbles) but excessive depression wastes heat and increases corrosion."
+    },
+    {
+      "id": 60,
+      "subject": "TH04",
+      "text": "An ideal turbine or pump work process is described as isentropic because:",
+      "options": [
+        {"letter": "a", "text": "Temperature remains constant", "correct": false},
+        {"letter": "b", "text": "Friction is not considered, so there is no change in entropy of the working fluid", "correct": true},
+        {"letter": "c", "text": "Pressure remains constant", "correct": false},
+        {"letter": "d", "text": "No work is performed", "correct": false}
+      ],
+      "explanation": "Isentropic process: ΔS = 0 (reversible). Real turbines/pumps add entropy through friction, reducing their efficiency."
+    },
+    {
+      "id": 61,
+      "subject": "TH04",
+      "text": "Turbine efficiency is defined as which of the following ratios?",
+      "options": [
+        {"letter": "a", "text": "Ideal work / Real work", "correct": false},
+        {"letter": "b", "text": "Real work / Ideal work", "correct": true},
+        {"letter": "c", "text": "Output power / Input power", "correct": false},
+        {"letter": "d", "text": "Pressure drop / Enthalpy drop", "correct": false}
+      ],
+      "explanation": "Turbine efficiency = Real work output / Ideal isentropic work. Real turbines are always less efficient than ideal."
+    },
+    {
+      "id": 62,
       "subject": "TH05",
       "text": "What are the five essential elements of a thermodynamic cycle?",
       "options": [
@@ -121,7 +745,7 @@
       "explanation": "The five essential elements of a thermodynamic cycle are: a working fluid, an engine to convert heat to work, a heat source, a heat sink, and a device to move the working fluid."
     },
     {
-      "id": 11,
+      "id": 63,
       "subject": "TH05",
       "text": "The Carnot cycle consists of which four processes?",
       "options": [
@@ -133,7 +757,7 @@
       "explanation": "The Carnot cycle consists of two isothermal processes and two adiabatic (isentropic) processes, operating between two heat reservoirs."
     },
     {
-      "id": 12,
+      "id": 64,
       "subject": "TH05",
       "text": "According to the Carnot efficiency equation, the efficiency of a Carnot cycle depends only on:",
       "options": [
@@ -145,7 +769,7 @@
       "explanation": "The Carnot efficiency depends only on the absolute temperatures of the heat source and heat sink: η = 1 - (Tcold/Thot)."
     },
     {
-      "id": 13,
+      "id": 65,
       "subject": "TH05",
       "text": "What are the two ways to increase the Carnot efficiency of a cycle?",
       "options": [
@@ -157,7 +781,7 @@
       "explanation": "Carnot efficiency increases by raising the heat source temperature or lowering the heat sink temperature, both of which increase the temperature ratio."
     },
     {
-      "id": 14,
+      "id": 66,
       "subject": "TH05",
       "text": "What is the primary purpose of a Moisture Separator Reheater (MSR) in a steam cycle?",
       "options": [
@@ -169,7 +793,7 @@
       "explanation": "The MSR protects turbine blades from erosion and damage caused by moisture, not to improve efficiency directly."
     },
     {
-      "id": 15,
+      "id": 67,
       "subject": "TH05",
       "text": "How does feedwater heating (using extraction steam) affect cycle efficiency?",
       "options": [
@@ -181,7 +805,7 @@
       "explanation": "Feedwater heating improves efficiency by reducing the amount of heat that must be added in the boiler to achieve the desired cycle conditions."
     },
     {
-      "id": 16,
+      "id": 68,
       "subject": "TH05",
       "text": "How does increasing condenser vacuum (lowering absolute condenser pressure) affect cycle efficiency?",
       "options": [
@@ -193,7 +817,7 @@
       "explanation": "Lower condenser pressure increases the expansion ratio in the turbine, extracting more work per unit of steam and improving efficiency."
     },
     {
-      "id": 17,
+      "id": 69,
       "subject": "TH05",
       "text": "What is heat rate, and how does it relate to plant efficiency?",
       "options": [
