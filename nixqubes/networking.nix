@@ -6,37 +6,42 @@
 #NixQubes Network Isolation & Setup #
 #####################################
 
-# Enable networking
+# Enable networking on host
+networking.networkmanager.enable = false;
 networking.useDHCP = false;
 networking.interfaces.eth0.useDHCP = true;
 
-# Enable NAT for containers to reach host network
-networking.nat.enable = true;
-networking.nat.internalInterfaces = [ "ve-+" ];
-networking.nat.externalInterface = "eth0";
-
-# Container networking setup
-networking.networkmanager.enable = true;
-
 # Host firewall configuration
 networking.firewall.enable = true;
-networking.firewall.allowedTCPPorts = [];
+networking.firewall.allowedTCPPorts = [ 22 ];
 networking.firewall.allowedUDPPorts = [];
 
-# Allow container-to-container communication on specific interfaces
+# Routing: All containers get internet through net container
+# Work, Dev, Untrusted containers ONLY access net container
+# Net container has access to host network/WiFi
+
 networking.firewall.extraCommands = ''
-  # Allow communication between containers and management qube
+  # Allow all container traffic on veth interfaces
   ip46tables -A INPUT -i ve-+ -j ACCEPT
   ip46tables -A FORWARD -i ve-+ -j ACCEPT
   ip46tables -A FORWARD -o ve-+ -j ACCEPT
 
-  # Restrict inter-container communication (isolate by default)
-  # Containers can reach the host (for NixQubes services)
-  # but not each other unless explicitly allowed
+  # Restrict inter-container communication (Qubes-style isolation)
+  # Containers can ONLY reach net container, not each other
   ip46tables -A FORWARD -i ve-work -o ve-dev -j DROP
   ip46tables -A FORWARD -i ve-dev -o ve-work -j DROP
-  ip46tables -A FORWARD -i ve-untrusted -o ve-+ -j DROP
-  ip46tables -A FORWARD -i ve-+ -o ve-untrusted -j DROP
+  ip46tables -A FORWARD -i ve-work -o ve-untrusted -j DROP
+  ip46tables -A FORWARD -i ve-untrusted -o ve-work -j DROP
+  ip46tables -A FORWARD -i ve-dev -o ve-untrusted -j DROP
+  ip46tables -A FORWARD -i ve-untrusted -o ve-dev -j DROP
+
+  # Allow containers to reach net container for internet access
+  ip46tables -A FORWARD -i ve-work -o ve-net -j ACCEPT
+  ip46tables -A FORWARD -i ve-dev -o ve-net -j ACCEPT
+  ip46tables -A FORWARD -i ve-untrusted -o ve-net -j ACCEPT
+  ip46tables -A FORWARD -i ve-net -o ve-work -j ACCEPT
+  ip46tables -A FORWARD -i ve-net -o ve-dev -j ACCEPT
+  ip46tables -A FORWARD -i ve-net -o ve-untrusted -j ACCEPT
 '';
 
 networking.firewall.extraStopCommands = ''
@@ -45,7 +50,7 @@ networking.firewall.extraStopCommands = ''
   ip46tables -D FORWARD -o ve-+ -j ACCEPT 2>/dev/null || true
 '';
 
-# DNS resolution for containers
+# DNS resolution for host
 services.resolved.enable = true;
 
 #########################################
