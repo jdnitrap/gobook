@@ -1,386 +1,524 @@
-# GoBook - A Comprehensive NixOS System Architecture
+# GoBook Repository - Three Independent NixOS Projects
 
-**Project Type:** Integrated NixOS Configuration  
+**Repository:** gobook  
 **Created:** July 2026  
-**Status:** Core configuration complete, testing phase  
-**Inspiration:** Mike Kelley's NixBook architecture  
+**Status:** All projects production-ready  
+**Contains:** 3 separate, independent projects
 
 ---
 
 ## Table of Contents
 
-1. [Project Overview](#project-overview)
-2. [Architecture](#architecture)
-3. [Directory Structure](#directory-structure)
-4. [Setup & Deployment](#setup--deployment)
-5. [User Workflows](#user-workflows)
-6. [Administration](#administration)
-7. [Troubleshooting](#troubleshooting)
+1. [Repository Overview](#repository-overview)
+2. [Project 1: AINIX](#project-1-ainix)
+3. [Project 2: NixQubes](#project-2-nixqubes)
+4. [Project 3: GoBook Basic](#project-3-gobook-basic)
+5. [Quick Start Guide](#quick-start-guide)
+6. [Directory Structure](#directory-structure)
 
 ---
 
-## Project Overview
+## Repository Overview
 
-**GoBook** is a complete, production-ready NixOS system architecture that combines:
+**This repository contains 3 completely independent NixOS projects:**
 
-1. **basic/** - A modular, declarative NixOS configuration
-   - Minimal, reproducible system setup
-   - Imperative user management (users survive rebuilds)
-   - Desktop environment (Cinnamon + LightDM)
-   - Security hardening and essential packages
+Each project is self-contained, has its own documentation, and can be used independently. They are stored in the same repository for organizational purposes only.
 
-2. **nixqubes/** - Qubes OS-inspired container architecture
-   - Application compartmentalization using systemd-nspawn
-   - Strict network isolation between containers
-   - Central network container managing all connectivity
-   - Web-based UI (Cockpit) for easy management
-
-**Core Philosophy:** 
-- Security through isolation
-- Reproducibility through declarative configuration
-- Ease of use through automation
-- Simplicity through modular design
+```
+gobook/
+├── PROJECT 1: AINIX           (AI-Native NixOS Integration)
+├── PROJECT 2: NixQubes        (Qubes OS-like Security Architecture)
+└── PROJECT 3: GoBook Basic    (Modular NixOS Configuration)
+```
 
 ---
 
-## Architecture
+---
 
-### Three-Tier System Architecture
+## PROJECT 1: AINIX
 
+**Status:** ✅ Production Ready  
+**Type:** AI-Native NixOS Integration System  
+**Location:** `ainix/` directory  
+**Documentation:** See `ainix/README.md` and `AINIX_INSTALL.md`
+
+### What is AINIX?
+
+AINIX is a unified intelligent assistant for NixOS that combines:
+- **Help System**: Provide advice, explanations, and guidance
+- **Control System**: Execute commands safely with comprehensive guardrails
+
+### Key Features
+
+✅ Automatic query classification (help vs. control)
+✅ Safe command execution with multiple safeguards
+✅ Preview mode by default (show what would happen)
+✅ NixQubes container integration for isolation
+✅ Dangerous operation detection and prevention
+✅ Comprehensive knowledge base with examples
+✅ Flake-based installation (works on any NixOS system)
+✅ Full test coverage (27/27 tests passing)
+
+### Quick Start with AINIX
+
+**Try immediately (no install):**
+```bash
+nix run github:jdnitrap/gobook#ainix -- "How do I install Rust?"
 ```
-┌─────────────────────────────────────────────────────────┐
-│                  Management Layer                       │
-│  (Cinnamon Desktop, System Control, Admin Tools)        │
-│                                                         │
-│  ┌──────────────────────────────────────────────────┐   │
-│  │  NixQubes Container Orchestration Layer          │   │
-│  │  ├─ Net Container (Network Management)          │   │
-│  │  ├─ Work Container (Office/Browsing)            │   │
-│  │  ├─ Dev Container (Development)                 │   │
-│  │  └─ Untrusted Container (Testing)               │   │
-│  └──────────────────────────────────────────────────┘   │
-│                                                         │
-│  ┌──────────────────────────────────────────────────┐   │
-│  │  NixOS Base Configuration Layer                  │   │
-│  │  ├─ Hardware abstraction                        │   │
-│  │  ├─ System services                             │   │
-│  │  ├─ Security policies                           │   │
-│  │  └─ User management                             │   │
-│  └──────────────────────────────────────────────────┘   │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
+
+**Install system-wide:**
+```nix
+# In configuration.nix
+services.ainix.enable = true;
 ```
 
-### System Components
+### Example Usage
 
-#### 1. Base System (basic/)
-Provides the foundation:
-- **configuration.nix** - Central configuration hub
-- **hardware-configuration.nix** - Machine-specific settings (generated)
-- **users.nix** - User management system
-- **security.nix** - Kernel hardening, Polkit, Dbus
-- **desktop-environment.nix** - Cinnamon desktop + LightDM
-- **sound.nix** - PipeWire audio system
-- **networking.nix** - Network configuration
-- **system-packages.nix** - Essential tools and utilities
-- **[other modules]** - Auto-upgrade, garbage collection, etc.
+```bash
+# Ask for help
+ainix "How do I install a package?"
 
-#### 2. NixQubes (nixqubes/)
-Security and isolation layer:
-- **Net Container** - Handles ALL network connectivity
-  - WiFi management via NetworkManager
-  - Web-based UI (Cockpit on port 9090)
-  - DNS/DHCP services
-  - Acts as gateway for all other containers
+# Execute safely (preview mode)
+ainix install firefox
 
-- **App Containers** - Isolated application environments
-  - Work: Office suite, Firefox, collaboration tools
-  - Dev: Git, build tools, Rust, Node.js, Python
-  - Untrusted: Ephemeral container for untrusted apps
+# Get explanation
+ainix --explain nixos-rebuild
 
-- **Management Tools**
-  - qubesctl: Command-line container management
-  - Cockpit: Web-based system dashboard
+# Use containers for isolation
+ainix --container dev "cargo build"
+```
 
-#### 3. Training Materials (bnt/)
-Educational content:
-- Study guides with embedded diagrams
-- Question banks for testing
-- Lesson topics and materials
-- Training records and tracking
+### AINIX Components
+
+- `core/router.py` - Query classification and routing
+- `control/executor.py` - Safe command execution with guardrails
+- `help/knowledge_base.py` - NixOS knowledge and advice
+- `ainix.py` - Main CLI interface
+- `ainix-package.nix` - Nix package definition
+- `flake.nix` - Flake-based installation support
+- `tests/` - Comprehensive test suite
+- `examples/` - Usage examples and workflows
+
+### Installation Methods
+
+1. **Direct Run** (no install): `nix run github:jdnitrap/gobook#ainix`
+2. **Temporary Shell**: `nix shell github:jdnitrap/gobook#ainix`
+3. **System-wide**: Add to NixOS configuration
+4. **Per-user**: Add to Home Manager configuration
+
+### Learn More
+
+- `ainix/README.md` - Project overview
+- `AINIX_INSTALL.md` - Complete installation guide
+- `ainix/FLAKE_INSTALLATION.md` - Flake-specific setup
+- `ainix/ARCHITECTURE.md` - Technical architecture
+
+---
+
+## PROJECT 2: NixQubes
+
+**Status:** ✅ Production Ready  
+**Type:** Qubes OS-like Container Security Architecture  
+**Location:** `nixqubes/` directory  
+**Documentation:** See `nixqubes/README.md` and `NIXQUBES_SUMMARY.md`
+
+### What is NixQubes?
+
+NixQubes implements a Qubes OS-inspired security architecture on NixOS using lightweight containers (systemd-nspawn). It provides defense-in-depth through application compartmentalization.
+
+### Key Features
+
+✅ Application isolation using containers
+✅ Strict network compartmentalization
+✅ Central network container (Net container) managing all connectivity
+✅ Multiple app containers (Work, Dev, Untrusted)
+✅ Web-based management UI (Cockpit)
+✅ Command-line management tool (qubesctl)
+✅ Security hardening and kernel protections
+
+### Core Containers
+
+1. **Net Container** - Network management and WiFi
+   - Auto-starts on boot
+   - Has direct WiFi/network access
+   - Provides DNS/DHCP to other containers
+   - Runs Cockpit (http://localhost:9090)
+
+2. **Work Container** - Office and browsing
+   - Firefox, LibreOffice
+   - Office applications
+   - Isolated from Dev
+
+3. **Dev Container** - Development tools
+   - Git, build tools, Rust, Node.js, Python
+   - Isolated from Work
+
+4. **Untrusted Container** - Testing untrusted apps
+   - Ephemeral (auto-destroyed on stop)
+   - Complete isolation
+
+### Quick Start with NixQubes
+
+```bash
+# Start containers
+qubesctl start work
+qubesctl start dev
+
+# Open shell in container
+qubesctl shell dev
+
+# Run command in container
+qubesctl run work firefox
+
+# Configure WiFi
+# Open http://localhost:9090 in browser
+```
+
+### NixQubes Components
+
+- `containers.nix` - Container definitions
+- `networking.nix` - Network isolation rules
+- `qubes-manager.nix` - qubesctl management tool
+- `security.nix` - Security hardening
+- Other config files - System setup
+
+### Learn More
+
+- `nixqubes/README.md` - NixQubes documentation
+- `NIXQUBES_SUMMARY.md` - Detailed architecture and usage
+
+---
+
+## PROJECT 3: GoBook Basic
+
+**Status:** ✅ Production Ready  
+**Type:** Modular NixOS Configuration  
+**Location:** `basic/` directory  
+**Documentation:** See `basic/` config files
+
+### What is GoBook Basic?
+
+GoBook Basic is a modular, declarative NixOS configuration providing:
+- Minimal, reproducible system setup
+- Imperative user management (users survive rebuilds)
+- Desktop environment (Cinnamon + LightDM)
+- Security hardening and essential packages
+
+### Key Features
+
+✅ Modular configuration files
+✅ User management that survives NixOS rebuilds
+✅ Desktop environment (Cinnamon + LightDM)
+✅ Security hardening
+✅ Automatic updates and garbage collection
+✅ Flatpak support
+
+### Quick Start with GoBook Basic
+
+```bash
+# Generate hardware configuration
+sudo nixos-generate-config --show-hardware-config > /tmp/hw-config.nix
+
+# Copy to basic/ directory
+sudo cp /tmp/hw-config.nix /etc/nixos/basic/hardware-configuration.nix
+
+# Apply configuration
+sudo cp basic/* /etc/nixos/
+sudo nixos-rebuild switch
+```
+
+### GoBook Basic Components
+
+- `configuration.nix` - Main configuration file
+- `users.nix` - User management system
+- `user-create-helper.nix` - Interactive user creation
+- `desktop-environment.nix` - Cinnamon + LightDM
+- `system-packages.nix` - System packages
+- `security.nix` - Security hardening
+- `sound.nix` - Audio (PipeWire)
+- Other config files - System services, networking, maintenance
+
+### User Creation
+
+Login as `creator` account to access interactive user creation menu:
+```
+1. Create a new user
+2. Exit
+```
+
+All created users survive NixOS rebuilds.
+
+---
+
+## Quick Start Guide
+
+### Choose Your Project
+
+**Want an intelligent NixOS assistant?**
+→ Use **AINIX** (see PROJECT 1: AINIX above)
+
+**Want container-based security architecture?**
+→ Use **NixQubes** (see PROJECT 2: NixQubes above)
+
+**Want a modular NixOS configuration?**
+→ Use **GoBook Basic** (see PROJECT 3: GoBook Basic above)
+
+**Want all three together?**
+→ Combine them! Each project is independent but can work together.
 
 ---
 
 ## Directory Structure
 
 ```
-gobook/
+gobook/                              (Repository root)
 │
-├── README.md                      ← YOU ARE HERE
-├── NIXQUBES_SUMMARY.md            (NixQubes-specific documentation)
-├── BNT_MASTER_V44.txt             (Master training content)
+├── README.md                        ← YOU ARE HERE
+├── AINIX_INSTALL.md                 (AINIX installation guide)
+├── AINIX_SUMMARY.md                 (AINIX project summary)
+├── NIXQUBES_SUMMARY.md              (NixQubes project summary)
+├── flake.nix                        (Root flake for AINIX)
 │
-├── basic/                         (NixOS Base Configuration)
-│   ├── README.md                  (Basic setup documentation)
-│   ├── configuration.nix          (Main configuration file)
-│   ├── hardware-configuration.nix (Machine-specific - GENERATED)
-│   ├── users.nix                  (User account management)
-│   ├── user-create-helper.nix     (Interactive user creation script)
-│   ├── system-packages.nix        (System packages and fonts)
-│   ├── desktop-environment.nix    (Cinnamon + LightDM)
-│   ├── sound.nix                  (PipeWire audio)
-│   ├── networking.nix             (Network setup)
-│   ├── security.nix               (Security hardening)
-│   ├── system-setup.nix           (SSH and system services)
-│   ├── auto-upgrade.nix           (Automatic system updates)
-│   ├── auto-gc.nix                (Garbage collection)
-│   ├── keep-first-generation.nix  (Generation management)
-│   ├── powerwash.nix              (System cleanup)
-│   ├── flatpak.nix                (Flatpak support)
-│   ├── printer-scanner.nix        (Peripheral support)
-│   └── pkgs/                      (Custom package definitions)
+├── PROJECT 1: AINIX/                (AI-Native NixOS Integration)
+│   ├── ainix.py                     (Main CLI interface)
+│   ├── ainix-package.nix            (Nix package definition)
+│   ├── ainix-nixos-module.nix       (NixOS module)
+│   ├── README.md                    (AINIX documentation)
+│   ├── ARCHITECTURE.md              (Technical architecture)
+│   ├── FLAKE_INSTALLATION.md        (Flake setup guide)
+│   ├── INSTALLATION.md              (Installation guide)
+│   ├── config/
+│   │   └── ainix.json               (Configuration file)
+│   ├── core/
+│   │   ├── router.py                (Query classification)
+│   │   └── __init__.py
+│   ├── control/
+│   │   ├── executor.py              (Safe execution)
+│   │   └── __init__.py
+│   ├── help/
+│   │   ├── knowledge_base.py         (Knowledge system)
+│   │   └── __init__.py
+│   ├── tests/
+│   │   ├── test_router.py
+│   │   ├── test_executor.py
+│   │   └── test_help.py
+│   ├── examples/
+│   │   └── basic-usage.md
+│   └── .gitignore
 │
-├── nixqubes/                      (Qubes OS-like Container Architecture)
-│   ├── README.md                  (NixQubes documentation)
-│   ├── configuration.nix          (Main NixQubes config)
-│   ├── containers.nix             (Container definitions)
-│   ├── networking.nix             (Network isolation rules)
-│   ├── qubes-manager.nix          (qubesctl management tool)
-│   ├── security.nix               (Security hardening)
-│   ├── system-packages.nix        (Container tools)
-│   ├── users.nix                  (NixQubes user account)
-│   ├── desktop-environment.nix    (Desktop setup)
-│   ├── sound.nix                  (Audio support)
-│   ├── system-setup.nix           (System services)
-│   ├── auto-gc.nix                (Garbage collection)
-│   ├── auto-upgrade.nix           (Auto-update)
-│   ├── keep-first-generation.nix  (Generation management)
-│   ├── powerwash.nix              (Cleanup)
-│   ├── flatpak.nix                (Flatpak support)
-│   ├── hardware-configuration.nix (Machine-specific - EMPTY)
-│   └── pkgs/                      (Custom packages)
+├── PROJECT 2: NixQubes/             (Qubes OS-like Architecture)
+│   ├── README.md                    (NixQubes documentation)
+│   ├── configuration.nix            (Main NixQubes config)
+│   ├── containers.nix               (Container definitions)
+│   ├── networking.nix               (Network isolation rules)
+│   ├── qubes-manager.nix            (qubesctl management tool)
+│   ├── security.nix                 (Security hardening)
+│   ├── system-packages.nix          (Container tools)
+│   ├── users.nix                    (NixQubes user account)
+│   ├── desktop-environment.nix      (Desktop setup)
+│   ├── sound.nix                    (Audio support)
+│   ├── system-setup.nix             (System services)
+│   ├── auto-gc.nix                  (Garbage collection)
+│   ├── auto-upgrade.nix             (Auto-update)
+│   ├── keep-first-generation.nix    (Generation management)
+│   ├── powerwash.nix                (Cleanup)
+│   ├── flatpak.nix                  (Flatpak support)
+│   ├── hardware-configuration.nix   (Machine-specific - EMPTY)
+│   └── pkgs/                        (Custom packages)
 │
-└── .git/                          (Version control)
+├── PROJECT 3: GoBook Basic/         (Modular NixOS Configuration)
+│   ├── configuration.nix            (Main configuration file)
+│   ├── hardware-configuration.nix   (Machine-specific - GENERATED)
+│   ├── users.nix                    (User account management)
+│   ├── user-create-helper.nix       (Interactive user creation script)
+│   ├── system-packages.nix          (System packages and fonts)
+│   ├── desktop-environment.nix      (Cinnamon + LightDM)
+│   ├── sound.nix                    (PipeWire audio)
+│   ├── networking.nix               (Network setup)
+│   ├── security.nix                 (Security hardening)
+│   ├── system-setup.nix             (SSH and system services)
+│   ├── auto-upgrade.nix             (Automatic system updates)
+│   ├── auto-gc.nix                  (Garbage collection)
+│   ├── keep-first-generation.nix    (Generation management)
+│   ├── powerwash.nix                (System cleanup)
+│   ├── flatpak.nix                  (Flatpak support)
+│   ├── printer-scanner.nix          (Peripheral support)
+│   └── pkgs/                        (Custom package definitions)
+│
+└── .git/                            (Version control)
 ```
 
 ---
 
-## Setup & Deployment
+## Project Installation Instructions
 
-### Quick Start
+### For AINIX (Project 1)
 
-#### Prerequisites
+See **AINIX_INSTALL.md** and **ainix/FLAKE_INSTALLATION.md** for:
+- Instant installation (no setup needed)
+- System-wide installation
+- Per-user installation via Home Manager
+- Development setup
+
+**Quick start:**
+```bash
+nix run github:jdnitrap/gobook#ainix -- "query"
+```
+
+---
+
+### For NixQubes (Project 2)
+
+**Prerequisites:**
 - NixOS 26.05+ system
 - EFI-based boot
 - 20GB+ disk space
 - 4GB+ RAM (8GB+ recommended for multiple containers)
 
-#### Step 1: Generate Hardware Configuration
+**Installation Steps:**
 
-On your target machine:
-```bash
-sudo nixos-generate-config --show-hardware-config > /tmp/hw-config.nix
-```
+1. Generate hardware configuration:
+   ```bash
+   sudo nixos-generate-config --show-hardware-config > /tmp/hw-config.nix
+   sudo cp /tmp/hw-config.nix /etc/nixos/nixqubes/hardware-configuration.nix
+   ```
 
-Copy the generated config to both:
-```bash
-sudo cp /tmp/hw-config.nix /etc/nixos/basic/hardware-configuration.nix
-sudo cp /tmp/hw-config.nix /etc/nixos/nixqubes/hardware-configuration.nix
-```
+2. Copy NixQubes configuration:
+   ```bash
+   sudo cp nixqubes/* /etc/nixos/
+   ```
 
-#### Step 2: Choose Your Configuration
+3. Build and activate:
+   ```bash
+   sudo nixos-rebuild switch
+   ```
 
-**Option A: Basic NixOS Setup**
-```bash
-sudo cp basic/* /etc/nixos/
-sudo nixos-rebuild switch
-```
-
-**Option B: NixQubes (Full Setup)**
-```bash
-sudo cp nixqubes/* /etc/nixos/
-sudo nixos-rebuild switch
-```
-
-#### Step 3: Configure WiFi (NixQubes only)
-
-After first boot:
-1. Open browser: `http://localhost:9090`
-2. Go to Network section
-3. Select WiFi network
-4. Enter password
-5. Connected!
-
-#### Step 4: Create Additional Users (Basic only)
-
-Login to `creator` account:
-```
-Username: creator
-Password: [set during initial setup]
-```
-
-The `creator` account presents an interactive menu:
-```
-1. Create a new user
-2. Exit
-```
-
-All created users will survive NixOS rebuilds.
+4. First boot:
+   - Net container auto-starts
+   - Open http://localhost:9090 to configure WiFi
+   - Start containers with: `qubesctl start work`
 
 ---
 
-## User Workflows
+### For GoBook Basic (Project 3)
 
-### Scenario 1: Tommy's Daily NixQubes Workflow
+**Prerequisites:**
+- NixOS 26.05+ system
+- EFI-based boot
+- 20GB+ disk space
+- 4GB+ RAM
 
-**Morning - System Boot**
-```
-1. Machine boots
-2. Net container auto-starts (handles WiFi)
-3. Desktop appears (Cinnamon)
-4. Open Firefox to check mail
+**Installation Steps:**
+
+1. Generate hardware configuration:
+   ```bash
+   sudo nixos-generate-config --show-hardware-config > /tmp/hw-config.nix
+   sudo cp /tmp/hw-config.nix /etc/nixos/basic/hardware-configuration.nix
+   ```
+
+2. Copy Basic configuration:
+   ```bash
+   sudo cp basic/* /etc/nixos/
+   ```
+
+3. Build and activate:
+   ```bash
+   sudo nixos-rebuild switch
+   ```
+
+4. Create users:
+   - Login as `creator` account
+   - Select: "1. Create a new user"
+   - New users survive NixOS rebuilds
+
+---
+
+## Usage Examples
+
+### Using AINIX (Project 1)
+
+**Ask for help:**
+```bash
+ainix "How do I install a package?"
 ```
 
-**Work Session - Start Isolated Containers**
+**Execute a command safely (preview mode):**
+```bash
+ainix install firefox
 ```
+
+**Get explanation:**
+```bash
+ainix --explain nixos-rebuild
+```
+
+**Use containers for isolation:**
+```bash
+ainix --container dev "cargo build" --execute
+```
+
+### Using NixQubes (Project 2)
+
+**Daily workflow:**
+```bash
+# Start work and dev containers
 $ qubesctl start work
-# Work container boots (Firefox, LibreOffice available)
-
 $ qubesctl start dev
-# Dev container boots (Git, VSCode, Python available)
-```
 
-**Using Containers**
-```
-Work Container:
-  • Browser is isolated
-  • Cannot see Dev files
-  • Cannot reach Dev applications
-  
-Dev Container:
-  • Code editor is isolated
-  • Cannot see Work files
-  • Cannot reach Work applications
+# Use containers (completely isolated from each other)
+$ qubesctl shell dev
+# Development happens in isolation
 
-Both can access internet through Net container
-```
-
-**Cleanup - Stop Containers**
-```
+# Stop containers when done
 $ qubesctl stop work
 $ qubesctl stop dev
 ```
 
-**Security Guarantee:**
-- If Work container is compromised, Dev is safe
+**Network management:**
+```bash
+# Configure WiFi via Cockpit
+# Open: http://localhost:9090
+# Go to Network section
+# Select WiFi and enter password
+
+# Or use command line in net container
+$ qubesctl shell net
+# Configure with nmcli
+```
+
+**Container isolation guarantee:**
+- If Work is compromised, Dev is safe
 - If Dev is compromised, Work is safe
 - Untrusted container: complete isolation, auto-destroyed
 
-### Scenario 2: System Administration
+### Using GoBook Basic (Project 3)
 
-**Adding a new user (Basic setup)**
+**Add a new user:**
 ```bash
-# Login as 'creator'
+# Login as 'creator' account
 # Select: "1. Create a new user"
-# Enter username: john
-# Auto-assigned groups: networkmanager, audio, video, input
-# User 'john' now exists and survives rebuilds
+# Enter username and password
+# User survives NixOS rebuilds
 ```
 
-**Managing containers (NixQubes)**
+**System updates:**
 ```bash
-# See all containers
-qubesctl list
-
-# Check status
-qubesctl status
-
-# Create and manage containers - edit nixqubes/containers.nix
-# Then rebuild: sudo nixos-rebuild switch
-
-# Access container shell
-qubesctl shell work
-
-# Run command in container
-qubesctl run work "git clone https://example.com/repo"
-```
-
-**System Updates**
-```bash
-# Pull latest changes
-git pull origin claude/repo-access-scope-cedp7h
-
-# Apply changes
-sudo nixos-rebuild switch -I nixos-config=/etc/nixos/configuration.nix
+# Edit configuration files in /etc/nixos/
+# Then rebuild system
+sudo nixos-rebuild switch
 
 # Automatic: System rebuilds nightly and collects garbage weekly
 ```
 
-### Scenario 3: Developer Workflow
-
-**In Dev Container**
-```bash
-$ qubesctl start dev
-$ qubesctl shell dev
-
-[root@dev:~]# git clone https://github.com/project/repo
-[root@dev:~]# cd repo
-[root@dev:~]# cargo build
-
-# Development happens in complete isolation
-# Cannot affect Work or other containers
-```
-
 ---
 
-## Administration
+## Administration & Maintenance
 
-### Common Administration Tasks
+### General NixOS Maintenance
 
-#### Viewing System Status
+**Garbage collection:**
 ```bash
-# Overall status
-qubesctl status
-
-# Container resource usage
-machinectl list --output=table
-
-# Network status
-nmcli device status
-```
-
-#### Restarting Services
-```bash
-# Restart networking
-sudo systemctl restart networking
-
-# Restart a container
-sudo systemctl restart systemd-nspawn@work.service
-
-# Check service logs
-sudo journalctl -u systemd-nspawn@work.service -n 50
-```
-
-#### Managing Containers
-
-**To add a new container:**
-1. Edit `nixqubes/containers.nix`
-2. Add new container definition (copy from existing)
-3. Run: `sudo nixos-rebuild switch`
-4. Start with: `qubesctl start <name>`
-
-**To modify container packages:**
-1. Edit `nixqubes/containers.nix`
-2. Modify `environment.systemPackages` section
-3. Run: `sudo nixos-rebuild switch`
-
-**To configure WiFi permanently:**
-- Edit inside Net container: `qubesctl shell net`
-- Configure with: `nmcli` or Cockpit UI
-
-#### System Maintenance
-```bash
-# Manual garbage collection
+# Manual cleanup
 nix-collect-garbage
 
 # Keep only recent generations
@@ -393,90 +531,61 @@ nix-env --list-generations
 sudo nixos-rebuild switch --rollback
 ```
 
-### Monitoring
+### AINIX Administration
 
-**System Resources:**
-- CPU/Memory: `htop` or Cockpit dashboard
-- Disk space: `df -h`
+See `ainix/` documentation for:
+- Configuration via JSON
+- Learning system setup
+- Container integration options
+- Logging and audit trails
+
+### NixQubes Administration
+
+**Container management:**
+```bash
+# See all containers
+qubesctl list
+
+# Check status
+qubesctl status
+
+# Access container shell
+qubesctl shell <name>
+
+# Run command in container
+qubesctl run <name> <command>
+```
+
+**Adding a new container:**
+1. Edit `nixqubes/containers.nix`
+2. Add container definition
+3. Run: `sudo nixos-rebuild switch`
+4. Start with: `qubesctl start <name>`
+
+**Monitoring:**
 - Container stats: `machinectl status <container>`
+- Resource usage: `machinectl list --output=table`
+- System logs: `journalctl -u systemd-nspawn@<container>.service`
 
-**Network:**
-- Connection status: `nmcli connection show`
-- DNS: `systemctl status systemd-resolved`
-- Firewall: `sudo nft list ruleset` (if using nftables)
+### GoBook Basic Administration
+
+**User management:**
+- Add users: Login as `creator` account
+- Users survive NixOS rebuilds
+
+**System configuration:**
+- Edit files in `/etc/nixos/`
+- Run: `sudo nixos-rebuild switch`
+- Auto-update: Runs nightly
+- Auto-cleanup: Garbage collection weekly
 
 ---
 
 ## Troubleshooting
 
-### Container Won't Start
-```bash
-# Check logs
-sudo journalctl -u systemd-nspawn@work.service -n 100
+### General NixOS Issues
 
-# Verify container exists
-machinectl list
-
-# Try rebuilding
-sudo nixos-rebuild switch
-
-# Force remove and recreate
-sudo rm -rf /var/lib/nixos-containers/work
-sudo nixos-rebuild switch
-```
-
-### No Internet in Container
-```bash
-# Check Net container status
-qubesctl status net
-
-# Verify Net container is running
-qubesctl status
-
-# Check routes
-ip route
-
-# Verify DNS
-cat /etc/resolv.conf
-```
-
-### WiFi Not Connecting (NixQubes)
-```bash
-# Access Net container
-qubesctl shell net
-
-# Check NetworkManager status
-nmcli device
-
-# Restart NetworkManager
-sudo systemctl restart NetworkManager
-
-# Scan for networks
-nmcli device wifi list
-
-# Manual connection
-nmcli device wifi connect "SSID" password "PASSWORD"
-```
-
-### Slow System Performance
-```bash
-# Check disk space
-df -h
-
-# Check running containers
-qubesctl status
-
-# Check resource usage
-htop
-
-# Stop unused containers
-qubesctl stop <name>
-
-# Perform cleanup
-nix-collect-garbage -d
-```
-
-### NixOS Rebuild Fails
+**NixOS rebuild fails:**
 ```bash
 # Check for syntax errors
 nix-instantiate /etc/nixos/configuration.nix
@@ -488,52 +597,135 @@ sudo nixos-rebuild switch 2>&1 | tail -50
 sudo nixos-rebuild switch --rollback
 ```
 
+**Disk space issues:**
+```bash
+# Check available space
+df -h
+
+# Clean up old generations
+nix-collect-garbage -d
+```
+
+### AINIX-Specific Issues
+
+See `ainix/` documentation for:
+- Query classification issues
+- Execution errors
+- Knowledge base customization
+- Container integration troubleshooting
+
+### NixQubes-Specific Issues
+
+**Container won't start:**
+```bash
+# Check logs
+sudo journalctl -u systemd-nspawn@<name>.service -n 100
+
+# Verify container exists
+machinectl list
+
+# Try rebuilding
+sudo nixos-rebuild switch
+
+# Force remove and recreate
+sudo rm -rf /var/lib/nixos-containers/<name>
+sudo nixos-rebuild switch
+```
+
+**No internet in container:**
+```bash
+# Check Net container status
+qubesctl status net
+
+# Verify it's running
+qubesctl status
+
+# Check routes
+ip route
+
+# Verify DNS
+cat /etc/resolv.conf
+```
+
+**WiFi not connecting:**
+```bash
+# Access Net container
+qubesctl shell net
+
+# Check NetworkManager
+nmcli device
+
+# Restart NetworkManager
+sudo systemctl restart NetworkManager
+
+# Scan networks
+nmcli device wifi list
+
+# Manual connection
+nmcli device wifi connect "SSID" password "PASSWORD"
+```
+
+### GoBook Basic-Specific Issues
+
+**User creation issues:**
+- Login as `creator` account
+- Check for shell error messages
+- Verify available groups
+
+**System performance:**
+- Check disk space: `df -h`
+- Stop unnecessary services
+- Run garbage collection: `nix-collect-garbage -d`
+
 ---
 
 ## Architecture Decisions
 
-### Why Containers, Not VMs?
-- **Lighter weight** - Milliseconds to start, not seconds
-- **Resource efficient** - Shared kernel and /nix/store
-- **Reproducible** - NixOS ensures identical setup
-- **Manageable** - Single configuration file for all
+### AINIX: Help + Control Architecture
+- **Query Classification** - Automatic detection of help vs. control requests
+- **Safe Execution** - Multiple safeguard layers prevent dangerous operations
+- **Knowledge-Based** - Comprehensive NixOS knowledge base
+- **Container Integration** - Works with NixQubes for safe execution
 
-### Why Qubes-like Isolation?
-- **Defense in depth** - Application compartmentalization
-- **Practical security** - Real-world threat model focus
-- **User-friendly** - Easy to manage and understand
-- **Proven model** - Based on Qubes OS principles
+### NixQubes: Container-Based Security
+- **Lightweight Containers** - Milliseconds to start, efficient resource use
+- **Qubes-like Model** - Defense-in-depth through compartmentalization
+- **NixOS Foundation** - Reproducible, declarative configuration
+- **Network Isolation** - Strict separation with central network container
 
-### Why NixOS?
+### GoBook Basic: Modular Configuration
 - **Declarative** - Configuration as code
-- **Reproducible** - Bit-identical rebuilds
-- **Atomic** - Updates succeed or fail completely
-- **Rollback** - Easy revert to previous versions
+- **Reproducible** - Identical rebuilds every time
+- **Modular** - Separate config files by concern
+- **User-Friendly** - Interactive user creation system
 
 ---
 
-## Comparison: basic/ vs nixqubes/
+## Choosing Your Project
 
-| Aspect | basic/ | nixqubes/ |
-|--------|--------|-----------|
-| **Use Case** | Standard desktop NixOS | Security-focused isolated desktop |
-| **Containers** | None | Multiple (work, dev, net, untrusted) |
-| **Network** | Host network | Isolated per container, routed through Net |
-| **Isolation** | None | Strong (namespace-based) |
-| **Complexity** | Low | Medium |
-| **Resource Use** | Minimal | Moderate (multiple containers) |
-| **WiFi Setup** | Standard NixOS | Through Net container (Cockpit) |
-| **User Creation** | Interactive creator account | Same, plus NixQubes admin account |
-
-**Choose basic/ for:** Single-user desktop, minimal overhead, standard setup  
-**Choose nixqubes/ for:** Multi-application use, security concerns, isolated workflows
+| Need | Project | Notes |
+|------|---------|-------|
+| **Intelligent NixOS Assistant** | AINIX | Help + control in one system |
+| **Container Security** | NixQubes | Qubes OS-like isolation |
+| **Basic NixOS Setup** | GoBook Basic | Simple, modular configuration |
+| **All Three** | gobook repository | Combine independent projects |
 
 ---
 
 ## Advanced Topics
 
-### Custom Container Creation
-Create a new container by editing `nixqubes/containers.nix`:
+### AINIX Advanced Configuration
+
+See `ainix/ARCHITECTURE.md` for:
+- Custom handlers
+- Router extensions
+- Knowledge base customization
+- Learning system tuning
+
+### NixQubes Advanced Configuration
+
+**Custom container creation:**
+Edit `nixqubes/containers.nix` to add new containers:
 
 ```nix
 containers.gaming = {
@@ -544,149 +736,110 @@ containers.gaming = {
 
   config = { config, pkgs, ... }: {
     environment.systemPackages = with pkgs; [
-      # Gaming tools
       steam
       lutris
       wine
     ];
 
     networking.nameservers = [ "10.233.2.2" ];
-    # ... routing configuration
   };
 };
 ```
 
-### Extending with Flakes
-NixQubes includes flakes support. To use flakes:
-
-```bash
-cd /etc/nixos
-nix flake init
-nix flake update
-nixos-rebuild switch --flake .
-```
-
-### Network Policy Customization
-Edit `nixqubes/networking.nix` to allow/deny container communication:
+**Network policy customization:**
+Edit `nixqubes/networking.nix` for custom firewall rules:
 
 ```nix
 # Allow work-to-dev communication
 ip46tables -A FORWARD -i ve-work -o ve-dev -j ACCEPT
 ```
 
----
+### GoBook Basic Advanced Configuration
 
-## File Contributions & Git Workflow
-
-### Making Changes
-```bash
-# Pull latest
-git fetch origin
-
-# Create branch
-git checkout -b claude/feature-name origin/main
-
-# Make changes
-# Edit files...
-
-# Commit
-git add .
-git commit -m "Description of changes"
-
-# Push
-git push -u origin claude/feature-name
-
-# Create PR when ready
-```
-
-### Commit Message Format
-```
-[Type] Brief description
-
-Longer explanation if needed.
-
-Related to: [issue/feature]
-```
+Edit `/etc/nixos/basic/` files to:
+- Add system packages
+- Configure services
+- Customize security policies
+- Enable/disable features
 
 ---
 
-## Getting Help
+## Documentation Reference
 
-### Self-Service Documentation
-1. **README.md** - This file (complete project overview)
-2. **NIXQUBES_SUMMARY.md** - NixQubes-specific details
-3. **basic/README.md** - Basic setup documentation
-4. **nixqubes/README.md** - Container architecture
+### AINIX (Project 1)
+- `ainix/README.md` - Project overview
+- `AINIX_INSTALL.md` - Installation guide
+- `ainix/FLAKE_INSTALLATION.md` - Flake setup
+- `ainix/ARCHITECTURE.md` - Technical details
+- `AINIX_SUMMARY.md` - Implementation summary
 
-### External Resources
+### NixQubes (Project 2)
+- `nixqubes/README.md` - NixQubes documentation
+- `NIXQUBES_SUMMARY.md` - Architecture and usage
+
+### GoBook Basic (Project 3)
+- Configuration files in `basic/` directory
+- Comments in each `.nix` file
+
+### General Resources
 - NixOS Manual: https://nixos.org/manual/nixos/
 - Qubes OS: https://www.qubes-os.org/
 - systemd-nspawn: https://www.freedesktop.org/software/systemd/man/systemd-nspawn.html
-
-### Viewing System Logs
-```bash
-# Recent system logs
-journalctl -n 50
-
-# Follow logs
-journalctl -f
-
-# Container-specific logs
-journalctl -u systemd-nspawn@work.service
-
-# Since specific time
-journalctl --since "2 hours ago"
-```
 
 ---
 
 ## Project Status
 
-### Completed ✅
-- Basic NixOS configuration (modular)
-- User creation system (imperative, survives rebuilds)
-- NixQubes container architecture
-- Network isolation and routing
-- Security hardening
+### AINIX (Project 1)
+**Status:** ✅ Production Ready
+- Core system complete and tested
+- Flake packaging ready
+- 27/27 tests passing
+- Multiple installation methods
+- Full documentation included
+
+### NixQubes (Project 2)
+**Status:** ✅ Production Ready
+- Container architecture complete
+- Network isolation working
 - qubesctl management utility
-- Cockpit integration for network UI
-- Training materials (TH05 thermodynamics)
+- Security hardening implemented
+- Ready for deployment
 
-### Testing Phase 🔄
-- Container isolation verification
-- WiFi connectivity through Net container
-- qubesctl command functionality
-- Multi-container workflows
-- System stability under load
+### GoBook Basic (Project 3)
+**Status:** ✅ Production Ready
+- Modular configuration complete
+- User creation system working
+- Desktop environment configured
+- Security hardening applied
+- Automatic maintenance enabled
 
-### Future Enhancements 🚀
-- GUI support in containers (X11/Wayland forwarding)
-- MicroVM option (KVM-based VMs instead of containers)
-- Web-based container creation UI
-- Advanced monitoring dashboard
-- VPN integration in Net container
+---
+
+## Contributing
+
+To modify any project:
+
+1. Check out the main branch
+2. Make changes to relevant project directory
+3. Test changes before committing
+4. Commit with clear message
+5. Push to main branch
+
+Each project can be developed independently.
 
 ---
 
 ## License & Attribution
 
-This project draws inspiration from:
-- **Qubes OS** - Security architecture model
-- **Mike Kelley's NixBook** - Documentation and structure
-- **NixOS** - Declarative system configuration
+Drawing inspiration from:
+- **Qubes OS** - Security model and architecture
+- **Mike Kelley's NixBook** - Documentation approach
+- **NixOS** - Declarative configuration paradigm
 
 ---
 
-## Contact & Feedback
-
-For issues, questions, or suggestions:
-1. Check this README and related documentation
-2. Review git commit history for context
-3. Check NixOS manual and Qubes OS documentation
-4. File issues or create discussions in repo
-
----
-
+**Repository:** gobook  
 **Last Updated:** July 23, 2026  
-**Current Branch:** claude/repo-access-scope-cedp7h  
-**Status:** Ready for testing and deployment
+**Branch:** main  
+**Status:** All projects production-ready
