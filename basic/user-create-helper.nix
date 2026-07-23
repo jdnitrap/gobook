@@ -3,9 +3,71 @@
 pkgs.writeShellScript "user-create-helper" ''
   #!/${pkgs.bash}/bin/bash
 
-  set -e
+  DEFAULT_GROUPS="networkmanager audio video input"
+  BASH_PATH="${pkgs.bash}/bin/bash"
+  USERADD_PATH="${pkgs.shadow}/bin/useradd"
+  ID_PATH="${pkgs.coreutils}/bin/id"
+  GETENT_PATH="${pkgs.libc}/bin/getent"
 
-  DEFAULT_GROUPS="networkmanager,audio,video,input"
+  validate_groups() {
+    local valid_groups=""
+    local missing_groups=""
+
+    for group in $DEFAULT_GROUPS; do
+      if $GETENT_PATH group "$group" &>/dev/null; then
+        if [ -z "$valid_groups" ]; then
+          valid_groups="$group"
+        else
+          valid_groups="$valid_groups,$group"
+        fi
+      else
+        missing_groups="$missing_groups $group"
+      fi
+    done
+
+    if [ -n "$missing_groups" ]; then
+      echo "Warning: These groups don't exist on the system:$missing_groups"
+      echo "They will be skipped during user creation."
+      sleep 2
+    fi
+
+    echo "$valid_groups"
+  }
+
+  exit_menu() {
+    clear
+    echo "========================================"
+    echo "  Exit Options"
+    echo "========================================"
+    echo ""
+    echo "1. Return to main menu"
+    echo "2. Open a bash shell"
+    echo "3. Logout"
+    echo ""
+    read -p "Select an option (1-3): " choice
+
+    case $choice in
+      1)
+        create_user_menu
+        ;;
+      2)
+        echo ""
+        echo "Type 'exit' to return to the menu."
+        echo ""
+        $BASH_PATH
+        create_user_menu
+        ;;
+      3)
+        echo "Logging out..."
+        exit 0
+        ;;
+      *)
+        echo "Invalid option. Please try again."
+        sleep 2
+        exit_menu
+        ;;
+    esac
+  }
 
   create_user_menu() {
     clear
@@ -23,8 +85,7 @@ pkgs.writeShellScript "user-create-helper" ''
         create_new_user
         ;;
       2)
-        echo "Exiting user creation utility..."
-        exit 0
+        exit_menu
         ;;
       *)
         echo "Invalid option. Please try again."
@@ -50,26 +111,40 @@ pkgs.writeShellScript "user-create-helper" ''
       return
     fi
 
-    if id "$username" &>/dev/null; then
+    if $ID_PATH "$username" &>/dev/null; then
       echo "Error: User '$username' already exists."
       sleep 2
       create_new_user
       return
     fi
 
+    local valid_groups=$(validate_groups)
+
     echo ""
     echo "Creating user '$username'..."
-    echo "Assigned groups: $DEFAULT_GROUPS"
+    echo "Assigned groups: $valid_groups"
     echo ""
 
-    if sudo useradd -m -G $DEFAULT_GROUPS -s /bin/bash "$username"; then
-      echo "Successfully created user '$username'!"
-      sleep 2
-      create_user_menu
+    if [ -z "$valid_groups" ]; then
+      if sudo $USERADD_PATH -m -s "$BASH_PATH" "$username"; then
+        echo "Successfully created user '$username'!"
+        sleep 2
+        create_user_menu
+      else
+        echo "Error creating user '$username'. Please check the error above."
+        sleep 2
+        create_user_menu
+      fi
     else
-      echo "Error creating user '$username'. Please check the error above."
-      sleep 2
-      create_user_menu
+      if sudo $USERADD_PATH -m -G "$valid_groups" -s "$BASH_PATH" "$username"; then
+        echo "Successfully created user '$username'!"
+        sleep 2
+        create_user_menu
+      else
+        echo "Error creating user '$username'. Please check the error above."
+        sleep 2
+        create_user_menu
+      fi
     fi
   }
 

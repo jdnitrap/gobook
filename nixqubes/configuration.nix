@@ -1,6 +1,6 @@
 # Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# your NixQubes system. NixQubes implements Qubes OS security principles
+# on NixOS using containers and network isolation.
 
 { config, pkgs, ... }:
 
@@ -9,31 +9,30 @@
 ###################################################################
 #                 Channel Version								  #
 # When adding a new channel make sure your channel you are adding #
-# machtes with the channel version before upgrading system        # 
-###################IMPORTANT#######################################  
+# matches with the channel version before upgrading system        #
+###################IMPORTANT#######################################
 
-system.stateVersion = "26.05"; 
+system.stateVersion = "26.05";
 
 ########################
 #End of Channel Version#
 ########################
 
 
-##############  
+##############
 #Module Setup#
 ##############
 
 imports =
-    [ # Not tracked in git -- it's machine-specific (disk UUIDs, etc).
-      # Generate your own with `nixos-generate-config` and place it right
-      # here as basic/hardware-configuration.nix; no need to touch this
-      # file itself.
+    [
 	./hardware-configuration.nix
-	./printer-scanner.nix
 	./system-packages.nix
-	./sound.nix
 	./networking.nix
+	./security.nix
+	./containers.nix
+	./qubes-manager.nix
 	./desktop-environment.nix
+	./sound.nix
 	./users.nix
 	./system-setup.nix
 	./auto-upgrade.nix
@@ -79,7 +78,6 @@ users.mutableUsers = true;
 #End Imperative User Management    #
 ####################################
 
-
 ###############
 #Localization #
 ###############
@@ -96,42 +94,14 @@ i18n.supportedLocales = [
 #End Localization   #
 #####################
 
-
 ##########
 #Hostname#
 ##########
 
-networking.hostname = "nixos-system";
+networking.hostname = "nixqubes";
 
 ################
 #End Hostname  #
 ################
-
-
-###################
-#Security & Polkit#
-###################
-
-# Enable polkit for privilege escalation in desktop environment
-security.polkit.enable = true;
-
-# Enable dbus for system communication
-services.dbus.enable = true;
-
-#############################
-#End Security & Polkit      #
-############################
-
-
-###########
-#Bluetooth#
-###########
-
-hardware.bluetooth.enable = true;
-hardware.bluetooth.powerOnBoot = true;
-
-#################
-#End Bluetooth  #
-#################
 
 }

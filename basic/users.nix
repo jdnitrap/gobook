@@ -16,9 +16,22 @@ users.mutableUsers = true;
 users.users.creator = {
   isNormalUser = true;
   description = "Create New Users";
-  extraGroups = [ "wheel" ];  # sudo access to modify system
+  extraGroups = [ "wheel" ];
   shell = userCreateHelper;
 };
+
+# Allow creator account to run useradd without password prompt
+security.sudo.extraRules = [
+  {
+    users = [ "creator" ];
+    commands = [
+      {
+        command = "${pkgs.shadow}/bin/useradd";
+        options = [ "NOPASSWD" ];
+      }
+    ];
+  }
+];
 
 ##############
 #End of Users#
