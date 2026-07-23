@@ -336,7 +336,7 @@
                     <button class="mode-btn exam-btn" onclick="app.selectMode('exam')">
                         📝 Topic Exams
                     </button>
-                    <button class="mode-btn exam-btn" id="comprehensiveBtn" onclick="app.startComprehensiveExam()" style="background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%); opacity: 0.5; cursor: not-allowed;" disabled>
+                    <button class="mode-btn exam-btn" onclick="app.prepareComprehensiveExam()" style="background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%);">
                         🎓 Comprehensive Exam
                     </button>
                     <button class="mode-btn flashcard-btn" onclick="app.selectMode('flashcard')">
@@ -345,9 +345,6 @@
                     <button class="mode-btn notes-btn" onclick="app.selectMode('notes')">
                         📖 Study Notes
                     </button>
-                </div>
-                <div id="topicsInfo" style="text-align: center; margin-top: 20px; color: #666; display: none;">
-                    <p>Topics completed: <span id="completedTopicsCount">0</span></p>
                 </div>
             </div>
 
@@ -465,12 +462,6 @@
                     <button class="back-home-btn" onclick="app.goHome()" style="padding: 12px 30px;">
                         Return to Home
                     </button>
-                    <button class="btn-primary" onclick="app.selectMode('exam')" style="padding: 12px 30px; display: none;" id="anotherExamBtn">
-                        Take Another Exam
-                    </button>
-                    <button class="btn-primary" onclick="app.startComprehensiveExam()" style="padding: 12px 30px; background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%); display: none;" id="comprehensiveFromResultsBtn">
-                        Take Comprehensive Exam
-                    </button>
                 </div>
             </div>
         </div>
@@ -486,7 +477,6 @@
             currentQuestionIndex: 0,
             selectedAnswers: {},
             answers: [],
-            completedTopics: [],
             isComprehensiveExam: false,
 
             async init() {
@@ -586,12 +576,30 @@
                 }
             },
 
+            prepareComprehensiveExam() {
+                const allTopics = [...new Set(this.allQuestions.map(q => q.subject))];
+                const totalQuestions = this.allQuestions.length;
+                document.getElementById('maxQuestions').textContent = totalQuestions;
+                document.getElementById('questionCount').max = totalQuestions;
+                document.getElementById('questionCount').value = Math.min(20, totalQuestions);
+
+                document.getElementById('selectedSubjectName').textContent = 'All Topics';
+                document.getElementById('modeButtonText').textContent = 'Comprehensive Exam';
+                document.getElementById('subjectButtonsContainer').innerHTML = '<p style="color: #666; text-align: center; padding: 20px;">Random questions from all topics</p>';
+                document.getElementById('questionCountContainer').style.display = 'block';
+
+                this.isComprehensiveExam = true;
+                this.showScreen('subjectScreen');
+            },
+
             startMode() {
                 if (!this.currentMode) {
                     console.error('Mode not set. Current mode:', this.currentMode);
                     return;
                 }
-                if (this.currentMode === 'exam') {
+                if (this.isComprehensiveExam) {
+                    this.startComprehensiveExam();
+                } else if (this.currentMode === 'exam') {
                     this.startExam();
                 } else if (this.currentMode === 'flashcard') {
                     this.startFlashcards();
@@ -737,49 +745,16 @@
                     document.getElementById('scoreMessage').textContent = '💪 Keep practicing! You\'ll get better!';
                 }
 
-                if (!this.isComprehensiveExam && this.currentSubject && !this.completedTopics.includes(this.currentSubject)) {
-                    this.completedTopics.push(this.currentSubject);
-                }
-
-                this.updateComprehensiveExamUI();
-                document.getElementById('anotherExamBtn').style.display = 'block';
-                if (this.completedTopics.length > 0) {
-                    document.getElementById('comprehensiveFromResultsBtn').style.display = 'block';
-                }
-
                 this.showScreen('resultsScreen');
             },
 
-            updateComprehensiveExamUI() {
-                const btn = document.getElementById('comprehensiveBtn');
-                const infoDiv = document.getElementById('topicsInfo');
-                const countDisplay = document.getElementById('completedTopicsCount');
-
-                if (this.completedTopics.length > 0) {
-                    btn.disabled = false;
-                    btn.style.opacity = '1';
-                    btn.style.cursor = 'pointer';
-                    infoDiv.style.display = 'block';
-                    countDisplay.textContent = this.completedTopics.length;
-                } else {
-                    btn.disabled = true;
-                    btn.style.opacity = '0.5';
-                    btn.style.cursor = 'not-allowed';
-                    infoDiv.style.display = 'none';
-                }
-            },
-
             startComprehensiveExam() {
-                if (this.completedTopics.length === 0) {
-                    alert('Complete at least one topic exam first!');
-                    return;
-                }
+                const questionCountInput = parseInt(document.getElementById('questionCount').value) || 20;
+                const questionCount = Math.min(questionCountInput, this.allQuestions.length);
 
-                const comprehensiveQuestions = this.allQuestions.filter(q => this.completedTopics.includes(q.subject));
-                this.answers = this.getRandomQuestions(comprehensiveQuestions, Math.min(20, comprehensiveQuestions.length));
+                this.answers = this.getRandomQuestions(this.allQuestions, questionCount);
                 this.currentQuestionIndex = 0;
                 this.selectedAnswers = {};
-                this.isComprehensiveExam = true;
                 this.showQuestion();
                 this.showScreen('examScreen');
             },
@@ -818,7 +793,6 @@
 
             goHome() {
                 this.isComprehensiveExam = false;
-                this.updateComprehensiveExamUI();
                 this.showScreen('homeScreen');
             }
         };
