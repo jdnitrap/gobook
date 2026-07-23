@@ -562,8 +562,14 @@
             <!-- Subject Selection Screen -->
             <div v-if="currentScreen === 'subjectSelection'" class="content subject-screen">
                 <h2>Select a Subject</h2>
-                <p style="color: #999; font-size: 0.9em; margin-bottom: 15px;">Available: {{ subjects.length }} subjects</p>
+                <p style="color: #999; font-size: 0.85em; margin-bottom: 15px;">
+                    Loaded: {{ questionsLoaded }} questions | Subjects: {{ subjects.length }}
+                    <br><small v-if="subjects.length > 0">({{ subjects.join(', ') }})</small>
+                </p>
                 <div class="subject-buttons">
+                    <button v-if="subjects.length === 0" class="subject-btn" disabled style="opacity: 0.5;">
+                        Loading subjects...
+                    </button>
                     <button v-for="subject in subjects"
                             :key="subject"
                             class="subject-btn"
@@ -760,8 +766,16 @@
                     return '💪 Keep practicing! You\'ll get better!';
                 },
                 subjects() {
+                    if (!this.allQuestions || this.allQuestions.length === 0) {
+                        console.warn('allQuestions is empty in computed property');
+                        return [];
+                    }
                     const uniqueSubjects = [...new Set(this.allQuestions.map(q => q.subject).filter(s => s))];
+                    console.log('Computing subjects:', uniqueSubjects);
                     return uniqueSubjects.sort();
+                },
+                questionsLoaded() {
+                    return this.allQuestions.length;
                 }
             },
             watch: {
