@@ -872,7 +872,7 @@
                 },
                 getCurrentCardAnswer() {
                     const correctOption = this.currentCard.options.find(o => o.correct);
-                    return correctOption.letter.toUpperCase() + '. ' + correctOption.text;
+                    return correctOption.text;
                 },
                 submitExam() {
                     let correctCount = 0;
