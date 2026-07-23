@@ -353,8 +353,8 @@
                 </p>
                 <div class="subject-buttons" id="subjectButtonsContainer"></div>
                 <div class="button-group" style="margin-top: 30px;">
-                    <button class="btn-primary" onclick="app.startExam()" style="flex: 1;">
-                        Start Exam - <span id="selectedSubjectName">Select Subject</span>
+                    <button class="btn-primary" onclick="app.startMode()" style="flex: 1;">
+                        Start <span id="modeButtonText">Exam</span> - <span id="selectedSubjectName">Select Subject</span>
                     </button>
                     <button class="back-home-btn" onclick="app.goHome()" style="flex: 1;">
                         Back to Home
@@ -404,6 +404,39 @@
                 <div class="button-group">
                     <button class="back-home-btn" onclick="app.goHome()">← Return to Home</button>
                     <button class="btn-primary" onclick="app.nextQuestion()">Next →</button>
+                </div>
+            </div>
+
+            <!-- Flashcard Screen -->
+            <div id="flashcardScreen" class="content hidden">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="cardProgressFill" style="width: 0%"></div>
+                </div>
+                <div class="question-info">
+                    Card <span id="cardNumber">1</span> of <span id="cardTotal">1</span>
+                </div>
+                <div style="text-align: center; margin: 40px 0;">
+                    <div id="flashcard" style="
+                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                        border-radius: 10px;
+                        padding: 40px;
+                        min-height: 200px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        font-size: 1.3em;
+                        color: white;
+                        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+                        transition: transform 0.3s;
+                    " onclick="app.flipCard()">
+                        <span id="cardContent">Click to flip</span>
+                    </div>
+                    <p style="margin-top: 10px; color: #999; font-size: 0.9em;">Click card to flip</p>
+                </div>
+                <div class="button-group">
+                    <button class="back-home-btn" onclick="app.goHome()">← Return to Home</button>
+                    <button class="btn-primary" onclick="app.nextCard()">Next Card →</button>
                 </div>
             </div>
 
@@ -505,9 +538,63 @@
             selectSubject(subject) {
                 this.currentSubject = subject;
                 document.getElementById('selectedSubjectName').textContent = subject;
+                document.getElementById('modeButtonText').textContent = this.currentMode === 'exam' ? 'Exam' : 'Flashcards';
                 document.querySelectorAll('#subjectButtonsContainer .subject-btn').forEach(btn => {
                     btn.classList.toggle('active', btn.textContent === subject);
                 });
+            },
+
+            startMode() {
+                if (this.currentMode === 'exam') {
+                    this.startExam();
+                } else if (this.currentMode === 'flashcard') {
+                    this.startFlashcards();
+                }
+            },
+
+            startFlashcards() {
+                const questions = this.allQuestions.filter(q => q.subject === this.currentSubject);
+                this.answers = questions;
+                this.currentCardIndex = 0;
+                this.cardFlipped = false;
+                this.showFlashcard();
+                this.showScreen('flashcardScreen');
+            },
+
+            showFlashcard() {
+                const card = this.answers[this.currentCardIndex];
+                if (!card) return;
+
+                document.getElementById('cardNumber').textContent = this.currentCardIndex + 1;
+                document.getElementById('cardTotal').textContent = this.answers.length;
+
+                const progress = Math.round(((this.currentCardIndex + 1) / this.answers.length) * 100);
+                document.getElementById('cardProgressFill').style.width = progress + '%';
+
+                this.cardFlipped = false;
+                document.getElementById('cardContent').textContent = card.text;
+            },
+
+            flipCard() {
+                const card = this.answers[this.currentCardIndex];
+                if (!card) return;
+
+                this.cardFlipped = !this.cardFlipped;
+                if (this.cardFlipped) {
+                    const correctOption = card.options.find(o => o.correct);
+                    document.getElementById('cardContent').textContent = correctOption.text;
+                } else {
+                    document.getElementById('cardContent').textContent = card.text;
+                }
+            },
+
+            nextCard() {
+                if (this.currentCardIndex < this.answers.length - 1) {
+                    this.currentCardIndex++;
+                    this.showFlashcard();
+                } else {
+                    this.goHome();
+                }
             },
 
             selectNotesSubject(subject) {
