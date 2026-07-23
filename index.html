@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Class Exam & Flashcard App</title>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <style>
         * {
             margin: 0;
@@ -55,39 +54,12 @@
             font-style: italic;
         }
 
-        .mode-selector {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            padding: 20px;
-            background: #f5f5f5;
-        }
-
-        .mode-selector button {
-            flex: 1;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
-            transition: all 0.3s ease;
-        }
-
-        .mode-selector button.active {
-            background: #667eea;
-            color: white;
-        }
-
-        .mode-selector button:hover {
-            background: #667eea;
-            color: white;
-        }
-
         .content {
             padding: 30px;
+        }
+
+        .hidden {
+            display: none;
         }
 
         /* Home Screen */
@@ -98,7 +70,7 @@
         .home-screen h2 {
             color: #333;
             margin-bottom: 20px;
-            font-size: 2em;
+            font-size: 1.8em;
         }
 
         .mode-buttons {
@@ -119,230 +91,178 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: bold;
+            color: white;
         }
 
         .exam-btn {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .exam-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
         }
 
         .flashcard-btn {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
         }
 
-        .flashcard-btn:hover {
+        .notes-btn {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .mode-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        /* Subject Selection Screen */
-        .subject-screen {
-            text-align: center;
-            padding: 20px;
-        }
-
+        /* Subject Selection */
         .subject-screen h2 {
             color: #333;
-            margin-bottom: 30px;
-            font-size: 1.8em;
+            margin-bottom: 20px;
         }
 
         .subject-buttons {
             display: flex;
-            gap: 15px;
-            justify-content: center;
             flex-wrap: wrap;
+            gap: 10px;
             margin-bottom: 30px;
         }
 
         .subject-btn {
-            padding: 15px 30px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
+            padding: 10px 20px;
+            border: 2px solid #667eea;
             background: white;
+            color: #667eea;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 1.1em;
-            font-weight: 500;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .subject-btn:hover,
+        .subject-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Exam Screen */
+        .progress-bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .question-info {
+            color: #999;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+
+        .question-text {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .subject-btn:hover {
-            border-color: #667eea;
+        .option:hover {
             background: #f5f5f5;
-        }
-
-        .subject-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
             border-color: #667eea;
         }
 
-        .comprehensive-section {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
+        .option input {
+            margin-right: 15px;
+            cursor: pointer;
         }
 
-        .comprehensive-section h3 {
-            color: #333;
-            margin-bottom: 15px;
+        .option.selected {
+            background: #f0f0ff;
+            border-color: #667eea;
         }
 
-        .question-count {
+        /* Buttons */
+        .button-group {
             display: flex;
-            align-items: center;
             gap: 10px;
             justify-content: center;
-            margin-bottom: 15px;
         }
 
-        .question-count input {
-            width: 80px;
-            padding: 8px;
-            border: 1px solid #ddd;
+        .btn-primary {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
             border-radius: 5px;
-            font-size: 1em;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
 
         .back-home-btn {
+            padding: 12px 30px;
             background: #e0e0e0;
             color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
         }
 
         .back-home-btn:hover {
             background: #d0d0d0;
         }
 
-        /* Notes Section */
-        .notes-btn {
-            background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
-            color: white;
-        }
-
-        .notes-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.4);
-        }
-
-        .notes-screen {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .notes-screen h2 {
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 1.8em;
-        }
-
+        /* Notes */
         .notes-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 20px;
-            text-align: left;
+            max-height: 70vh;
+            overflow-y: auto;
+            margin-bottom: 20px;
         }
 
         .note-card {
             background: #f9f9f9;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
         }
 
-        .note-card:hover {
-            border-color: #ffa500;
-            background: #fff8f0;
-            box-shadow: 0 4px 12px rgba(255, 140, 0, 0.2);
-        }
-
-        .note-card-title {
-            font-weight: bold;
-            color: #333;
-            font-size: 1.1em;
-            margin-bottom: 5px;
-        }
-
-        .note-card-preview {
-            color: #666;
-            font-size: 0.9em;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .note-view {
-            text-align: left;
-        }
-
-        .note-view h3 {
-            color: #333;
-            font-size: 1.8em;
+        .note-card h4 {
+            color: #667eea;
             margin-bottom: 10px;
-            border-bottom: 2px solid #ffa500;
-            padding-bottom: 10px;
         }
 
-        .note-content {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            line-height: 1.8;
-            color: #444;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            margin-bottom: 20px;
-        }
-
-        .note-navigation {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .note-nav-btn {
-            flex: 1;
-            min-width: 150px;
-        }
-
-        .note-card-view {
-            background: #f9f9f9;
-            border: 1px solid #e0e0e0;
-            border-left: 4px solid #ffa500;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .note-card-view:hover {
-            background: #fff8f0;
-            box-shadow: 0 4px 12px rgba(255, 140, 0, 0.15);
-        }
-
-        .note-title {
+        .note-card p {
             color: #333;
-            font-size: 1.3em;
-            margin: 0 0 10px 0;
-            font-weight: 600;
-            color: #ffa500;
-        }
-
-        .note-card-view .note-content {
-            background: white;
-            padding: 15px;
-            border-radius: 5px;
-            line-height: 1.7;
+            line-height: 1.6;
+            white-space: pre-wrap;
         }
 
         .note-diagram {
@@ -355,331 +275,31 @@
             padding: 10px;
         }
 
-        .note-image-container {
-            text-align: center;
-            margin: 20px 0;
-            padding: 15px;
-            background: #f5f5f5;
-            border-radius: 5px;
-        }
-
         .note-image-label {
+            text-align: center;
             font-size: 0.9em;
-            color: #666;
-            font-weight: 600;
+            color: #999;
             margin-top: 10px;
         }
 
-        /* Exam Screen */
-        .exam-screen {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .progress-bar {
-            background: #e0e0e0;
-            height: 8px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            height: 100%;
-            transition: width 0.3s ease;
-        }
-
-        .question-info {
-            color: #666;
-            margin-bottom: 20px;
-            font-size: 0.95em;
-        }
-
-        .question-text {
-            font-size: 1.3em;
-            color: #333;
-            margin-bottom: 25px;
-            font-weight: 500;
-        }
-
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .option {
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: white;
-        }
-
-        .option:hover {
-            border-color: #667eea;
-            background: #f5f5f5;
-        }
-
-        .option input[type="radio"] {
-            margin-right: 10px;
-        }
-
-        .option.selected {
-            border-color: #667eea;
-            background: #f0f4ff;
-        }
-
-        .option.correct {
-            border-color: #4caf50;
-            background: #f1f8f4;
-        }
-
-        .option.incorrect {
-            border-color: #f44336;
-            background: #fef5f5;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 30px;
-        }
-
-        button {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            flex: 1;
-        }
-
-        .btn-primary:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-primary:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
-            flex: 1;
-        }
-
-        .btn-secondary:hover {
-            background: #f5f5f5;
-        }
-
-        /* Results Screen */
-        .results-screen {
-            text-align: center;
-        }
-
-        .score-display {
-            font-size: 3em;
-            color: #667eea;
-            margin: 20px 0;
-            font-weight: bold;
-        }
-
-        .score-message {
-            font-size: 1.3em;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .score-message.excellent {
-            color: #4caf50;
-        }
-
-        .score-message.good {
-            color: #2196f3;
-        }
-
-        .score-message.fair {
-            color: #ff9800;
-        }
-
-        .score-message.poor {
-            color: #f44336;
-        }
-
-        .answer-review {
-            text-align: left;
-            margin-top: 30px;
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        .answer-review h3 {
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .review-item {
-            margin-bottom: 15px;
-            padding: 15px;
-            background: white;
-            border-left: 4px solid #667eea;
-            border-radius: 4px;
-        }
-
-        .review-item.correct {
-            border-left-color: #4caf50;
-        }
-
-        .review-item.incorrect {
-            border-left-color: #f44336;
-        }
-
-        .review-question {
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 8px;
-        }
-
-        .review-answer {
-            color: #666;
-            font-size: 0.95em;
-            margin-bottom: 5px;
-        }
-
-        .review-explanation {
-            color: #888;
-            font-style: italic;
-            font-size: 0.9em;
-            margin-top: 8px;
-        }
-
-        /* Flashcard Screen */
-        .flashcard-screen {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .flashcard-progress {
-            text-align: center;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .flashcard {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 60px 40px;
-            border-radius: 10px;
-            text-align: center;
-            min-height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.3);
-        }
-
-        .flashcard:hover {
-            transform: scale(1.02);
-        }
-
-        .flashcard.flipped {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .flashcard-label {
-            font-size: 0.8em;
-            opacity: 0.8;
-            margin-bottom: 15px;
-        }
-
-        .flashcard-text {
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-
-        .flashcard-hint {
-            font-size: 0.8em;
-            opacity: 0.8;
-            margin-top: 20px;
-        }
-
-        .flashcard-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 30px;
-            justify-content: center;
-        }
-
-        .flashcard-buttons button {
-            padding: 10px 20px;
-            background: white;
-            color: #f5576c;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .flashcard-buttons button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .back-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #e0e0e0;
-            color: #333;
-            text-decoration: none;
-            border-radius: 5px;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s ease;
-        }
-
-        .back-button:hover {
-            background: #d0d0d0;
-        }
-
         @media (max-width: 600px) {
-            .header h1 {
-                font-size: 1.8em;
+            .mode-btn {
+                min-width: 150px;
+                padding: 20px;
+                font-size: 1em;
             }
 
             .mode-buttons {
                 flex-direction: column;
             }
 
-            .mode-btn {
-                min-width: 100%;
+            .button-group {
+                flex-direction: column;
             }
 
-            .flashcard {
-                padding: 40px 20px;
-                min-height: 250px;
-            }
-
-            .flashcard-text {
-                font-size: 1.2em;
+            .btn-primary,
+            .back-home-btn {
+                width: 100%;
             }
         }
     </style>
@@ -694,499 +314,312 @@
             </div>
 
             <!-- Home Screen -->
-            <div v-if="currentScreen === 'home'" class="content home-screen">
+            <div id="homeScreen" class="content home-screen">
                 <h2>Welcome to Your Learning Hub</h2>
                 <div class="mode-buttons">
-                    <button class="mode-btn exam-btn" @click="selectExamMode">
+                    <button class="mode-btn exam-btn" onclick="app.selectMode('exam')">
                         📝 Take an Exam
                     </button>
-                    <button class="mode-btn flashcard-btn" @click="selectFlashcardMode">
+                    <button class="mode-btn flashcard-btn" onclick="app.selectMode('flashcard')">
                         🎯 Study Flashcards
                     </button>
-                    <button class="mode-btn notes-btn" @click="selectNotesMode">
+                    <button class="mode-btn notes-btn" onclick="app.selectMode('notes')">
                         📖 Study Notes
                     </button>
                 </div>
             </div>
 
             <!-- Subject Selection Screen -->
-            <div v-if="currentScreen === 'subjectSelection'" class="content subject-screen">
+            <div id="subjectScreen" class="content subject-screen hidden">
                 <h2>Select a Subject</h2>
                 <p style="color: #999; font-size: 0.85em; margin-bottom: 15px;">
-                    Loaded: {{ questionsLoaded }} questions | Subjects: {{ subjects.length }}
-                    <br><small v-if="subjects.length > 0">({{ subjects.join(', ') }})</small>
+                    Loaded: <span id="questionsCount">0</span> questions | Subjects: <span id="subjectsCount">0</span>
                 </p>
-                <div class="subject-buttons">
-                    <button v-if="subjects.length === 0" class="subject-btn" disabled style="opacity: 0.5;">
-                        Loading subjects...
-                    </button>
-                    <button v-for="subject in subjects"
-                            :key="subject"
-                            class="subject-btn"
-                            :class="{ active: selectedSubject === subject }"
-                            @click="selectedSubject = subject">
-                        {{ subject }}
-                    </button>
-                </div>
-
-                <div v-if="currentMode === 'exam'" class="comprehensive-section">
-                    <h3>📚 Comprehensive Test</h3>
-                    <p>Test yourself on all subjects</p>
-                    <div class="question-count">
-                        <label>Number of questions:</label>
-                        <input v-model.number="comprehensiveQuestionsCount" type="number" min="1" :max="allQuestions.length">
-                    </div>
-                    <button class="btn-primary" @click="startComprehensive" style="width: 100%;">
-                        Start Comprehensive Test
-                    </button>
-                </div>
-
+                <div class="subject-buttons" id="subjectButtonsContainer"></div>
                 <div class="button-group" style="margin-top: 30px;">
-                    <button class="btn-primary" @click="confirmSubjectSelection" style="flex: 1;">
-                        Start {{ currentMode === 'exam' ? 'Exam' : 'Flashcards' }} - {{ selectedSubject }}
+                    <button class="btn-primary" onclick="app.startExam()" style="flex: 1;">
+                        Start Exam - <span id="selectedSubjectName">Select Subject</span>
                     </button>
-                    <button class="back-home-btn" @click="currentScreen = 'home'" style="flex: 1;">
+                    <button class="back-home-btn" onclick="app.goHome()" style="flex: 1;">
                         Back to Home
                     </button>
                 </div>
             </div>
 
             <!-- Notes Subject Selection Screen -->
-            <div v-if="currentScreen === 'notesSelection'" class="content subject-screen">
+            <div id="notesSelectScreen" class="content subject-screen hidden">
                 <h2>Select a Subject for Notes</h2>
                 <p style="color: #999; font-size: 0.85em; margin-bottom: 15px;">
-                    Available subjects: {{ notesSubjects.length }}
+                    Available subjects: <span id="notesSubjectsCount">0</span>
                 </p>
-                <div class="subject-buttons">
-                    <button v-for="subject in notesSubjects"
-                            :key="subject"
-                            class="subject-btn"
-                            :class="{ active: selectedNotesSubject === subject }"
-                            @click="selectedNotesSubject = subject">
-                        {{ subject }}
-                    </button>
-                </div>
-
+                <div class="subject-buttons" id="notesSubjectButtonsContainer"></div>
                 <div class="button-group" style="margin-top: 30px;">
-                    <button class="btn-primary" @click="viewNotesForSubject" style="flex: 1;">
-                        View {{ selectedNotesSubject }} Notes
+                    <button class="btn-primary" onclick="app.viewNotes()" style="flex: 1;">
+                        View Notes - <span id="selectedNotesSubjectName">Select Subject</span>
                     </button>
-                    <button class="back-home-btn" @click="currentScreen = 'home'" style="flex: 1;">
+                    <button class="back-home-btn" onclick="app.goHome()" style="flex: 1;">
                         Back to Home
                     </button>
                 </div>
             </div>
 
             <!-- Notes View Screen -->
-            <div v-if="currentScreen === 'notesView'" class="content notes-view">
-                <div class="note-view">
-                    <h3>{{ selectedNotesSubject }} Notes</h3>
-                    <p style="color: #666; margin-bottom: 20px;">{{ subjectNotes.length }} notes available for review</p>
-
-                    <div class="notes-list" style="max-height: 70vh; overflow-y: auto; padding-right: 10px;">
-                        <div v-for="note in subjectNotes" :key="note.id" class="note-card-view">
-                            <h4 class="note-title">{{ note.title }}</h4>
-                            <div class="note-content">
-                                {{ note.content }}
-                            </div>
-                            <div v-if="note.image" class="note-image-container">
-                                <img :src="note.image" :alt="note.title + ' diagram'" class="note-diagram">
-                                <div class="note-image-label">{{ note.imageLabel || note.title }}</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="display: flex; gap: 10px; margin-top: 20px;">
-                        <button class="back-button" @click="currentScreen = 'notesSelection'" style="flex: 1;">
-                            ← Back to Subjects
-                        </button>
-                        <button class="back-button" @click="currentScreen = 'home'" style="flex: 1;">
-                            ← Return to Home
-                        </button>
-                    </div>
+            <div id="notesScreen" class="content hidden">
+                <h3 style="margin-bottom: 20px;"><span id="notesViewTitle">Notes</span></h3>
+                <p style="color: #666; margin-bottom: 20px;"><span id="notesCountDisplay">0</span> notes available for review</p>
+                <div class="notes-list" id="notesListContainer"></div>
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button class="back-home-btn" onclick="app.goHome()" style="flex: 1;">
+                        ← Return to Home
+                    </button>
                 </div>
             </div>
 
             <!-- Exam Screen -->
-            <div v-if="currentScreen === 'exam'" class="content exam-screen">
+            <div id="examScreen" class="content hidden">
                 <div class="progress-bar">
-                    <div class="progress-fill" :style="{ width: progressPercent + '%' }"></div>
+                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
                 </div>
-
                 <div class="question-info">
-                    Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}
+                    Question <span id="questionNumber">1</span> of <span id="questionTotal">1</span>
                 </div>
-
-                <div class="question-text">
-                    {{ currentQuestion.text }}
-                </div>
-
-                <div class="options">
-                    <label class="option"
-                           v-for="option in currentQuestion.options"
-                           :key="option.letter"
-                           :class="getOptionClass(option)">
-                        <input type="radio"
-                               :value="option.letter"
-                               v-model="selectedAnswers[currentQuestionIndex]"
-                               :disabled="showResults">
-                        <span>{{ option.letter.toUpperCase() }}. {{ option.text }}</span>
-                    </label>
-                </div>
-
+                <div class="question-text" id="questionText">Loading question...</div>
+                <div class="options" id="optionsContainer"></div>
                 <div class="button-group">
-                    <button class="btn-secondary" @click="previousQuestion" v-if="currentQuestionIndex > 0">
-                        ← Previous
-                    </button>
-                    <button class="btn-primary"
-                            @click="nextQuestion"
-                            v-if="currentQuestionIndex < questions.length - 1"
-                            :disabled="!selectedAnswers[currentQuestionIndex]">
-                        Next →
-                    </button>
-                    <button class="btn-primary"
-                            @click="submitExam"
-                            v-if="currentQuestionIndex === questions.length - 1"
-                            :disabled="!selectedAnswers[currentQuestionIndex]">
-                        Submit Exam ✓
-                    </button>
+                    <button class="back-home-btn" onclick="app.goHome()">← Return to Home</button>
+                    <button class="btn-primary" onclick="app.nextQuestion()">Next →</button>
                 </div>
-
-                <button class="back-button" @click="returnHome" style="margin-top: 20px;">
-                    ← Return to Home
-                </button>
             </div>
 
             <!-- Results Screen -->
-            <div v-if="currentScreen === 'results'" class="content results-screen">
-                <h2>Exam Complete!</h2>
-                <div class="score-display">{{ score }}%</div>
-                <div class="score-message" :class="scoreClass">
-                    {{ scoreMessage }}
-                </div>
-
-                <div class="answer-review">
-                    <h3>Answer Review</h3>
-                    <div class="review-item"
-                         v-for="(question, index) in questions"
-                         :key="question.id"
-                         :class="isAnswerCorrect(index) ? 'correct' : 'incorrect'">
-                        <div class="review-question">
-                            {{ index + 1 }}. {{ question.text }}
-                        </div>
-                        <div class="review-answer">
-                            <strong>Your answer:</strong>
-                            {{ getAnswerText(index) }}
-                            <span v-if="isAnswerCorrect(index)"> ✓</span>
-                            <span v-else> ✗</span>
-                        </div>
-                        <div class="review-answer" v-if="!isAnswerCorrect(index)">
-                            <strong>Correct answer:</strong>
-                            {{ getCorrectAnswerText(index) }}
-                        </div>
-                        <div class="review-explanation">
-                            {{ question.explanation }}
-                        </div>
-                    </div>
-                </div>
-
-                <button class="btn-primary back-button" @click="returnHome">
-                    ← Return to Home
-                </button>
-            </div>
-
-            <!-- Flashcard Screen -->
-            <div v-if="currentScreen === 'flashcards'" class="content flashcard-screen">
-                <div class="flashcard-progress">
-                    Card {{ currentCardIndex + 1 }} of {{ questions.length }}
-                </div>
-
-                <div class="flashcard" :class="{ flipped: cardFlipped }" @click="toggleCard">
-                    <div class="flashcard-label">
-                        {{ cardFlipped ? 'ANSWER' : 'QUESTION' }}
-                    </div>
-                    <div class="flashcard-text">
-                        {{ cardFlipped ? getCurrentCardAnswer() : currentCard.text }}
-                    </div>
-                    <div class="flashcard-hint">
-                        (Click to flip)
-                    </div>
-                </div>
-
-                <div class="flashcard-buttons">
-                    <button @click="previousCard" v-if="currentCardIndex > 0">
-                        ← Previous
-                    </button>
-                    <button @click="toggleCard">
-                        🔄 Flip
-                    </button>
-                    <button @click="nextCard" v-if="currentCardIndex < questions.length - 1">
-                        Next →
-                    </button>
-                </div>
-
-                <button class="back-button" @click="returnHome">
-                    ← Return to Home
+            <div id="resultsScreen" class="content hidden" style="text-align: center;">
+                <h2 style="margin-bottom: 30px;">Exam Complete!</h2>
+                <div style="font-size: 3em; color: #667eea; margin-bottom: 20px;" id="scoreDisplay">0%</div>
+                <p style="font-size: 1.2em; color: #333; margin-bottom: 30px;" id="scoreMessage">Good job!</p>
+                <button class="btn-primary" onclick="app.goHome()" style="padding: 15px 40px; font-size: 1.1em;">
+                    Return to Home
                 </button>
             </div>
         </div>
     </div>
 
     <script>
-        const { createApp } = Vue;
+        const app = {
+            allQuestions: [],
+            allNotes: [],
+            currentSubject: null,
+            currentNotesSubject: null,
+            currentMode: null,
+            currentQuestionIndex: 0,
+            selectedAnswers: {},
+            answers: [],
 
-        createApp({
-            data() {
-                return {
-                    currentScreen: 'home',
-                    allQuestions: [],
-                    questions: [],
-                    currentQuestionIndex: 0,
-                    currentCardIndex: 0,
-                    selectedAnswers: {},
-                    cardFlipped: false,
-                    showResults: false,
-                    score: 0,
-                    selectedSubject: null,
-                    currentMode: null,
-                    comprehensiveQuestionsCount: 10,
-                    allNotes: [],
-                    subjectNotes: [],
-                    currentNoteIndex: 0,
-                    selectedNotesSubject: null
+            async init() {
+                await this.loadQuestions();
+                await this.loadNotes();
+            },
+
+            async loadQuestions() {
+                try {
+                    const response = await fetch('questions.json');
+                    const data = await response.json();
+                    this.allQuestions = data.questions || [];
+                    document.getElementById('questionsCount').textContent = this.allQuestions.length;
+                    document.getElementById('subjectsCount').textContent = new Set(this.allQuestions.map(q => q.subject)).size;
+                } catch (error) {
+                    console.error('Error loading questions:', error);
+                    alert('Error loading questions: ' + error.message);
                 }
             },
-            computed: {
-                currentQuestion() {
-                    return this.questions[this.currentQuestionIndex];
-                },
-                currentCard() {
-                    return this.questions[this.currentCardIndex];
-                },
-                progressPercent() {
-                    return Math.round(((this.currentQuestionIndex + 1) / this.questions.length) * 100);
-                },
-                scoreClass() {
-                    if (this.score >= 90) return 'excellent';
-                    if (this.score >= 80) return 'good';
-                    if (this.score >= 70) return 'fair';
-                    return 'poor';
-                },
-                scoreMessage() {
-                    if (this.score >= 90) return '🎉 Excellent! Outstanding work!';
-                    if (this.score >= 80) return '👏 Good job! Keep it up!';
-                    if (this.score >= 70) return '👍 Fair attempt! Review the material.';
-                    return '💪 Keep practicing! You\'ll get better!';
-                },
-                subjects() {
-                    if (!this.allQuestions || this.allQuestions.length === 0) {
-                        console.warn('allQuestions is empty in computed property');
-                        return [];
-                    }
-                    const uniqueSubjects = [...new Set(this.allQuestions.map(q => q.subject).filter(s => s))];
-                    console.log('Computing subjects:', uniqueSubjects);
-                    return uniqueSubjects.sort();
-                },
-                questionsLoaded() {
-                    return this.allQuestions.length;
-                },
-                notesSubjects() {
-                    if (!this.allNotes || this.allNotes.length === 0) {
-                        return [];
-                    }
-                    const uniqueSubjects = [...new Set(this.allNotes.map(n => n.subject).filter(s => s))];
-                    return uniqueSubjects.sort();
-                },
-                currentNote() {
-                    return this.subjectNotes[this.currentNoteIndex] || {};
+
+            async loadNotes() {
+                try {
+                    const response = await fetch('notes.json');
+                    const data = await response.json();
+                    this.allNotes = data.notes || [];
+                    document.getElementById('notesSubjectsCount').textContent = new Set(this.allNotes.map(n => n.subject)).size;
+                } catch (error) {
+                    console.error('Error loading notes:', error);
                 }
             },
-            watch: {
-                allQuestions(newVal) {
-                    console.log('allQuestions changed:', newVal.length);
-                },
-                subjects(newVal) {
-                    console.log('subjects changed:', newVal);
+
+            selectMode(mode) {
+                this.currentMode = mode;
+                if (mode === 'notes') {
+                    this.renderNotesSelection();
+                } else {
+                    this.renderSubjectSelection();
                 }
             },
-            methods: {
-                async loadQuestions() {
-                    try {
-                        const response = await fetch('questions.json');
-                        if (!response.ok) {
-                            throw new Error(`HTTP error! status: ${response.status}`);
-                        }
-                        const data = await response.json();
-                        this.allQuestions = [...data.questions];
-                        this.questions = [...data.questions];
-                        console.log('Questions loaded:', this.allQuestions.length);
-                        if (this.allQuestions.length > 0) {
-                            const firstSubject = [...new Set(this.allQuestions.map(q => q.subject))][0];
-                            this.selectedSubject = firstSubject;
-                            console.log('Subjects:', [...new Set(this.allQuestions.map(q => q.subject))]);
-                        }
-                    } catch (error) {
-                        console.error('Error loading questions:', error);
-                        alert('Error loading questions: ' + error.message);
+
+            renderSubjectSelection() {
+                const subjects = [...new Set(this.allQuestions.map(q => q.subject))].sort();
+                const container = document.getElementById('subjectButtonsContainer');
+                container.innerHTML = '';
+
+                subjects.forEach(subject => {
+                    const btn = document.createElement('button');
+                    btn.className = 'subject-btn';
+                    btn.textContent = subject;
+                    btn.onclick = () => this.selectSubject(subject);
+                    container.appendChild(btn);
+                });
+
+                this.selectSubject(subjects[0]);
+                this.showScreen('subjectScreen');
+            },
+
+            renderNotesSelection() {
+                const subjects = [...new Set(this.allNotes.map(n => n.subject))].sort();
+                const container = document.getElementById('notesSubjectButtonsContainer');
+                container.innerHTML = '';
+
+                subjects.forEach(subject => {
+                    const btn = document.createElement('button');
+                    btn.className = 'subject-btn';
+                    btn.textContent = subject;
+                    btn.onclick = () => this.selectNotesSubject(subject);
+                    container.appendChild(btn);
+                });
+
+                this.selectNotesSubject(subjects[0]);
+                this.showScreen('notesSelectScreen');
+            },
+
+            selectSubject(subject) {
+                this.currentSubject = subject;
+                document.getElementById('selectedSubjectName').textContent = subject;
+                document.querySelectorAll('#subjectButtonsContainer .subject-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.textContent === subject);
+                });
+            },
+
+            selectNotesSubject(subject) {
+                this.currentNotesSubject = subject;
+                document.getElementById('selectedNotesSubjectName').textContent = subject;
+                document.querySelectorAll('#notesSubjectButtonsContainer .subject-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.textContent === subject);
+                });
+            },
+
+            startExam() {
+                const questions = this.allQuestions.filter(q => q.subject === this.currentSubject);
+                this.answers = questions;
+                this.currentQuestionIndex = 0;
+                this.selectedAnswers = {};
+                this.showQuestion();
+                this.showScreen('examScreen');
+            },
+
+            showQuestion() {
+                const question = this.answers[this.currentQuestionIndex];
+                if (!question) return;
+
+                document.getElementById('questionNumber').textContent = this.currentQuestionIndex + 1;
+                document.getElementById('questionTotal').textContent = this.answers.length;
+                document.getElementById('questionText').textContent = question.text;
+
+                const progress = Math.round(((this.currentQuestionIndex + 1) / this.answers.length) * 100);
+                document.getElementById('progressFill').style.width = progress + '%';
+
+                const container = document.getElementById('optionsContainer');
+                container.innerHTML = '';
+
+                question.options.forEach(option => {
+                    const label = document.createElement('label');
+                    label.className = 'option';
+                    label.innerHTML = `
+                        <input type="radio" name="answer" value="${option.letter}"
+                            ${this.selectedAnswers[this.currentQuestionIndex] === option.letter ? 'checked' : ''}>
+                        <span>${option.letter.toUpperCase()}. ${option.text}</span>
+                    `;
+                    label.onclick = () => {
+                        this.selectedAnswers[this.currentQuestionIndex] = option.letter;
+                        document.querySelectorAll('#optionsContainer .option').forEach(o => o.classList.remove('selected'));
+                        label.classList.add('selected');
+                    };
+                    container.appendChild(label);
+
+                    if (this.selectedAnswers[this.currentQuestionIndex] === option.letter) {
+                        label.classList.add('selected');
                     }
-                },
-                async loadNotes() {
-                    try {
-                        const response = await fetch('notes.json');
-                        if (!response.ok) {
-                            throw new Error(`HTTP error! status: ${response.status}`);
-                        }
-                        const data = await response.json();
-                        this.allNotes = [...data.notes];
-                        console.log('Notes loaded:', this.allNotes.length);
-                        if (this.notesSubjects.length > 0) {
-                            this.selectedNotesSubject = this.notesSubjects[0];
-                        }
-                    } catch (error) {
-                        console.error('Error loading notes:', error);
-                        alert('Error loading notes: ' + error.message);
-                    }
-                },
-                selectNotesMode() {
-                    this.currentScreen = 'notesSelection';
-                },
-                viewNotesForSubject() {
-                    this.subjectNotes = this.allNotes.filter(n => n.subject === this.selectedNotesSubject);
-                    this.currentNoteIndex = 0;
-                    this.currentScreen = 'notesView';
-                },
-                nextNote() {
-                    if (this.currentNoteIndex < this.subjectNotes.length - 1) {
-                        this.currentNoteIndex++;
-                    }
-                },
-                previousNote() {
-                    if (this.currentNoteIndex > 0) {
-                        this.currentNoteIndex--;
-                    }
-                },
-                selectExamMode() {
-                    this.currentMode = 'exam';
-                    this.currentScreen = 'subjectSelection';
-                },
-                selectFlashcardMode() {
-                    this.currentMode = 'flashcard';
-                    this.currentScreen = 'subjectSelection';
-                },
-                confirmSubjectSelection() {
-                    if (this.currentMode === 'exam') {
-                        this.startExamWithSubject();
-                    } else {
-                        this.startFlashcardsWithSubject();
-                    }
-                },
-                startExamWithSubject() {
-                    this.questions = this.allQuestions.filter(q => q.subject === this.selectedSubject);
-                    this.currentQuestionIndex = 0;
-                    this.selectedAnswers = {};
-                    this.showResults = false;
-                    this.currentScreen = 'exam';
-                },
-                startFlashcardsWithSubject() {
-                    this.questions = this.allQuestions.filter(q => q.subject === this.selectedSubject);
-                    this.currentCardIndex = 0;
-                    this.cardFlipped = false;
-                    this.currentScreen = 'flashcards';
-                },
-                startComprehensive() {
-                    let count = Math.min(this.comprehensiveQuestionsCount, this.allQuestions.length);
-                    let comprehensiveQuestions = [...this.allQuestions]
-                        .sort(() => Math.random() - 0.5)
-                        .slice(0, count);
-                    this.questions = comprehensiveQuestions;
-                    this.currentQuestionIndex = 0;
-                    this.selectedAnswers = {};
-                    this.showResults = false;
-                    this.currentScreen = 'exam';
-                },
-                nextQuestion() {
-                    if (this.currentQuestionIndex < this.questions.length - 1) {
-                        this.currentQuestionIndex++;
-                    }
-                },
-                previousQuestion() {
-                    if (this.currentQuestionIndex > 0) {
-                        this.currentQuestionIndex--;
-                    }
-                },
-                nextCard() {
-                    if (this.currentCardIndex < this.questions.length - 1) {
-                        this.currentCardIndex++;
-                        this.cardFlipped = false;
-                    }
-                },
-                previousCard() {
-                    if (this.currentCardIndex > 0) {
-                        this.currentCardIndex--;
-                        this.cardFlipped = false;
-                    }
-                },
-                toggleCard() {
-                    this.cardFlipped = !this.cardFlipped;
-                },
-                getCurrentCardAnswer() {
-                    const correctOption = this.currentCard.options.find(o => o.correct);
-                    return correctOption.text;
-                },
-                submitExam() {
-                    let correctCount = 0;
-                    this.questions.forEach((question, index) => {
-                        if (this.isAnswerCorrect(index)) {
-                            correctCount++;
-                        }
-                    });
-                    this.score = Math.round((correctCount / this.questions.length) * 100);
-                    this.currentScreen = 'results';
-                },
-                isAnswerCorrect(questionIndex) {
-                    const question = this.questions[questionIndex];
-                    const selectedAnswer = this.selectedAnswers[questionIndex];
+                });
+            },
+
+            nextQuestion() {
+                if (this.currentQuestionIndex < this.answers.length - 1) {
+                    this.currentQuestionIndex++;
+                    this.showQuestion();
+                } else {
+                    this.submitExam();
+                }
+            },
+
+            submitExam() {
+                let correct = 0;
+                this.answers.forEach((question, index) => {
+                    const answer = this.selectedAnswers[index];
                     const correctOption = question.options.find(o => o.correct);
-                    return selectedAnswer === correctOption.letter;
-                },
-                getAnswerText(questionIndex) {
-                    const question = this.questions[questionIndex];
-                    const selectedAnswer = this.selectedAnswers[questionIndex];
-                    const option = question.options.find(o => o.letter === selectedAnswer);
-                    return option ? option.letter.toUpperCase() + '. ' + option.text : 'Not answered';
-                },
-                getCorrectAnswerText(questionIndex) {
-                    const question = this.questions[questionIndex];
-                    const correctOption = question.options.find(o => o.correct);
-                    return correctOption.letter.toUpperCase() + '. ' + correctOption.text;
-                },
-                getOptionClass(option) {
-                    if (!this.currentScreen === 'exam') return '';
-
-                    const isSelected = this.selectedAnswers[this.currentQuestionIndex] === option.letter;
-
-                    if (isSelected) {
-                        if (option.correct) {
-                            return 'selected correct';
-                        } else {
-                            return 'selected incorrect';
-                        }
+                    if (answer === correctOption.letter) {
+                        correct++;
                     }
-                    return '';
-                },
-                returnHome() {
-                    this.currentScreen = 'home';
-                    this.selectedAnswers = {};
-                    this.currentQuestionIndex = 0;
-                    this.currentCardIndex = 0;
-                    this.cardFlipped = false;
+                });
+
+                const score = Math.round((correct / this.answers.length) * 100);
+                document.getElementById('scoreDisplay').textContent = score + '%';
+
+                if (score >= 90) {
+                    document.getElementById('scoreMessage').textContent = '🎉 Excellent! Outstanding work!';
+                } else if (score >= 80) {
+                    document.getElementById('scoreMessage').textContent = '👏 Good job! Keep it up!';
+                } else if (score >= 70) {
+                    document.getElementById('scoreMessage').textContent = '👍 Fair attempt! Review the material.';
+                } else {
+                    document.getElementById('scoreMessage').textContent = '💪 Keep practicing! You\'ll get better!';
                 }
+
+                this.showScreen('resultsScreen');
             },
-            mounted() {
-                this.loadQuestions();
-                this.loadNotes();
+
+            viewNotes() {
+                const notes = this.allNotes.filter(n => n.subject === this.currentNotesSubject);
+                const container = document.getElementById('notesListContainer');
+                container.innerHTML = '';
+
+                document.getElementById('notesViewTitle').textContent = this.currentNotesSubject + ' Notes';
+                document.getElementById('notesCountDisplay').textContent = notes.length;
+
+                notes.forEach(note => {
+                    const noteDiv = document.createElement('div');
+                    noteDiv.className = 'note-card';
+                    let html = `<h4>${note.title}</h4><p>${note.content}</p>`;
+                    if (note.image) {
+                        html += `<div style="text-align: center;">
+                                    <img src="${note.image}" alt="${note.title}" class="note-diagram">
+                                    <div class="note-image-label">${note.imageLabel || note.title}</div>
+                                </div>`;
+                    }
+                    noteDiv.innerHTML = html;
+                    container.appendChild(noteDiv);
+                });
+
+                this.showScreen('notesScreen');
+            },
+
+            showScreen(screenId) {
+                document.querySelectorAll('#app > .container > .content, #app > .container > div[id$="Screen"]').forEach(el => {
+                    el.classList.add('hidden');
+                });
+                document.getElementById(screenId).classList.remove('hidden');
+            },
+
+            goHome() {
+                this.showScreen('homeScreen');
             }
-        }).mount('#app');
+        };
+
+        // Initialize on load
+        window.addEventListener('load', () => app.init());
     </script>
 </body>
 </html>
