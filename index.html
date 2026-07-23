@@ -494,6 +494,11 @@
 
             selectMode(mode) {
                 this.currentMode = mode;
+                this.currentQuestionIndex = 0;
+                this.currentCardIndex = 0;
+                this.selectedAnswers = {};
+                this.answers = [];
+                this.cardFlipped = false;
                 if (mode === 'notes') {
                     this.renderNotesSelection();
                 } else {
@@ -545,10 +550,16 @@
             },
 
             startMode() {
+                if (!this.currentMode) {
+                    console.error('Mode not set. Current mode:', this.currentMode);
+                    return;
+                }
                 if (this.currentMode === 'exam') {
                     this.startExam();
                 } else if (this.currentMode === 'flashcard') {
                     this.startFlashcards();
+                } else {
+                    console.error('Unknown mode:', this.currentMode);
                 }
             },
 
