@@ -107,16 +107,26 @@ class AINIX:
 
     def handle_query(self, query: str, args: argparse.Namespace):
         """Route and handle a user query."""
-        # Remove control flags from query for routing
-        clean_query = query
-        for flag in ['--execute', '-x', '--dry-run', '--explain', '--container', '-c']:
-            clean_query = clean_query.replace(flag, '').strip()
+        # Check if --explain flag is explicitly set
+        if args.explain:
+            query_type = QueryType.EXPLAIN
+            subject = None
+        else:
+            # Remove control flags from query for routing
+            clean_query = query
+            for flag in ['--execute', '-x', '--dry-run', '--explain', '--container', '-c']:
+                clean_query = clean_query.replace(flag, '').strip()
 
-        # Classify query
-        query_type, subject = self.router.classify(clean_query)
+            # Classify query
+            query_type, subject = self.router.classify(clean_query)
 
         print(f"\n🤖 AINIX - Query Type: {query_type.value}")
         print("=" * 40)
+
+        # Clean query for processing
+        clean_query = query
+        for flag in ['--execute', '-x', '--dry-run', '--explain', '--container', '-c']:
+            clean_query = clean_query.replace(flag, '').strip()
 
         if query_type == QueryType.HELP:
             self.handle_help_query(clean_query, subject)

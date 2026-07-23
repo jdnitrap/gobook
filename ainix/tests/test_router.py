@@ -17,7 +17,7 @@ def test_help_classification():
     help_queries = [
         "How do I install a package?",
         "What's the difference between nix-env and configuration.nix?",
-        "Explain NixOS to me",
+        "Tell me about NixOS",
         "Help, I'm stuck",
     ]
 
