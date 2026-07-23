@@ -219,6 +219,101 @@
         .back-home-btn:hover {
             background: #d0d0d0;
         }
+
+        /* Notes Section */
+        .notes-btn {
+            background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
+            color: white;
+        }
+
+        .notes-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.4);
+        }
+
+        .notes-screen {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .notes-screen h2 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .notes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .note-card {
+            background: #f9f9f9;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .note-card:hover {
+            border-color: #ffa500;
+            background: #fff8f0;
+            box-shadow: 0 4px 12px rgba(255, 140, 0, 0.2);
+        }
+
+        .note-card-title {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .note-card-preview {
+            color: #666;
+            font-size: 0.9em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .note-view {
+            text-align: left;
+        }
+
+        .note-view h3 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #ffa500;
+            padding-bottom: 10px;
+        }
+
+        .note-content {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            line-height: 1.8;
+            color: #444;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            margin-bottom: 20px;
+        }
+
+        .note-navigation {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .note-nav-btn {
+            flex: 1;
+            min-width: 150px;
+        }
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
         }
@@ -556,6 +651,9 @@
                     <button class="mode-btn flashcard-btn" @click="selectFlashcardMode">
                         🎯 Study Flashcards
                     </button>
+                    <button class="mode-btn notes-btn" @click="selectNotesMode">
+                        📖 Study Notes
+                    </button>
                 </div>
             </div>
 
@@ -597,6 +695,64 @@
                     </button>
                     <button class="back-home-btn" @click="currentScreen = 'home'" style="flex: 1;">
                         Back to Home
+                    </button>
+                </div>
+            </div>
+
+            <!-- Notes Subject Selection Screen -->
+            <div v-if="currentScreen === 'notesSelection'" class="content subject-screen">
+                <h2>Select a Subject for Notes</h2>
+                <p style="color: #999; font-size: 0.85em; margin-bottom: 15px;">
+                    Available subjects: {{ notesSubjects.length }}
+                </p>
+                <div class="subject-buttons">
+                    <button v-for="subject in notesSubjects"
+                            :key="subject"
+                            class="subject-btn"
+                            :class="{ active: selectedNotesSubject === subject }"
+                            @click="selectedNotesSubject = subject">
+                        {{ subject }}
+                    </button>
+                </div>
+
+                <div class="button-group" style="margin-top: 30px;">
+                    <button class="btn-primary" @click="viewNotesForSubject" style="flex: 1;">
+                        View {{ selectedNotesSubject }} Notes
+                    </button>
+                    <button class="back-home-btn" @click="currentScreen = 'home'" style="flex: 1;">
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+
+            <!-- Notes View Screen -->
+            <div v-if="currentScreen === 'notesView'" class="content notes-view">
+                <div class="note-view">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div>
+                            <h3>{{ selectedNotesSubject }} Notes</h3>
+                            <p style="color: #666; margin-top: 5px;">Note {{ currentNoteIndex + 1 }} of {{ subjectNotes.length }}</p>
+                        </div>
+                    </div>
+
+                    <div class="note-content">
+                        {{ currentNote.content }}
+                    </div>
+
+                    <div class="note-navigation">
+                        <button class="btn-secondary note-nav-btn" @click="previousNote" v-if="currentNoteIndex > 0">
+                            ← Previous Note
+                        </button>
+                        <button class="btn-secondary note-nav-btn" @click="nextNote" v-if="currentNoteIndex < subjectNotes.length - 1">
+                            Next Note →
+                        </button>
+                    </div>
+
+                    <button class="back-button" @click="currentScreen = 'notesSelection'" style="margin-top: 20px;">
+                        ← Back to Subjects
+                    </button>
+                    <button class="back-button" @click="currentScreen = 'home'" style="margin-top: 10px;">
+                        ← Return to Home
                     </button>
                 </div>
             </div>
@@ -743,7 +899,11 @@
                     score: 0,
                     selectedSubject: null,
                     currentMode: null,
-                    comprehensiveQuestionsCount: 10
+                    comprehensiveQuestionsCount: 10,
+                    allNotes: [],
+                    subjectNotes: [],
+                    currentNoteIndex: 0,
+                    selectedNotesSubject: null
                 }
             },
             computed: {
@@ -779,6 +939,16 @@
                 },
                 questionsLoaded() {
                     return this.allQuestions.length;
+                },
+                notesSubjects() {
+                    if (!this.allNotes || this.allNotes.length === 0) {
+                        return [];
+                    }
+                    const uniqueSubjects = [...new Set(this.allNotes.map(n => n.subject).filter(s => s))];
+                    return uniqueSubjects.sort();
+                },
+                currentNote() {
+                    return this.subjectNotes[this.currentNoteIndex] || {};
                 }
             },
             watch: {
@@ -808,6 +978,41 @@
                     } catch (error) {
                         console.error('Error loading questions:', error);
                         alert('Error loading questions: ' + error.message);
+                    }
+                },
+                async loadNotes() {
+                    try {
+                        const response = await fetch('notes.json');
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        const data = await response.json();
+                        this.allNotes = [...data.notes];
+                        console.log('Notes loaded:', this.allNotes.length);
+                        if (this.notesSubjects.length > 0) {
+                            this.selectedNotesSubject = this.notesSubjects[0];
+                        }
+                    } catch (error) {
+                        console.error('Error loading notes:', error);
+                        alert('Error loading notes: ' + error.message);
+                    }
+                },
+                selectNotesMode() {
+                    this.currentScreen = 'notesSelection';
+                },
+                viewNotesForSubject() {
+                    this.subjectNotes = this.allNotes.filter(n => n.subject === this.selectedNotesSubject);
+                    this.currentNoteIndex = 0;
+                    this.currentScreen = 'notesView';
+                },
+                nextNote() {
+                    if (this.currentNoteIndex < this.subjectNotes.length - 1) {
+                        this.currentNoteIndex++;
+                    }
+                },
+                previousNote() {
+                    if (this.currentNoteIndex > 0) {
+                        this.currentNoteIndex--;
                     }
                 },
                 selectExamMode() {
@@ -929,6 +1134,7 @@
             },
             mounted() {
                 this.loadQuestions();
+                this.loadNotes();
             }
         }).mount('#app');
     </script>

@@ -1,0 +1,40 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "subject": "Math",
+      "title": "Basic Arithmetic",
+      "content": "Arithmetic is the foundation of mathematics. Key operations include:\n• Addition: Combining numbers to find the sum\n• Subtraction: Finding the difference between numbers\n• Multiplication: Repeated addition of a number\n• Division: Breaking a number into equal parts\n\nExample: 2 + 2 = 4, 5 × 3 = 15, 10 ÷ 2 = 5"
+    },
+    {
+      "id": 2,
+      "subject": "Math",
+      "title": "Order of Operations",
+      "content": "Remember PEMDAS/BODMAS:\n• Parentheses/Brackets\n• Exponents/Orders\n• Multiplication and Division (left to right)\n• Addition and Subtraction (left to right)\n\nExample: 2 + 3 × 4 = 2 + 12 = 14 (not 20)"
+    },
+    {
+      "id": 3,
+      "subject": "Science",
+      "title": "The Solar System",
+      "content": "Our solar system consists of:\n• The Sun: A star at the center\n• 8 Planets: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune\n• Moons: Natural satellites orbiting planets\n• Asteroids and Comets: Smaller celestial bodies\n\nEarth is the third planet from the Sun and is the only known planet to support life."
+    },
+    {
+      "id": 4,
+      "subject": "Science",
+      "title": "States of Matter",
+      "content": "Matter exists in three main states:\n• Solid: Fixed shape and volume (ice)\n• Liquid: Fixed volume but takes shape of container (water)\n• Gas: No fixed shape or volume (water vapor)\n\nWater transitions:\n• Melting: Solid → Liquid (0°C)\n• Boiling: Liquid → Gas (100°C)\n• Freezing: Liquid → Solid (0°C)"
+    },
+    {
+      "id": 5,
+      "subject": "History",
+      "title": "The Titanic Disaster",
+      "content": "The RMS Titanic was a British passenger ship that sank on April 15, 1912.\n• Collision: Hit an iceberg in the Atlantic Ocean\n• Casualties: Approximately 1,500 people died\n• Lifeboat Shortage: Not enough lifeboats for all passengers\n• Legacy: Led to improved maritime safety regulations\n\nIt was considered 'unsinkable' but sank on its maiden voyage."
+    },
+    {
+      "id": 6,
+      "subject": "History",
+      "title": "World Capitals",
+      "content": "Important world capitals to know:\n• France - Paris: Known as the City of Light, famous for the Eiffel Tower\n• United States - Washington D.C.: Capital city and seat of government\n• United Kingdom - London: Historic capital on the Thames River\n• Germany - Berlin: Capital and largest city\n• Spain - Madrid: Capital in the center of Spain\n\nCapitals are the administrative centers where government functions are based."
+    }
+  ]
+}
