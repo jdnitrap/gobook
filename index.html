@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('background.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url('background.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -27,10 +27,11 @@
         }
 
         .container {
-            background: white;
+            background: rgba(255, 255, 255, 0.85);
             border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
             overflow: hidden;
+            backdrop-filter: blur(5px);
         }
 
         .header {
