@@ -314,6 +314,36 @@
             flex: 1;
             min-width: 150px;
         }
+
+        .note-card-view {
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid #ffa500;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .note-card-view:hover {
+            background: #fff8f0;
+            box-shadow: 0 4px 12px rgba(255, 140, 0, 0.15);
+        }
+
+        .note-title {
+            color: #333;
+            font-size: 1.3em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+            color: #ffa500;
+        }
+
+        .note-card-view .note-content {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            line-height: 1.7;
+        }
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
         }
@@ -728,32 +758,26 @@
             <!-- Notes View Screen -->
             <div v-if="currentScreen === 'notesView'" class="content notes-view">
                 <div class="note-view">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                        <div>
-                            <h3>{{ selectedNotesSubject }} Notes</h3>
-                            <p style="color: #666; margin-top: 5px;">Note {{ currentNoteIndex + 1 }} of {{ subjectNotes.length }}</p>
+                    <h3>{{ selectedNotesSubject }} Notes</h3>
+                    <p style="color: #666; margin-bottom: 20px;">{{ subjectNotes.length }} notes available for review</p>
+
+                    <div class="notes-list" style="max-height: 70vh; overflow-y: auto; padding-right: 10px;">
+                        <div v-for="note in subjectNotes" :key="note.id" class="note-card-view">
+                            <h4 class="note-title">{{ note.title }}</h4>
+                            <div class="note-content">
+                                {{ note.content }}
+                            </div>
                         </div>
                     </div>
 
-                    <div class="note-content">
-                        {{ currentNote.content }}
-                    </div>
-
-                    <div class="note-navigation">
-                        <button class="btn-secondary note-nav-btn" @click="previousNote" v-if="currentNoteIndex > 0">
-                            ← Previous Note
+                    <div style="display: flex; gap: 10px; margin-top: 20px;">
+                        <button class="back-button" @click="currentScreen = 'notesSelection'" style="flex: 1;">
+                            ← Back to Subjects
                         </button>
-                        <button class="btn-secondary note-nav-btn" @click="nextNote" v-if="currentNoteIndex < subjectNotes.length - 1">
-                            Next Note →
+                        <button class="back-button" @click="currentScreen = 'home'" style="flex: 1;">
+                            ← Return to Home
                         </button>
                     </div>
-
-                    <button class="back-button" @click="currentScreen = 'notesSelection'" style="margin-top: 20px;">
-                        ← Back to Subjects
-                    </button>
-                    <button class="back-button" @click="currentScreen = 'home'" style="margin-top: 10px;">
-                        ← Return to Home
-                    </button>
                 </div>
             </div>
 
