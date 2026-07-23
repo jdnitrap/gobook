@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Exam & Flashcard App</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        #app {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .mode-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .mode-selector button {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .mode-selector button.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .mode-selector button:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        /* Home Screen */
+        .home-screen {
+            text-align: center;
+        }
+
+        .home-screen h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .mode-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .mode-btn {
+            flex: 1;
+            min-width: 200px;
+            padding: 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .exam-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .exam-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .flashcard-btn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .flashcard-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+        }
+
+        /* Exam Screen */
+        .exam-screen {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 8px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .question-info {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+
+        .question-text {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .option:hover {
+            border-color: #667eea;
+            background: #f5f5f5;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .option.selected {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .option.correct {
+            border-color: #4caf50;
+            background: #f1f8f4;
+        }
+
+        .option.incorrect {
+            border-color: #f44336;
+            background: #fef5f5;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            flex: 1;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            flex: 1;
+        }
+
+        .btn-secondary:hover {
+            background: #f5f5f5;
+        }
+
+        /* Results Screen */
+        .results-screen {
+            text-align: center;
+        }
+
+        .score-display {
+            font-size: 3em;
+            color: #667eea;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .score-message {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .score-message.excellent {
+            color: #4caf50;
+        }
+
+        .score-message.good {
+            color: #2196f3;
+        }
+
+        .score-message.fair {
+            color: #ff9800;
+        }
+
+        .score-message.poor {
+            color: #f44336;
+        }
+
+        .answer-review {
+            text-align: left;
+            margin-top: 30px;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .answer-review h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .review-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: white;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+
+        .review-item.correct {
+            border-left-color: #4caf50;
+        }
+
+        .review-item.incorrect {
+            border-left-color: #f44336;
+        }
+
+        .review-question {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .review-answer {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 5px;
+        }
+
+        .review-explanation {
+            color: #888;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-top: 8px;
+        }
+
+        /* Flashcard Screen */
+        .flashcard-screen {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .flashcard-progress {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .flashcard {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 10px;
+            text-align: center;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.3);
+        }
+
+        .flashcard:hover {
+            transform: scale(1.02);
+        }
+
+        .flashcard.flipped {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .flashcard-label {
+            font-size: 0.8em;
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+
+        .flashcard-text {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .flashcard-hint {
+            font-size: 0.8em;
+            opacity: 0.8;
+            margin-top: 20px;
+        }
+
+        .flashcard-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .flashcard-buttons button {
+            padding: 10px 20px;
+            background: white;
+            color: #f5576c;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .flashcard-buttons button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #e0e0e0;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #d0d0d0;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .mode-buttons {
+                flex-direction: column;
+            }
+
+            .mode-btn {
+                min-width: 100%;
+            }
+
+            .flashcard {
+                padding: 40px 20px;
+                min-height: 250px;
+            }
+
+            .flashcard-text {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="header">
+                <h1>📚 Class Exam & Study</h1>
+                <p>Master your subjects with exams and flashcards</p>
+            </div>
+
+            <!-- Home Screen -->
+            <div v-if="currentScreen === 'home'" class="content home-screen">
+                <h2>Welcome to Your Learning Hub</h2>
+                <div class="mode-buttons">
+                    <button class="mode-btn exam-btn" @click="startExam">
+                        📝 Take an Exam
+                    </button>
+                    <button class="mode-btn flashcard-btn" @click="startFlashcards">
+                        🎯 Study Flashcards
+                    </button>
+                </div>
+            </div>
+
+            <!-- Exam Screen -->
+            <div v-if="currentScreen === 'exam'" class="content exam-screen">
+                <div class="progress-bar">
+                    <div class="progress-fill" :style="{ width: progressPercent + '%' }"></div>
+                </div>
+
+                <div class="question-info">
+                    Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}
+                </div>
+
+                <div class="question-text">
+                    {{ currentQuestion.text }}
+                </div>
+
+                <div class="options">
+                    <label class="option"
+                           v-for="option in currentQuestion.options"
+                           :key="option.letter"
+                           :class="getOptionClass(option)">
+                        <input type="radio"
+                               :value="option.letter"
+                               v-model="selectedAnswers[currentQuestionIndex]"
+                               :disabled="showResults">
+                        <span>{{ option.letter.toUpperCase() }}. {{ option.text }}</span>
+                    </label>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn-secondary" @click="previousQuestion" v-if="currentQuestionIndex > 0">
+                        ← Previous
+                    </button>
+                    <button class="btn-primary"
+                            @click="nextQuestion"
+                            v-if="currentQuestionIndex < questions.length - 1"
+                            :disabled="!selectedAnswers[currentQuestionIndex]">
+                        Next →
+                    </button>
+                    <button class="btn-primary"
+                            @click="submitExam"
+                            v-if="currentQuestionIndex === questions.length - 1"
+                            :disabled="!selectedAnswers[currentQuestionIndex]">
+                        Submit Exam ✓
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div v-if="currentScreen === 'results'" class="content results-screen">
+                <h2>Exam Complete!</h2>
+                <div class="score-display">{{ score }}%</div>
+                <div class="score-message" :class="scoreClass">
+                    {{ scoreMessage }}
+                </div>
+
+                <div class="answer-review">
+                    <h3>Answer Review</h3>
+                    <div class="review-item"
+                         v-for="(question, index) in questions"
+                         :key="question.id"
+                         :class="isAnswerCorrect(index) ? 'correct' : 'incorrect'">
+                        <div class="review-question">
+                            {{ index + 1 }}. {{ question.text }}
+                        </div>
+                        <div class="review-answer">
+                            <strong>Your answer:</strong>
+                            {{ getAnswerText(index) }}
+                            <span v-if="isAnswerCorrect(index)"> ✓</span>
+                            <span v-else> ✗</span>
+                        </div>
+                        <div class="review-answer" v-if="!isAnswerCorrect(index)">
+                            <strong>Correct answer:</strong>
+                            {{ getCorrectAnswerText(index) }}
+                        </div>
+                        <div class="review-explanation">
+                            {{ question.explanation }}
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-primary back-button" @click="returnHome">
+                    ← Return to Home
+                </button>
+            </div>
+
+            <!-- Flashcard Screen -->
+            <div v-if="currentScreen === 'flashcards'" class="content flashcard-screen">
+                <div class="flashcard-progress">
+                    Card {{ currentCardIndex + 1 }} of {{ questions.length }}
+                </div>
+
+                <div class="flashcard" :class="{ flipped: cardFlipped }" @click="toggleCard">
+                    <div class="flashcard-label">
+                        {{ cardFlipped ? 'ANSWER' : 'QUESTION' }}
+                    </div>
+                    <div class="flashcard-text">
+                        {{ cardFlipped ? getCurrentCardAnswer() : currentCard.text }}
+                    </div>
+                    <div class="flashcard-hint">
+                        (Click to flip)
+                    </div>
+                </div>
+
+                <div class="flashcard-buttons">
+                    <button @click="previousCard" v-if="currentCardIndex > 0">
+                        ← Previous
+                    </button>
+                    <button @click="toggleCard">
+                        🔄 Flip
+                    </button>
+                    <button @click="nextCard" v-if="currentCardIndex < questions.length - 1">
+                        Next →
+                    </button>
+                </div>
+
+                <button class="back-button" @click="returnHome">
+                    ← Return to Home
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    currentScreen: 'home',
+                    questions: [],
+                    currentQuestionIndex: 0,
+                    currentCardIndex: 0,
+                    selectedAnswers: {},
+                    cardFlipped: false,
+                    showResults: false,
+                    score: 0
+                }
+            },
+            computed: {
+                currentQuestion() {
+                    return this.questions[this.currentQuestionIndex];
+                },
+                currentCard() {
+                    return this.questions[this.currentCardIndex];
+                },
+                progressPercent() {
+                    return Math.round(((this.currentQuestionIndex + 1) / this.questions.length) * 100);
+                },
+                scoreClass() {
+                    if (this.score >= 90) return 'excellent';
+                    if (this.score >= 80) return 'good';
+                    if (this.score >= 70) return 'fair';
+                    return 'poor';
+                },
+                scoreMessage() {
+                    if (this.score >= 90) return '🎉 Excellent! Outstanding work!';
+                    if (this.score >= 80) return '👏 Good job! Keep it up!';
+                    if (this.score >= 70) return '👍 Fair attempt! Review the material.';
+                    return '💪 Keep practicing! You\'ll get better!';
+                }
+            },
+            methods: {
+                async loadQuestions() {
+                    try {
+                        const response = await fetch('questions.json');
+                        const data = await response.json();
+                        this.questions = data.questions;
+                    } catch (error) {
+                        console.error('Error loading questions:', error);
+                        alert('Error loading questions. Please check questions.json file.');
+                    }
+                },
+                startExam() {
+                    this.currentQuestionIndex = 0;
+                    this.selectedAnswers = {};
+                    this.showResults = false;
+                    this.currentScreen = 'exam';
+                },
+                startFlashcards() {
+                    this.currentCardIndex = 0;
+                    this.cardFlipped = false;
+                    this.currentScreen = 'flashcards';
+                },
+                nextQuestion() {
+                    if (this.currentQuestionIndex < this.questions.length - 1) {
+                        this.currentQuestionIndex++;
+                    }
+                },
+                previousQuestion() {
+                    if (this.currentQuestionIndex > 0) {
+                        this.currentQuestionIndex--;
+                    }
+                },
+                nextCard() {
+                    if (this.currentCardIndex < this.questions.length - 1) {
+                        this.currentCardIndex++;
+                        this.cardFlipped = false;
+                    }
+                },
+                previousCard() {
+                    if (this.currentCardIndex > 0) {
+                        this.currentCardIndex--;
+                        this.cardFlipped = false;
+                    }
+                },
+                toggleCard() {
+                    this.cardFlipped = !this.cardFlipped;
+                },
+                getCurrentCardAnswer() {
+                    const correctOption = this.currentCard.options.find(o => o.correct);
+                    return correctOption.letter.toUpperCase() + '. ' + correctOption.text;
+                },
+                submitExam() {
+                    let correctCount = 0;
+                    this.questions.forEach((question, index) => {
+                        if (this.isAnswerCorrect(index)) {
+                            correctCount++;
+                        }
+                    });
+                    this.score = Math.round((correctCount / this.questions.length) * 100);
+                    this.currentScreen = 'results';
+                },
+                isAnswerCorrect(questionIndex) {
+                    const question = this.questions[questionIndex];
+                    const selectedAnswer = this.selectedAnswers[questionIndex];
+                    const correctOption = question.options.find(o => o.correct);
+                    return selectedAnswer === correctOption.letter;
+                },
+                getAnswerText(questionIndex) {
+                    const question = this.questions[questionIndex];
+                    const selectedAnswer = this.selectedAnswers[questionIndex];
+                    const option = question.options.find(o => o.letter === selectedAnswer);
+                    return option ? option.letter.toUpperCase() + '. ' + option.text : 'Not answered';
+                },
+                getCorrectAnswerText(questionIndex) {
+                    const question = this.questions[questionIndex];
+                    const correctOption = question.options.find(o => o.correct);
+                    return correctOption.letter.toUpperCase() + '. ' + correctOption.text;
+                },
+                getOptionClass(option) {
+                    if (!this.currentScreen === 'exam') return '';
+
+                    const isSelected = this.selectedAnswers[this.currentQuestionIndex] === option.letter;
+
+                    if (isSelected) {
+                        if (option.correct) {
+                            return 'selected correct';
+                        } else {
+                            return 'selected incorrect';
+                        }
+                    }
+                    return '';
+                },
+                returnHome() {
+                    this.currentScreen = 'home';
+                    this.selectedAnswers = {};
+                    this.currentQuestionIndex = 0;
+                    this.currentCardIndex = 0;
+                    this.cardFlipped = false;
+                }
+            },
+            mounted() {
+                this.loadQuestions();
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
