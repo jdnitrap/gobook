@@ -557,7 +557,7 @@
                 } else if (mode === 'exam') {
                     this.showExamConfigScreen();
                 } else if (mode === 'flashcard') {
-                    this.renderSubjectSelection();
+                    this.renderNotesSelection();
                 }
             },
 
@@ -662,8 +662,8 @@
             },
 
             startFlashcards() {
-                const questions = this.allQuestions.filter(q => q.subject === this.currentSubject);
-                this.answers = questions;
+                const notes = this.allNotes.filter(n => n.subject === this.currentNotesSubject);
+                this.answers = notes;
                 this.currentCardIndex = 0;
                 this.cardFlipped = false;
                 this.showFlashcard();
@@ -681,7 +681,7 @@
                 document.getElementById('cardProgressFill').style.width = progress + '%';
 
                 this.cardFlipped = false;
-                document.getElementById('cardContent').textContent = card.text;
+                document.getElementById('cardContent').textContent = card.title;
             },
 
             flipCard() {
@@ -690,10 +690,9 @@
 
                 this.cardFlipped = !this.cardFlipped;
                 if (this.cardFlipped) {
-                    const correctOption = card.options.find(o => o.correct);
-                    document.getElementById('cardContent').textContent = correctOption.text;
+                    document.getElementById('cardContent').textContent = card.content;
                 } else {
-                    document.getElementById('cardContent').textContent = card.text;
+                    document.getElementById('cardContent').textContent = card.title;
                 }
             },
 

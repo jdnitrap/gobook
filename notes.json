@@ -4,13 +4,13 @@
       "id": 1,
       "subject": "CP01",
       "title": "Piping Fundamentals and Design",
-      "content": "PIPING FUNDAMENTALS:\n\nPURPOSE AND FUNCTION: Transports fluids and fluid/solid mixtures between equipment. Design must account for temperature, pressure, flow rate, chemical/physical properties, contamination, and shock loads.\n\nDESIGN FACTORS:\n• Temperature affects material properties, expansion, and thermal stress\n• Pressure determines wall thickness, material selection, support design\n• Flow rate/velocity affects erosion, corrosion, and pressure drop\n• Shock loads (water hammer, steam hammer, thermal shock, seismic) require robust design\n• Changes in direction require proper support and restraint\n\nMATERIAL SELECTION:\n• Low-carbon steel: economical, prone to rust/corrosion\n• Low-alloy steel: high-temperature applications, improved wear/fatigue/corrosion resistance\n• Stainless steel: corrosion resistant, minimizes corrosion product buildup\n• Copper alloys: excellent corrosion resistance, good conductivity\n• Nickel alloys: high temperature/pressure applications, high cost\n• Plastic: corrosion resistant, lightweight, limited temperature range\n\nPIPE SUPPORT SYSTEMS:\n• Rigid restraints: fixed, prevent movement\n• Spring hangers: support vertical gravity loading, allow thermal movement\n• Snubbers: limit seismic motion while allowing thermal growth\n\nTHERMAL EFFECTS:\n• Thermal loops/bends: accommodate thermal expansion\n• Expansion joints: allow controlled linear expansion\n• Insulation: controls heat loss/gain and protects personnel"
+      "content": "PIPING FUNDAMENTALS:\n\nPURPOSE AND FUNCTION: Transports fluids and fluid/solid mixtures between equipment. Design must account for temperature, pressure, flow rate, chemical/physical properties, contamination, and shock loads.\n\nDESIGN FACTORS:\n\u2022 Temperature affects material properties, expansion, and thermal stress\n\u2022 Pressure determines wall thickness, material selection, support design\n\u2022 Flow rate/velocity affects erosion, corrosion, and pressure drop\n\u2022 Shock loads (water hammer, steam hammer, thermal shock, seismic) require robust design\n\u2022 Changes in direction require proper support and restraint\n\nMATERIAL SELECTION:\n\u2022 Low-carbon steel: economical, prone to rust/corrosion\n\u2022 Low-alloy steel: high-temperature applications, improved wear/fatigue/corrosion resistance\n\u2022 Stainless steel: corrosion resistant, minimizes corrosion product buildup\n\u2022 Copper alloys: excellent corrosion resistance, good conductivity\n\u2022 Nickel alloys: high temperature/pressure applications, high cost\n\u2022 Plastic: corrosion resistant, lightweight, limited temperature range\n\nPIPE SUPPORT SYSTEMS:\n\u2022 Rigid restraints: fixed, prevent movement\n\u2022 Spring hangers: support vertical gravity loading, allow thermal movement\n\u2022 Snubbers: limit seismic motion while allowing thermal growth\n\nTHERMAL EFFECTS:\n\u2022 Thermal loops/bends: accommodate thermal expansion\n\u2022 Expansion joints: allow controlled linear expansion\n\u2022 Insulation: controls heat loss/gain and protects personnel"
     },
     {
       "id": 2,
       "subject": "CP01",
       "title": "Valve Functions and Basic Construction",
-      "content": "FIVE PRINCIPAL VALVE FUNCTIONS:\n\n1. STARTING/STOPPING FLOW: Isolation to completely stop or start fluid flow (gate valves, ball valves, plug valves)\n\n2. THROTTLING FLOW: Control flow rate without stopping completely, requires throttling-capable design (globe valves, needle valves)\n\n3. CONTROLLING DIRECTION OF FLOW: Routes fluid to different paths (directional control valves, check valves)\n\n4. REGULATING PRESSURE: Maintains desired system pressure (pressure regulators, pressure-reducing valves)\n\n5. RELIEVING PRESSURE: Protection against overpressure (relief valves, safety valves)\n\nBASIC VALVE CONSTRUCTION:\n• Body: contains internal flow path, seats, and internal parts\n• Bonnet: upper section that seals the body\n• Disk: moves to open/close or throttle flow\n• Seat rings: provide seal surface for the disk\n• Stem: connects disk to actuator/handwheel\n• Backseat: allows packing adjustment without system depressurization\n• Packing/stuffing box: compression seal prevents stem leakage\n\nSTEM DESIGNS:\n• Rising stem: stem moves upward when valve opens (visual position indicator)\n• Non-rising stem: stem does not move (position not visually obvious)",
+      "content": "FIVE PRINCIPAL VALVE FUNCTIONS:\n\n1. STARTING/STOPPING FLOW: Isolation to completely stop or start fluid flow (gate valves, ball valves, plug valves)\n\n2. THROTTLING FLOW: Control flow rate without stopping completely, requires throttling-capable design (globe valves, needle valves)\n\n3. CONTROLLING DIRECTION OF FLOW: Routes fluid to different paths (directional control valves, check valves)\n\n4. REGULATING PRESSURE: Maintains desired system pressure (pressure regulators, pressure-reducing valves)\n\n5. RELIEVING PRESSURE: Protection against overpressure (relief valves, safety valves)\n\nBASIC VALVE CONSTRUCTION:\n\u2022 Body: contains internal flow path, seats, and internal parts\n\u2022 Bonnet: upper section that seals the body\n\u2022 Disk: moves to open/close or throttle flow\n\u2022 Seat rings: provide seal surface for the disk\n\u2022 Stem: connects disk to actuator/handwheel\n\u2022 Backseat: allows packing adjustment without system depressurization\n\u2022 Packing/stuffing box: compression seal prevents stem leakage\n\nSTEM DESIGNS:\n\u2022 Rising stem: stem moves upward when valve opens (visual position indicator)\n\u2022 Non-rising stem: stem does not move (position not visually obvious)",
       "image": "bnt/images/images/valve-types.svg",
       "imageLabel": "Common Valve Types and Applications"
     },
@@ -26,25 +26,25 @@
       "id": 4,
       "subject": "CP01",
       "title": "Valve Operational Issues and Prevention",
-      "content": "THERMAL BINDING:\n\nCAUSE: Valve body cools faster than disk during system cooldown. Differential thermal contraction binds seat against disk. Can make valve impossible to reopen until reheated.\n\nPREVENTION:\n• Periodically crack valve open and re-shut during cooldown\n• Use proper closing torque (avoid over-torquing)\n• Allow gradual cooling when possible\n\nPRESSURE LOCKING:\n\nCAUSE: Liquid trapped in valve bonnet pressurizes as it heats. Pressure buildup prevents valve opening. Common in high-temperature systems during startup.\n\nPREVENTION:\n• Provide relief or vent path on valve bonnet\n• Equalize/reduce pressure buildup\n• Design relief path to lower trapped pressure\n\nOPERATING EXPERIENCE LESSONS:\n\n1. Valve Handling: Never use wrench on valve handwheel for extra leverage. Can overstress actuator gearing/casing. Has caused catastrophic actuator failure.\n\n2. Manual Operation Verification: Reaching hard stop on handwheel does NOT confirm full travel. Verify full designed number of turns. Position limit switch not reliable sole indicator.\n\n3. Manual Override Precautions: Manually operating past designed open limit can slip position limit switch. Requires leak rate/stroke time retest after manual operation. Document any manual override operations.\n\nKEY MAINTENANCE PRACTICES:\n• Regular inspection for leakage\n• Packing maintenance using backseat feature\n• Periodic exercise to prevent stiction\n• Monitor position indicators for consistency\n• Track valve operation history"
+      "content": "THERMAL BINDING:\n\nCAUSE: Valve body cools faster than disk during system cooldown. Differential thermal contraction binds seat against disk. Can make valve impossible to reopen until reheated.\n\nPREVENTION:\n\u2022 Periodically crack valve open and re-shut during cooldown\n\u2022 Use proper closing torque (avoid over-torquing)\n\u2022 Allow gradual cooling when possible\n\nPRESSURE LOCKING:\n\nCAUSE: Liquid trapped in valve bonnet pressurizes as it heats. Pressure buildup prevents valve opening. Common in high-temperature systems during startup.\n\nPREVENTION:\n\u2022 Provide relief or vent path on valve bonnet\n\u2022 Equalize/reduce pressure buildup\n\u2022 Design relief path to lower trapped pressure\n\nOPERATING EXPERIENCE LESSONS:\n\n1. Valve Handling: Never use wrench on valve handwheel for extra leverage. Can overstress actuator gearing/casing. Has caused catastrophic actuator failure.\n\n2. Manual Operation Verification: Reaching hard stop on handwheel does NOT confirm full travel. Verify full designed number of turns. Position limit switch not reliable sole indicator.\n\n3. Manual Override Precautions: Manually operating past designed open limit can slip position limit switch. Requires leak rate/stroke time retest after manual operation. Document any manual override operations.\n\nKEY MAINTENANCE PRACTICES:\n\u2022 Regular inspection for leakage\n\u2022 Packing maintenance using backseat feature\n\u2022 Periodic exercise to prevent stiction\n\u2022 Monitor position indicators for consistency\n\u2022 Track valve operation history"
     },
     {
       "id": 5,
       "subject": "CP01",
       "title": "Valve Actuators and Position Verification",
-      "content": "ACTUATOR FAILURE POSITIONS:\n• Fail Open: opens on loss of power/control (safety for emergency drainage)\n• Fail Closed: closes on loss of power (safety for isolation)\n• Fail As Is: remains in current position (most Motor Operated Valves)\n• Fail Safe: the position required to protect the system/equipment\n\nMANUAL ACTUATORS:\n• Handwheel or lever: direct mechanical operation\n• Reach rods: extends control distance\n• Gearing: provides mechanical advantage for higher torque\n\nELECTRIC ACTUATORS:\n• Motor Operated Valves (MOVs): Fail As Is, gear reduction for torque, declutch lever for manual/motor switching\n• Solenoid Operated Valves: Two-position (on/off only), spring placement determines fail position\n\nPNEUMATIC ACTUATORS:\n• Gas cylinder, piston, diaphragm, or vane designs\n• Quarter-turn designs for butterfly/plug valves\n• Spring action determines fail position on air loss\n\nHYDRAULIC ACTUATORS:\n• Piston-driven for high-force applications\n• Spring action determines fail position on pressure loss\n\nVALVE POSITION VERIFICATION METHODS:\n• Light indication: Red = Open, Green = Closed, Both lit = Mid-position/Throttled\n• Travel indication: Rising stem position, local mechanical pointer\n• Actual verification: Visual stem observation, handwheel turn count, quarter-turn valve lever position\n\nHUMAN ERROR PREVENTION:\n• Verify all local/remote indications before and after manipulation\n• Follow procedures and require independent verification\n• Confirm valves and instrumentation are labeled correctly"
+      "content": "ACTUATOR FAILURE POSITIONS:\n\u2022 Fail Open: opens on loss of power/control (safety for emergency drainage)\n\u2022 Fail Closed: closes on loss of power (safety for isolation)\n\u2022 Fail As Is: remains in current position (most Motor Operated Valves)\n\u2022 Fail Safe: the position required to protect the system/equipment\n\nMANUAL ACTUATORS:\n\u2022 Handwheel or lever: direct mechanical operation\n\u2022 Reach rods: extends control distance\n\u2022 Gearing: provides mechanical advantage for higher torque\n\nELECTRIC ACTUATORS:\n\u2022 Motor Operated Valves (MOVs): Fail As Is, gear reduction for torque, declutch lever for manual/motor switching\n\u2022 Solenoid Operated Valves: Two-position (on/off only), spring placement determines fail position\n\nPNEUMATIC ACTUATORS:\n\u2022 Gas cylinder, piston, diaphragm, or vane designs\n\u2022 Quarter-turn designs for butterfly/plug valves\n\u2022 Spring action determines fail position on air loss\n\nHYDRAULIC ACTUATORS:\n\u2022 Piston-driven for high-force applications\n\u2022 Spring action determines fail position on pressure loss\n\nVALVE POSITION VERIFICATION METHODS:\n\u2022 Light indication: Red = Open, Green = Closed, Both lit = Mid-position/Throttled\n\u2022 Travel indication: Rising stem position, local mechanical pointer\n\u2022 Actual verification: Visual stem observation, handwheel turn count, quarter-turn valve lever position\n\nHUMAN ERROR PREVENTION:\n\u2022 Verify all local/remote indications before and after manipulation\n\u2022 Follow procedures and require independent verification\n\u2022 Confirm valves and instrumentation are labeled correctly"
     },
     {
       "id": 6,
       "subject": "TH01",
       "title": "Systems of Measurement and Unit Conversion",
-      "content": "TWO SYSTEMS OF MEASUREMENT:\n\nAMERICAN ENGINEERING SYSTEM (ENGLISH ENGINEERS SYSTEM):\n• Force: pounds force (lbf), Mass: pounds mass (lbm)\n• Temperature: Fahrenheit (°F), Pressure: psi\n• Conversion: Work in Btu = (Force in lbf x Distance in ft) / 778\n\nINTERNATIONAL SYSTEM (SI/METRIC):\n• Force: Newtons (N), Mass: kilograms (kg)\n• Temperature: Celsius (°C) or Kelvin (K)\n• Pressure: Pascal (Pa), kilopascal (kPa), or bar\n• Simpler conversion based on powers of 10\n\nUNIT CONVERSION PROCESS:\n1. Identify given units and desired units\n2. Write conversion factor: given units in denominator, desired units in numerator\n3. Multiply original value by conversion factor\n4. Cancel units and solve\n\nCOMMON CONVERSION FACTORS:\n• 1 lbm = 0.4536 kg, 1 psi = 6.895 kPa\n• K = C + 273.15, R = F + 459.67"
+      "content": "TWO SYSTEMS OF MEASUREMENT:\n\nAMERICAN ENGINEERING SYSTEM (ENGLISH ENGINEERS SYSTEM):\n\u2022 Force: pounds force (lbf), Mass: pounds mass (lbm)\n\u2022 Temperature: Fahrenheit (\u00b0F), Pressure: psi\n\u2022 Conversion: Work in Btu = (Force in lbf x Distance in ft) / 778\n\nINTERNATIONAL SYSTEM (SI/METRIC):\n\u2022 Force: Newtons (N), Mass: kilograms (kg)\n\u2022 Temperature: Celsius (\u00b0C) or Kelvin (K)\n\u2022 Pressure: Pascal (Pa), kilopascal (kPa), or bar\n\u2022 Simpler conversion based on powers of 10\n\nUNIT CONVERSION PROCESS:\n1. Identify given units and desired units\n2. Write conversion factor: given units in denominator, desired units in numerator\n3. Multiply original value by conversion factor\n4. Cancel units and solve\n\nCOMMON CONVERSION FACTORS:\n\u2022 1 lbm = 0.4536 kg, 1 psi = 6.895 kPa\n\u2022 K = C + 273.15, R = F + 459.67"
     },
     {
       "id": 7,
       "subject": "TH01",
       "title": "Temperature Scales Comparison",
-      "content": "RELATIVE SCALES (reference point based):\n\nFahrenheit (°F):\n• Freezing point of water: 32°F\n• Boiling point of water: 212°F\n• Interval: 180 degrees between freeze/boil\n• Used in American Engineering System\n\nCelsius (°C):\n• Freezing point of water: 0°C\n• Boiling point of water: 100°C\n• Interval: 100 degrees between freeze/boil\n• Formula: °C = (°F - 32) / 1.8\n\nABSOLUTE SCALES (zero = no molecular motion):\n\nRankine (°R):\n• Corresponds to Fahrenheit scale\n• Absolute zero: 0°R = -459.67°F\n• Formula: °R = °F + 459.67\n• Maintains 1°F per 1°R interval\n\nKelvin (K):\n• Corresponds to Celsius scale\n• Absolute zero: 0 K = -273.15°C\n• Formula: K = °C + 273.15\n• Maintains 1°C per 1 K interval\n\nWHY ABSOLUTE TEMPERATURE REQUIRED: All thermodynamic equations require absolute temperature. Relative scales produce wrong results in calculations.",
+      "content": "RELATIVE SCALES (reference point based):\n\nFahrenheit (\u00b0F):\n\u2022 Freezing point of water: 32\u00b0F\n\u2022 Boiling point of water: 212\u00b0F\n\u2022 Interval: 180 degrees between freeze/boil\n\u2022 Used in American Engineering System\n\nCelsius (\u00b0C):\n\u2022 Freezing point of water: 0\u00b0C\n\u2022 Boiling point of water: 100\u00b0C\n\u2022 Interval: 100 degrees between freeze/boil\n\u2022 Formula: \u00b0C = (\u00b0F - 32) / 1.8\n\nABSOLUTE SCALES (zero = no molecular motion):\n\nRankine (\u00b0R):\n\u2022 Corresponds to Fahrenheit scale\n\u2022 Absolute zero: 0\u00b0R = -459.67\u00b0F\n\u2022 Formula: \u00b0R = \u00b0F + 459.67\n\u2022 Maintains 1\u00b0F per 1\u00b0R interval\n\nKelvin (K):\n\u2022 Corresponds to Celsius scale\n\u2022 Absolute zero: 0 K = -273.15\u00b0C\n\u2022 Formula: K = \u00b0C + 273.15\n\u2022 Maintains 1\u00b0C per 1 K interval\n\nWHY ABSOLUTE TEMPERATURE REQUIRED: All thermodynamic equations require absolute temperature. Relative scales produce wrong results in calculations.",
       "image": "bnt/images/images/temperature-scales.svg",
       "imageLabel": "Temperature Scales Comparison"
     },
@@ -58,25 +58,25 @@
       "id": 9,
       "subject": "TH02",
       "title": "First Law of Thermodynamics",
-      "content": "FIRST LAW OF THERMODYNAMICS:\n\nSTATEMENT: Energy is neither created nor destroyed, only converted between forms. Energy entering a system equals energy stored in or leaving it. E_in - E_out = Delta_E_system.\n\nAPPLICATION TO POWER SYSTEMS:\n1. Heat Transfer: Heat input from energy source to working fluid\n2. Fluid Conversion: Energy transfer to working fluid\n3. Work Extraction: Expanding fluid performs mechanical work in turbine\n4. Generator Conversion: Mechanical work converts to electrical energy\n5. Heat Rejection: Low-pressure fluid exhausted to heat sink (condenser)\n6. Pump Work: Fluid pressure increased for return to system\n\nENERGY BALANCE: Total energy in from heat source = Electrical power out + Heat rejected.\nEfficiency = Electrical out / Total thermal in x 100%.\n\nSTORED vs. TRANSIENT ENERGY:\n\nSTORED ENERGY (energy a mass HAS): Potential Energy, Kinetic Energy, Internal Energy, Flow Energy\n\nTRANSIENT ENERGY (energy IN TRANSIT): Heat (energy transfer due to temperature difference), Work (energy transfer due to force acting through distance)\n\nSIGN CONVENTIONS:\n• Heat added to system: Q positive, Heat removed: Q negative\n• Work done BY system: W positive, Work done ON system: W negative"
+      "content": "FIRST LAW OF THERMODYNAMICS:\n\nSTATEMENT: Energy is neither created nor destroyed, only converted between forms. Energy entering a system equals energy stored in or leaving it. E_in - E_out = Delta_E_system.\n\nAPPLICATION TO POWER SYSTEMS:\n1. Heat Transfer: Heat input from energy source to working fluid\n2. Fluid Conversion: Energy transfer to working fluid\n3. Work Extraction: Expanding fluid performs mechanical work in turbine\n4. Generator Conversion: Mechanical work converts to electrical energy\n5. Heat Rejection: Low-pressure fluid exhausted to heat sink (condenser)\n6. Pump Work: Fluid pressure increased for return to system\n\nENERGY BALANCE: Total energy in from heat source = Electrical power out + Heat rejected.\nEfficiency = Electrical out / Total thermal in x 100%.\n\nSTORED vs. TRANSIENT ENERGY:\n\nSTORED ENERGY (energy a mass HAS): Potential Energy, Kinetic Energy, Internal Energy, Flow Energy\n\nTRANSIENT ENERGY (energy IN TRANSIT): Heat (energy transfer due to temperature difference), Work (energy transfer due to force acting through distance)\n\nSIGN CONVENTIONS:\n\u2022 Heat added to system: Q positive, Heat removed: Q negative\n\u2022 Work done BY system: W positive, Work done ON system: W negative"
     },
     {
       "id": 10,
       "subject": "TH02",
       "title": "Energy Components and Enthalpy",
-      "content": "ENERGY FORMS IN THERMODYNAMIC SYSTEMS:\n\nPOTENTIAL ENERGY (PE): Due to position above reference point. Formula: PE = m x z x g / gc.\n\nKINETIC ENERGY (KE): Due to motion/velocity. Formula: KE = m x v2 / (2 x gc).\n\nINTERNAL ENERGY (U): Sum of all microscopic energy forms within substance. Specific internal energy u = U/m. Changes with temperature and pressure.\n\nFLOW ENERGY (PV ENERGY): Energy a fluid has due to its pressure and volume. Specific flow energy = P x v. The work needed to push fluid into/out of system.\n\nENTHALPY (H): H = U + PV. Enthalpy = Internal Energy + Flow Work. Measure of a fluid's total energy content.\n\nSPECIFIC ENTHALPY (h): h = u + Pv. Enthalpy per unit mass. Units: Btu/lbm. Used for all thermodynamic cycle calculations. Found in steam tables.\n\nWHY ENTHALPY MATTERS:\n• Directly represents energy available from working fluid\n• Used to calculate turbine work: Wturbine = hin - hout\n• Used to calculate pump work: Wpump = hout - hin\n• Simplifies energy balance calculations for flowing systems\n• Steam tables provide direct values"
+      "content": "ENERGY FORMS IN THERMODYNAMIC SYSTEMS:\n\nPOTENTIAL ENERGY (PE): Due to position above reference point. Formula: PE = m x z x g / gc.\n\nKINETIC ENERGY (KE): Due to motion/velocity. Formula: KE = m x v2 / (2 x gc).\n\nINTERNAL ENERGY (U): Sum of all microscopic energy forms within substance. Specific internal energy u = U/m. Changes with temperature and pressure.\n\nFLOW ENERGY (PV ENERGY): Energy a fluid has due to its pressure and volume. Specific flow energy = P x v. The work needed to push fluid into/out of system.\n\nENTHALPY (H): H = U + PV. Enthalpy = Internal Energy + Flow Work. Measure of a fluid's total energy content.\n\nSPECIFIC ENTHALPY (h): h = u + Pv. Enthalpy per unit mass. Units: Btu/lbm. Used for all thermodynamic cycle calculations. Found in steam tables.\n\nWHY ENTHALPY MATTERS:\n\u2022 Directly represents energy available from working fluid\n\u2022 Used to calculate turbine work: Wturbine = hin - hout\n\u2022 Used to calculate pump work: Wpump = hout - hin\n\u2022 Simplifies energy balance calculations for flowing systems\n\u2022 Steam tables provide direct values"
     },
     {
       "id": 11,
       "subject": "TH02",
       "title": "Heat, Work, and Power",
-      "content": "HEAT (Q):\n\nDEFINITION: Transient energy transferred due to temperature difference. Flows from hotter to cooler. Spontaneous (no work required). NOT a property. Path-dependent.\n\nWORK (W):\n\nDEFINITION: Transient energy from force acting through distance. Formula: W = F x d. Units: Btu, ft-lbf, Joules. NOT a property (depends on process).\n\nTWO TYPES:\n1. Mechanical Work: Solid object moved by force. W = F x Delta_x.\n2. Flow Work: Energy to push/pull fluid through pipes. P x V energy. Included in enthalpy.\n\nTURBINE/PUMP WORK:\n• Turbine: Input high-pressure steam, Output mechanical work + low-pressure steam. Work = hin - hout.\n• Pump: Input low-pressure fluid + mechanical work, Output high-pressure fluid. Work = hout - hin.\n\nPOWER:\n\nDEFINITION: Rate of doing work. Power = Work / Time. Units: Btu/s, Watts, horsepower. Conversion: 1 hp = 0.707 Btu/s = 746 Watts.\n\nAPPLICATIONS:\n• Turbine power = specific work x mass flow rate\n• Pump power = specific work x mass flow rate\n• Generator power = turbine power - friction losses"
+      "content": "HEAT (Q):\n\nDEFINITION: Transient energy transferred due to temperature difference. Flows from hotter to cooler. Spontaneous (no work required). NOT a property. Path-dependent.\n\nWORK (W):\n\nDEFINITION: Transient energy from force acting through distance. Formula: W = F x d. Units: Btu, ft-lbf, Joules. NOT a property (depends on process).\n\nTWO TYPES:\n1. Mechanical Work: Solid object moved by force. W = F x Delta_x.\n2. Flow Work: Energy to push/pull fluid through pipes. P x V energy. Included in enthalpy.\n\nTURBINE/PUMP WORK:\n\u2022 Turbine: Input high-pressure steam, Output mechanical work + low-pressure steam. Work = hin - hout.\n\u2022 Pump: Input low-pressure fluid + mechanical work, Output high-pressure fluid. Work = hout - hin.\n\nPOWER:\n\nDEFINITION: Rate of doing work. Power = Work / Time. Units: Btu/s, Watts, horsepower. Conversion: 1 hp = 0.707 Btu/s = 746 Watts.\n\nAPPLICATIONS:\n\u2022 Turbine power = specific work x mass flow rate\n\u2022 Pump power = specific work x mass flow rate\n\u2022 Generator power = turbine power - friction losses"
     },
     {
       "id": 12,
       "subject": "TH03",
       "title": "States, Phases, and Phase Diagrams",
-      "content": "STATE OF A SUBSTANCE: Condition at specific moment, uniquely defined by two independent intensive properties. Once two properties known, all others can be determined via tables or equations.\n\nPHASE: Describes molecular structure. Four phases: Solid (fixed shape/volume), Liquid (fixed volume, takes container shape), Vapor/Gas (no fixed shape/volume), Plasma (ionized gas).\n\nPHASE CHANGES:\n• Melting: Solid to Liquid (absorbed heat at constant pressure)\n• Solidification: Liquid to Solid (rejected heat)\n• Vaporization: Liquid to Gas (absorbed heat)\n• Condensation: Gas to Liquid (rejected heat)\n• Sublimation: Solid to Gas directly (skips liquid)\n\nPHASE DIAGRAM (PRESSURE-TEMPERATURE):\n• Fusion line: Solid-Liquid boundary\n• Vaporization line: Liquid-Gas boundary\n• Sublimation line: Solid-Gas boundary\n• Triple Point: Where all three phases coexist in equilibrium\n• Critical Point: Highest T and P where liquid and gas distinguish\n\nPHASE DIAGRAM (PRESSURE-VOLUME): Vapor dome region where liquid and vapor coexist. Left of dome: subcooled liquid. Right of dome: superheated vapor.",
+      "content": "STATE OF A SUBSTANCE: Condition at specific moment, uniquely defined by two independent intensive properties. Once two properties known, all others can be determined via tables or equations.\n\nPHASE: Describes molecular structure. Four phases: Solid (fixed shape/volume), Liquid (fixed volume, takes container shape), Vapor/Gas (no fixed shape/volume), Plasma (ionized gas).\n\nPHASE CHANGES:\n\u2022 Melting: Solid to Liquid (absorbed heat at constant pressure)\n\u2022 Solidification: Liquid to Solid (rejected heat)\n\u2022 Vaporization: Liquid to Gas (absorbed heat)\n\u2022 Condensation: Gas to Liquid (rejected heat)\n\u2022 Sublimation: Solid to Gas directly (skips liquid)\n\nPHASE DIAGRAM (PRESSURE-TEMPERATURE):\n\u2022 Fusion line: Solid-Liquid boundary\n\u2022 Vaporization line: Liquid-Gas boundary\n\u2022 Sublimation line: Solid-Gas boundary\n\u2022 Triple Point: Where all three phases coexist in equilibrium\n\u2022 Critical Point: Highest T and P where liquid and gas distinguish\n\nPHASE DIAGRAM (PRESSURE-VOLUME): Vapor dome region where liquid and vapor coexist. Left of dome: subcooled liquid. Right of dome: superheated vapor.",
       "image": "bnt/images/images/pt-phase-diagram.svg",
       "imageLabel": "P-T Phase Diagram"
     },
@@ -84,7 +84,7 @@
       "id": 13,
       "subject": "TH03",
       "title": "Five States of Water",
-      "content": "FIVE STATES OF WATER:\n\n1. SUBCOOLED LIQUID: Below saturation temperature. Resistant to vaporization. Nearly incompressible.\n2. SATURATED LIQUID: At saturation temperature. On verge of boiling. All liquid molecules condensed.\n3. WET VAPOR: Mixture of saturated liquid and vapor. Both phases coexist at same temperature.\n4. SATURATED VAPOR: 100% vapor at saturation. Last drop of liquid just evaporated. Critical for turbine inlet quality.\n5. SUPERHEATED VAPOR: Above saturation temperature. All liquid converted. Most flexible state.\n\nHEAT TRANSFER DURING PHASE CHANGE:\n\nSENSIBLE HEAT: Heat addition/removal that changes TEMPERATURE. No phase change. Observable temperature change.\n\nLATENT HEAT: Heat addition/removal that causes PHASE CHANGE at constant temperature. All energy goes into changing molecular structure/bonds.\n\nLATENT HEAT OF VAPORIZATION (LHV/Hfg): Energy needed to convert saturated liquid to saturated vapor. Same energy released when vapor condenses. Decreases as pressure increases.\n\nLATENT HEAT OF CONDENSATION: Opposite of vaporization. Energy released when steam condenses to liquid.\n\nSTEAM QUALITY (X) AND MOISTURE CONTENT (M):\n• Quality: Fraction of vapor in wet mixture. Range 0 (liquid) to 1.0 (vapor).\n• Moisture content: Fraction of liquid. M = 1 - X.\n• Void fraction: Volumetric fraction of vapor (not mass fraction).\n\nIMPORTANCE OF STEAM QUALITY: High quality required at turbine inlet (>95-99%). Low quality causes blade erosion and corrosion.",
+      "content": "FIVE STATES OF WATER:\n\n1. SUBCOOLED LIQUID: Below saturation temperature. Resistant to vaporization. Nearly incompressible.\n2. SATURATED LIQUID: At saturation temperature. On verge of boiling. All liquid molecules condensed.\n3. WET VAPOR: Mixture of saturated liquid and vapor. Both phases coexist at same temperature.\n4. SATURATED VAPOR: 100% vapor at saturation. Last drop of liquid just evaporated. Critical for turbine inlet quality.\n5. SUPERHEATED VAPOR: Above saturation temperature. All liquid converted. Most flexible state.\n\nHEAT TRANSFER DURING PHASE CHANGE:\n\nSENSIBLE HEAT: Heat addition/removal that changes TEMPERATURE. No phase change. Observable temperature change.\n\nLATENT HEAT: Heat addition/removal that causes PHASE CHANGE at constant temperature. All energy goes into changing molecular structure/bonds.\n\nLATENT HEAT OF VAPORIZATION (LHV/Hfg): Energy needed to convert saturated liquid to saturated vapor. Same energy released when vapor condenses. Decreases as pressure increases.\n\nLATENT HEAT OF CONDENSATION: Opposite of vaporization. Energy released when steam condenses to liquid.\n\nSTEAM QUALITY (X) AND MOISTURE CONTENT (M):\n\u2022 Quality: Fraction of vapor in wet mixture. Range 0 (liquid) to 1.0 (vapor).\n\u2022 Moisture content: Fraction of liquid. M = 1 - X.\n\u2022 Void fraction: Volumetric fraction of vapor (not mass fraction).\n\nIMPORTANCE OF STEAM QUALITY: High quality required at turbine inlet (>95-99%). Low quality causes blade erosion and corrosion.",
       "image": "bnt/images/images/five-states-water.svg",
       "imageLabel": "Five States of Water"
     },
@@ -92,19 +92,19 @@
       "id": 14,
       "subject": "TH03",
       "title": "Ideal Gas Laws and Steam Tables",
-      "content": "IDEAL GAS BEHAVIOR:\n\nCHARLES' LAW (constant pressure): Gas volume directly proportional to absolute temperature. V/T = constant. V1/T1 = V2/T2.\n\nBOYLE'S LAW (constant temperature): Gas volume inversely proportional to absolute pressure. P x V = constant. P1V1 = P2V2.\n\nCOMBINED/IDEAL GAS LAW: Combines Charles and Boyle. Equation: PV/T = nR or PV = nRT. Specific form: Pv = RT for one lbm of gas.\n\nAPPLICATIONS: Air and gas systems, low pressures, high temperatures. Does NOT work for steam near saturation.\n\nWHY IDEAL GAS LAW FAILS FOR STEAM: Steam behavior MORE COMPLEX. Intermolecular forces significant. Proximity to saturation violates ideal assumptions. PV/T NOT constant.\n\nSTEAM TABLES: Experimentally-measured properties of water and steam. Account for complex non-ideal behavior. Tabulated for common pressures/temperatures.\n\nTABLE TYPES:\n• Saturated steam tables: Indexed by saturation temperature or pressure. Properties at saturation point.\n• Superheated steam tables: Indexed by pressure and temperature. For steam ABOVE saturation.\n• Compressed liquid tables: Properties below saturation temperature.\n\nDEGREES OF SUBCOOLING: Difference between saturation and actual liquid temperature. Formula: Degrees subcooling = Tsat - Tactual.\n\nDEGREES OF SUPERHEAT: Difference between actual and saturation temperature. Formula: Degrees superheat = Tactual - Tsat."
+      "content": "IDEAL GAS BEHAVIOR:\n\nCHARLES' LAW (constant pressure): Gas volume directly proportional to absolute temperature. V/T = constant. V1/T1 = V2/T2.\n\nBOYLE'S LAW (constant temperature): Gas volume inversely proportional to absolute pressure. P x V = constant. P1V1 = P2V2.\n\nCOMBINED/IDEAL GAS LAW: Combines Charles and Boyle. Equation: PV/T = nR or PV = nRT. Specific form: Pv = RT for one lbm of gas.\n\nAPPLICATIONS: Air and gas systems, low pressures, high temperatures. Does NOT work for steam near saturation.\n\nWHY IDEAL GAS LAW FAILS FOR STEAM: Steam behavior MORE COMPLEX. Intermolecular forces significant. Proximity to saturation violates ideal assumptions. PV/T NOT constant.\n\nSTEAM TABLES: Experimentally-measured properties of water and steam. Account for complex non-ideal behavior. Tabulated for common pressures/temperatures.\n\nTABLE TYPES:\n\u2022 Saturated steam tables: Indexed by saturation temperature or pressure. Properties at saturation point.\n\u2022 Superheated steam tables: Indexed by pressure and temperature. For steam ABOVE saturation.\n\u2022 Compressed liquid tables: Properties below saturation temperature.\n\nDEGREES OF SUBCOOLING: Difference between saturation and actual liquid temperature. Formula: Degrees subcooling = Tsat - Tactual.\n\nDEGREES OF SUPERHEAT: Difference between actual and saturation temperature. Formula: Degrees superheat = Tactual - Tsat."
     },
     {
       "id": 15,
       "subject": "TH04",
       "title": "Thermodynamic Processes",
-      "content": "PROCESS DEFINITIONS:\n\nADIABATIC PROCESS: No loss or gain of heat (Q = 0). Boundary perfectly insulated. Common for turbine/pump (very fast). Analysis: W = Delta_U.\n\nISOBARIC PROCESS: Constant pressure (P = constant). Boundary moves freely. Heat addition/removal at constant pressure. Common: boiler steam generation, condenser condensation. Analysis: Q = Delta_H.\n\nISENTROPIC PROCESS: No change in entropy (S = constant). Reversible adiabatic. Theoretical ideal (never achieved in reality). Benchmark for efficiency calculations.\n\nISENTHALPIC PROCESS: No change in enthalpy (H = constant). Also called throttling. Through partial valve opening, orifice, restriction. Effect: P decreases, T may decrease, entropy increases.\n\nISOTHERMAL PROCESS: Constant temperature (T = constant). System remains in thermal equilibrium. For ideal gas: PV = constant. Analysis: Temperature constant.\n\nOTHER PROCESS TYPES:\n• Isochoric: constant volume (rigid container)\n• Polytropic: generalized process\n• Reversible: frictionless, no net change\n• Irreversible: real process with friction/losses"
+      "content": "PROCESS DEFINITIONS:\n\nADIABATIC PROCESS: No loss or gain of heat (Q = 0). Boundary perfectly insulated. Common for turbine/pump (very fast). Analysis: W = Delta_U.\n\nISOBARIC PROCESS: Constant pressure (P = constant). Boundary moves freely. Heat addition/removal at constant pressure. Common: boiler steam generation, condenser condensation. Analysis: Q = Delta_H.\n\nISENTROPIC PROCESS: No change in entropy (S = constant). Reversible adiabatic. Theoretical ideal (never achieved in reality). Benchmark for efficiency calculations.\n\nISENTHALPIC PROCESS: No change in enthalpy (H = constant). Also called throttling. Through partial valve opening, orifice, restriction. Effect: P decreases, T may decrease, entropy increases.\n\nISOTHERMAL PROCESS: Constant temperature (T = constant). System remains in thermal equilibrium. For ideal gas: PV = constant. Analysis: Temperature constant.\n\nOTHER PROCESS TYPES:\n\u2022 Isochoric: constant volume (rigid container)\n\u2022 Polytropic: generalized process\n\u2022 Reversible: frictionless, no net change\n\u2022 Irreversible: real process with friction/losses"
     },
     {
       "id": 16,
       "subject": "TH04",
       "title": "Steady Flow and Second Law",
-      "content": "STEADY FLOW SYSTEM CONDITIONS:\n\nTHREE REQUIREMENTS:\n1. CONSTANT MASS FLOW RATE: Mass in per time = mass out per time. Continuity: m_in = m_out.\n2. CONSTANT WORKING-FLUID PROPERTIES: Properties (P,T,h,s,v) constant over time at each point. May vary spatially.\n3. CONSTANT RATES OF HEAT/WORK: Q-dot constant, W-dot constant. Not fluctuating.\n\nIMPORTANCE: Most practical equipment operates under steady-flow. Simplifies analysis. Energy balance: Q-dot + m-dot(hin) = m-dot(hout) + W-dot.\n\nMECHANICAL EQUIVALENT OF HEAT: 1 Btu = 778 ft-lbf or 1055 Joules. Converts between mechanical and thermal energy.\n\nSECOND LAW OF THERMODYNAMICS:\n\nSTATEMENT: No engine can convert all heat to work. Heat rejection always required. Even perfect engines cannot be 100% efficient. eta_max = 1 - (Tcold / Thot).\n\nREVERSIBLE vs IRREVERSIBLE:\n• Reversible (ideal): Theoretical, no friction, frictionless, returns to original state\n• Irreversible (real): All actual processes. Friction present. Cannot return without external work.\n\nENTROPY CHANGE: Delta_S = Q / T. Units: Btu/lbm-R. More heat at low temperature = larger entropy change.\n\nCARNOT EFFICIENCY: eta_Carnot = (Thot - Tcold) / Thot = 1 - (Tcold / Thot). Depends ONLY on temperatures."
+      "content": "STEADY FLOW SYSTEM CONDITIONS:\n\nTHREE REQUIREMENTS:\n1. CONSTANT MASS FLOW RATE: Mass in per time = mass out per time. Continuity: m_in = m_out.\n2. CONSTANT WORKING-FLUID PROPERTIES: Properties (P,T,h,s,v) constant over time at each point. May vary spatially.\n3. CONSTANT RATES OF HEAT/WORK: Q-dot constant, W-dot constant. Not fluctuating.\n\nIMPORTANCE: Most practical equipment operates under steady-flow. Simplifies analysis. Energy balance: Q-dot + m-dot(hin) = m-dot(hout) + W-dot.\n\nMECHANICAL EQUIVALENT OF HEAT: 1 Btu = 778 ft-lbf or 1055 Joules. Converts between mechanical and thermal energy.\n\nSECOND LAW OF THERMODYNAMICS:\n\nSTATEMENT: No engine can convert all heat to work. Heat rejection always required. Even perfect engines cannot be 100% efficient. eta_max = 1 - (Tcold / Thot).\n\nREVERSIBLE vs IRREVERSIBLE:\n\u2022 Reversible (ideal): Theoretical, no friction, frictionless, returns to original state\n\u2022 Irreversible (real): All actual processes. Friction present. Cannot return without external work.\n\nENTROPY CHANGE: Delta_S = Q / T. Units: Btu/lbm-R. More heat at low temperature = larger entropy change.\n\nCARNOT EFFICIENCY: eta_Carnot = (Thot - Tcold) / Thot = 1 - (Tcold / Thot). Depends ONLY on temperatures."
     },
     {
       "id": 17,
@@ -136,7 +136,7 @@
       "id": 21,
       "subject": "TH05",
       "title": "Rankine Cycle - Realistic Steam Cycle",
-      "content": "THE RANKINE CYCLE:\n\nOVERVIEW: More realistic steam cycle used in actual power plants. Operates with four main processes using steam as working fluid.\n\nFOUR PROCESSES:\n\n1. PUMP COMPRESSION (1→2): Adiabatic compression. Increases liquid pressure. Pump requires work input (negative work output).\n\n2. HEAT ADDITION (2→3): Constant-pressure (isobaric) process. Boiler/steam generator raises feedwater enthalpy. Converts subcooled liquid to saturated or superheated steam.\n\n3. TURBINE EXPANSION (3→4): Adiabatic expansion. Decreases pressure and enthalpy. Produces useful work output. Turbine extracts energy from steam.\n\n4. HEAT REJECTION (4→1): Constant-pressure (isobaric) process. Condenser removes latent heat of condensation. Converts exhausted steam to liquid for pump return.\n\nNET WORK: Wnet = Wturbine - Wpump. Pump work typically 1-5% of turbine work.\n\nVS. CARNOT CYCLE:\n• More realistic: uses isobars instead of isotherms\n• All pressure changes occur at pump & turbine points\n• Easier to analyze using steam tables\n• Lower efficiency than Carnot but achievable in practice\n\nEFFICIENCY:\n• Efficiency computed from enthalpies using steam tables\n• Real turbines and pumps add entropy (friction losses)\n• Efficiency lower than ideal due to irreversibilities",
+      "content": "THE RANKINE CYCLE:\n\nOVERVIEW: More realistic steam cycle used in actual power plants. Operates with four main processes using steam as working fluid.\n\nFOUR PROCESSES:\n\n1. PUMP COMPRESSION (1\u21922): Adiabatic compression. Increases liquid pressure. Pump requires work input (negative work output).\n\n2. HEAT ADDITION (2\u21923): Constant-pressure (isobaric) process. Boiler/steam generator raises feedwater enthalpy. Converts subcooled liquid to saturated or superheated steam.\n\n3. TURBINE EXPANSION (3\u21924): Adiabatic expansion. Decreases pressure and enthalpy. Produces useful work output. Turbine extracts energy from steam.\n\n4. HEAT REJECTION (4\u21921): Constant-pressure (isobaric) process. Condenser removes latent heat of condensation. Converts exhausted steam to liquid for pump return.\n\nNET WORK: Wnet = Wturbine - Wpump. Pump work typically 1-5% of turbine work.\n\nVS. CARNOT CYCLE:\n\u2022 More realistic: uses isobars instead of isotherms\n\u2022 All pressure changes occur at pump & turbine points\n\u2022 Easier to analyze using steam tables\n\u2022 Lower efficiency than Carnot but achievable in practice\n\nEFFICIENCY:\n\u2022 Efficiency computed from enthalpies using steam tables\n\u2022 Real turbines and pumps add entropy (friction losses)\n\u2022 Efficiency lower than ideal due to irreversibilities",
       "image": "bnt/images/images/rankine-cycle.svg",
       "imageLabel": "Rankine Cycle Schematic"
     },
@@ -144,13 +144,283 @@
       "id": 22,
       "subject": "TH05",
       "title": "Improving Cycle Efficiency",
-      "content": "HOW TO INCREASE CYCLE EFFICIENCY:\n\nTWO PRIMARY METHODS BASED ON CARNOT:\n\n1. INCREASE HEAT SOURCE TEMPERATURE (Thot):\n• More energy input from higher temperature source\n• Larger temperature difference with heat sink\n• Efficiency gain proportional to temperature increase\n• Example: Superheating steam in boiler\n• Practical limit: Material strength at high temperatures\n• Method: Increase boiler temperature/pressure\n\n2. DECREASE HEAT SINK TEMPERATURE (Tcold):\n• Larger temperature difference with heat source\n• More work extracted per unit of heat input\n• Example: Improving condenser cooling (vacuum)\n• Practical limit: Ambient temperature (cannot go below)\n• Deep vacuum in condenser maximizes this effect\n• Method: Improve condenser cooling efficiency\n\nADDITIONAL RANKINE CYCLE IMPROVEMENTS:\n\n1. SUPERHEATING THE STEAM:\n• Increases efficiency (more net work than added heat rejected)\n• Raises average temperature of heat addition\n• Reduces moisture content in low-pressure turbine\n\n2. FEEDWATER HEATING:\n• Extraction steam preheats feedwater\n• Increases efficiency: less heat needed from heat source\n• Typical improvement: 1-3% per extraction point\n• Modern plants often have 3-8 feedwater heaters\n\n3. MOISTURE SEPARATOR REHEATER (MSR):\n• Protects turbine blades from erosion\n• Minor effect on cycle efficiency\n• Real purpose: drying/superheating steam to LP turbine\n\n4. HIGHER STEAM PRESSURE:\n• Increases efficiency: lower entropy in and out\n• More turbine work available\n• Limited by material properties\n\n5. HIGHER STEAM QUALITY:\n• More enthalpy available for net work\n• Minimum quality >95-99% to prevent blade damage\n• Condenser vacuum improvements help maintain quality\n\nOPERATIONAL FOCUS:\n• Efficiency best at full load\n• Minimize auxiliaries and leaks\n• Fix steam leaks and air leaks\n• Regular maintenance and cleaning\n• Proper operator technique and experience"
+      "content": "HOW TO INCREASE CYCLE EFFICIENCY:\n\nTWO PRIMARY METHODS BASED ON CARNOT:\n\n1. INCREASE HEAT SOURCE TEMPERATURE (Thot):\n\u2022 More energy input from higher temperature source\n\u2022 Larger temperature difference with heat sink\n\u2022 Efficiency gain proportional to temperature increase\n\u2022 Example: Superheating steam in boiler\n\u2022 Practical limit: Material strength at high temperatures\n\u2022 Method: Increase boiler temperature/pressure\n\n2. DECREASE HEAT SINK TEMPERATURE (Tcold):\n\u2022 Larger temperature difference with heat source\n\u2022 More work extracted per unit of heat input\n\u2022 Example: Improving condenser cooling (vacuum)\n\u2022 Practical limit: Ambient temperature (cannot go below)\n\u2022 Deep vacuum in condenser maximizes this effect\n\u2022 Method: Improve condenser cooling efficiency\n\nADDITIONAL RANKINE CYCLE IMPROVEMENTS:\n\n1. SUPERHEATING THE STEAM:\n\u2022 Increases efficiency (more net work than added heat rejected)\n\u2022 Raises average temperature of heat addition\n\u2022 Reduces moisture content in low-pressure turbine\n\n2. FEEDWATER HEATING:\n\u2022 Extraction steam preheats feedwater\n\u2022 Increases efficiency: less heat needed from heat source\n\u2022 Typical improvement: 1-3% per extraction point\n\u2022 Modern plants often have 3-8 feedwater heaters\n\n3. MOISTURE SEPARATOR REHEATER (MSR):\n\u2022 Protects turbine blades from erosion\n\u2022 Minor effect on cycle efficiency\n\u2022 Real purpose: drying/superheating steam to LP turbine\n\n4. HIGHER STEAM PRESSURE:\n\u2022 Increases efficiency: lower entropy in and out\n\u2022 More turbine work available\n\u2022 Limited by material properties\n\n5. HIGHER STEAM QUALITY:\n\u2022 More enthalpy available for net work\n\u2022 Minimum quality >95-99% to prevent blade damage\n\u2022 Condenser vacuum improvements help maintain quality\n\nOPERATIONAL FOCUS:\n\u2022 Efficiency best at full load\n\u2022 Minimize auxiliaries and leaks\n\u2022 Fix steam leaks and air leaks\n\u2022 Regular maintenance and cleaning\n\u2022 Proper operator technique and experience"
     },
     {
       "id": 23,
       "subject": "TH05",
       "title": "Condenser Vacuum and Heat Rate",
-      "content": "CONDENSER VACUUM: CRITICAL FACTOR IN EFFICIENCY\n\nWHAT IS CONDENSER VACUUM:\n• Pressure inside condenser lower than atmospheric\n• Expressed as absolute pressure (psia) or inches of mercury\n• Example: 1 psia absolute = about 29 inches mercury vacuum\n• Lower absolute pressure = higher vacuum = better efficiency\n\nWHY LOWER PRESSURE INCREASES EFFICIENCY:\n\n1. INCREASED EXPANSION RATIO:\n• Pressure drop across turbine: from boiler to condenser\n• Lower condenser pressure = larger expansion ratio\n• More work extracted per unit of steam\n• Turbine does more work with same steam flow\n\n2. MORE WORK OUTPUT:\n• At atmospheric condenser: less work extracted\n• At vacuum condenser: more work extracted from same steam\n• Extra work directly increases efficiency\n\n3. FORMULA RELATIONSHIP:\n• Carnot efficiency: eta = 1 - (Tcold/Thot)\n• Lower pressure = lower temperature of condenser\n• Larger T_hot/T_cold ratio = higher efficiency\n\nIMPROVING CONDENSER VACUUM:\n\n1. COOLING WATER FLOW:\n• More/cooler cooling water improves heat rejection\n• Lowers steam condensation temperature\n• Maintains lower absolute pressure\n\n2. AIR REMOVAL:\n• Vacuum pump removes air from condenser\n• Air reduces effective pressure\n• Regular maintenance keeps pump effective\n\n3. CONDENSER TUBE CLEANING:\n• Fouling reduces heat transfer\n• Clean tubes allow better cooling\n• Regular cleaning improves vacuum\n\n4. TEMPERATURE MANAGEMENT:\n• Cooling water temperature affects vacuum\n• Seasonal variations impact performance\n• Cold water = better vacuum = higher efficiency\n\nPRACTICAL IMPACT:\n• Each inch mercury improvement in vacuum: increases efficiency ~0.5-1%\n• Increases power output\n• Major focus area for optimization\n• Cost-effective improvement strategy\n• Monitored continuously\n\nHEAT RATE: MEASURE OF PLANT PERFORMANCE\n\nDEFINITION: Heat Rate = Energy Input (BTU) / Electrical Output (kW-hr). Units: BTU/kW-hr (typical range 7,000-10,000).\n\nEXAMPLE: Plant with heat rate 8,000 BTU/kW-hr: To produce 1 kW-hr electricity requires 8,000 BTU fuel input. Waste: 4,588 BTU (1 kW-hr = 3,412 BTU).\n\nRELATIONSHIP TO EFFICIENCY:\n• Inverse relationship: Lower heat rate = Higher efficiency\n• Efficiency (%) = 3,412 / Heat Rate x 100\n• Example: 3,412 / 8,000 x 100 = 42.65% efficiency\n\nWHY IT MATTERS:\n• Economic: 1% improvement = significant fuel cost savings\n• Environmental: Lower heat rate = less fuel burned, reduced emissions\n• Operational: Real-time measure of plant performance, indicates maintenance needs\n\nIMPROVING HEAT RATE:\n• Condenser vacuum improvements\n• Feedwater heating optimization\n• Moisture separator reheater tuning\n• Reducing auxiliary power consumption\n• Regular maintenance and cleaning\n• Operator skill and experience\n\nINDUSTRY BENCHMARKS:\n• Best-in-class plants: ~8,200 BTU/kW-hr\n• Average plants: ~9,000-9,500 BTU/kW-hr\n• Older plants: >10,000 BTU/kW-hr"
+      "content": "CONDENSER VACUUM: CRITICAL FACTOR IN EFFICIENCY\n\nWHAT IS CONDENSER VACUUM:\n\u2022 Pressure inside condenser lower than atmospheric\n\u2022 Expressed as absolute pressure (psia) or inches of mercury\n\u2022 Example: 1 psia absolute = about 29 inches mercury vacuum\n\u2022 Lower absolute pressure = higher vacuum = better efficiency\n\nWHY LOWER PRESSURE INCREASES EFFICIENCY:\n\n1. INCREASED EXPANSION RATIO:\n\u2022 Pressure drop across turbine: from boiler to condenser\n\u2022 Lower condenser pressure = larger expansion ratio\n\u2022 More work extracted per unit of steam\n\u2022 Turbine does more work with same steam flow\n\n2. MORE WORK OUTPUT:\n\u2022 At atmospheric condenser: less work extracted\n\u2022 At vacuum condenser: more work extracted from same steam\n\u2022 Extra work directly increases efficiency\n\n3. FORMULA RELATIONSHIP:\n\u2022 Carnot efficiency: eta = 1 - (Tcold/Thot)\n\u2022 Lower pressure = lower temperature of condenser\n\u2022 Larger T_hot/T_cold ratio = higher efficiency\n\nIMPROVING CONDENSER VACUUM:\n\n1. COOLING WATER FLOW:\n\u2022 More/cooler cooling water improves heat rejection\n\u2022 Lowers steam condensation temperature\n\u2022 Maintains lower absolute pressure\n\n2. AIR REMOVAL:\n\u2022 Vacuum pump removes air from condenser\n\u2022 Air reduces effective pressure\n\u2022 Regular maintenance keeps pump effective\n\n3. CONDENSER TUBE CLEANING:\n\u2022 Fouling reduces heat transfer\n\u2022 Clean tubes allow better cooling\n\u2022 Regular cleaning improves vacuum\n\n4. TEMPERATURE MANAGEMENT:\n\u2022 Cooling water temperature affects vacuum\n\u2022 Seasonal variations impact performance\n\u2022 Cold water = better vacuum = higher efficiency\n\nPRACTICAL IMPACT:\n\u2022 Each inch mercury improvement in vacuum: increases efficiency ~0.5-1%\n\u2022 Increases power output\n\u2022 Major focus area for optimization\n\u2022 Cost-effective improvement strategy\n\u2022 Monitored continuously\n\nHEAT RATE: MEASURE OF PLANT PERFORMANCE\n\nDEFINITION: Heat Rate = Energy Input (BTU) / Electrical Output (kW-hr). Units: BTU/kW-hr (typical range 7,000-10,000).\n\nEXAMPLE: Plant with heat rate 8,000 BTU/kW-hr: To produce 1 kW-hr electricity requires 8,000 BTU fuel input. Waste: 4,588 BTU (1 kW-hr = 3,412 BTU).\n\nRELATIONSHIP TO EFFICIENCY:\n\u2022 Inverse relationship: Lower heat rate = Higher efficiency\n\u2022 Efficiency (%) = 3,412 / Heat Rate x 100\n\u2022 Example: 3,412 / 8,000 x 100 = 42.65% efficiency\n\nWHY IT MATTERS:\n\u2022 Economic: 1% improvement = significant fuel cost savings\n\u2022 Environmental: Lower heat rate = less fuel burned, reduced emissions\n\u2022 Operational: Real-time measure of plant performance, indicates maintenance needs\n\nIMPROVING HEAT RATE:\n\u2022 Condenser vacuum improvements\n\u2022 Feedwater heating optimization\n\u2022 Moisture separator reheater tuning\n\u2022 Reducing auxiliary power consumption\n\u2022 Regular maintenance and cleaning\n\u2022 Operator skill and experience\n\nINDUSTRY BENCHMARKS:\n\u2022 Best-in-class plants: ~8,200 BTU/kW-hr\n\u2022 Average plants: ~9,000-9,500 BTU/kW-hr\n\u2022 Older plants: >10,000 BTU/kW-hr"
+    },
+    {
+      "id": 24,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Mass Flow Rate",
+      "content": "The mass of fluid passing a reference point per unit time. Formula: \u1e41 = \u03c1 \u00d7 V\u0307 = \u03c1 \u00d7 v \u00d7 A. Units: lbm/hr. Where \u03c1 = density (lbm/ft\u00b3), v = average velocity (ft/hr), A = cross-sectional area (ft\u00b2)"
+    },
+    {
+      "id": 25,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Volumetric Flow Rate",
+      "content": "The volume of fluid passing a reference point per unit time. Formula: Q = V\u0307 = v \u00d7 A. Common units: gallons per minute (gpm) or cubic feet per minute (cfm). Related to mass flow rate by: \u1e41 = \u03c1 \u00d7 Q"
+    },
+    {
+      "id": 26,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Steady Flow (Continuity of Flow)",
+      "content": "Flow condition where the mass flow rate into and out of a system or component are equal. Mathematically: \u1e41\u2081 = \u1e41\u2082. This ensures the same quantity of fluid flows past any reference points along a pipe in a given time."
+    },
+    {
+      "id": 27,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Viscosity",
+      "content": "A measure of a fluid's ability to resist flow. Water at 68\u00b0F = 1.0 centipoise (reference standard). For liquids: viscosity DECREASES with increasing temperature. For gases: viscosity INCREASES with increasing temperature. Higher viscosity requires more energy for flow."
+    },
+    {
+      "id": 28,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Specific Gravity",
+      "content": "The ratio of a fluid's density compared to water at 60\u00b0F. Water has SG = 1.0. Fluids with SG < 1 float in water. Fluids with SG > 1 sink in water. As SG increases, more energy required for flow."
+    },
+    {
+      "id": 29,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Density",
+      "content": "The mass per unit volume of a substance. For water: approximately 62.4 lbm/ft\u00b3 at standard conditions (atmospheric pressure, ~53\u00b0F). Density changes with both temperature and pressure. Specific volume (v) is the reciprocal of density."
+    },
+    {
+      "id": 30,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Laminar Flow",
+      "content": "Flow regime where fluid layers move smoothly over adjacent layers with minimal mixing. Occurs when Reynolds number NRe < 2,000. Velocity profile is PARABOLIC - zero at walls, maximum at center. Average velocity = half the centerline velocity."
+    },
+    {
+      "id": 31,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Turbulent Flow",
+      "content": "Flow regime characterized by cross-currents that disturb and mix fluid layers. Occurs when Reynolds number NRe > 3,500. Velocity profile is FLATTENED at centerline. Average velocity is close to centerline velocity. Requires more energy than laminar flow."
+    },
+    {
+      "id": 32,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Transitional Flow",
+      "content": "Flow regime between laminar and turbulent. Occurs when Reynolds number is between 2,000 and 3,500. Flow is unstable and alternates between laminar and turbulent characteristics."
+    },
+    {
+      "id": 33,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Reynolds Number",
+      "content": "Dimensionless number determining flow type. Formula: NRe = (\u03c1 \u00d7 v \u00d7 d) / \u03bc. Where \u03c1 = density, v = velocity, d = pipe diameter, \u03bc = dynamic viscosity. Determines whether flow is laminar, transitional, or turbulent."
+    },
+    {
+      "id": 34,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Single-Phase Flow",
+      "content": "Flow where the fluid is completely in either liquid state OR gaseous state, not a mixture. Most fluid systems are designed for single-phase flow. Easier to analyze and predict than two-phase flow."
+    },
+    {
+      "id": 35,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Two-Phase Flow",
+      "content": "Flow condition where fluid is a mixture of liquid AND vapor phases (e.g., water and steam mixture). Creates much greater resistance to flow than single-phase. Head loss can increase by factor of 100+ as quality increases from 0% to 100%."
+    },
+    {
+      "id": 36,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Elevation Head",
+      "content": "The potential energy component of Bernoulli's equation. Represented by variable 'z' = height above reference point (in feet). Energy of fluid due to its elevation in gravitational field. Same regardless of path to reach that elevation."
+    },
+    {
+      "id": 37,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Velocity Head",
+      "content": "The kinetic energy component of Bernoulli's equation. Formula: v\u00b2/(2gc). The height to which flowing fluid would rise in a column if ALL kinetic energy converted to potential energy. Units: feet of head."
+    },
+    {
+      "id": 38,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Pressure Head",
+      "content": "The pressure-volume energy component of Bernoulli's equation. Represented by Pv. Height (in feet) of a fluid column whose weight equals the pressure of the fluid. Accounts for static pressure energy."
+    },
+    {
+      "id": 39,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Total Head",
+      "content": "Sum of elevation head (z), velocity head (v\u00b2/2gc), and pressure head (Pv). Bernoulli's equation states that total head is constant in ideal flow (no friction, no heat transfer, no work done on/by fluid)."
+    },
+    {
+      "id": 40,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Head Loss",
+      "content": "The conversion of fluid pressure and velocity to heat energy through friction. Represents energy lost from fluid flow perspective, but increases internal energy (temperature). Expressed in feet of head. Denoted as Hf in modified Bernoulli's equation."
+    },
+    {
+      "id": 41,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Friction Factor",
+      "content": "Dimensionless proportionality constant in Darcy's equation accounting for pipe surface roughness. Depends on Reynolds number (laminar vs turbulent) and degree of pipe roughness. Higher friction factor \u2192 higher head loss."
+    },
+    {
+      "id": 42,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Cavitation",
+      "content": "Phenomenon where fluid vapor bubbles form when local pressure drops below saturation pressure. Occurs at pump suction with inadequate NPSH. Causes serious damage to pump impellers. Common cause: insufficient system pressure at pump inlet or excessive heat."
+    },
+    {
+      "id": 43,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Sonic Choking",
+      "content": "Phenomenon in compressible flow (steam) where velocity reaches Mach 1 in pipe restriction. Pressure wave forms that opposes applied pressure, limiting mass flow even if downstream pressure decreases. For gases: occurs when Pout/Pin \u2248 0.5"
+    },
+    {
+      "id": 44,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Water Hammer",
+      "content": "Pressure fluctuations/surges in piping system when flow is suddenly changed (e.g., rapid valve closure or pump start/stop). Creates sonic wave that travels through system. Can cause pressure spikes up to 20\u00d7 normal system pressure. Results in pipe damage, component displacement, and potential personnel injury."
+    },
+    {
+      "id": 45,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Definition: Pump Head",
+      "content": "Head (energy) added to fluid by pump. Represented as Hp in modified Bernoulli's equation. Pump does work on fluid (Wp) to overcome friction losses and increase system pressure. Work done by pump: Wp = \u1e41 \u00d7 Hp \u00d7 gc/g"
+    },
+    {
+      "id": 46,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Equation: Mass Flow Rate",
+      "content": "\u1e41 = \u03c1 \u00d7 V\u0307 = \u03c1 \u00d7 v \u00d7 A = (v \u00d7 A) / v. Where: \u1e41 = mass flow rate (lbm/hr), \u03c1 = density (lbm/ft\u00b3), V\u0307 = volumetric flow rate (ft\u00b3/hr), v = average velocity (ft/hr), A = cross-sectional area (ft\u00b2), v = specific volume (ft\u00b3/lbm)"
+    },
+    {
+      "id": 47,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Equation: Volumetric Flow Rate",
+      "content": "Q = V\u0307 = v \u00d7 A. Where: Q = volumetric flow rate (ft\u00b3/hr), v = average velocity (ft/hr), A = cross-sectional area (ft\u00b2). Related to mass flow by: \u1e41 = \u03c1 \u00d7 Q or \u1e41 = Q / v"
+    },
+    {
+      "id": 48,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Equation: Continuity (Incompressible Fluid)",
+      "content": "v\u2081 \u00d7 A\u2081 = v\u2082 \u00d7 A\u2082. For incompressible fluids flowing through pipe of varying diameter: when diameter increases, velocity decreases proportionally. When diameter decreases, velocity increases proportionally. Mass flow rate \u1e41 remains constant."
+    },
+    {
+      "id": 49,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Equation: Reynolds Number",
+      "content": "NRe = (\u03c1 \u00d7 v \u00d7 d) / \u03bc = (v \u00d7 d) / \u03bd. Where: NRe = Reynolds number (dimensionless), \u03c1 = density (lbm/ft\u00b3), v = average velocity (ft/sec), d = pipe diameter (ft), \u03bc = dynamic viscosity (lbm/ft-sec), \u03bd = kinematic viscosity (ft\u00b2/sec)"
+    },
+    {
+      "id": 50,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Equation: Bernoulli's (Ideal Flow)",
+      "content": "z\u2081 + v\u2081\u00b2/(2gc) + Pv\u2081 = z\u2082 + v\u2082\u00b2/(2gc) + Pv\u2082. Total head is constant (no friction, no work). Where: z = elevation head (ft), v\u00b2/(2gc) = velocity head (ft), Pv = pressure head (ft)"
+    },
+    {
+      "id": 51,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Equation: Bernoulli's (Real Flow - Modified)",
+      "content": "z\u2081 + v\u2081\u00b2/(2gc) + Pv\u2081 + Hp = z\u2082 + v\u2082\u00b2/(2gc) + Pv\u2082 + Hf. Includes pump head (Hp) added and friction head (Hf) lost. Accounts for real-world friction and pump work. gc = gravitational constant (32.2 ft-lbm/lbf-sec\u00b2)"
+    },
+    {
+      "id": 52,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Equation: Flow-Pressure Relationship (Leak)",
+      "content": "F \u221d \u221a\u0394P. For subcooled liquid leaks: flow is proportional to square root of pressure drop. If pressure doubles (2\u00d7), flow increases by \u221a2 \u2248 1.41\u00d7. At very high velocities or with compressible fluids: F \u221d \u0394P"
+    },
+    {
+      "id": 53,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Equation: Darcy's Equation (Head Loss)",
+      "content": "Hf = f \u00d7 (L/d) \u00d7 (v\u00b2/(2gc)). Where: Hf = head loss (ft), f = friction factor, L = pipe length (ft), d = pipe diameter (ft), v = average velocity (ft/sec), gc = 32.2 ft-lbm/lbf-sec\u00b2. Head loss \u2191 with \u2191L, \u2191f, \u2191v\u00b2; \u2193 with \u2191d"
+    },
+    {
+      "id": 54,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Equation: Head Loss (Level Pipe, Constant Area)",
+      "content": "Hf = \u0394P / (\u03c1/gc). For level pipe with constant diameter: pressure drop equals head loss. \u0394P = Hf \u00d7 \u03c1 / gc \u00d7 g. For incompressible fluids (liquids): simplified to \u0394P = Hf \u00d7 \u03c1 / gc"
+    },
+    {
+      "id": 55,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Equation: Joukowsky Equation (Water Hammer)",
+      "content": "\u0394P = \u03c1 \u00d7 c \u00d7 \u0394v. Where: \u0394P = pressure change from water hammer (psi), \u03c1 = fluid density, c = speed of sound in fluid (ft/sec), \u0394v = change in velocity. Peak pressure depends on velocity change and fluid density, NOT pipe length."
+    },
+    {
+      "id": 56,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Equation: Water Hammer Pressure Pulse Duration",
+      "content": "Tpp = 2L / c. Where: Tpp = duration of pressure pulse (sec), L = straight pipe length (ft), c = speed of sound in fluid (ft/sec). Longer pipes = longer duration of pressure spike."
+    },
+    {
+      "id": 57,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Concept: Impact of Viscosity on System Operation",
+      "content": "Higher viscosity = more energy required for flow. For liquids: viscosity decreases with temperature (easier flow when hot). For gases: viscosity increases with temperature. Important for startup: cold oil in motor bearings can cause high viscosity and bearing damage if started too cold. Minimum bearing temperatures required before pump start."
+    },
+    {
+      "id": 58,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Concept: Impact of Temperature on System Properties",
+      "content": "For liquids with increasing temperature: viscosity DECREASES, specific gravity DECREASES, density DECREASES. Net effect: less energy required for flow. BUT: as heat added to closed system, pressure INCREASES (confined volume). Risk: heat exchanger rupture if isolated before cooling."
+    },
+    {
+      "id": 59,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Concept: Laminar vs Turbulent Flow - Head Loss",
+      "content": "Laminar flow (NRe < 2,000): smooth, layered, less turbulence, lower head loss for given velocity. Turbulent flow (NRe > 3,500): chaotic, cross-currents, higher head loss. Velocity profile determines friction. Transitional (2,000-3,500): unstable, alternates between types."
+    },
+    {
+      "id": 60,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Concept: How Operators Control Head Loss",
+      "content": "Throttle valve position: closing valve increases L/d ratio \u2192 head loss increases. Opening valve decreases L/d \u2192 head loss decreases. Pump speed variation: since Hf \u221d v\u00b2, speed change causes exponential Hf change. Series vs parallel piping: series \u2192 Hf increases, parallel \u2192 Hf decreases"
+    },
+    {
+      "id": 61,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Concept: Velocity Effect on Head Loss",
+      "content": "Head loss is EXPONENTIAL with velocity: Hf \u221d v\u00b2. If velocity doubles (2\u00d7), head loss increases by (2)\u00b2 = 4\u00d7 (quadruples). If velocity triples (3\u00d7), head loss increases by (3)\u00b2 = 9\u00d7. Small velocity increases cause large head loss increases."
+    },
+    {
+      "id": 62,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Concept: Two-Phase Flow in Steam Generator",
+      "content": "In steam generator tube bundle region: water/steam mixture flows simultaneously. Two-phase friction much greater than single-phase. Can cause sudden pressure loss changes \u2192 water hammer. Formation/collapse of vapor bubbles cause pressure fluctuations. Flow oscillations difficult to control."
+    },
+    {
+      "id": 63,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Safety: Water Hammer Prevention - System Preparation",
+      "content": "1. Ensure systems are water-solid (completely filled) before starting pumps. 2. Open high-point casing vents to remove gases. 3. Keep fill systems for low-pressure cooling systems. 4. Remove air from system before startup. 5. Keep vents open until solid stream of fluid comes out."
+    },
+    {
+      "id": 64,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Safety: Water Hammer Prevention - Operational Procedures",
+      "content": "1. Initiate flow SLOWLY when starting pumps. 2. Close valves SLOWLY when stopping flow (NOT rapidly). 3. Prevent hot steam flow into cool water systems. 4. Prevent cold water introduction into hot steam systems. 5. Ensure steam traps functional to remove condensate. 6. Install drains at pipe low points to prevent water pockets."
+    },
+    {
+      "id": 65,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Safety: Water Hammer Prevention - System Design",
+      "content": "1. Avoid long horizontal pipes connecting steam-filled tanks with water sources (vulnerable to backflow). 2. Systems with large elevation differences need keep-fill capability. 3. Install drains on low points to prevent water accumulation and steam pocket collapse. 4. Valve materials and design reduce slam effects. 5. Maintenance programs critical for valve performance."
+    },
+    {
+      "id": 66,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Safety: NPSH and Cavitation in Closed Systems",
+      "content": "As closed system heats up: temperature approaches saturation point. Lowest pressure is at pump suction. When saturation reached at suction: water flashes to steam = cavitation. Cavitation damages pump impeller. Risk increases with higher system temperature. Solution: maintain adequate system pressure or limit operating temperature margins."
+    },
+    {
+      "id": 67,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Safety: System Draining and Startup",
+      "content": "Before draining: stop pumps and tag power sources. DO NOT start any pump in a drained system. Pump damage risk from: cavitation (no cooling liquid), gas binding (air in case), metal-to-metal friction. Always ensure system properly filled and vented before startup. High-point vents must be open until solid fluid stream appears."
+    },
+    {
+      "id": 68,
+      "subject": "Fluid Flow (TH06B)",
+      "title": "Key Operator Focus: Monitoring and Understanding Flow",
+      "content": "Know where pressure and flow indications are located. Verify parameters change as expected based on: operating curves, fluid flow fundamentals, system characteristics. Question unexpected indications or out-of-ordinary conditions. Don't allow system changes that erode margins to conservative operation. Understand how component operation affects system before acting. Predict effects, then verify actual results."
     }
   ]
 }
