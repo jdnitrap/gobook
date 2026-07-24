@@ -523,7 +523,7 @@
             async loadQuestions() {
                 this.allQuestions = [];
                 try {
-                    const response = await fetch('questions.json');
+                    const response = await fetch('questions.json?v=' + Date.now());
                     const data = await response.json();
                     if (data.questions && Array.isArray(data.questions)) {
                         this.allQuestions = data.questions;
@@ -547,7 +547,7 @@
             async loadNotes() {
                 this.allNotes = [];
                 try {
-                    const response = await fetch('notes.json');
+                    const response = await fetch('notes.json?v=' + Date.now());
                     const data = await response.json();
                     if (data.notes && Array.isArray(data.notes)) {
                         this.allNotes = data.notes;
