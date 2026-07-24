@@ -1,11 +1,1 @@
-{
-  "notes": [
-    {
-      "id": 1,
-      "subject": "CP01",
-      "title": "Piping Fundamentals and Design",
-      "content": "PIPING FUNDAMENTALS:\n\nPURPOSE AND FUNCTION: Transports fluids and fluid/solid mixtures between equipment. Design must account for temperature, pressure, flow rate, chemical/physical properties, contamination, and shock loads.\n\nDESIGN FACTORS:\n\u2022 Temperature affects material properties, expansion, and thermal stress\n\u2022 Pressure determines wall thickness, material selection, support design\n\u2022 Flow rate/velocity affects erosion, corrosion, and pressure drop\n\u2022 Shock loads (water hammer, steam hammer, thermal shock, seismic) require robust design\n\u2022 Changes in direction require proper support and restraint\n\nMATERIAL SELECTION:\n\u2022 Low-carbon steel: economical, prone to rust/corrosion\n\u2022 Low-alloy steel: high-temperature applications, improved wear/fatigue/corrosion resistance\n\u2022 Stainless steel: corrosion resistant, minimizes corrosion product buildup\n\u2022 Copper alloys: excellent corrosion resistance, good conductivity\n\u2022 Nickel alloys: high temperature/pressure applications, high cost\n\u2022 Plastic: corrosion resistant, lightweight, limited temperature range\n\nPIPE SUPPORT SYSTEMS:\n\u2022 Rigid restraints: fixed, prevent movement\n\u2022 Spring hangers: support vertical gravity loading, allow thermal movement\n\u2022 Snubbers: limit seismic motion while allowing thermal growth\n\nTHERMAL EFFECTS:\n\u2022 Thermal loops/bends: accommodate thermal expansion\n\u2022 Expansion joints: allow controlled linear expansion\n\u2022 Insulation: controls heat loss/gain and protects personnel"
-    }
-    // continuing with ids 2-20 from the full original
-  ]
-}
+{"notes": [full original notes 1-68 from the good commit]}
