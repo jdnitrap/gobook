@@ -419,8 +419,8 @@
                 </p>
                 <div class="subject-buttons" id="notesSubjectButtonsContainer"></div>
                 <div class="button-group" style="margin-top: 30px;">
-                    <button class="btn-primary" onclick="app.viewNotes()" style="flex: 1;">
-                        View Notes - <span id="selectedNotesSubjectName">Select Subject</span>
+                    <button class="btn-primary" onclick="app.startStudyMode()" style="flex: 1;">
+                        <span id="studyModeButtonText">View Notes</span> - <span id="selectedNotesSubjectName">Select Subject</span>
                     </button>
                     <button class="back-home-btn" onclick="app.goHome()" style="flex: 1;">
                         Back to Home
@@ -711,6 +711,16 @@
                 document.querySelectorAll('#notesSubjectButtonsContainer .subject-btn').forEach(btn => {
                     btn.classList.toggle('active', btn.textContent === subject);
                 });
+                const buttonText = this.currentMode === 'flashcard' ? 'Start Flashcards' : 'View Notes';
+                document.getElementById('studyModeButtonText').textContent = buttonText;
+            },
+
+            startStudyMode() {
+                if (this.currentMode === 'flashcard') {
+                    this.startFlashcards();
+                } else {
+                    this.viewNotes();
+                }
             },
 
             startExam() {
