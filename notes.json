@@ -174,7 +174,9 @@
       "id": 27,
       "subject": "Fluid Flow (TH06B)",
       "title": "Definition: Viscosity",
-      "content": "A measure of a fluid's ability to resist flow. Water at 68\u00b0F = 1.0 centipoise (reference standard). For liquids: viscosity DECREASES with increasing temperature. For gases: viscosity INCREASES with increasing temperature. Higher viscosity requires more energy for flow."
+      "content": "A measure of a fluid's ability to resist flow. Water at 68\u00b0F = 1.0 centipoise (reference standard). For liquids: viscosity DECREASES with increasing temperature. For gases: viscosity INCREASES with increasing temperature. Higher viscosity requires more energy for flow.",
+      "image": "images/image2.png",
+      "imageLabel": "Viscosity vs Temperature for Common Fluids"
     },
     {
       "id": 28,
