@@ -482,6 +482,7 @@
                         <span id="cardContent">Click to flip</span>
                     </div>
                     <p style="margin-top: 10px; color: #999; font-size: 0.9em;">Click card to flip</p>
+                    <div id="cardImagesContainer" style="margin-top: 30px; text-align: center;"></div>
                 </div>
                 <div class="button-group">
                     <button class="back-home-btn" onclick="app.goHome()">← Return to Home</button>
@@ -681,6 +682,24 @@
 
                 this.cardFlipped = false;
                 document.getElementById('cardContent').textContent = card.title;
+
+                // Display any images associated with this card
+                const imagesContainer = document.getElementById('cardImagesContainer');
+                imagesContainer.innerHTML = '';
+                if (card.image) {
+                    let imageHtml = `<img src="${card.image}" alt="${card.title}" class="note-diagram" style="max-width: 400px; margin-bottom: 15px;">`;
+                    if (card.imageLabel) {
+                        imageHtml += `<div class="note-image-label">${card.imageLabel}</div>`;
+                    }
+                    imagesContainer.innerHTML += imageHtml;
+                }
+                if (card.image2) {
+                    let imageHtml = `<img src="${card.image2}" alt="${card.title}" class="note-diagram" style="max-width: 400px; margin-top: 15px;">`;
+                    if (card.imageLabel2) {
+                        imageHtml += `<div class="note-image-label">${card.imageLabel2}</div>`;
+                    }
+                    imagesContainer.innerHTML += imageHtml;
+                }
             },
 
             flipCard() {
