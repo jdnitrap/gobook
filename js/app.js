@@ -105,6 +105,10 @@ window.app = {
 
     nextQuestion() {
         exam.nextQuestion(this);
+    },
+
+    goBackToNotesSelection() {
+        ui.goBackToNotesSelection(this);
     }
 };
 

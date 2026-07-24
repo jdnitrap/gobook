@@ -119,5 +119,9 @@ export const ui = {
         } else {
             console.error('Unknown mode:', app.currentMode);
         }
+    },
+
+    goBackToNotesSelection(app) {
+        this.renderNotesSelection(app);
     }
 };
