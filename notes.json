@@ -174,7 +174,9 @@
       "id": 27,
       "subject": "Fluid Flow (TH06B)",
       "title": "Definition: Viscosity",
-      "content": "A measure of a fluid's ability to resist flow. Water at 68\u00b0F = 1.0 centipoise (reference standard). For liquids: viscosity DECREASES with increasing temperature. For gases: viscosity INCREASES with increasing temperature. Higher viscosity requires more energy for flow."
+      "content": "A measure of a fluid's ability to resist flow. Water at 68\u00b0F = 1.0 centipoise (reference standard). For liquids: viscosity DECREASES with increasing temperature. For gases: viscosity INCREASES with increasing temperature. Higher viscosity requires more energy for flow.",
+      "image": "images/image2.emf",
+      "imageLabel": "Viscosity vs Temperature for Common Fluids"
     },
     {
       "id": 28,
@@ -192,7 +194,11 @@
       "id": 30,
       "subject": "Fluid Flow (TH06B)",
       "title": "Definition: Laminar Flow",
-      "content": "Flow regime where fluid layers move smoothly over adjacent layers with minimal mixing. Occurs when Reynolds number NRe < 2,000. Velocity profile is PARABOLIC - zero at walls, maximum at center. Average velocity = half the centerline velocity."
+      "content": "Flow regime where fluid layers move smoothly over adjacent layers with minimal mixing. Occurs when Reynolds number NRe < 2,000. Velocity profile is PARABOLIC - zero at walls, maximum at center. Average velocity = half the centerline velocity.",
+      "image": "images/image13.jpeg",
+      "imageLabel": "Laminar Flow Velocity Profile - Parabolic Distribution",
+      "image2": "images/image14.jpeg",
+      "imageLabel2": "Laminar Flow Alternative View - Parallel Plates"
     },
     {
       "id": 31,
@@ -252,7 +258,9 @@
       "id": 40,
       "subject": "Fluid Flow (TH06B)",
       "title": "Definition: Head Loss",
-      "content": "The conversion of fluid pressure and velocity to heat energy through friction. Represents energy lost from fluid flow perspective, but increases internal energy (temperature). Expressed in feet of head. Denoted as Hf in modified Bernoulli's equation."
+      "content": "The conversion of fluid pressure and velocity to heat energy through friction. Represents energy lost from fluid flow perspective, but increases internal energy (temperature). Expressed in feet of head. Denoted as Hf in modified Bernoulli's equation.",
+      "image": "images/image17.jpeg",
+      "imageLabel": "System Characteristic Curves - Head Loss vs Volumetric Flow Rate"
     },
     {
       "id": 41,
@@ -372,7 +380,9 @@
       "id": 60,
       "subject": "Fluid Flow (TH06B)",
       "title": "Concept: How Operators Control Head Loss",
-      "content": "Throttle valve position: closing valve increases L/d ratio \u2192 head loss increases. Opening valve decreases L/d \u2192 head loss decreases. Pump speed variation: since Hf \u221d v\u00b2, speed change causes exponential Hf change. Series vs parallel piping: series \u2192 Hf increases, parallel \u2192 Hf decreases"
+      "content": "Throttle valve position: closing valve increases L/d ratio \u2192 head loss increases. Opening valve decreases L/d \u2192 head loss decreases. Pump speed variation: since Hf \u221d v\u00b2, speed change causes exponential Hf change. Series vs parallel piping: series \u2192 Hf increases, parallel \u2192 Hf decreases",
+      "image": "images/image16.jpeg",
+      "imageLabel": "Fluid Flow in Closed System - Pump, Valves, and Head Loss Equations"
     },
     {
       "id": 61,
