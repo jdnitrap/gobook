@@ -1,1 +1,32 @@
-{"questions": [ full list from previous get result + 25 TH07B questions ]}
+{
+  "questions": [
+    {
+      "id": 1,
+      "subject": "CP01",
+      "text": "What is the primary purpose of piping in a power plant?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "To transport fluids from one piece of equipment to another",
+          "correct": true
+        },
+        {
+          "letter": "b",
+          "text": "To regulate system pressure",
+          "correct": false
+        },
+        {
+          "letter": "c",
+          "text": "To store fluids for later use",
+          "correct": false
+        },
+        {
+          "letter": "d",
+          "text": "To measure fluid temperature",
+          "correct": false
+        }
+      ],
+      "explanation": "Piping serves as the housing to transport fluids (and sometimes fluid/solid mixtures) between equipment in power plant systems."
+    }
+  ]
+}
