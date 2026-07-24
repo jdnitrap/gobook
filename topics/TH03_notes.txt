@@ -1,0 +1,70 @@
+[Note ID: 12]
+STATE OF A SUBSTANCE: Condition at specific moment, uniquely defined by two independent intensive properties. Once two properties known, all others can be determined via tables or equations.
+
+PHASE: Describes molecular structure. Four phases: Solid (fixed shape/volume), Liquid (fixed volume, takes container shape), Vapor/Gas (no fixed shape/volume), Plasma (ionized gas).
+
+PHASE CHANGES:
+• Melting: Solid to Liquid (absorbed heat at constant pressure)
+• Solidification: Liquid to Solid (rejected heat)
+• Vaporization: Liquid to Gas (absorbed heat)
+• Condensation: Gas to Liquid (rejected heat)
+• Sublimation: Solid to Gas directly (skips liquid)
+
+PHASE DIAGRAM (PRESSURE-TEMPERATURE):
+• Fusion line: Solid-Liquid boundary
+• Vaporization line: Liquid-Gas boundary
+• Sublimation line: Solid-Gas boundary
+• Triple Point: Where all three phases coexist in equilibrium
+• Critical Point: Highest T and P where liquid and gas distinguish
+
+PHASE DIAGRAM (PRESSURE-VOLUME): Vapor dome region where liquid and vapor coexist. Left of dome: subcooled liquid. Right of dome: superheated vapor.
+
+[Note ID: 13]
+FIVE STATES OF WATER:
+
+1. SUBCOOLED LIQUID: Below saturation temperature. Resistant to vaporization. Nearly incompressible.
+2. SATURATED LIQUID: At saturation temperature. On verge of boiling. All liquid molecules condensed.
+3. WET VAPOR: Mixture of saturated liquid and vapor. Both phases coexist at same temperature.
+4. SATURATED VAPOR: 100% vapor at saturation. Last drop of liquid just evaporated. Critical for turbine inlet quality.
+5. SUPERHEATED VAPOR: Above saturation temperature. All liquid converted. Most flexible state.
+
+HEAT TRANSFER DURING PHASE CHANGE:
+
+SENSIBLE HEAT: Heat addition/removal that changes TEMPERATURE. No phase change. Observable temperature change.
+
+LATENT HEAT: Heat addition/removal that causes PHASE CHANGE at constant temperature. All energy goes into changing molecular structure/bonds.
+
+LATENT HEAT OF VAPORIZATION (LHV/Hfg): Energy needed to convert saturated liquid to saturated vapor. Same energy released when vapor condenses. Decreases as pressure increases.
+
+LATENT HEAT OF CONDENSATION: Opposite of vaporization. Energy released when steam condenses to liquid.
+
+STEAM QUALITY (X) AND MOISTURE CONTENT (M):
+• Quality: Fraction of vapor in wet mixture. Range 0 (liquid) to 1.0 (vapor).
+• Moisture content: Fraction of liquid. M = 1 - X.
+• Void fraction: Volumetric fraction of vapor (not mass fraction).
+
+IMPORTANCE OF STEAM QUALITY: High quality required at turbine inlet (>95-99%). Low quality causes blade erosion and corrosion.
+
+[Note ID: 14]
+IDEAL GAS BEHAVIOR:
+
+CHARLES' LAW (constant pressure): Gas volume directly proportional to absolute temperature. V/T = constant. V1/T1 = V2/T2.
+
+BOYLE'S LAW (constant temperature): Gas volume inversely proportional to absolute pressure. P x V = constant. P1V1 = P2V2.
+
+COMBINED/IDEAL GAS LAW: Combines Charles and Boyle. Equation: PV/T = nR or PV = nRT. Specific form: Pv = RT for one lbm of gas.
+
+APPLICATIONS: Air and gas systems, low pressures, high temperatures. Does NOT work for steam near saturation.
+
+WHY IDEAL GAS LAW FAILS FOR STEAM: Steam behavior MORE COMPLEX. Intermolecular forces significant. Proximity to saturation violates ideal assumptions. PV/T NOT constant.
+
+STEAM TABLES: Experimentally-measured properties of water and steam. Account for complex non-ideal behavior. Tabulated for common pressures/temperatures.
+
+TABLE TYPES:
+• Saturated steam tables: Indexed by saturation temperature or pressure. Properties at saturation point.
+• Superheated steam tables: Indexed by pressure and temperature. For steam ABOVE saturation.
+• Compressed liquid tables: Properties below saturation temperature.
+
+DEGREES OF SUBCOOLING: Difference between saturation and actual liquid temperature. Formula: Degrees subcooling = Tsat - Tactual.
+
+DEGREES OF SUPERHEAT: Difference between actual and saturation temperature. Formula: Degrees superheat = Tactual - Tsat.

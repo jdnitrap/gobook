@@ -1,0 +1,82 @@
+[Note ID: 15]
+PROCESS DEFINITIONS:
+
+ADIABATIC PROCESS: No loss or gain of heat (Q = 0). Boundary perfectly insulated. Common for turbine/pump (very fast). Analysis: W = Delta_U.
+
+ISOBARIC PROCESS: Constant pressure (P = constant). Boundary moves freely. Heat addition/removal at constant pressure. Common: boiler steam generation, condenser condensation. Analysis: Q = Delta_H.
+
+ISENTROPIC PROCESS: No change in entropy (S = constant). Reversible adiabatic. Theoretical ideal (never achieved in reality). Benchmark for efficiency calculations.
+
+ISENTHALPIC PROCESS: No change in enthalpy (H = constant). Also called throttling. Through partial valve opening, orifice, restriction. Effect: P decreases, T may decrease, entropy increases.
+
+ISOTHERMAL PROCESS: Constant temperature (T = constant). System remains in thermal equilibrium. For ideal gas: PV = constant. Analysis: Temperature constant.
+
+OTHER PROCESS TYPES:
+• Isochoric: constant volume (rigid container)
+• Polytropic: generalized process
+• Reversible: frictionless, no net change
+• Irreversible: real process with friction/losses
+
+[Note ID: 16]
+STEADY FLOW SYSTEM CONDITIONS:
+
+THREE REQUIREMENTS:
+1. CONSTANT MASS FLOW RATE: Mass in per time = mass out per time. Continuity: m_in = m_out.
+2. CONSTANT WORKING-FLUID PROPERTIES: Properties (P,T,h,s,v) constant over time at each point. May vary spatially.
+3. CONSTANT RATES OF HEAT/WORK: Q-dot constant, W-dot constant. Not fluctuating.
+
+IMPORTANCE: Most practical equipment operates under steady-flow. Simplifies analysis. Energy balance: Q-dot + m-dot(hin) = m-dot(hout) + W-dot.
+
+MECHANICAL EQUIVALENT OF HEAT: 1 Btu = 778 ft-lbf or 1055 Joules. Converts between mechanical and thermal energy.
+
+SECOND LAW OF THERMODYNAMICS:
+
+STATEMENT: No engine can convert all heat to work. Heat rejection always required. Even perfect engines cannot be 100% efficient. eta_max = 1 - (Tcold / Thot).
+
+REVERSIBLE vs IRREVERSIBLE:
+• Reversible (ideal): Theoretical, no friction, frictionless, returns to original state
+• Irreversible (real): All actual processes. Friction present. Cannot return without external work.
+
+ENTROPY CHANGE: Delta_S = Q / T. Units: Btu/lbm-R. More heat at low temperature = larger entropy change.
+
+CARNOT EFFICIENCY: eta_Carnot = (Thot - Tcold) / Thot = 1 - (Tcold / Thot). Depends ONLY on temperatures.
+
+[Note ID: 17]
+HEAT EXCHANGER ENERGY BALANCE: q = hout - hin. Heat transfer = enthalpy change. No work done (W = 0). All heat change as enthalpy change.
+
+STEAM GENERATOR (BOILER): Raises feedwater enthalpy to produce steam. Isobaric heat addition. Inlet: subcooled liquid. Outlet: saturated/near-saturated steam.
+
+CONDENSER: Removes latent heat of condensation. Isobaric heat rejection. Inlet: low-pressure wet/saturated steam. Outlet: subcooled liquid condensate. Critical: condensing collapses steam volume, maintains vacuum, increases turbine pressure drop, improves efficiency.
+
+CONDENSATE SUBCOOLING: After condensation, cooling continues below saturation. Few degrees required to prevent pump cavitation. Excessive subcooling wastes heat and increases corrosion. Optimal: 10-20F.
+
+NOZZLES:
+
+DEFINITION: Shaped passages converting pressure/enthalpy to velocity/kinetic energy. No work (W=0). No heat transfer (adiabatic).
+
+CONVERGENT NOZZLE: Area decreases. Velocity increases, pressure decreases, temperature decreases. Used for accelerating steam.
+
+DIVERGENT NOZZLE: Area increases. Velocity decreases, pressure increases, temperature increases. Used for slowing flow, recovering pressure.
+
+CONTINUITY EQUATION: A1V1 = A2V2. Shrinking area increases velocity. Maintains constant mass flow rate.
+
+NOZZLE APPLICATIONS: Flow measurement, flow restriction, pressure recovery, turbine nozzles, steam jet air ejectors.
+
+[Note ID: 18]
+TURBINE - WORK EXTRACTION: WT = hin - hout. Enthalpy drop across turbine. High-pressure steam in, low-pressure out. Expansion converted to rotating mechanical energy.
+
+TWO-STEP CONVERSION:
+1. NOZZLE STAGE (Fixed Blades): Converts pressure/enthalpy to kinetic energy. High-pressure low-velocity steam enters. Convergent nozzle accelerates. Low-pressure high-velocity jet exits.
+2. BLADE STAGE (Moving Blades): Jet impacts rotating blades. Blade motion redirects flow. Kinetic energy to mechanical rotation.
+
+TURBINE EFFICIENCY: eta_turbine = Wreal / Wideal. Ratio of actual to ideal work. Typical: 80-90%. eta = (h1-h2)/(h1-h2s).
+
+PUMP - WORK INPUT: WP = hout - hin. Enthalpy rise. Motor does work ON pump. Increases fluid pressure.
+
+PUMP EFFICIENCY: eta_pump = Wideal / Wreal (opposite of turbine!). Ratio ideal to actual work. Typical: 75-85%. eta = (h2s-h1)/(h2-h1).
+
+CYCLE WORK ACCOUNTING: Wnet = Wturbine - Wpump. Pump work 1-5% of turbine work.
+
+THROTTLE (THROTTLING): Constant-enthalpy through restriction. P decreases, h constant, entropy increases, T may decrease. Examples: pressure reducing valve, orifice, pipe restriction.
+
+FINDING DOWNSTREAM STATE: Use h2 = h1. At P2, find saturation enthalpy. If h1 < hf: compressed liquid. If hf < h1 < hg: quality X = (h1-hf)/hfg. If h1 > hg: superheated.

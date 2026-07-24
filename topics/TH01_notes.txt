@@ -1,0 +1,75 @@
+[Note ID: 6]
+TWO SYSTEMS OF MEASUREMENT:
+
+AMERICAN ENGINEERING SYSTEM (ENGLISH ENGINEERS SYSTEM):
+• Force: pounds force (lbf), Mass: pounds mass (lbm)
+• Temperature: Fahrenheit (°F), Pressure: psi
+• Conversion: Work in Btu = (Force in lbf x Distance in ft) / 778
+
+INTERNATIONAL SYSTEM (SI/METRIC):
+• Force: Newtons (N), Mass: kilograms (kg)
+• Temperature: Celsius (°C) or Kelvin (K)
+• Pressure: Pascal (Pa), kilopascal (kPa), or bar
+• Simpler conversion based on powers of 10
+
+UNIT CONVERSION PROCESS:
+1. Identify given units and desired units
+2. Write conversion factor: given units in denominator, desired units in numerator
+3. Multiply original value by conversion factor
+4. Cancel units and solve
+
+COMMON CONVERSION FACTORS:
+• 1 lbm = 0.4536 kg, 1 psi = 6.895 kPa
+• K = C + 273.15, R = F + 459.67
+
+[Note ID: 7]
+RELATIVE SCALES (reference point based):
+
+Fahrenheit (°F):
+• Freezing point of water: 32°F
+• Boiling point of water: 212°F
+• Interval: 180 degrees between freeze/boil
+• Used in American Engineering System
+
+Celsius (°C):
+• Freezing point of water: 0°C
+• Boiling point of water: 100°C
+• Interval: 100 degrees between freeze/boil
+• Formula: °C = (°F - 32) / 1.8
+
+ABSOLUTE SCALES (zero = no molecular motion):
+
+Rankine (°R):
+• Corresponds to Fahrenheit scale
+• Absolute zero: 0°R = -459.67°F
+• Formula: °R = °F + 459.67
+• Maintains 1°F per 1°R interval
+
+Kelvin (K):
+• Corresponds to Celsius scale
+• Absolute zero: 0 K = -273.15°C
+• Formula: K = °C + 273.15
+• Maintains 1°C per 1 K interval
+
+WHY ABSOLUTE TEMPERATURE REQUIRED: All thermodynamic equations require absolute temperature. Relative scales produce wrong results in calculations.
+
+[Note ID: 8]
+DEFINITION OF A SYSTEM: A quantity of matter or space separated from surroundings by a boundary. Everything outside is the surroundings.
+
+THREE SYSTEM TYPES:
+
+ISOLATED SYSTEM: No mass transfer, no energy transfer. Theoretical ideal; real systems always exchange something.
+
+CLOSED SYSTEM: No mass transfer, energy transfer (heat/work) may occur. Most common for thermodynamic analysis. Used for fixed mass of gas in cylinder, sealed reactor vessel, closed piping sections.
+
+OPEN SYSTEM (CONTROL VOLUME): Mass transfer across boundary (inlet/outlet flows), energy transfer may occur. Most realistic for practical equipment. Used for turbines, compressors, boilers, pumps, condensers, pipes with flow.
+
+WORKING FLUID: The fluid within a system that stores or transfers energy. Must be able to absorb and reject heat. Examples: steam, refrigerant, gas, water.
+
+SYSTEM PROPERTIES:
+
+INTENSIVE PROPERTIES (independent of mass): Pressure, Temperature, Density, Specific volume, Velocity, Height, Enthalpy, Entropy
+
+EXTENSIVE PROPERTIES (dependent on mass): Volume, Mass, Weight, Internal energy, Enthalpy, Entropy. Total = mass x specific property.
+
+SPECIFIC PROPERTIES: Intensive properties derived from extensive ones. Calculated as: specific property = extensive property / mass.

@@ -567,6 +567,27 @@
                 document.getElementById('notesSubjectsCount').textContent = new Set(this.allNotes.map(n => n.subject)).size;
             },
 
+            async getNoteContent(note) {
+                if (note.content) {
+                    return note.content;
+                }
+                if (note.contentFile) {
+                    try {
+                        const response = await fetch(note.contentFile);
+                        const text = await response.text();
+                        const pattern = new RegExp(`\\[Note ID: ${note.id}\\][\\s\\S]*?(?=\\[Note ID:|$)`);
+                        const match = text.match(pattern);
+                        if (match) {
+                            return match[0].replace(`[Note ID: ${note.id}]`, '').trim();
+                        }
+                        return "Content not found";
+                    } catch (error) {
+                        return "Error loading content: " + error.message;
+                    }
+                }
+                return "No content available";
+            },
+
             selectMode(mode) {
                 this.currentMode = mode;
                 this.currentQuestionIndex = 0;
@@ -683,16 +704,16 @@
                 }
             },
 
-            startFlashcards() {
+            async startFlashcards() {
                 const notes = this.allNotes.filter(n => n.subject === this.currentNotesSubject);
                 this.answers = notes;
                 this.currentCardIndex = 0;
                 this.cardFlipped = false;
-                this.showFlashcard();
+                await this.showFlashcard();
                 this.showScreen('flashcardScreen');
             },
 
-            showFlashcard() {
+            async showFlashcard() {
                 const card = this.answers[this.currentCardIndex];
                 if (!card) return;
 
@@ -704,6 +725,12 @@
 
                 this.cardFlipped = false;
                 document.getElementById('cardContent').textContent = card.title;
+
+                // Preload content for this card
+                if (!card._contentLoaded) {
+                    card._content = await this.getNoteContent(card);
+                    card._contentLoaded = true;
+                }
             },
 
             flipCard() {
@@ -712,16 +739,16 @@
 
                 this.cardFlipped = !this.cardFlipped;
                 if (this.cardFlipped) {
-                    document.getElementById('cardContent').textContent = card.content;
+                    document.getElementById('cardContent').textContent = card._content || card.content || "Loading...";
                 } else {
                     document.getElementById('cardContent').textContent = card.title;
                 }
             },
 
-            nextCard() {
+            async nextCard() {
                 if (this.currentCardIndex < this.answers.length - 1) {
                     this.currentCardIndex++;
-                    this.showFlashcard();
+                    await this.showFlashcard();
                 } else {
                     this.goHome();
                 }
@@ -844,7 +871,7 @@
                 this.showScreen('examScreen');
             },
 
-            viewNotes() {
+            async viewNotes() {
                 const notes = this.allNotes.filter(n => n.subject === this.currentNotesSubject);
                 const container = document.getElementById('notesListContainer');
                 container.innerHTML = '';
@@ -852,10 +879,11 @@
                 document.getElementById('notesViewTitle').textContent = this.currentNotesSubject + ' Notes';
                 document.getElementById('notesCountDisplay').textContent = notes.length;
 
-                notes.forEach(note => {
+                for (const note of notes) {
                     const noteDiv = document.createElement('div');
                     noteDiv.className = 'note-card';
-                    let html = `<h4>${note.title}</h4><p>${note.content}</p>`;
+                    const content = await this.getNoteContent(note);
+                    let html = `<h4>${note.title}</h4><p>${content}</p>`;
                     if (note.image) {
                         html += `<div style="text-align: center;">
                                     <img src="${note.image}" alt="${note.title}" class="note-diagram">
@@ -864,7 +892,7 @@
                     }
                     noteDiv.innerHTML = html;
                     container.appendChild(noteDiv);
-                });
+                }
 
                 this.showScreen('notesScreen');
             },

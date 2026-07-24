@@ -1,0 +1,73 @@
+[Note ID: 9]
+FIRST LAW OF THERMODYNAMICS:
+
+STATEMENT: Energy is neither created nor destroyed, only converted between forms. Energy entering a system equals energy stored in or leaving it. E_in - E_out = Delta_E_system.
+
+APPLICATION TO POWER SYSTEMS:
+1. Heat Transfer: Heat input from energy source to working fluid
+2. Fluid Conversion: Energy transfer to working fluid
+3. Work Extraction: Expanding fluid performs mechanical work in turbine
+4. Generator Conversion: Mechanical work converts to electrical energy
+5. Heat Rejection: Low-pressure fluid exhausted to heat sink (condenser)
+6. Pump Work: Fluid pressure increased for return to system
+
+ENERGY BALANCE: Total energy in from heat source = Electrical power out + Heat rejected.
+Efficiency = Electrical out / Total thermal in x 100%.
+
+STORED vs. TRANSIENT ENERGY:
+
+STORED ENERGY (energy a mass HAS): Potential Energy, Kinetic Energy, Internal Energy, Flow Energy
+
+TRANSIENT ENERGY (energy IN TRANSIT): Heat (energy transfer due to temperature difference), Work (energy transfer due to force acting through distance)
+
+SIGN CONVENTIONS:
+• Heat added to system: Q positive, Heat removed: Q negative
+• Work done BY system: W positive, Work done ON system: W negative
+
+[Note ID: 10]
+ENERGY FORMS IN THERMODYNAMIC SYSTEMS:
+
+POTENTIAL ENERGY (PE): Due to position above reference point. Formula: PE = m x z x g / gc.
+
+KINETIC ENERGY (KE): Due to motion/velocity. Formula: KE = m x v2 / (2 x gc).
+
+INTERNAL ENERGY (U): Sum of all microscopic energy forms within substance. Specific internal energy u = U/m. Changes with temperature and pressure.
+
+FLOW ENERGY (PV ENERGY): Energy a fluid has due to its pressure and volume. Specific flow energy = P x v. The work needed to push fluid into/out of system.
+
+ENTHALPY (H): H = U + PV. Enthalpy = Internal Energy + Flow Work. Measure of a fluid's total energy content.
+
+SPECIFIC ENTHALPY (h): h = u + Pv. Enthalpy per unit mass. Units: Btu/lbm. Used for all thermodynamic cycle calculations. Found in steam tables.
+
+WHY ENTHALPY MATTERS:
+• Directly represents energy available from working fluid
+• Used to calculate turbine work: Wturbine = hin - hout
+• Used to calculate pump work: Wpump = hout - hin
+• Simplifies energy balance calculations for flowing systems
+• Steam tables provide direct values
+
+[Note ID: 11]
+HEAT (Q):
+
+DEFINITION: Transient energy transferred due to temperature difference. Flows from hotter to cooler. Spontaneous (no work required). NOT a property. Path-dependent.
+
+WORK (W):
+
+DEFINITION: Transient energy from force acting through distance. Formula: W = F x d. Units: Btu, ft-lbf, Joules. NOT a property (depends on process).
+
+TWO TYPES:
+1. Mechanical Work: Solid object moved by force. W = F x Delta_x.
+2. Flow Work: Energy to push/pull fluid through pipes. P x V energy. Included in enthalpy.
+
+TURBINE/PUMP WORK:
+• Turbine: Input high-pressure steam, Output mechanical work + low-pressure steam. Work = hin - hout.
+• Pump: Input low-pressure fluid + mechanical work, Output high-pressure fluid. Work = hout - hin.
+
+POWER:
+
+DEFINITION: Rate of doing work. Power = Work / Time. Units: Btu/s, Watts, horsepower. Conversion: 1 hp = 0.707 Btu/s = 746 Watts.
+
+APPLICATIONS:
+• Turbine power = specific work x mass flow rate
+• Pump power = specific work x mass flow rate
+• Generator power = turbine power - friction losses
