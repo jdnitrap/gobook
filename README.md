@@ -1,9 +1,9 @@
-# GoBook Repository - Three Independent NixOS Projects
+# GoBook Repository - NixOS Projects
 
 **Repository:** gobook  
 **Created:** July 2026  
-**Status:** All projects in ALPHA - Ready for testing (not yet validated)  
-**Contains:** 3 separate, independent projects
+**Status:** Projects in ALPHA - Ready for testing (not yet validated)  
+**Contains:** 2 separate, independent projects
 
 ⚠️ **IMPORTANT:** These projects are **NOT PRODUCTION READY**. They are in development/testing phase and have NOT been validated through real-world deployment. Use at your own risk. Feedback and bug reports are welcome.
 
@@ -12,25 +12,23 @@
 ## Table of Contents
 
 1. [Repository Overview](#repository-overview)
-2. [Project 1: AINIX](#project-1-ainix)
-3. [Project 2: NixQubes](#project-2-nixqubes)
-4. [Project 3: GoBook Basic](#project-3-gobook-basic)
-5. [Quick Start Guide](#quick-start-guide)
-6. [Directory Structure](#directory-structure)
+2. [Project 1: NixQubes](#project-1-nixqubes)
+3. [Project 2: GoBook Basic](#project-2-gobook-basic)
+4. [Quick Start Guide](#quick-start-guide)
+5. [Directory Structure](#directory-structure)
 
 ---
 
 ## Repository Overview
 
-**This repository contains 3 completely independent NixOS projects:**
+**This repository contains 2 completely independent NixOS projects:**
 
 Each project is self-contained, has its own documentation, and can be used independently. They are stored in the same repository for organizational purposes only.
 
 ```
 gobook/
-├── PROJECT 1: AINIX           (AI-Native NixOS Integration)
-├── PROJECT 2: NixQubes        (Qubes OS-like Security Architecture)
-└── PROJECT 3: GoBook Basic    (Modular NixOS Configuration)
+├── PROJECT 1: NixQubes        (Qubes OS-like Security Architecture)
+└── PROJECT 2: GoBook Basic    (Modular NixOS Configuration)
 ```
 
 ---
@@ -39,8 +37,6 @@ gobook/
 
 **What HAS been tested:**
 - ✅ Code syntax and structure
-- ✅ Unit tests (AINIX: 27/27 passing)
-- ✅ Installation methods (documented)
 - ✅ Configuration files (validated for errors)
 
 **What HAS NOT been tested:**
@@ -48,7 +44,6 @@ gobook/
 - ❌ Actual user workflows
 - ❌ Long-term stability
 - ❌ All edge cases and error conditions
-- ❌ Integration between projects
 - ❌ Performance under load
 
 **Before using in production:**
@@ -60,89 +55,7 @@ gobook/
 
 ---
 
----
-
-## PROJECT 1: AINIX
-
-**Status:** 🔄 Ready for Testing (Not yet validated in real use)  
-**Type:** AI-Native NixOS Integration System  
-**Location:** `ainix/` directory  
-**Documentation:** See `ainix/README.md` and `AINIX_INSTALL.md`
-
-### What is AINIX?
-
-AINIX is a unified intelligent assistant for NixOS that combines:
-- **Help System**: Provide advice, explanations, and guidance
-- **Control System**: Execute commands safely with comprehensive guardrails
-
-### Key Features
-
-✅ Automatic query classification (help vs. control)
-✅ Safe command execution with multiple safeguards
-✅ Preview mode by default (show what would happen)
-✅ NixQubes container integration for isolation
-✅ Dangerous operation detection and prevention
-✅ Comprehensive knowledge base with examples
-✅ Flake-based installation (works on any NixOS system)
-✅ Full test coverage (27/27 tests passing)
-
-### Quick Start with AINIX
-
-**Try immediately (no install):**
-```bash
-nix run github:jdnitrap/gobook#ainix -- "How do I install Rust?"
-```
-
-**Install system-wide:**
-```nix
-# In configuration.nix
-services.ainix.enable = true;
-```
-
-### Example Usage
-
-```bash
-# Ask for help
-ainix "How do I install a package?"
-
-# Execute safely (preview mode)
-ainix install firefox
-
-# Get explanation
-ainix --explain nixos-rebuild
-
-# Use containers for isolation
-ainix --container dev "cargo build"
-```
-
-### AINIX Components
-
-- `core/router.py` - Query classification and routing
-- `control/executor.py` - Safe command execution with guardrails
-- `help/knowledge_base.py` - NixOS knowledge and advice
-- `ainix.py` - Main CLI interface
-- `ainix-package.nix` - Nix package definition
-- `flake.nix` - Flake-based installation support
-- `tests/` - Comprehensive test suite
-- `examples/` - Usage examples and workflows
-
-### Installation Methods
-
-1. **Direct Run** (no install): `nix run github:jdnitrap/gobook#ainix`
-2. **Temporary Shell**: `nix shell github:jdnitrap/gobook#ainix`
-3. **System-wide**: Add to NixOS configuration
-4. **Per-user**: Add to Home Manager configuration
-
-### Learn More
-
-- `ainix/README.md` - Project overview
-- `AINIX_INSTALL.md` - Complete installation guide
-- `ainix/FLAKE_INSTALLATION.md` - Flake-specific setup
-- `ainix/ARCHITECTURE.md` - Technical architecture
-
----
-
-## PROJECT 2: NixQubes
+## PROJECT 1: NixQubes
 
 **Status:** 🔄 Ready for Testing (Not yet validated in real use)  
 **Type:** Qubes OS-like Container Security Architecture  
@@ -216,7 +129,7 @@ qubesctl run work firefox
 
 ---
 
-## PROJECT 3: GoBook Basic
+## PROJECT 2: GoBook Basic
 
 **Status:** 🔄 Ready for Testing (Not yet validated in real use)  
 **Type:** Modular NixOS Configuration  
@@ -257,7 +170,7 @@ sudo nixos-rebuild switch
 ### GoBook Basic Components
 
 - `configuration.nix` - Main configuration file
-- `users.nix` - User management system
+- `users.nix` - User account management
 - `user-create-helper.nix` - Interactive user creation
 - `desktop-environment.nix` - Cinnamon + LightDM
 - `system-packages.nix` - System packages
@@ -281,17 +194,11 @@ All created users survive NixOS rebuilds.
 
 ### Choose Your Project
 
-**Want an intelligent NixOS assistant?**
-→ Use **AINIX** (see PROJECT 1: AINIX above)
-
 **Want container-based security architecture?**
-→ Use **NixQubes** (see PROJECT 2: NixQubes above)
+→ Use **NixQubes** (see PROJECT 1: NixQubes above)
 
 **Want a modular NixOS configuration?**
-→ Use **GoBook Basic** (see PROJECT 3: GoBook Basic above)
-
-**Want all three together?**
-→ Combine them! Each project is independent but can work together.
+→ Use **GoBook Basic** (see PROJECT 2: GoBook Basic above)
 
 ---
 
@@ -301,39 +208,10 @@ All created users survive NixOS rebuilds.
 gobook/                              (Repository root)
 │
 ├── README.md                        ← YOU ARE HERE
-├── AINIX_INSTALL.md                 (AINIX installation guide)
-├── AINIX_SUMMARY.md                 (AINIX project summary)
 ├── NIXQUBES_SUMMARY.md              (NixQubes project summary)
-├── flake.nix                        (Root flake for AINIX)
+├── flake.nix                        (Root flake)
 │
-├── PROJECT 1: AINIX/                (AI-Native NixOS Integration)
-│   ├── ainix.py                     (Main CLI interface)
-│   ├── ainix-package.nix            (Nix package definition)
-│   ├── ainix-nixos-module.nix       (NixOS module)
-│   ├── README.md                    (AINIX documentation)
-│   ├── ARCHITECTURE.md              (Technical architecture)
-│   ├── FLAKE_INSTALLATION.md        (Flake setup guide)
-│   ├── INSTALLATION.md              (Installation guide)
-│   ├── config/
-│   │   └── ainix.json               (Configuration file)
-│   ├── core/
-│   │   ├── router.py                (Query classification)
-│   │   └── __init__.py
-│   ├── control/
-│   │   ├── executor.py              (Safe execution)
-│   │   └── __init__.py
-│   ├── help/
-│   │   ├── knowledge_base.py         (Knowledge system)
-│   │   └── __init__.py
-│   ├── tests/
-│   │   ├── test_router.py
-│   │   ├── test_executor.py
-│   │   └── test_help.py
-│   ├── examples/
-│   │   └── basic-usage.md
-│   └── .gitignore
-│
-├── PROJECT 2: NixQubes/             (Qubes OS-like Architecture)
+├── PROJECT 1: NixQubes/             (Qubes OS-like Architecture)
 │   ├── README.md                    (NixQubes documentation)
 │   ├── configuration.nix            (Main NixQubes config)
 │   ├── containers.nix               (Container definitions)
@@ -353,11 +231,11 @@ gobook/                              (Repository root)
 │   ├── hardware-configuration.nix   (Machine-specific - EMPTY)
 │   └── pkgs/                        (Custom packages)
 │
-├── PROJECT 3: GoBook Basic/         (Modular NixOS Configuration)
+├── PROJECT 2: GoBook Basic/         (Modular NixOS Configuration)
 │   ├── configuration.nix            (Main configuration file)
 │   ├── hardware-configuration.nix   (Machine-specific - GENERATED)
 │   ├── users.nix                    (User account management)
-│   ├── user-create-helper.nix       (Interactive user creation script)
+│   ├── user-create-helper.nix         (Interactive user creation script)
 │   ├── system-packages.nix          (System packages and fonts)
 │   ├── desktop-environment.nix      (Cinnamon + LightDM)
 │   ├── sound.nix                    (PipeWire audio)
@@ -379,22 +257,7 @@ gobook/                              (Repository root)
 
 ## Project Installation Instructions
 
-### For AINIX (Project 1)
-
-See **AINIX_INSTALL.md** and **ainix/FLAKE_INSTALLATION.md** for:
-- Instant installation (no setup needed)
-- System-wide installation
-- Per-user installation via Home Manager
-- Development setup
-
-**Quick start:**
-```bash
-nix run github:jdnitrap/gobook#ainix -- "query"
-```
-
----
-
-### For NixQubes (Project 2)
+### For NixQubes (Project 1)
 
 **Prerequisites:**
 - NixOS 26.05+ system
@@ -427,7 +290,7 @@ nix run github:jdnitrap/gobook#ainix -- "query"
 
 ---
 
-### For GoBook Basic (Project 3)
+### For GoBook Basic (Project 2)
 
 **Prerequisites:**
 - NixOS 26.05+ system
@@ -462,29 +325,7 @@ nix run github:jdnitrap/gobook#ainix -- "query"
 
 ## Usage Examples
 
-### Using AINIX (Project 1)
-
-**Ask for help:**
-```bash
-ainix "How do I install a package?"
-```
-
-**Execute a command safely (preview mode):**
-```bash
-ainix install firefox
-```
-
-**Get explanation:**
-```bash
-ainix --explain nixos-rebuild
-```
-
-**Use containers for isolation:**
-```bash
-ainix --container dev "cargo build" --execute
-```
-
-### Using NixQubes (Project 2)
+### Using NixQubes (Project 1)
 
 **Daily workflow:**
 ```bash
@@ -497,7 +338,6 @@ $ qubesctl shell dev
 # Development happens in isolation
 
 # Stop containers when done
-$ qubesctl stop work
 $ qubesctl stop dev
 ```
 
@@ -518,7 +358,7 @@ $ qubesctl shell net
 - If Dev is compromised, Work is safe
 - Untrusted container: complete isolation, auto-destroyed
 
-### Using GoBook Basic (Project 3)
+### Using GoBook Basic (Project 2)
 
 **Add a new user:**
 ```bash
@@ -536,8 +376,6 @@ sudo nixos-rebuild switch
 
 # Automatic: System rebuilds nightly and collects garbage weekly
 ```
-
----
 
 ## Administration & Maintenance
 
@@ -557,14 +395,6 @@ nix-env --list-generations
 # Rollback to previous generation
 sudo nixos-rebuild switch --rollback
 ```
-
-### AINIX Administration
-
-See `ainix/` documentation for:
-- Configuration via JSON
-- Learning system setup
-- Container integration options
-- Logging and audit trails
 
 ### NixQubes Administration
 
@@ -606,8 +436,6 @@ qubesctl run <name> <command>
 - Auto-update: Runs nightly
 - Auto-cleanup: Garbage collection weekly
 
----
-
 ## Troubleshooting
 
 ### General NixOS Issues
@@ -633,14 +461,6 @@ df -h
 nix-collect-garbage -d
 ```
 
-### AINIX-Specific Issues
-
-See `ainix/` documentation for:
-- Query classification issues
-- Execution errors
-- Knowledge base customization
-- Container integration troubleshooting
-
 ### NixQubes-Specific Issues
 
 **Container won't start:**
@@ -661,12 +481,6 @@ sudo nixos-rebuild switch
 
 **No internet in container:**
 ```bash
-# Check Net container status
-qubesctl status net
-
-# Verify it's running
-qubesctl status
-
 # Check routes
 ip route
 
@@ -676,43 +490,16 @@ cat /etc/resolv.conf
 
 **WiFi not connecting:**
 ```bash
-# Access Net container
-qubesctl shell net
-
-# Check NetworkManager
-nmcli device
-
-# Restart NetworkManager
-sudo systemctl restart NetworkManager
-
 # Scan networks
 nmcli device wifi list
 
 # Manual connection
-nmcli device wifi connect "SSID" password "PASSWORD"
-```
+nmcli device wifi connect "SSID" password
 
-### GoBook Basic-Specific Issues
-
-**User creation issues:**
-- Login as `creator` account
-- Check for shell error messages
-- Verify available groups
-
-**System performance:**
-- Check disk space: `df -h`
-- Stop unnecessary services
-- Run garbage collection: `nix-collect-garbage -d`
-
----
+**Adding a new container:**
+1. Edit `nixqubes/containers.nix` to add new containers
 
 ## Architecture Decisions
-
-### AINIX: Help + Control Architecture
-- **Query Classification** - Automatic detection of help vs. control requests
-- **Safe Execution** - Multiple safeguard layers prevent dangerous operations
-- **Knowledge-Based** - Comprehensive NixOS knowledge base
-- **Container Integration** - Works with NixQubes for safe execution
 
 ### NixQubes: Container-Based Security
 - **Lightweight Containers** - Milliseconds to start, efficient resource use
@@ -726,28 +513,14 @@ nmcli device wifi connect "SSID" password "PASSWORD"
 - **Modular** - Separate config files by concern
 - **User-Friendly** - Interactive user creation system
 
----
-
 ## Choosing Your Project
 
 | Need | Project | Notes |
 |------|---------|-------|
-| **Intelligent NixOS Assistant** | AINIX | Help + control in one system |
 | **Container Security** | NixQubes | Qubes OS-like isolation |
 | **Basic NixOS Setup** | GoBook Basic | Simple, modular configuration |
-| **All Three** | gobook repository | Combine independent projects |
-
----
 
 ## Advanced Topics
-
-### AINIX Advanced Configuration
-
-See `ainix/ARCHITECTURE.md` for:
-- Custom handlers
-- Router extensions
-- Knowledge base customization
-- Learning system tuning
 
 ### NixQubes Advanced Configuration
 
@@ -789,22 +562,13 @@ Edit `/etc/nixos/basic/` files to:
 - Customize security policies
 - Enable/disable features
 
----
-
 ## Documentation Reference
 
-### AINIX (Project 1)
-- `ainix/README.md` - Project overview
-- `AINIX_INSTALL.md` - Installation guide
-- `ainix/FLAKE_INSTALLATION.md` - Flake setup
-- `ainix/ARCHITECTURE.md` - Technical details
-- `AINIX_SUMMARY.md` - Implementation summary
-
-### NixQubes (Project 2)
+### NixQubes (Project 1)
 - `nixqubes/README.md` - NixQubes documentation
 - `NIXQUBES_SUMMARY.md` - Architecture and usage
 
-### GoBook Basic (Project 3)
+### GoBook Basic (Project 2)
 - Configuration files in `basic/` directory
 - Comments in each `.nix` file
 
@@ -813,19 +577,9 @@ Edit `/etc/nixos/basic/` files to:
 - Qubes OS: https://www.qubes-os.org/
 - systemd-nspawn: https://www.freedesktop.org/software/systemd/man/systemd-nspawn.html
 
----
-
 ## Project Status
 
-### AINIX (Project 1)
-**Status:** 🔄 Ready for Testing
-- Core system implemented and unit tested (27/27 tests passing)
-- Flake packaging ready for installation
-- Multiple installation methods available
-- Full documentation included
-- **NOT YET:** Validated in real-world use
-
-### NixQubes (Project 2)
+### NixQubes (Project 1)
 **Status:** 🔄 Ready for Testing
 - Container architecture implemented
 - Network isolation configured
@@ -833,15 +587,13 @@ Edit `/etc/nixos/basic/` files to:
 - Security hardening applied
 - **NOT YET:** Tested on actual hardware
 
-### GoBook Basic (Project 3)
+### GoBook Basic (Project 2)
 **Status:** 🔄 Ready for Testing
 - Modular configuration implemented
 - User creation system designed
 - Desktop environment configured
 - Security hardening applied
 - **NOT YET:** Deployed and verified
-
----
 
 ## Testing & Feedback
 
@@ -854,8 +606,6 @@ Edit `/etc/nixos/basic/` files to:
 5. **Test security** - Does isolation actually work?
 
 Your feedback is essential for moving from BETA to production-ready.
-
----
 
 ## Contributing
 
@@ -871,8 +621,6 @@ Each project can be developed independently.
 
 **Note:** Before contributing changes, test them thoroughly. These are public projects and changes affect users.
 
----
-
 ## License & Attribution
 
 Drawing inspiration from:
@@ -880,9 +628,7 @@ Drawing inspiration from:
 - **Mike Kelley's NixBook** - Documentation approach
 - **NixOS** - Declarative configuration paradigm
 
----
-
 **Repository:** gobook  
-**Last Updated:** July 23, 2026  
+**Last Updated:** August 12, 2026  
 **Branch:** main  
-**Status:** All projects ready for testing (awaiting real-world validation)
+**Status:** Projects ready for testing (awaiting real-world validation)
