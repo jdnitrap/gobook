@@ -75,8 +75,6 @@ users.mutableUsers = true;
 #Localization #
 ###############
 
-time.timeZone = "America/Chicago";
-
 i18n.defaultLocale = "en_US.UTF-8";
 
 i18n.supportedLocales = [
@@ -87,16 +85,6 @@ i18n.supportedLocales = [
 #End Localization   #
 #####################
 
-
-##########
-#Hostname#
-##########
-
-networking.hostname = "nixos-system";
-
-################
-#End Hostname  #
-################
 
 
 ###################

@@ -20,10 +20,8 @@
 
 services.printing.drivers = with pkgs; [
 
-
 	gutenprint
 	gutenprintBin
-	cups-printers
 	epson-escpr2
 	epson-escpr
 

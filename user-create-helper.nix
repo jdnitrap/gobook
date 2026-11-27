@@ -7,14 +7,14 @@ pkgs.writeShellScript "user-create-helper" ''
   BASH_PATH="${pkgs.bash}/bin/bash"
   USERADD_PATH="${pkgs.shadow}/bin/useradd"
   ID_PATH="${pkgs.coreutils}/bin/id"
-  GETENT_PATH="${pkgs.libc}/bin/getent"
+  GREP_PATH="${pkgs.gnugrep}/bin/grep"
 
   validate_groups() {
     local valid_groups=""
     local missing_groups=""
 
     for group in $DEFAULT_GROUPS; do
-      if $GETENT_PATH group "$group" &>/dev/null; then
+      if $GREP_PATH -q "^$group:" /etc/group; then
         if [ -z "$valid_groups" ]; then
           valid_groups="$group"
         else
