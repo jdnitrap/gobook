@@ -46,7 +46,7 @@ users.mutableUsers = true;
 
 # Creator account - used for first-time setup and account creation
 users.users.creator = {
-  isSystemUser = false;
+  isNormalUser = true;
   group = "creator";
   home = "/root";
   createHome = false;
