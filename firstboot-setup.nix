@@ -59,22 +59,14 @@ systemd.tmpfiles.rules = [
 systemd.services.gobook-firstboot = {
   description = "GoBook First-Boot Setup - Create User Account";
 
-  # CRITICAL: Use flag file, not ConditionFirstBoot (which runs too early with no TTY)
+  # Use flag file to detect first boot
   unitConfig.ConditionPathExists = "/var/lib/gobook/first-boot-setup";
 
-  # CRITICAL: Explicit ordering to ensure TTY is available BEFORE display-manager
-  before = [
-    "getty@tty1.service"
-    "serial-getty@ttyS0.service"
-    "serial-getty@ttyS1.service"
-    "display-manager.service"
-  ];
-
-  after = [
-    "apparmor.service"
-    "local-fs.target"
-    "systemd-user-sessions.service"
-  ];
+  # CRITICAL: Order relative to basic.target, NOT multi-user.target
+  # This runs BEFORE display-manager.service even starts
+  wantedBy = [ "basic.target" ];
+  before = [ "multi-user.target" ];
+  after = [ "local-fs.target" ];
 
   # Service configuration for interactive TTY usage
   serviceConfig = {
@@ -92,8 +84,6 @@ systemd.services.gobook-firstboot = {
     ${firstbootSetup}
     rm -f /var/lib/gobook/first-boot-setup
   '';
-
-  wantedBy = [ "multi-user.target" ];
 };
 
 ##########################################################
