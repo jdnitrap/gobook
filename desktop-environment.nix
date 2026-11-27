@@ -30,10 +30,7 @@ in
 
 services.xserver = {
   enable = true;
-  displayManager.lightdm = {
-    enable = true;
-    greeters.gtk.enable = true;
-  };
+  displayManager.lightdm.enable = true;
   desktopManager.cinnamon.enable = true;
 };
 
