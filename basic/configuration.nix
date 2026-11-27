@@ -58,15 +58,6 @@ boot.loader.efi.canTouchEfiVariables = true;
 #End of BootLoader#
 ###################
 
-##########################
-#Experimental Features   #
-##########################
-
-nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-###########################
-#End Experimental Features#
-###########################
 
 ############################
 #Imperative User Management#
