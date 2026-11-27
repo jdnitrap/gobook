@@ -66,7 +66,7 @@ let
 
       echo ""
       echo "System uptime:"
-      ${pkgs.uptime}/bin/uptime
+      ${pkgs.procps}/bin/uptime
 
       echo ""
       echo "Last 5 system journal errors:"
