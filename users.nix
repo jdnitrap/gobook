@@ -50,7 +50,7 @@ users.users.creator = {
   group = "creator";
   home = "/root";
   createHome = false;
-  shell = pkgs.bash;
+  shell = "${pkgs.bash}/bin/bash";
 
   # Show user creation menu on login
   loginShellInit = ''
