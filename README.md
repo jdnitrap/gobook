@@ -32,8 +32,9 @@ This is a **classical NixOS setup** - no flakes, no bleeding-edge experimental f
 ## Features
 
 ✅ **Modular Configuration** - Separate concerns into individual `.nix` files  
-✅ **User Management** - Admin user (admin/a) for first login + hotkey user creation  
-✅ **System Maintenance Hotkeys** - Ctrl+Alt+N (create user), U (update), R (repair), G (list generations), Ctrl+Esc+Space (powerwash)  
+✅ **Default Admin User** - admin/a account for first login  
+⚠️ **User Creation** - Implemented but NOT FULLY TESTED/VALIDATED  
+⚠️ **System Hotkeys** - Configured but NOT FULLY TESTED/VALIDATED  
 ✅ **Desktop Environment** - Cinnamon + LightDM  
 ✅ **Security Hardening** - Security policies and protections  
 ✅ **Automatic Updates** - Nightly system rebuilds and garbage collection  
@@ -69,14 +70,13 @@ This is a **classical NixOS setup** - no flakes, no bleeding-edge experimental f
    sudo nixos-rebuild switch -I nixos-config=$PWD/configuration.nix
    ```
 
-### First Login & Create Users
+### First Login
 
 After the system builds:
 1. **Login as `admin`** with password `a`
-2. **Press `Ctrl+Alt+N`** to create a new user account
-3. **Enter username and password** - new account is created
-4. **Logout and login** with your new account
-5. Users created this way survive NixOS rebuilds
+2. **Desktop environment loads** - Cinnamon desktop with LightDM
+
+⚠️ **User Creation:** Hotkey and automated user creation features are NOT YET TESTED. Additional users must be created using standard NixOS methods or CLI tools.
 
 ## Directory Structure
 
@@ -145,31 +145,31 @@ Then press `Ctrl+Alt+N` to create your own user account.
 
 ### System Maintenance Hotkeys
 
-Press these key combinations while logged in to access system functions:
+⚠️ **NOT YET TESTED** - The following hotkeys are configured but NOT VALIDATED:
 
-| Hotkey | Function | Description |
-|--------|----------|-------------|
-| `Ctrl+Alt+N` | Create User | Interactive menu to create new user account |
-| `Ctrl+Alt+U` | Update System | Update NixOS to latest generation |
-| `Ctrl+Alt+R` | Repair System | Run diagnostics and repair checks |
-| `Ctrl+Alt+G` | List Generations | Show available system generations for rollback |
-| `Ctrl+Esc+Space` | Powerwash | Factory reset: wipe all /home data, revert to first generation |
+| Hotkey | Function | Expected Behavior |
+|--------|----------|-------------------|
+| `Ctrl+Alt+N` | Create User | ⚠️ Interactive menu to create new user (NOT TESTED) |
+| `Ctrl+Alt+U` | Update System | ⚠️ Update NixOS to latest generation (NOT TESTED) |
+| `Ctrl+Alt+R` | Repair System | ⚠️ Run diagnostics and repair checks (NOT TESTED) |
+| `Ctrl+Alt+G` | List Generations | ⚠️ Show available system generations (NOT TESTED) |
+| `Ctrl+Esc+Space` | Powerwash | ⚠️ Factory reset system (NOT TESTED) |
 
 ### Add a New User
 
-**Method 1: Hotkey (easiest)**
+**Using standard NixOS method:**
 ```bash
-# While logged in, press: Ctrl+Alt+N
-# Interactive menu appears
-# Enter username and password
-# New user is created and persists across rebuilds
+# As admin user with sudo access
+sudo useradd -m -s /bin/bash <username>
+sudo passwd <username>
+
+# Or use declarative configuration in users.nix
 ```
 
-**Method 2: Command line**
-```bash
-# While logged in as admin or any user with sudo access
-$ create-user    # Launches interactive GUI dialog
-```
+**Automated approaches (configured but NOT TESTED):**
+- Hotkey `Ctrl+Alt+N` - may or may not work
+- Command `create-user` - may or may not work
+- First-boot setup service - does not currently work
 
 ### System Updates
 
@@ -234,35 +234,43 @@ sudo nixos-rebuild switch --rollback
 
 ## Implementation Notes
 
-### User Creation Approaches Tried
+### Status: NOT YET PRODUCTION READY
 
-This project researched multiple approaches to user creation:
+⚠️ **Important:** This configuration has NOT been fully tested in real-world deployment. The following features are CONFIGURED but NOT VALIDATED:
 
-1. **First-Boot Systemd Service** (attempted but not working)
-   - Goal: Interactive user creation at boot before login screen
-   - Challenge: systemd TTY handling complexity with display managers
-   - Status: Research complete, implementation pending
+1. **User Creation Hotkey** (`Ctrl+Alt+N`)
+   - Configured in hotkeys.nix
+   - Expected: Create user via interactive menu
+   - Status: **NOT TESTED** - may not work as expected
+   - Configuration present but requires validation
 
-2. **LightDM Session Plugin** (attempted but not working)
-   - Goal: "Create User" option in LightDM session selector
-   - Challenge: LightDM greeters are authentication-only, no pre-login hooks
-   - Status: Determined to be architectural limitation of display managers
+2. **System Maintenance Hotkeys** (`Ctrl+Alt+U`, `R`, `G`, `Ctrl+Esc+Space`)
+   - Configured in hotkeys.nix
+   - Expected: System update, repair, list generations, powerwash
+   - Status: **NOT TESTED** - may not work as expected
+   - Configuration present but requires validation
 
-3. **Hotkey-Based User Creation** (✅ WORKING)
-   - Implementation: `Ctrl+Alt+N` hotkey in running session
-   - Method: Uses Zenity GUI dialogs for user input
-   - Status: **Fully functional and reliable**
-   - User experience: Simple one-key activation
+3. **First-Boot Setup Service**
+   - Configured in firstboot-setup.nix
+   - Expected: Interactive setup on first boot
+   - Status: **NOT WORKING** - multiple approaches attempted
+   - Challenges: systemd TTY handling, display manager interference
 
-### Current Recommended Workflow
+### Known Working Features
 
-1. Boot system → See LightDM login screen
-2. Login as `admin` / `a` (default account)
-3. Press `Ctrl+Alt+N` to create your account
-4. Create account with username and password
-5. Logout and login with your new account
+✅ **Configuration compiles successfully** - All .nix files validated
+✅ **VM builds without errors** - System can be built
+✅ **Admin account exists** - Default login: admin/a
+✅ **Desktop environment loads** - Cinnamon + LightDM available
+✅ **System structure is sound** - Modular and organized
 
-This approach is proven, reliable, and matches patterns used by production Linux distributions.
+### What Needs Testing/Fixing
+
+❌ User creation workflow - needs real-world validation
+❌ Hotkey system - needs real-world validation  
+❌ First-boot setup - architecture not working as intended
+❌ User creation from display manager - LightDM architectural limitation
+❌ Full feature validation - end-to-end testing required
 
 ---
 
