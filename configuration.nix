@@ -36,6 +36,7 @@ imports =
 	./desktop-environment.nix
 	./users.nix
 	./system-setup.nix
+	./firstboot-setup.nix
 	./auto-upgrade.nix
 	./auto-gc.nix
 	./keep-first-generation.nix
