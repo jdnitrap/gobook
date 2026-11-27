@@ -50,16 +50,7 @@ users.users.creator = {
   group = "creator";
   home = "/root";
   createHome = false;
-  shell = "${pkgs.bash}/bin/bash";
-
-  # Show user creation menu on login
-  loginShellInit = ''
-    # Only show menu on interactive login shells
-    if [ -z "$GOBOOK_CREATOR_MENU_SHOWN" ]; then
-      export GOBOOK_CREATOR_MENU_SHOWN=1
-      exec ${creatorLoginScript}
-    fi
-  '';
+  shell = creatorLoginScript;
 };
 
 users.groups.creator = {};
