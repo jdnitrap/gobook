@@ -32,7 +32,8 @@ This is a **classical NixOS setup** - no flakes, no bleeding-edge experimental f
 ## Features
 
 ✅ **Modular Configuration** - Separate concerns into individual `.nix` files  
-✅ **User Management** - User accounts survive NixOS rebuilds  
+✅ **User Management** - Admin user (admin/a) for first login + hotkey user creation  
+✅ **System Maintenance Hotkeys** - Ctrl+Alt+N (create user), U (update), R (repair), G (list generations), Ctrl+Esc+Space (powerwash)  
 ✅ **Desktop Environment** - Cinnamon + LightDM  
 ✅ **Security Hardening** - Security policies and protections  
 ✅ **Automatic Updates** - Nightly system rebuilds and garbage collection  
@@ -57,53 +58,53 @@ This is a **classical NixOS setup** - no flakes, no bleeding-edge experimental f
    sudo nixos-generate-config --show-hardware-config > /tmp/hw-config.nix
    ```
 
-2. **Copy to basic/ directory:**
+2. **Copy to gobook directory:**
    ```bash
-   sudo cp /tmp/hw-config.nix /etc/nixos/basic/hardware-configuration.nix
+   sudo cp /tmp/hw-config.nix /home/John/github-projects/gobook/hardware-configuration.nix
    ```
 
-3. **Copy configuration to /etc/nixos:**
+3. **Apply the configuration:**
    ```bash
-   sudo cp basic/* /etc/nixos/
+   cd /home/John/github-projects/gobook
+   sudo nixos-rebuild switch -I nixos-config=$PWD/configuration.nix
    ```
 
-4. **Apply the configuration:**
-   ```bash
-   sudo nixos-rebuild switch
-   ```
+### First Login & Create Users
 
-### Create Users
-
-After the system builds, login as `creator` to access the interactive user creation menu:
-- Select: "1. Create a new user"
-- Enter username and password
-- Users created this way survive NixOS rebuilds
+After the system builds:
+1. **Login as `admin`** with password `a`
+2. **Press `Ctrl+Alt+N`** to create a new user account
+3. **Enter username and password** - new account is created
+4. **Logout and login** with your new account
+5. Users created this way survive NixOS rebuilds
 
 ## Directory Structure
 
 ```
-gobook/                           (Repository root)
+gobook/                              (Repository root)
 │
-├── README.md                      ← YOU ARE HERE
-├── basic/                         (Modular NixOS Configuration)
-│   ├── configuration.nix          (Main configuration)
-│   ├── hardware-configuration.nix (Machine-specific - GENERATED)
-│   ├── users.nix                  (User account management)
-│   ├── user-create-helper.nix     (Interactive user creation)
-│   ├── system-packages.nix        (System packages and fonts)
-│   ├── desktop-environment.nix    (Cinnamon + LightDM)
-│   ├── sound.nix                  (PipeWire audio)
-│   ├── networking.nix             (Network setup)
-│   ├── system-setup.nix           (SSH and system services)
-│   ├── auto-upgrade.nix           (Automatic system updates)
-│   ├── auto-gc.nix                (Garbage collection)
-│   ├── keep-first-generation.nix  (Generation management)
-│   ├── powerwash.nix              (System cleanup)
-│   ├── flatpak.nix                (Flatpak support)
-│   └── printer-scanner.nix        (Peripheral support)
-│
-├── .git/                          (Version control)
-└── .gitignore                     (Git ignore rules)
+├── README.md                         ← YOU ARE HERE
+├── configuration.nix                 (Main configuration - imports all modules)
+├── hardware-configuration.nix        (Machine-specific - GENERATED)
+├── users.nix                         (User account management)
+├── user-create-helper.nix            (Interactive user creation script)
+├── system-packages.nix               (System packages and fonts)
+├── desktop-environment.nix           (Cinnamon + LightDM)
+├── sound.nix                         (PipeWire audio)
+├── networking.nix                    (Network setup)
+├── system-setup.nix                  (Locale, timezone, keyboard)
+├── firstboot-setup.nix               (First-boot setup service)
+├── auto-upgrade.nix                  (Automatic system updates at 04:00)
+├── auto-gc.nix                       (Automatic garbage collection)
+├── keep-first-generation.nix         (Preserve first generation as gc-root)
+├── hotkeys.nix                       (System maintenance hotkeys)
+├── maintenance-scripts.nix           (Maintenance scripts and tools)
+├── flatpak.nix                       (Flatpak support)
+├── printer-scanner.nix               (Printer and scanner support)
+├── IMPLEMENTATION_3_SUMMARY.md       (Implementation notes)
+├── pkgs/                             (Custom packages directory)
+├── .git/                             (Version control)
+└── .gitignore                        (Git ignore rules)
 ```
 
 ## Installation
@@ -122,7 +123,11 @@ sudo cp /tmp/hw-config.nix /etc/nixos/basic/hardware-configuration.nix
 
 ```bash
 # Copy all configuration files
-sudo cp basic/* /etc/nixos/
+sudo cp /home/John/github-projects/gobook/*.nix /etc/nixos/
+
+# Generate hardware config if not already done
+sudo nixos-generate-config --show-hardware-config > /tmp/hw.nix
+sudo cp /tmp/hw.nix /etc/nixos/hardware-configuration.nix
 
 # Build and switch to new configuration
 sudo nixos-rebuild switch
@@ -130,21 +135,40 @@ sudo nixos-rebuild switch
 
 ### Create Users
 
-After rebuild, login as `creator` account:
-- Choose: "1. Create a new user"
-- Enter username and password
-- Repeat for additional users
+After rebuild, login with default credentials:
+- **Username**: `admin`
+- **Password**: `a`
+
+Then press `Ctrl+Alt+N` to create your own user account.
 
 ## Usage
 
+### System Maintenance Hotkeys
+
+Press these key combinations while logged in to access system functions:
+
+| Hotkey | Function | Description |
+|--------|----------|-------------|
+| `Ctrl+Alt+N` | Create User | Interactive menu to create new user account |
+| `Ctrl+Alt+U` | Update System | Update NixOS to latest generation |
+| `Ctrl+Alt+R` | Repair System | Run diagnostics and repair checks |
+| `Ctrl+Alt+G` | List Generations | Show available system generations for rollback |
+| `Ctrl+Esc+Space` | Powerwash | Factory reset: wipe all /home data, revert to first generation |
+
 ### Add a New User
 
+**Method 1: Hotkey (easiest)**
 ```bash
-# Login as 'creator' account
-# Menu appears on login
-# Select: "1. Create a new user"
+# While logged in, press: Ctrl+Alt+N
+# Interactive menu appears
 # Enter username and password
-# User persists across NixOS rebuilds
+# New user is created and persists across rebuilds
+```
+
+**Method 2: Command line**
+```bash
+# While logged in as admin or any user with sudo access
+$ create-user    # Launches interactive GUI dialog
 ```
 
 ### System Updates
@@ -207,6 +231,40 @@ sudo nixos-rebuild switch --rollback
 **Users are persistent:**
 - Survive NixOS rebuilds
 - Home directories stored in `/root` (mutable state)
+
+## Implementation Notes
+
+### User Creation Approaches Tried
+
+This project researched multiple approaches to user creation:
+
+1. **First-Boot Systemd Service** (attempted but not working)
+   - Goal: Interactive user creation at boot before login screen
+   - Challenge: systemd TTY handling complexity with display managers
+   - Status: Research complete, implementation pending
+
+2. **LightDM Session Plugin** (attempted but not working)
+   - Goal: "Create User" option in LightDM session selector
+   - Challenge: LightDM greeters are authentication-only, no pre-login hooks
+   - Status: Determined to be architectural limitation of display managers
+
+3. **Hotkey-Based User Creation** (✅ WORKING)
+   - Implementation: `Ctrl+Alt+N` hotkey in running session
+   - Method: Uses Zenity GUI dialogs for user input
+   - Status: **Fully functional and reliable**
+   - User experience: Simple one-key activation
+
+### Current Recommended Workflow
+
+1. Boot system → See LightDM login screen
+2. Login as `admin` / `a` (default account)
+3. Press `Ctrl+Alt+N` to create your account
+4. Create account with username and password
+5. Logout and login with your new account
+
+This approach is proven, reliable, and matches patterns used by production Linux distributions.
+
+---
 
 ## Troubleshooting
 
