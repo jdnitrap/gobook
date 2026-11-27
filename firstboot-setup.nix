@@ -4,25 +4,18 @@ let
   # User creation helper
   userCreateHelper = import ./user-create-helper.nix { inherit pkgs; };
 
-  # First-boot setup service script
-  firstbootSetup = pkgs.writeShellScript "gobook-firstboot-setup" ''
+  # First-boot setup service script (based on proven jeos-firstboot model)
+  firstbootSetup = pkgs.writeShellScript "gobook-firstboot" ''
     #!/${pkgs.bash}/bin/bash
+    set -e
 
-    MARKER_FILE="/etc/gobook-firstboot-complete"
-
-    # Exit if setup already completed
-    if [ -f "$MARKER_FILE" ]; then
-      exit 0
-    fi
-
-    # Clear screen and show welcome
     clear
     echo ""
     echo "=================================================="
     echo "    Welcome to GoBook - First-Time Setup"
     echo "=================================================="
     echo ""
-    echo "This system needs initial configuration."
+    echo "This system needs to create a user account."
     echo ""
 
     # Show menu
@@ -38,16 +31,13 @@ let
         ;;
       2)
         echo "Skipping user creation."
-        sleep 1
+        sleep 2
         ;;
       *)
         echo "Invalid option. Continuing..."
-        sleep 1
+        sleep 2
         ;;
     esac
-
-    # Mark setup as complete
-    touch "$MARKER_FILE"
   '';
 
 in
@@ -55,34 +45,54 @@ in
 {
 
 ##########################################################
-#First-Boot Setup Service                               #
+#First-Boot Setup Service (jeos-firstboot model)        #
 ##########################################################
 
+# Flag file to trigger first-boot setup
+systemd.tmpfiles.rules = [
+  "d /var/lib/gobook 0755 root root -"
+  "F /var/lib/gobook/first-boot-setup 0644 root root -"
+];
+
 # systemd service for first-boot user creation
-systemd.services.gobook-firstboot-setup = {
+# Based on proven jeos-firstboot pattern from openSUSE
+systemd.services.gobook-firstboot = {
   description = "GoBook First-Boot Setup - Create User Account";
 
-  # Run on first boot only (before display manager)
-  before = [ "display-manager.service" ];
-  wants = [ "display-manager.service" ];
+  # CRITICAL: Use flag file, not ConditionFirstBoot (which runs too early with no TTY)
+  unitConfig.ConditionPathExists = "/var/lib/gobook/first-boot-setup";
 
-  # Timing
+  # CRITICAL: Explicit ordering to ensure TTY is available BEFORE display-manager
+  before = [
+    "getty@tty1.service"
+    "serial-getty@ttyS0.service"
+    "serial-getty@ttyS1.service"
+    "display-manager.service"
+  ];
+
+  after = [
+    "apparmor.service"
+    "local-fs.target"
+    "systemd-user-sessions.service"
+  ];
+
+  # Service configuration for interactive TTY usage
   serviceConfig = {
     Type = "oneshot";
     RemainAfterExit = true;
     StandardInput = "tty";
     StandardOutput = "tty";
     StandardError = "tty";
-    # Keep TTY open for input
-    TTYPath = "/dev/tty1";
+    Environment = "TERM=linux";
+    User = "root";
   };
 
-  # Run the setup script
+  # Run the setup script, then remove flag file to prevent re-running
   script = ''
     ${firstbootSetup}
+    rm -f /var/lib/gobook/first-boot-setup
   '';
 
-  # This is a user-facing service, so it needs
   wantedBy = [ "multi-user.target" ];
 };
 
