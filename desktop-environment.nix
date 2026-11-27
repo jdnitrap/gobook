@@ -23,21 +23,19 @@ services.xserver = {
   desktopManager.cinnamon.enable = true;
 };
 
-# Add create-user script to system
+# Add create-user script and LightDM session to system
 environment.systemPackages = with pkgs; [
   createUserSession
+  (pkgs.writeTextDir "share/xsessions/create-user.desktop" ''
+    [Desktop Entry]
+    Type=Application
+    Name=Create User Account
+    Comment=Create a new user account for this system
+    Exec=${createUserSession}/bin/create-user-session
+    Icon=system-users
+    X-LightDM-Session=create-user
+  '')
 ];
-
-# Install LightDM session file (.desktop) in the right place
-environment.etc."xsessions/create-user.desktop".text = ''
-  [Desktop Entry]
-  Type=Application
-  Name=Create User Account
-  Comment=Create a new user account for this system
-  Exec=${createUserSession}/bin/create-user-session
-  Icon=system-users
-  X-LightDM-Session=create-user
-'';
 
 #######################################
 #End of Desktop and Display Environment#
