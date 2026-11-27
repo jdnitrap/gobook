@@ -5,7 +5,7 @@ let
   userCreateHelper = import ./user-create-helper.nix { inherit pkgs; };
 
   # Wrapper script that presents menu on login
-  creatorLoginScript = pkgs.writeShellScript "creator-login-menu" ''
+  creatorLoginScript = pkgs.writeShellScriptBin "creator-login-menu" ''
     clear
     echo "=================================================="
     echo "  GoBook - Account Setup"
@@ -50,7 +50,7 @@ users.users.creator = {
   group = "creator";
   home = "/root";
   createHome = false;
-  shell = creatorLoginScript;
+  shell = "${creatorLoginScript}/bin/creator-login-menu";
 };
 
 users.groups.creator = {};
